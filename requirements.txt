@@ -1,0 +1,52 @@
+# Core
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.10.0
+
+# Machine Learning
+scikit-learn>=1.3.0
+xgboost>=2.0.0
+lightgbm>=4.0.0
+
+# Deep Learning / NLP
+torch>=2.0.0
+transformers>=4.30.0
+sentence-transformers>=2.2.0
+
+# Anomaly Detection
+pyod>=1.1.0
+
+# Explainable AI
+shap>=0.42.0
+lime>=0.2.0
+
+# Data Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.15.0
+
+# Web App
+streamlit>=1.25.0
+fastapi>=0.100.0
+uvicorn>=0.23.0
+
+# Data Processing
+openpyxl>=3.1.0
+PyPDF2>=3.0.0
+python-docx>=0.8.0
+
+# Web Scraping / API
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+selenium>=4.10.0
+
+# Config
+pyyaml>=6.0.0
+python-dotenv>=1.0.0
+
+# Testing
+pytest>=7.4.0
+
+# Utilities
+tqdm>=4.65.0
+jupyter>=1.0.0

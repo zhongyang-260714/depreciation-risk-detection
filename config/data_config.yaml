@@ -1,0 +1,130 @@
+# 数据接口配置
+# 说明：各数据源的配置，API密钥请放在 .env 或 config/secrets.yaml（已.gitignore）
+
+datasets:
+  financial_statements:
+    name: "上市公司财务报表"
+    sources:
+      - csmar:
+          description: "CSMAR 国泰安数据库（学校图书馆）"
+          url: "https://cn.gtadata.com/"
+          tables: ["FS_Combas", "FS_Comins", "FS_Cf"]
+      - wrds:
+          description: "WRDS 沃顿数据库（学校图书馆）"
+          url: "https://wrds-www.wharton.upenn.edu/"
+          tables: ["comp.funda", "comp.g_fundq"]
+    columns:
+      - ticker
+      - fiscal_year
+      - total_assets
+      - intangible_assets
+      - r_d_expense
+      - depreciation_amortization
+      - net_income
+      - revenue
+
+  annual_reports:
+    name: "年报文本"
+    sources:
+      - sec_edgar:
+          description: "SEC EDGAR 10-K 年报（美国公司）"
+          base_url: "https://www.sec.gov/cgi-bin/browse-edgar"
+          filing_type: "10-K"
+      - juchao:
+          description: "巨潮资讯（中国公司）"
+          base_url: "http://www.cninfo.com.cn/new/information"
+    text_columns:
+      - filing_id
+      - ticker
+      - fiscal_year
+      - text_content
+      - risk_factors_section
+
+  patent_data:
+    name: "专利数据"
+    sources:
+      - uspto:
+          description: "USPTO 专利检索 API"
+          base_url: "https://developer.uspto.gov/api-catalog"
+      - google_patents:
+          description: "Google Patents 公开数据"
+          base_url: "https://patents.google.com/"
+      - patentsview:
+          description: "PatentsView API（免费）"
+          base_url: "https://api.patentsview.org/"
+    columns:
+      - patent_id
+      - assignee
+      - filing_date
+      - grant_date
+      - citation_count
+      - technology_class
+
+  macro_data:
+    name: "宏观经济数据"
+    sources:
+      - stats_gov:
+          description: "国家统计局"
+          base_url: "https://data.stats.gov.cn/"
+      - miit:
+          description: "工信部行业数据"
+          base_url: "https://www.miit.gov.cn/"
+
+# 特征工程配置
+features:
+  traditional:
+    - name: "depreciation_rate"
+      formula: "depreciation_amortization / total_assets"
+      description: "折旧摊销率"
+    - name: "intangible_ratio"
+      formula: "intangible_assets / total_assets"
+      description: "无形资产占比"
+    - name: "rd_capitalization_rate"
+      formula: "capitalized_rd / total_rd"
+      description: "研发资本化率"
+
+  innovation_specific:
+    - name: "tech_half_life"
+      description: "技术半衰期（基于专利引用网络计算）"
+      method: "citation_decay_model"
+    - name: "patent_citation_velocity"
+      description: "专利引用速度"
+      method: "citation_count / patent_age"
+
+  text_features:
+    - name: "risk_sentiment_score"
+      description: "年报风险章节情感得分"
+      method: "finbert_sentiment"
+    - name: "depreciation_keyword_count"
+      description: "折旧相关关键词频率"
+      keywords: ["depreciation", "amortization", "impairment", "无形资产", "减值"]
+
+# 模型配置
+model:
+  default: "xgboost"
+  models:
+    xgboost:
+      params:
+        max_depth: 6
+        learning_rate: 0.1
+        n_estimators: 200
+        subsample: 0.8
+        colsample_bytree: 0.8
+        eval_metric: "logloss"
+      random_state: 42
+    
+    isolation_forest:
+      params:
+        contamination: 0.05
+        random_state: 42
+    
+    autoencoder:
+      params:
+        encoding_dim: 32
+        epochs: 100
+        batch_size: 32
+
+  explainability:
+    method: "shap"
+    shap_params:
+      background_samples: 100

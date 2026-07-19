@@ -40,7 +40,19 @@ venv.bak/
 # Jupyter
 .ipynb_checkpoints
 
-# Data
+# Data - exclude raw and processed, but keep annotated outputs
+data/raw/
+data/processed/
+!data/annotated/
+*.csv
+*.xlsx
+*.parquet
+*.db
+*.sqlite
+*.h5
+*.hdf5
+*.pkl
+*.pickle
 data/
 *.csv
 *.xlsx

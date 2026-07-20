@@ -1,0 +1,343 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-07-20",
+    "annotator": "Kimi AI-assisted (pending review by project lead)",
+    "review_status": "draft_pending_review",
+    "filing_source": "SEC EDGAR - 10-K Annual Report"
+  },
+  "company": {
+    "ticker": "AMD",
+    "name": "Advanced Micro Devices, Inc.",
+    "fiscal_year": 2023,
+    "filing_date": "2024-01-31",
+    "report_period_end": "2023-12-30",
+    "industry": "Semiconductors / Fabless Chip Design (CPU, GPU, DPU, FPGA, Adaptive SoC)",
+    "primary_assets": "Acquisition-related Intangibles and Goodwill (Xilinx, Pensando), small fabless PP&E base, technology licenses",
+    "file_path": "data/raw/amd_fy2023_10k.html"
+  },
+  "financial_highlights": {
+    "revenue_millions": 22680,
+    "net_income_millions": 854,
+    "capex_millions": 546,
+    "depreciation_millions": 441,
+    "amortization_millions": 2811,
+    "amortization_note": "Amortization is almost entirely acquisition-related intangibles (Xilinx/Pensando); cash flow statement combined 'Depreciation and amortization' was $3,453M in FY2023",
+    "depreciation_and_amortization_total_millions": 3453,
+    "impairment_charges_millions": 0,
+    "impairment_note": "No goodwill impairment in FY2023 (annual qualitative test passed); no PP&E or intangible impairment charge identified in the filing. FY2022 Q3 had inventory/pricing-related charges in Gaming and Client segments (amount not separately disclosed in this filing).",
+    "capex_to_revenue_ratio": 0.0241,
+    "depreciation_to_revenue_ratio": 0.0194,
+    "amortization_to_revenue_ratio": 0.124,
+    "total_property_equipment_gross_millions": 3376,
+    "total_property_equipment_net_millions": 1589,
+    "accumulated_depreciation_millions": 1787,
+    "goodwill_millions": 24262,
+    "acquisition_related_intangibles_net_millions": 21363,
+    "acquisition_related_intangibles_gross_millions": 27722,
+    "total_assets_millions": 67885,
+    "goodwill_plus_intangibles_pct_of_total_assets": 0.672
+  },
+  "accounting_policy": {
+    "depreciation_method": "straight-line",
+    "equipment_useful_life_years": "2-15",
+    "building_useful_life_years": "34-44",
+    "leasehold_improvements": "shorter of remaining lease terms or estimated useful economic lives of the improvements",
+    "acquired_developed_technology_amortization_years": "Xilinx: 16 (weighted-average); Pensando: 4; Xilinx IPR&D reclassified in Q4 2023: 15",
+    "acquired_customer_relationships_amortization_years": "Xilinx: 14 (weighted-average); Pensando: 3",
+    "acquired_product_trademarks_amortization_years": "Xilinx: 12; Pensando: 5",
+    "intangible_amortization_method": "over estimated useful lives based on the pattern in which economic benefits are expected to be received",
+    "goodwill_impairment_testing": "Annual qualitative test as of the first day of Q4 at reporting-unit level (Data Center, Client, Gaming, Embedded); quantitative test if triggered; FY2023 conclusion: no impairment",
+    "longlived_asset_impairment_testing": "Reviewed when indicators exist (indicators reviewed quarterly); undiscounted cash flow recoverability test, write-down to fair value if not recoverable",
+    "change_in_estimate_method": "NA - no change in depreciation/amortization estimate disclosed in FY2023; the word 'prospectively' does not appear in this filing (0 hits), unlike Meta's 10-K",
+    "policy_risk_note": "AMD is fabless: PP&E is only $1.6B net (2.3% of total assets), so direct depreciation risk is small. The economically dominant amortization assumption is Xilinx developed technology over 16 years and customer relationships over 14 years - far longer than the 1-2 year AI product iteration cycle the company itself discloses. No useful-life extension history and no 'prospectively' change language was found, but the initial assignment of 15-16 year lives to newly acquired adaptive-computing technology embeds the same optimistic-lifetime bias in amortization rather than depreciation."
+  },
+  "risk_signals": [
+    {
+      "signal_id": "AMD-FY2023-SIG-001",
+      "source": "Notes to Consolidated Financial Statements - Note 1",
+      "keyword_matched": "useful lives of two to 15 years for equipment",
+      "text_excerpt": "Property and equipment are stated at cost. Depreciation and amortization are provided on a straight-line basis over the estimated useful lives of two to 15 years for equipment, 34 to 44 years for buildings, and leasehold improvements are measured by the shorter of the remaining terms of the leases or the estimated useful economic lives of the improvements.",
+      "page_location": "Note 1. Basis of Presentation and Significant Accounting Policies - Property and Equipment (lines 3688-3693)",
+      "risk_type": "depreciation_schedule_disclosure",
+      "severity": "high",
+      "relevance_to_depreciation": "Official depreciation assumption: straight-line, equipment 2-15 years. The 15-year upper bound is extremely long for a company whose own risk factors describe 1-2 year product cycles. Implied average equipment life from the statements (depreciation $441M vs equipment gross $2,346M) is roughly 5-6 years. However, PP&E net is only $1,589M (2.3% of total assets), so the direct profit leverage of this assumption is small for a fabless designer.",
+      "evidence_chain": [
+        "Stated equipment depreciation life: 2-15 years, straight-line",
+        "Implied average equipment life approx. 5-6 years (depreciation $441M / equipment gross $2,346M)",
+        "AMD's own risk factors describe semiconductor product lifecycles as short with rapid obsolescence (see SIG-002)",
+        "Upper-bound 15-year life assumes zero technological displacement for a decade and a half",
+        "Mitigating fact: fabless model means PP&E is tiny ($1.6B net), so even aggressive lives move profit by little",
+        "Result: direction of bias is under-depreciation, but magnitude is limited by the small asset base"
+      ]
+    },
+    {
+      "signal_id": "AMD-FY2023-SIG-002",
+      "source": "Risk Factors - Demand/Forecasting Risk",
+      "keyword_matched": "rapid obsolescence",
+      "text_excerpt": "Many of our markets are characterized by short product lifecycles, which can lead to rapid obsolescence and price erosion.",
+      "page_location": "Item 1A. Risk Factors (lines 1721-1722)",
+      "risk_type": "technology_obsolescence_risk",
+      "severity": "high",
+      "relevance_to_depreciation": "AMD's own admission that its product markets have short lifecycles and rapid obsolescence directly contradicts multi-year depreciation/amortization assumptions for the assets that embody the same technology (equipment up to 15 years; acquired developed technology 15-16 years). The economic value of the technology evaporates faster than the balance sheet releases it.",
+      "evidence_chain": [
+        "Company states: short product lifecycles, rapid obsolescence, price erosion",
+        "AI/GPU product generation cycle in the industry is approximately 1-2 years",
+        "Depreciation/amortization schedules assume the same technology generates economic benefit for 5-16 years",
+        "Contradiction: revenue life of the technology (1-2 years) is far shorter than its balance-sheet life",
+        "Result: periodic depreciation/amortization expense is systematically lower than true economic consumption of the asset"
+      ]
+    },
+    {
+      "signal_id": "AMD-FY2023-SIG-003",
+      "source": "Risk Factors - Inventory Obsolescence",
+      "keyword_matched": "inventory obsolescence because of rapidly changing technology",
+      "text_excerpt": "Excess or obsolete inventory have resulted in, and may in the future result in, write-downs of the value of our inventory. For example, in the third quarter of 2022, we recorded certain charges primarily for inventory, pricing and related reserves in the Gaming and Client segments. Factors that may result in excess or obsolete inventory ... include ... a higher incidence of inventory obsolescence because of rapidly changing technology and customer requirements.",
+      "page_location": "Item 1A. Risk Factors (lines 1737-1749)",
+      "risk_type": "realized_obsolescence_writedown_history",
+      "severity": "high",
+      "relevance_to_depreciation": "Proves the obsolescence risk is not theoretical: AMD already took real charges in FY2022 Q3 when Client/Gaming products aged faster than expected. Inventory is written down when obsolete, but the same technological force acts on depreciable equipment and amortizable developed technology, where no equivalent automatic write-down mechanism exists unless a formal impairment trigger is declared.",
+      "evidence_chain": [
+        "FY2022 Q3: actual charges for inventory, pricing and related reserves in Gaming and Client",
+        "Cause admitted by company: rapidly changing technology and customer requirements",
+        "Inventory gets marked down quickly; fixed assets and intangibles carrying the same technology risk do not",
+        "Depreciation schedules assume smooth consumption; reality is step-function obsolescence events",
+        "Result: obsolescence losses show up late and lumpy (impairment) instead of early and smooth (higher depreciation), flattering interim profits"
+      ]
+    },
+    {
+      "signal_id": "AMD-FY2023-SIG-004",
+      "source": "Risk Factors - Acquisition/Goodwill Impairment",
+      "keyword_matched": "impairment of our tangible, definite-lived intangible or indefinite-lived intangible assets, including goodwill",
+      "text_excerpt": "Any impairment of our tangible, definite-lived intangible or indefinite-lived intangible assets, including goodwill, may adversely impact our financial position and results of operations. ... In connection with the Xilinx and Pensando acquisitions, we recorded significant goodwill and other intangible assets on our consolidated balance sheet. ... A decrease in the long-term economic outlook and future cash flows of our business could significantly impact asset values and potentially result in the impairment of tangible and intangible assets, including goodwill and may require us to record future impairment charges.",
+      "page_location": "Item 1A. Risk Factors (lines 2496-2529)",
+      "risk_type": "goodwill_intangible_impairment_risk",
+      "severity": "high",
+      "relevance_to_depreciation": "This is AMD's analog of Meta's data-center impairment signal. $24.3B goodwill plus $21.4B net acquisition intangibles (67% of total assets) rest on 14-16 year cash-flow assumptions for acquired FPGA/adaptive-computing technology. If AI-era iteration makes Xilinx technology obsolete faster than the amortization schedule assumes, the shortfall surfaces as a large one-time impairment - i.e., catch-up amortization that should have been recognized earlier. Separately, the acquisitions risk factor (lines 2464-2469) explicitly warns of 'amortization expenses and write-downs of acquired assets'.",
+      "evidence_chain": [
+        "Xilinx ($48.8B) and Pensando ($1.7B) acquisitions created $24.3B goodwill + $27.7B gross intangibles",
+        "Amortization assumes 14-16 year lives for developed technology and customer relationships",
+        "Company itself warns impairment indicators include inability to introduce new products or achieve forecasts",
+        "AI accelerator iteration (1-2 years) can strand acquired product roadmaps",
+        "If triggered, impairment = belated recognition of under-amortization in prior periods",
+        "Result: prior-period profits inflated relative to a faster amortization schedule; tail risk of a large one-time charge"
+      ]
+    },
+    {
+      "signal_id": "AMD-FY2023-SIG-005",
+      "source": "Risk Factors - Technology Licenses",
+      "keyword_matched": "future impairments of our technology license purchases",
+      "text_excerpt": "We may incur future impairments of our technology license purchases. We license certain third-party technologies and tools for the design and production of our products. ... Factors such as the life of the assets, changes in competing technologies, and changes to the business strategy may represent an indicator of impairment. The occurrence of any of these events may require us to record future technology license impairment charges.",
+      "page_location": "Item 1A. Risk Factors (lines 2729-2737)",
+      "risk_type": "technology_license_impairment_risk",
+      "severity": "medium",
+      "relevance_to_depreciation": "Direct acknowledgment that 'changes in competing technologies' can impair capitalized technology assets. The same logic applies to all technology-carrying assets on the balance sheet: the carrying amounts assume continued relevance that competing technology can destroy at any time.",
+      "evidence_chain": [
+        "Capitalized technology licenses carried as other non-current assets",
+        "Impairment indicators include changes in competing technologies",
+        "Competing-technology change in AI silicon currently occurs on a 1-2 year cadence",
+        "Amortization of these licenses assumes stable utility over their asset life",
+        "Result: another channel by which technology transition forces belated catch-up charges"
+      ]
+    },
+    {
+      "signal_id": "AMD-FY2023-SIG-006",
+      "source": "Notes to Consolidated Financial Statements - Note 5/Note 6 (Acquisitions)",
+      "keyword_matched": "estimated useful lives of 15 years",
+      "text_excerpt": "Developed technology $12,295 million, weighted-average estimated useful life 16 years; Customer relationships $12,290 million, 14 years; Product trademarks $895 million, 12 years (Xilinx allocation table). ... In the fourth quarter of 2023, these IPR&D assets reached technological feasibility and were reclassified as developed technology, and began amortization over their estimated useful lives of 15 years.",
+      "page_location": "Note 5. Acquisitions - Xilinx intangible allocation (line 3932); IPR&D reclassification (lines 3952-3955); Note 6 intangibles table (line 3990)",
+      "risk_type": "amortization_schedule_disclosure",
+      "severity": "high",
+      "relevance_to_depreciation": "The strongest quantitative evidence in AMD's filing. $970M of Xilinx in-process R&D was declared technologically feasible in Q4 2023 and will be amortized over 15 years - i.e., AMD assumes adaptive-computing/AI silicon technology completed in 2023 will still generate economic benefit in 2038. Developed technology generally is amortized over 16 years. This is the same optimistic-lifetime pattern as Meta's 4-5 year servers, but far more extreme in duration, sitting in amortization rather than depreciation.",
+      "evidence_chain": [
+        "Xilinx developed technology: $12.3B amortized over 16 years; customer relationships: $12.3B over 14 years",
+        "Q4 2023: $970M IPR&D reclassified to developed technology, 15-year amortization begins",
+        "FY2023 acquisition-intangible amortization expense: $2,811M (vs net income of only $854M)",
+        "If true economic life of the technology is 5-7 years rather than 15-16, annual amortization is understated by a factor of 2-3x on these assets",
+        "Result: amortization expense materially understated relative to AI-era technology reality; reported margins and EPS flattered"
+      ]
+    },
+    {
+      "signal_id": "AMD-FY2023-SIG-007",
+      "source": "MD&A - Critical Accounting Estimates / Auditor's Report CAM",
+      "keyword_matched": "changes in technology or customer requirements",
+      "text_excerpt": "In determining excess or obsolescence reserves for products, we consider assumptions such as changes in business and economic conditions, other-than-temporary decreases in demand for our products, and changes in technology or customer requirements. ... (Auditor CAM): We compared the quantities and carrying value of on-hand inventories to related unit sales ... by analyzing potential technological changes in line with product life cycles.",
+      "page_location": "MD&A Critical Accounting Estimates - Inventory Valuation (lines 3103-3125); Report of Independent Registered Public Accounting Firm, Critical Audit Matter (lines 4469-4497)",
+      "risk_type": "estimate_sensitivity_technology",
+      "severity": "medium",
+      "relevance_to_depreciation": "Both management and the auditor flag technology change as a key assumption in obsolescence reserving, and the auditor elevated inventory obsolescence to a Critical Audit Matter - meaning estimate error here is among the most consequential in the audit. The same forward-looking technology assumptions underpin depreciation/amortization lives, where estimation error is larger and reverses only through impairment.",
+      "evidence_chain": [
+        "Management: obsolescence reserves depend on assumptions about changes in technology",
+        "E&Y CAM: inventory excess/obsolescence reserves involve significant judgment; audited against product life cycles and technological changes",
+        "FY2023 Client segment swung to an operating loss ($46M) after the PC downturn - estimate risk already realized once",
+        "Technology assumptions that fail for inventory will also fail for longer-lived technology assets",
+        "Result: documented estimate fragility around technology pace; supports downgrading confidence in long depreciation/amortization lives"
+      ]
+    },
+    {
+      "signal_id": "AMD-FY2023-SIG-008",
+      "source": "Notes to Consolidated Financial Statements - Note 6",
+      "keyword_matched": "no goodwill impairment",
+      "text_excerpt": "The Company performs its goodwill impairment analysis as of the first day of the fourth quarter of each fiscal year. For fiscal year 2023, the Company performed its annual qualitative impairment tests of goodwill and concluded that there was no goodwill impairment with respect to its reporting units.",
+      "page_location": "Note 6. Acquisition-related Intangible Assets and Goodwill (lines 4002-4005)",
+      "risk_type": "absence_of_realized_impairment",
+      "severity": "low",
+      "relevance_to_depreciation": "Negative/absence signal: unlike Meta (which took a $2.43B facilities impairment in FY2023), AMD recorded zero impairment in FY2023 and passed its qualitative goodwill test without proceeding to a quantitative test. This lowers the realized-trigger score (D3) for AMD, but a qualitative-only test on $24.3B of goodwill also means the cushion was never measured numerically this year.",
+      "evidence_chain": [
+        "FY2023 impairment charges: $0 (goodwill, intangibles, PP&E)",
+        "Goodwill test was qualitative only; no quantitative fair-value measurement disclosed for FY2023",
+        "Embedded reporting unit carries $21.1B of the $24.3B goodwill (Xilinx)",
+        "Absence of impairment is not evidence of absence of overvaluation - qualitative tests are a low bar",
+        "Result: no realized trigger this year; impairment remains a latent tail risk concentrated in the Embedded/Xilinx reporting unit"
+      ]
+    }
+  ],
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "折旧年限 vs 技术实际寿命",
+      "dimension_name_en": "Depreciation Life vs Technology Useful Life",
+      "weight": 0.25,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "设备折旧年限披露为2-15年直线法（Note 1，行3689-3693），按折旧费用$441M/设备原值$2,346M推算隐含平均设备年限约5-6年，处于4-6年锚点区间；但AMD是fabless设计公司，PP&E净额仅$1,589M（占总资产2.3%），其设备为工程/测试设备而非自有AI算力集群，1-2年迭代压力首先冲击的是其产品（存货）和收购来的技术资产而非自有设备。真正极端的年限错配在收购无形资产：Xilinx开发技术按16年、客户关系按14年摊销，Q4 2023刚达到技术可行性的$970M IPR&D按15年摊销（行3932、3952-3955），而公司自己在Risk Factors承认'rapid obsolescence'（行1721-1722）。综合：直接折旧错配有限、摊销错配极端，取中档3分。",
+      "supporting_signals": ["AMD-FY2023-SIG-001", "AMD-FY2023-SIG-002", "AMD-FY2023-SIG-006"],
+      "key_metrics": {
+        "stated_equipment_useful_life_years": "2-15",
+        "implied_avg_equipment_life_years": "5-6",
+        "acquired_developed_technology_life_years": "15-16",
+        "estimated_tech_cycle_years": "1-2",
+        "ppe_net_pct_of_total_assets": 0.023
+      }
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "会计政策保守性",
+      "dimension_name_en": "Accounting Policy Conservatism",
+      "weight": 0.20,
+      "score": 2,
+      "score_max": 5,
+      "score_label": "中低风险",
+      "score_label_en": "Medium-Low Risk",
+      "reasoning": "全文检索'prospectively'零命中：FY2023没有任何折旧/摊销年限变更披露，既无延长年限+未来适用（Meta式5分情形），也无历史延长记录，属于'无变更'的相对保守情形，给2分。需要注明的抵减项：公司在收购初始计量时给Xilinx开发技术定了16年、客户关系14年的超长年限，等于把乐观假设前置到了初始确认而非后续变更；该激进性已计入D1/D3，不在D2重复扣分。",
+      "supporting_signals": ["AMD-FY2023-SIG-001", "AMD-FY2023-SIG-008"],
+      "key_metrics": {
+        "change_in_estimate_disclosed": false,
+        "prospectively_keyword_hits": 0,
+        "useful_life_extension_history": false,
+        "aggressive_initial_life_assignment_intangibles": true
+      }
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值风险触发",
+      "dimension_name_en": "Impairment Risk Triggers",
+      "weight": 0.20,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "FY2023实际减值为零（Note 6：年度商誉定性测试通过，行4002-4005），无Meta式已实现大额减值。直接减值信号数量不少但均指向商誉/无形资产/技术许可/存货而非自有PP&E：①Risk Factors专章警告Xilinx/Pensando形成的商誉及有形/无形资产可能减值（行2496-2529）；②技术许可减值风险专章（行2729-2737）；③存货过时减记风险且FY2022 Q3已在Gaming/Client实际发生（行1737-1749）；④Note 1长期资产减值政策明示'changes in any of these factors could necessitate impairment recognition in future periods'（行3604-3611）。对'折旧'这一狭义口径而言属于间接信号，推断强度下调；但商誉+无形资产合计$45.6B占总资产67%，Embedded报告单元单扛$21.1B商誉，尾部风险集中。按'仅间接信号→3'锚点给3分。",
+      "supporting_signals": ["AMD-FY2023-SIG-003", "AMD-FY2023-SIG-004", "AMD-FY2023-SIG-005", "AMD-FY2023-SIG-008"],
+      "key_metrics": {
+        "fy2023_realized_impairment_millions": 0,
+        "fy2022_q3_inventory_charges_realized": true,
+        "direct_impairment_signals_count": 4,
+        "signals_target_ppe_specifically": false,
+        "goodwill_plus_intangibles_millions": 45625,
+        "goodwill_in_embedded_reporting_unit_millions": 21064
+      }
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本支出(CAPEX)强度",
+      "dimension_name_en": "Capital Expenditure Intensity",
+      "weight": 0.20,
+      "score": 1,
+      "score_max": 5,
+      "score_label": "低风险",
+      "score_label_en": "Low Risk",
+      "reasoning": "FY2023 CAPEX（购置不动产与设备）$546M，CAPEX/收入=2.41%，低于3%锚点下限，典型fabless轻资产结构（对比Meta 20.2%）。折旧费用$441M仅占收入1.9%，即使折旧年限假设严重失真，对利润的杠杆效应也小。真正的利润杠杆在收购无形资产摊销（$2,811M，占收入12.4%，为净利润的3.3倍），但该口径不属于CAPEX强度维度，已在D1/D3反映。按'<3%→1'锚点给1分。",
+      "supporting_signals": ["AMD-FY2023-SIG-001", "AMD-FY2023-SIG-006"],
+      "key_metrics": {
+        "capex_millions": 546,
+        "revenue_millions": 22680,
+        "capex_to_revenue_ratio": 0.0241,
+        "depreciation_to_revenue_ratio": 0.0194,
+        "amortization_to_revenue_ratio": 0.124,
+        "amortization_to_net_income_ratio": 3.29
+      }
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "行业竞争/技术替代",
+      "dimension_name_en": "Industry Competition & Technology Substitution",
+      "weight": 0.15,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "AMD直接处于AI芯片军备竞赛中心：Data Center部门以MI300系列GPU正面竞争NVIDIA，公司在Risk Factors中明言竞争将因'rapid technological changes, frequent product introductions'持续激烈（行1226-1229），并承认市场'short product lifecycles...rapid obsolescence'（行1721-1722）。但按维度口径，AMD是卖芯片而非运营GPU资产的一方：技术替代风险通过存货减记、无形资产/商誉减值、定价压力传导，而非通过自有算力资产折旧。属于'卖芯片而非运营、间接暴露→2-3'区间，考虑到其对NVIDIA 1-2年迭代节奏的直接跟随压力及Xilinx收购技术资产的高暴露，取区间上限3分。",
+      "supporting_signals": ["AMD-FY2023-SIG-002", "AMD-FY2023-SIG-003", "AMD-FY2023-SIG-004"],
+      "key_metrics": {
+        "industry": "Semiconductors / AI accelerators",
+        "operates_own_gpu_fleets": false,
+        "primary_competitors": ["NVDA", "INTC"],
+        "ai_product_line": "Instinct MI300 GPU, EPYC CPU, Pensando DPU, Xilinx adaptive SoC",
+        "gpu_iteration_cycle_years": "1-2",
+        "exposure_channel": "inventory writedowns, intangible/goodwill impairment, pricing pressure"
+      }
+    }
+  ],
+  "composite_score": {
+    "weighted_score": 2.4,
+    "max_score": 5.0,
+    "risk_level": "中风险",
+    "risk_level_en": "Medium Risk",
+    "risk_level_color": "#FFC107",
+    "confidence": 0.78,
+    "confidence_reason": "All key figures verified against filing text (revenue, net income, CAPEX, depreciation, amortization, PP&E, goodwill, intangibles, useful lives). Direct depreciation-specific signals are inherently limited for a fabless company; scoring relies partly on the amortization schedule of acquired intangibles as the analogous optimistic-lifetime exposure, which is a judgment call that lowers confidence vs the Meta benchmark."
+  },
+  "comparative_context": {
+    "sector_median_score": 3.0,
+    "sector": "Semiconductors",
+    "sector_median_note": "Estimate pending annotation of remaining semiconductor and hyperscaler samples",
+    "peer_comparison": [
+      {
+        "company": "Meta Platforms",
+        "ticker": "META",
+        "estimated_score": 4.0,
+        "note": "Confirmed benchmark (annotation confirmed by project lead). Operates massive GPU/data-center assets: CAPEX/revenue 20.2%, server life 4-5 years vs 1-2 year GPU cycle, plus $2.43B realized FY2023 impairment. Structurally opposite asset model to AMD."
+      },
+      {
+        "company": "NVIDIA",
+        "ticker": "NVDA",
+        "estimated_score": 2.5,
+        "note": "Fabless AI chip seller like AMD but with far larger data-center revenue share and minimal acquisition goodwill; sells GPUs rather than operates them. Expect similar low CAPEX intensity; key differentiator vs AMD is absence of a $45.6B goodwill/intangible overhang."
+      },
+      {
+        "company": "Google (Alphabet)",
+        "ticker": "GOOGL",
+        "estimated_score": 3.8,
+        "note": "Hyperscaler operating its own TPU/GPU infrastructure; similar CAPEX intensity to Meta but more diversified asset base. Extended server useful lives in recent years (policy-change signal AMD lacks)."
+      },
+      {
+        "company": "Microsoft",
+        "ticker": "MSFT",
+        "estimated_score": 3.5,
+        "note": "Azure cloud operator with heavy AI infrastructure build-out and a disclosed server useful-life extension (2 to 4 years historically, then to 6 years in FY2022) - a direct extension-history signal; asset-heavy operator profile contrasts with AMD's fabless profile."
+      }
+    ]
+  },
+  "annotation_methodology": {
+    "source_document": "Advanced Micro Devices, Inc. FY2023 Annual Report on Form 10-K (fiscal year ended December 30, 2023)",
+    "filing_accessed": "Local file: data/raw/amd_fy2023_10k.html (5,049 lines, originally from SEC EDGAR, CIK 0000002488)",
+    "text_extraction_method": "Case-insensitive keyword search (impairment, useful life/lives, depreciation, amortization, obsolescence, prospectively, technological change/advancement) with per-hit context verification against visible body text; hidden XBRL tag matches excluded. Financial figures extracted from Consolidated Statements of Operations, Cash Flows, Balance Sheets, Note 1, Note 5, Note 6 and MD&A.",
+    "scoring_method": "Five-dimension weighted scoring (D1 0.25 / D2 0.20 / D3 0.20 / D4 0.20 / D5 0.15), 1-5 integer scale per dimension, weighted average mapped to risk levels (>=4 High #DC3545; 3-3.9 Medium-High #FD7E14; 2-2.9 Medium #FFC107; <2 Low #28A745)",
+    "human_verification": "Pending review by project lead; all text excerpts quoted verbatim from the filing with line numbers",
+    "limitation": "Single-year 10-K; AMD discloses equipment useful life only as a 2-15 year range with no per-class breakdown, so the implied average equipment life (~5-6 years) is an analyst estimate. FY2022 Q3 inventory/pricing charge amount is not separately quantified in this filing (marked NA). Depreciation-specific signals are structurally sparse for a fabless issuer; amortization of acquisition intangibles was used as the analogous exposure, which is a methodological judgment."
+  }
+}

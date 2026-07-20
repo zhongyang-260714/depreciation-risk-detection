@@ -53,16 +53,6 @@ data/processed/
 *.hdf5
 *.pkl
 *.pickle
-data/
-*.csv
-*.xlsx
-*.parquet
-*.db
-*.sqlite
-*.h5
-*.hdf5
-*.pkl
-*.pickle
 
 # Models
 models/

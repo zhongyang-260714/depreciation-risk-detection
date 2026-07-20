@@ -1,0 +1,336 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-07-20",
+    "annotator": "Kimi AI-assisted (pending review by project lead)",
+    "review_status": "draft_pending_review",
+    "filing_source": "SEC EDGAR - 10-K Annual Report"
+  },
+  "company": {
+    "ticker": "NVDA",
+    "name": "NVIDIA Corporation",
+    "fiscal_year": 2024,
+    "filing_date": "2024-02-21",
+    "report_period_end": "2024-01-28",
+    "coverage_note": "NVIDIA FY2024 covers 2023-01-30 to 2024-01-28, i.e., substantially all of calendar year 2023.",
+    "industry": "Semiconductor (Fabless) / AI Accelerated Computing",
+    "primary_assets": "Servers/Compute Hardware (internal use + DGX Cloud), Assembly and Test Equipment, Buildings, Leasehold Improvements",
+    "file_path": "data/raw/nvda_fy2024_10k.html"
+  },
+  "financial_highlights": {
+    "revenue_millions": 60922,
+    "net_income_millions": 29760,
+    "capex_millions": 1069,
+    "capex_note": "Cash flow statement line: 'Purchases related to property and equipment and intangible assets' ($1,069M); NVIDIA does not split PP&E vs intangible purchases in this line.",
+    "depreciation_millions": 894,
+    "amortization_millions": 614,
+    "impairment_charges_millions": 0,
+    "impairment_note": "No PP&E or goodwill impairment in FY2024 (goodwill tested, 'not impaired'). However, inventory provision of $774M was recorded in cost of revenue (FY2023: $1.0 billion) - inventory write-down, not fixed-asset impairment.",
+    "inventory_provision_millions": 774,
+    "capex_to_revenue_ratio": 0.0175,
+    "depreciation_to_revenue_ratio": 0.0147,
+    "server_depreciation_pct_of_total": "NA",
+    "total_property_equipment_millions": 7423,
+    "total_property_equipment_net_millions": 3914,
+    "accumulated_depreciation_millions": 3509
+  },
+  "accounting_policy": {
+    "depreciation_method": "straight-line",
+    "server_useful_life_years": "4-5 (extended from 3 in February 2023)",
+    "building_useful_life_years": "up to 30",
+    "equipment_useful_life_years": "3-7 (Equipment, compute hardware, and software)",
+    "assembly_test_equipment_useful_life_years": "7 (extended from 5 in February 2023)",
+    "finance_lease_rout_years": "shorter of expected lease term or estimated useful life",
+    "leasehold_improvements": "lesser of either the asset's estimated useful life or the expected remaining lease term",
+    "change_in_estimate_method": "change in accounting estimate, applied prospectively (no retrospective adjustment); FY2024 effect quantified: +$135M operating income, +$114M net income, +$0.05 per share",
+    "policy_risk_note": "In February 2023 (start of FY2024) NVIDIA EXTENDED the estimated useful life of a majority of its server, storage, and network equipment from three years to a range of four to five years, and assembly and test equipment from five to seven years, citing 'advances in technology and usage rate'. This is the opposite direction of the project's research hypothesis risk (AI tech iterates in 1-2 years): the company lengthened depreciation schedules during the steepest AI technology acceleration in history, directly reducing FY2024 depreciation expense and boosting reported net income by $114M. Applied prospectively, prior under- or over-depreciation is never revisited."
+  },
+  "risk_signals": [
+    {
+      "signal_id": "NVDA-FY2024-SIG-001",
+      "source": "Notes to Consolidated Financial Statements - Note 1 (Significant Accounting Policies); also MD&A - Change in Accounting Estimate",
+      "keyword_matched": "useful lives / increased the estimated useful life",
+      "text_excerpt": "In February 2023, we assessed the useful lives of our property, plant, and equipment. Based on advances in technology and usage rate, we increased the estimated useful life of a majority of the server, storage, and network equipment from three years to a range of four to five years, and assembly and test equipment from five to seven years. The estimated effect of this change for fiscal year 2024 was a benefit of $33 million and $102 million for cost of revenue and operating expenses, respectively, which resulted in an increase in operating income of $135 million and net income of $114 million after tax, or $0.05 per both basic and diluted share.",
+      "page_location": "Note 1. Significant Accounting Policies (lines 3323-3326); MD&A - Change in Accounting Estimate (lines 2800-2810)",
+      "risk_type": "useful_life_extension",
+      "severity": "critical",
+      "relevance_to_depreciation": "This is the single most important signal for this filing. NVIDIA extended server/network equipment depreciation life from 3 to 4-5 years at the very moment AI chip iteration accelerated to a 1-2 year cadence (H100 shipping 2022-2023, Blackwell announced March 2024). The company justifies the extension with 'advances in technology' - the same force the project hypothesis identifies as SHORTENING economic life. The change is a change in accounting estimate applied prospectively, directly boosting FY2024 net income by $114M.",
+      "evidence_chain": [
+        "Fact: Feb 2023, server/storage/network equipment useful life extended 3 years -> 4-5 years; assembly/test 5 -> 7 years",
+        "Fact: FY2024 effect = +$135M operating income, +$114M net income (+$0.05/share)",
+        "Contradiction: AI accelerator generation cycle is ~1-2 years (H100 2022 -> H200 2024 -> B100/B200 2024-2025); extending depreciable life to 4-5 years assumes servers remain economically useful 2.5-4x longer than one product generation",
+        "Contradiction: 'advances in technology' is cited as the reason to LENGTHEN life, while the same advances are what render prior-generation hardware obsolete faster",
+        "Impact direction: Depreciation expense understated in FY2024 and future years -> reported profit overstated; applied prospectively so the effect persists and compounds as CAPEX grows"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2024-SIG-002",
+      "source": "Notes to Consolidated Financial Statements - Note 1",
+      "keyword_matched": "straight-line / estimated useful lives of three to seven years",
+      "text_excerpt": "Property and equipment are stated at cost less accumulated depreciation. Depreciation of property and equipment is computed using the straight-line method based on the estimated useful lives of the assets of three to seven years. ... The estimated useful lives of our buildings are up to thirty years.",
+      "page_location": "Note 1. Significant Accounting Policies - Property and Equipment (lines 3567-3579)",
+      "risk_type": "depreciation_schedule_disclosure",
+      "severity": "high",
+      "relevance_to_depreciation": "Official depreciation policy: straight-line over 3-7 years for equipment. The 7-year upper bound (assembly/test equipment after the Feb 2023 extension) is far beyond the 1-2 year AI technology iteration cycle identified in the project hypothesis.",
+      "evidence_chain": [
+        "Official depreciation life: 3-7 years straight-line for equipment (post-extension)",
+        "Buildings up to 30 years (lower risk - not technology-sensitive)",
+        "Technology cycle: GPU generations now ship annually (Hopper -> Blackwell -> Rubin)",
+        "Impact direction: 7-year schedule vs 1-2 year tech cycle = 3.5-7x mismatch; depreciation expense systematically understated relative to economic consumption"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2024-SIG-003",
+      "source": "Notes to Consolidated Financial Statements - Note 10 (Balance Sheet Components)",
+      "keyword_matched": "Estimated Useful Life 3 - 7 / Accumulated depreciation",
+      "text_excerpt": "Property and Equipment: Land $218; Buildings, leasehold improvements, and furniture 1,816; Equipment, compute hardware, and software 5,200 (Estimated Useful Life 3 - 7 years); Construction in process 189; Total property and equipment, gross 7,423; Accumulated depreciation and amortization (3,509); Total property and equipment, net $3,914.",
+      "page_location": "Note 10. Balance Sheet Components (line 3819)",
+      "risk_type": "depreciation_schedule_disclosure",
+      "severity": "medium",
+      "relevance_to_depreciation": "Quantifies the asset base subject to the 3-7 year assumption: $5.2B of equipment/compute hardware/software (70% of gross PP&E). Confirms NVIDIA is light-asset: total net PP&E of $3,914M is only 6.4% of FY2024 revenue, versus Meta where PP&E dwarfs annual revenue scale - the depreciation risk is real but the absolute leverage is small.",
+      "evidence_chain": [
+        "Fact: $5,200M equipment/compute hardware/software depreciated over 3-7 years; net PP&E only $3,914M vs revenue $60,922M",
+        "Contrast with Meta: NVDA CAPEX/revenue = 1.75% vs Meta 20.2% - fabless model keeps depreciable base tiny",
+        "Impact direction: Even if the life assumption is optimistic by 2x, the profit distortion is bounded (~$114M quantified vs net income $29,760M, ~0.4%); risk is material in principle, small in magnitude"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2024-SIG-004",
+      "source": "Notes to Consolidated Financial Statements - Note 1",
+      "keyword_matched": "reviewed for impairment whenever events or changes in circumstances",
+      "text_excerpt": "Long-lived assets, such as property and equipment and intangible assets subject to amortization, are reviewed for impairment whenever events or changes in circumstances indicate that the carrying amount of an asset or asset group may not be recoverable. ... If the carrying amount of an asset or asset group exceeds its estimated future cash flows, an impairment charge is recognized for the amount by which the carrying amount of the asset or asset group exceeds the estimated fair value of the asset or asset group.",
+      "page_location": "Note 1. Significant Accounting Policies - Long-lived Assets (lines 3618-3631)",
+      "risk_type": "impairment_testing_policy",
+      "severity": "medium",
+      "relevance_to_depreciation": "Standard ASC 360 impairment policy. Impairment is only tested when 'events or changes in circumstances' indicate non-recoverability - a reactive trigger. In a 1-2 year technology cycle, economic obsolescence can arrive faster than management recognizes a triggering event, and the intervening periods carry understated depreciation.",
+      "evidence_chain": [
+        "Depreciation = systematic pre-allocation of the same economic loss that impairment catches late",
+        "Impairment test is trigger-based, not schedule-based; no trigger was identified in FY2024 (goodwill 'not impaired', no PP&E impairment)",
+        "In AI era, 'changes in circumstances' (new architecture launches) occur annually",
+        "Impact direction: Absence of impairment in FY2024 does NOT validate the 4-5 year life assumption; it only means no triggering event was formally recognized"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2024-SIG-005",
+      "source": "Item 1A. Risk Factors - Supply Chain / Inventory Risks",
+      "keyword_matched": "inventory provisions or impairments",
+      "text_excerpt": "We may incur inventory provisions or impairments if our inventory or supply or capacity commitments exceed demand for our products or demand declines. Our customer orders and longer-term demand estimates may change or may not be correct, as we have experienced in the past.",
+      "page_location": "Item 1A. Risk Factors (lines 1024-1028); repeated in MD&A (lines 2509-2510)",
+      "risk_type": "inventory_impairment_risk",
+      "severity": "medium",
+      "relevance_to_depreciation": "Indirect signal. NVIDIA's balance-sheet exposure to technology obsolescence sits primarily in INVENTORY and non-cancellable capacity commitments (fabless model), not in owned depreciable assets. This is the fabless analog of Meta's data-center impairment risk: the write-down channel differs, but the root cause (demand/technology misforecast) is identical.",
+      "evidence_chain": [
+        "Fabless model: obsolescence risk concentrated in inventory + purchase commitments, not PP&E",
+        "Company admits provisions/impairments occur when commitments exceed demand",
+        "Same root cause as depreciation risk: technology iteration outpaces planning horizon",
+        "Impact direction: Profit risk from asset overstatement exists but flows through inventory provisions (COGS) rather than depreciation"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2024-SIG-006",
+      "source": "Item 1A. Risk Factors - Supplier / Purchase Obligation Risks",
+      "keyword_matched": "written down our inventory ... recorded impairments",
+      "text_excerpt": "We have also written down our inventory, incurred cancellation penalties, and recorded impairments and may have to do so in the future. These impacts were amplified by our placement of non-cancellable and non-returnable purchasing terms well in advance of our historical lead times.",
+      "page_location": "Item 1A. Risk Factors (lines 1091-1094)",
+      "risk_type": "realized_impairment_history",
+      "severity": "high",
+      "relevance_to_depreciation": "Company confirms it has ACTUALLY written down inventory and recorded impairments in the past (FY2023 inventory provision was $1.0 billion; FY2024 $774M - see SIG-008), and warns recurrence is likely. Demonstrates that management's demand/technology forecasts - the same judgment underlying useful-life estimates - have been materially wrong before.",
+      "evidence_chain": [
+        "Fact: past inventory write-downs and impairments admitted in Risk Factors",
+        "FY2023 $1.0B inventory provision coincided with the A100/H100 architecture transition and gaming demand collapse - a technology-transition write-down",
+        "If demand-side forecasts proved wrong within 1 year, the 4-5 year useful-life assumption deserves equal skepticism",
+        "Impact direction: History of forecast error supports the hypothesis that long-dated asset-life assumptions are optimistically biased"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2024-SIG-007",
+      "source": "MD&A - Critical Accounting Policies and Estimates",
+      "keyword_matched": "inventory obsolescence because of changing technology",
+      "text_excerpt": "Situations that may result in excess or obsolete inventory or excess product purchase commitments include changes in business and economic conditions, changes in market conditions, sudden and significant decreases in demand for our products, inventory obsolescence because of changing technology and customer requirements, new product introductions resulting in less demand for existing products or inconsistent spikes in demand...",
+      "page_location": "Item 7. MD&A - Critical Accounting Policies and Estimates - Inventories and Product Purchase Commitments (lines 2705-2715)",
+      "risk_type": "technology_obsolescence_risk",
+      "severity": "medium",
+      "relevance_to_depreciation": "NVIDIA explicitly names 'changing technology' and 'new product introductions resulting in less demand for existing products' as obsolescence drivers. The same technological change that obsoletes inventory also shortens the economic life of servers/test equipment - yet for PP&E the company responded by LENGTHENING depreciation life (SIG-001).",
+      "evidence_chain": [
+        "Fact: management lists 'changing technology' and 'new product introductions' as top obsolescence drivers (for inventory)",
+        "Contradiction: for PP&E, 'advances in technology' was used to justify LONGER useful life (SIG-001) - opposite treatment of the same force",
+        "Impact direction: Inconsistent application of technology-risk logic inflates PP&E-side profit relative to inventory-side prudence"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2024-SIG-008",
+      "source": "Notes to Consolidated Financial Statements - Note 10 (Balance Sheet Components)",
+      "keyword_matched": "inventory provision of $774 million",
+      "text_excerpt": "In fiscal years 2024 and 2023, we recorded an inventory provision of $774 million and $1.0 billion, respectively, in cost of revenue.",
+      "page_location": "Note 10. Balance Sheet Components - Inventories footnote (line 3819)",
+      "risk_type": "realized_writedown",
+      "severity": "high",
+      "relevance_to_depreciation": "Actual realized write-down two years running ($774M FY2024; $1.0B FY2023). While not fixed-asset impairment, it is hard evidence that technology/demand misforecasting repeatedly converts into earnings hits at NVIDIA - the fabless manifestation of the same risk the project models on the depreciation side.",
+      "evidence_chain": [
+        "Fact: $774M inventory provision FY2024; $1.0B FY2023 - recurring, material",
+        "Root cause shared with depreciation risk: product/technology transitions invalidate carrying values",
+        "Impact direction: Confirms the obsolescence channel is active every year; the PP&E side is shielded only because the depreciable base is small (1.75% CAPEX/revenue)"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2024-SIG-009",
+      "source": "Notes to Consolidated Financial Statements - Note 10",
+      "keyword_matched": "Depreciation expense for fiscal years 2024, 2023, and 2022",
+      "text_excerpt": "Depreciation expense for fiscal years 2024, 2023, and 2022 was $894 million, $844 million, and $611 million, respectively.",
+      "page_location": "Note 10. Balance Sheet Components (line 3822)",
+      "risk_type": "depreciation_expense_disclosure",
+      "severity": "low",
+      "relevance_to_depreciation": "Baseline quantification. FY2024 depreciation of $894M equals only 1.5% of revenue - versus Meta at 8.3%. Without the Feb 2023 life extension, FY2024 depreciation would have been ~$1,029M ($894M + $135M). Confirms the absolute materiality of depreciation risk at NVIDIA is low even though the policy aggressiveness is high.",
+      "evidence_chain": [
+        "Fact: depreciation $894M = 1.5% of revenue; life-extension benefit $135M = 15% of total depreciation expense",
+        "Policy change materially moved the depreciation line itself (+$135M benefit vs $894M expense)",
+        "Impact direction: small absolute profit impact (~0.4% of net income), but a clean, quantified example of management discretion over depreciation assumptions - ideal training sample for signal detection rather than magnitude"
+      ]
+    }
+  ],
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "折旧年限 vs 技术实际寿命",
+      "dimension_name_en": "Depreciation Life vs Technology Useful Life",
+      "weight": 0.25,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "服务器/存储/网络设备折旧年限在2023年2月由3年延长至4-5年，组装测试设备由5年延长至7年（Note 1，行3323-3326；MD&A，行2800-2810）。而AI芯片技术迭代周期已压缩至1-2年（H100 2022出货→H200 2024→Blackwell 2024发布）。4-6年折旧年限 vs 1-2年迭代周期，按评分锚点得4分。与Meta的4-5年服务器年限同属最激进档，且NVIDIA是在AI加速最剧烈的时期主动延长——方向与风险假设完全相反。",
+      "supporting_signals": ["NVDA-FY2024-SIG-001", "NVDA-FY2024-SIG-002", "NVDA-FY2024-SIG-003"],
+      "key_metrics": {
+        "stated_useful_life_years": "4-5 (servers, post-extension); up to 7 (assembly/test)",
+        "pre_change_useful_life_years": "3 (servers); 5 (assembly/test)",
+        "estimated_tech_cycle_years": "1-2",
+        "life_mismatch_ratio": "2.0-3.5x"
+      }
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "会计政策保守性",
+      "dimension_name_en": "Accounting Policy Conservatism",
+      "weight": 0.20,
+      "score": 5,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "本期（FY2024期初，2023年2月）主动延长折旧年限且按会计估计变更未来适用（prospectively），不追溯调整，完全符合评分锚点最高档'本期延长年限+未来适用→5'。公司甚至量化了利润增厚效果：营业利润+$135M、净利润+$114M（+$0.05/股）。以'advances in technology'为理由延长年限，与该技术力量缩短资产经济寿命的现实相悖，政策激进程度高于Meta（Meta本期未延长，仅承认可能性）。",
+      "supporting_signals": ["NVDA-FY2024-SIG-001"],
+      "key_metrics": {
+        "change_method": "change in accounting estimate, prospectively",
+        "retrospective_adjustment": false,
+        "fy2024_net_income_benefit_millions": 114,
+        "fy2024_operating_income_benefit_millions": 135,
+        "eps_benefit_usd": 0.05
+      }
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值风险触发",
+      "dimension_name_en": "Impairment Risk Triggers",
+      "weight": 0.20,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "Risk Factors中无固定资产折旧/减值的直接信号——直接信号缺失，需用间接信号推断，推断强度下降。存在的证据：①连续两年实际存货减值（FY2024 $774M、FY2023 $1.0B，行3819）；②Risk Factors两处明示'inventory provisions or impairments'与'have written down our inventory...recorded impairments'（行1025、行1092）；③长期资产减值政策为标准触发式测试（行3619-3631）；④FY2024商誉测试未减值、无PP&E减值。存货/产能承诺渠道信号多且实际发生，但固定资产减值渠道信号稀少，按'仅间接信号→3'评分。",
+      "supporting_signals": ["NVDA-FY2024-SIG-004", "NVDA-FY2024-SIG-005", "NVDA-FY2024-SIG-006", "NVDA-FY2024-SIG-007", "NVDA-FY2024-SIG-008"],
+      "key_metrics": {
+        "fy2024_ppe_impairment_millions": 0,
+        "fy2024_goodwill_impairment_millions": 0,
+        "fy2024_inventory_provision_millions": 774,
+        "fy2023_inventory_provision_millions": 1000,
+        "direct_ppe_signals_in_risk_factors": 0,
+        "indirect_signals": 4
+      }
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本支出(CAPEX)强度",
+      "dimension_name_en": "Capital Expenditure Intensity",
+      "weight": 0.20,
+      "score": 1,
+      "score_max": 5,
+      "score_label": "低风险",
+      "score_label_en": "Low Risk",
+      "reasoning": "CAPEX（购建固定资产及无形资产）$1,069M / 收入$60,922M = 1.75%，远低于3%的最低档阈值，按锚点得1分。净PP&E仅$3,914M（收入的6.4%），年折旧$894M仅占收入1.5%。fabless轻资产模式决定了即使折旧假设偏差2倍，利润扭曲上限约$135M（净利润的0.4%），与Meta（CAPEX/收入20.2%、每1%假设偏差影响$273M）形成本质性量级差异。",
+      "supporting_signals": ["NVDA-FY2024-SIG-003", "NVDA-FY2024-SIG-009"],
+      "key_metrics": {
+        "capex_millions": 1069,
+        "revenue_millions": 60922,
+        "capex_to_revenue_ratio": 0.0175,
+        "net_ppe_millions": 3914,
+        "depreciation_millions": 894,
+        "max_distortion_estimate_millions": 135
+      }
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "行业竞争/技术替代",
+      "dimension_name_en": "Industry Competition & Technology Substitution",
+      "weight": 0.15,
+      "score": 2,
+      "score_max": 5,
+      "score_label": "低风险",
+      "score_label_en": "Low Risk",
+      "reasoning": "NVIDIA是fabless芯片设计商，销售GPU而非运营GPU集群，自身资产负债表对GPU技术替代的直接暴露极小——技术过时的冲击主要由客户（Meta/Google/Microsoft的数据中心资产）和自身存货承担。公司虽运营少量DGX Cloud基础设施并有内部服务器，但规模远小于云厂商。按锚点'卖芯片而非运营、间接暴露→2-3'，取下限2分：其竞争地位恰恰建立在迫使客户加速换代之上，自身是技术替代的推动者而非受害者。",
+      "supporting_signals": ["NVDA-FY2024-SIG-003", "NVDA-FY2024-SIG-007"],
+      "key_metrics": {
+        "business_model": "fabless chip designer; sells GPUs, does not operate large GPU fleets",
+        "direct_gpu_asset_exposure": "minimal (internal servers + limited DGX Cloud)",
+        "obsolescence_bearer": "customers (data center operators) and own inventory",
+        "industry": "Semiconductor / AI Accelerated Computing"
+      }
+    }
+  ],
+  "composite_score": {
+    "weighted_score": 3.1,
+    "max_score": 5.0,
+    "risk_level": "中高风险",
+    "risk_level_en": "Medium-High Risk",
+    "risk_level_color": "#FD7E14",
+    "confidence": 0.8,
+    "confidence_reason": "会计政策层面的直接证据极强（公司自行披露年限延长及$114M利润增厚，行3323-3326），但Risk Factors中固定资产减值直接信号缺失，D3依赖间接信号推断；轻资产结构使绝对利润影响很小，综合分落在'政策激进、量级有限'的中高档。"
+  },
+  "comparative_context": {
+    "sector_median_score": 3.2,
+    "sector": "Semiconductor (Fabless) / AI Accelerated Computing",
+    "peer_comparison": [
+      {
+        "company": "Meta Platforms",
+        "ticker": "META",
+        "estimated_score": 4.0,
+        "note": "Confirmed 4.0 (project baseline). Operates massive GPU data centers; CAPEX/revenue 20.2%; depreciation risk has huge absolute leverage. NVIDIA's policy is more aggressive (active life extension) but its asset base is ~30x smaller relative to revenue."
+      },
+      {
+        "company": "Google (Alphabet)",
+        "ticker": "GOOGL",
+        "estimated_score": 3.8,
+        "note": "Heavy data center operator with 6-year server depreciation life (extended 2023); similar policy aggressiveness to NVIDIA but with Meta-scale asset exposure."
+      },
+      {
+        "company": "Microsoft",
+        "ticker": "MSFT",
+        "estimated_score": 3.5,
+        "note": "Azure operator; extended server/network equipment lives from 4 to 6 years (FY2023); large and growing AI CAPEX base."
+      },
+      {
+        "company": "AMD",
+        "ticker": "AMD",
+        "estimated_score": 2.8,
+        "note": "Estimated. Same fabless model as NVIDIA (light asset); smaller AI exposure, no disclosed FY2024 useful-life extension; depreciation risk profile closest comparable to NVIDIA."
+      }
+    ]
+  },
+  "annotation_methodology": {
+    "source_document": "NVIDIA Corporation FY2024 Annual Report on Form 10-K (fiscal year ended January 28, 2024)",
+    "filing_accessed": "Local copy: data/raw/nvda_fy2024_10k.html (SEC EDGAR)",
+    "text_extraction_method": "Case-insensitive keyword search (impairment, useful life/lives, depreciation, obsolescence, prospectively, technological advancement) with line-number verification; each hit manually confirmed to reside in visible body text (Risk Factors / Note 1 / MD&A / financial statement notes), XBRL hidden-tag matches discarded; non-UTF-8 HTML read with error-tolerant decoding",
+    "scoring_method": "Five-dimension weighted scoring with 1-5 scale per dimension (weights: D1 0.25, D2 0.20, D3 0.20, D4 0.20, D5 0.15); composite = weighted average",
+    "human_verification": "All text signals verified against original 10-K filing with line numbers; all financial figures extracted verbatim from statements",
+    "limitation": "CAPEX line combines PP&E and intangible asset purchases ($1,069M); NVIDIA does not disclose server depreciation as a percentage of total depreciation (marked NA). Single-year filing; multi-year trend (e.g., FY2022 3-year server life vs FY2024 4-5 years) only partially reconstructed."
+  }
+}

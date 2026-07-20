@@ -1,0 +1,239 @@
+{
+  "company": "Microsoft Corporation",
+  "ticker": "MSFT",
+  "filing_type": "10-K",
+  "fiscal_year": 2024,
+  "report_date": "2024-07-30",
+  "annotator": "zhongyang-260714",
+  "annotation_date": "2025-07-14",
+  "overall_risk_score": 4.2,
+  "risk_level": "HIGH",
+  "dimensions": {
+    "D1_policy_transparency": {
+      "score": 5,
+      "weight": 0.20,
+      "weighted_score": 1.00,
+      "evidence": [
+        {
+          "type": "explicit_depreciation_policy",
+          "text": "Depreciation is computed using the straight-line method over the estimated useful lives of the assets",
+          "location": "Note 1 - Accounting Policies - Property and Equipment",
+          "significance": "high",
+          "note": "标准直线法披露，但关键变化在年限"
+        },
+        {
+          "type": "useful_life_table",
+          "text": "Computer equipment and software: 2 to 15 years; Buildings: 34 to 44 years; Leasehold improvements: shorter of lease term or 15 years",
+          "location": "Note 1 - Property and Equipment",
+          "significance": "high",
+          "note": "设备年限范围极大(2-15年)，给管理层极大自由裁量空间"
+        },
+        {
+          "type": "policy_change_explicit",
+          "text": "In July 2022, we completed an assessment of the useful lives of our server and network equipment. Due to investments in software that increased efficiencies in our data centers, we determined we should increase the useful lives of our server and network equipment from 4 years to 6 years",
+          "location": "Note 1 - Property and Equipment",
+          "significance": "critical",
+          "note": "CRITICAL: 服务器/网络设备年限从4年延长到6年，50%增幅，直接影响Azure折旧费用。FY2023生效。"
+        }
+      ],
+      "risk_indicators": [
+        "服务器年限从4年延至6年，与Google 2023年行为高度一致，暗示行业协同或会计准则压力",
+        "2-15年的设备年限范围过宽，同类服务器可有3倍差异，缺乏行业可比性"
+      ]
+    },
+    "D2_financial_impact": {
+      "score": 4,
+      "weight": 0.25,
+      "weighted_score": 1.00,
+      "evidence": [
+        {
+          "type": "depreciation_expense",
+          "text": "Depreciation expense: $15,202 million (FY2024); $11,023 million (FY2023); $12,641 million (FY2022)",
+          "location": "Note 7 - Property and Equipment",
+          "significance": "high",
+          "note": "FY2024折旧费暴增38%($15.2B vs $11.0B)，但这是在年限延长(6年)基础上的增长，说明资产规模扩张极快"
+        },
+        {
+          "type": "accumulated_depreciation",
+          "text": "Accumulated depreciation: $76,442 million (2024); $68,343 million (2023)",
+          "location": "Note 7 - Balance Sheet",
+          "significance": "high",
+          "note": "累计折旧$76.4B，年增$8.1B，增速11.9%"
+        },
+        {
+          "type": "total_DNA",
+          "text": "Depreciation and amortization: $22,307 million (FY2024); $13,931 million (FY2023); $14,511 million (FY2022)",
+          "location": "Cash Flow Statement / Note 15",
+          "significance": "critical",
+          "note": "D&A从$13.9B(FY2023)跳升至$22.3B(FY2024)，+60%增长，主要因Activision收购无形资产摊销激增"
+        },
+        {
+          "type": "impairment_recorded",
+          "text": "In the second quarter of fiscal year 2023, we recognized a charge of $1.2 billion, including $0.8 billion of hardware-related impairment",
+          "location": "Note 17 - Restructuring and Impairment",
+          "significance": "critical",
+          "note": "实际硬件减值$0.8B发生，但仅在'重组'名义下披露，非日常折旧政策的一部分。证明资产确实会提前淘汰。"
+        }
+      ],
+      "risk_indicators": [
+        "D&A FY2024暴增60%至$22.3B，显示收购驱动摊销激增，未来5年将持续拖累利润",
+        "FY2024折旧费$15.2B，即使年限延长至6年仍增长38%，AI军备竞赛资本开支失控",
+        "FY2023已发生$0.8B硬件减值，证明实际使用寿命可能短于账面6年"
+      ]
+    },
+    "D3_acquisition_complexity": {
+      "score": 4,
+      "weight": 0.20,
+      "weighted_score": 0.80,
+      "evidence": [
+        {
+          "type": "major_acquisition",
+          "text": "We completed the acquisition of Activision Blizzard, Inc. for approximately $49.2 billion in cash",
+          "location": "Note 8 - Acquisitions",
+          "significance": "critical",
+          "note": "Activision Blizzard $49.2B收购，产生巨额商誉($25.4B)和无形资产($23.9B)，摊销压力巨大"
+        },
+        {
+          "type": "goodwill_breakdown",
+          "text": "Goodwill: $118.3 billion (2024); $67.5 billion (2023). Increase primarily due to Activision acquisition",
+          "location": "Note 9 - Goodwill and Intangible Assets",
+          "significance": "high",
+          "note": "商誉从$67.5B增至$118.3B，+75%，为美股科技公司最大商誉风险之一"
+        },
+        {
+          "type": "intangible_assets",
+          "text": "Intangible assets, net: $53.2 billion (2024); $11.2 billion (2023). Included $23.9B from Activision",
+          "location": "Note 9 - Intangible Assets",
+          "significance": "high",
+          "note": "无形资产净值从$11.2B暴增至$53.2B，主要来自Activision游戏IP和技术的资本化"
+        },
+        {
+          "type": "amortization_schedule",
+          "text": "Amortization expense for intangible assets: $7.1 billion (FY2024); $2.9 billion (FY2023); $1.9 billion (FY2022)",
+          "location": "Note 9 - Intangible Assets",
+          "significance": "high",
+          "note": "摊销费用从$2.9B增至$7.1B，+144%，未来5年预计每年摊销$7B+"
+        }
+      ],
+      "risk_indicators": [
+        "Activision $49B收购产生$25B商誉，若游戏业务表现不及预期，减值风险巨大",
+        "无形资产净值$53.2B，其中游戏IP摊销年限通常5-10年，但AI技术迭代可能使这些IP更快贬值",
+        "商誉$118.3B占股东权益比例极高，一旦减值将严重影响财报"
+      ]
+    },
+    "D4_technology_obsolescence": {
+      "score": 5,
+      "weight": 0.20,
+      "weighted_score": 1.00,
+      "evidence": [
+        {
+          "type": "AI_infrastructure_disclosure",
+          "text": "We are increasing our data center capacity and capabilities to support our AI services and cloud demand. Capital expenditures, including finance leases, were $55.3 billion in FY2024",
+          "location": "MD&A - Liquidity / Note 7",
+          "significance": "critical",
+          "note": "FY2024资本开支$55.3B，同比+77%，主要投入AI数据中心和GPU服务器，这些资产技术淘汰风险极高"
+        },
+        {
+          "type": "hardware_impairment",
+          "text": "$0.8 billion of hardware-related impairment... driven by changes in our hardware product portfolio",
+          "location": "Note 17 - Restructuring",
+          "significance": "critical",
+          "note": "硬件组合变化导致$0.8B减值，证明Surface/服务器等硬件产品生命周期短于账面年限"
+        },
+        {
+          "type": "cloud_depreciation",
+          "text": "Server and network equipment depreciation: increased due to higher asset base from cloud and AI infrastructure expansion",
+          "location": "Note 7 - MD&A Analysis",
+          "significance": "high",
+          "note": "Azure AI基础设施扩张导致资产基数激增，但6年折旧年限可能无法反映AI硬件1-3年的实际淘汰周期"
+        },
+        {
+          "type": "investment_impairment",
+          "text": "Equity investments recognized net losses of $0.3 billion in FY2024 compared to gains of $0.2 billion in FY2023, reflecting impairment charges",
+          "location": "Note 4 - Investments",
+          "significance": "medium",
+          "note": "股权投资减值增加，反映科技投资环境恶化，可能波及被投企业资产价值"
+        }
+      ],
+      "risk_indicators": [
+        "AI服务器技术迭代极快(1-2年)，6年折旧年限严重不匹配，FY2023已发生硬件减值证明这一点",
+        "FY2024 Capex $55.3B(+77%)，其中大量AI专用芯片和服务器，若AI泡沫破裂，这些资产将迅速贬值",
+        "Azure OpenAI服务依赖GPT模型迭代，若OpenAI技术路线变化，相关定制化硬件可能淘汰"
+      ]
+    },
+    "D5_accounting_quality": {
+      "score": 4,
+      "weight": 0.15,
+      "weighted_score": 0.60,
+      "evidence": [
+        {
+          "type": "goodwill_testing",
+          "text": "We test goodwill for impairment annually on May 1 at the reporting unit level, or more frequently if indicators of impairment exist",
+          "location": "Note 1 - Goodwill Impairment Testing",
+          "significance": "medium",
+          "note": "商誉年度测试，但阈值高（reporting unit level），且Activision刚收购不久，减值窗口未到"
+        },
+        {
+          "type": "R&D_expense",
+          "text": "Research and development: $29.5 billion (FY2024); $24.5 billion (FY2023); $22.1 billion (FY2022)",
+          "location": "Income Statement / Note 19",
+          "significance": "high",
+          "note": "R&D $29.5B全部费用化，无资本化。这反而是保守的，但与行业(Google部分资本化)不可比"
+        },
+        {
+          "type": "segment_disclosure",
+          "text": "Productivity and Business Processes: $77.3B revenue; Intelligent Cloud: $105.4B revenue; More Personal Computing: $62.0B revenue",
+          "location": "Note 20 - Segment Information",
+          "significance": "medium",
+          "note": "Azure($105.4B)单独披露，但折旧费用未按 segment拆分，无法评估各业务真实盈利能力"
+        },
+        {
+          "type": "useful_life_changes_impact",
+          "text": "The change in useful lives from 4 to 6 years decreased depreciation expense by approximately $3.7 billion in fiscal year 2023",
+          "location": "Note 1 - Property and Equipment (prior year disclosure)",
+          "significance": "critical",
+          "note": "年限延长4→6年，FY2023直接减少折旧费$3.7B。FY2024在6年基础上继续增长，说明原始基数已膨胀"
+        }
+      ],
+      "risk_indicators": [
+        "年限变更直接减少$3.7B折旧，这是明确的利润管理工具，FY2024继续在6年基础上折旧，基数已被人为提高",
+        "R&D全部费用化($29.5B)是保守的，但意味着未来无相关摊销，与资本化策略的公司不可比",
+        "Azure收入$105.4B但无单独折旧拆分，掩盖AI基础设施的真实盈利能力"
+      ]
+    }
+  },
+  "summary": "Microsoft是5家公司中折旧政策披露最详尽的公司，但风险极高。关键红线：服务器年限从4年延长至6年（与Google同步），FY2024年资本开支$55.3B(+77%)投入AI基础设施，但6年折旧年限与AI硬件1-3年淘汰周期严重错配。FY2023已发生$0.8B硬件减值，证明实际寿命确实短于账面。Activision收购带来$49B代价、$25B商誉和$24B无形资产，未来摊销压力巨大。D&A总计$22.3B(+60%)，为5家公司中最高。唯一保守点是R&D全部费用化($29.5B)。",
+  "key_metrics": {
+    "depreciation_expense_fy2024": 15202,
+    "depreciation_expense_fy2023": 11023,
+    "depreciation_expense_fy2022": 12641,
+    "total_DNA_fy2024": 22307,
+    "total_DNA_fy2023": 13931,
+    "accumulated_depreciation_2024": 76442,
+    "accumulated_depreciation_2023": 68343,
+    "capex_fy2024": 55300,
+    "capex_fy2023": 31200,
+    "useful_life_servers": "6 years (changed from 4 in July 2022)",
+    "goodwill_2024": 118300,
+    "intangible_assets_net_2024": 53200,
+    "R&D_expense_fy2024": 29500,
+    "impairment_recorded_fy2023": 1200,
+    "hardware_impairment_fy2023": 800
+  },
+  "peer_comparison": {
+    "server_depreciation_years": {
+      "MSFT": 6,
+      "GOOGL": 6,
+      "META": 4,
+      "NVIDIA": "implied shorter",
+      "AMD": "implied shorter"
+    },
+    "D&A_growth_yoy": {
+      "MSFT": "+60%",
+      "GOOGL": "+38%",
+      "META": "+26%",
+      "NVIDIA": "+25%",
+      "AMD": "declining"
+    }
+  }
+}

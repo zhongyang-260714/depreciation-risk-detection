@@ -1,0 +1,39 @@
+AMD FY2023 10-K 信号定位报告
+================================================================================
+文件: D:\depreciation-risk-detection\data\raw\amd_fy2023_10k.html
+文件大小: 426837 字符
+
+【SIG-001】
+搜索关键词: Any impairment of our tangible, definite-lived intangible
+备注: 模糊匹配
+文件位置: 字符偏移 108179
+上下文:
+  of AI may result in reputational, competitive and financial harm and liability.Merger, Acquisition and Integration Risks�Acquisitions, joint ventures, and/or investments, and the failure to integrate acquired businesses may fail to materialize their anticipated benefits and disrupt our business.�Any impairment of our tangible, definite-lived intangible or indefinite-lived intangible assets, including goodwill, may adversely impact our financial position and results of operations.Liquidity and Capital Resources Risks�The agreements governing our notes, our guarantees of Xilinx�s notes, and our 
+--------------------------------------------------------------------------------
+【SIG-002】
+搜索关键词: If, in the future, we determine that tangible or intangible assets, including goodwill, are impaired
+备注: 模糊匹配
+文件位置: 字符偏移 211407
+上下文:
+  odwill and other intangible assets on our consolidated balance sheet. Indefinite-lived intangible assets, including goodwill, are tested for impairment at least annually, and all tangible and intangible assets including goodwill will be tested for impairment when certain indicators are present. If, in the future, we determine that tangible or intangible assets, including goodwill, are impaired, we would record an impairment charge at that time. Impairment testing of goodwill requires significant use of judgment and assumptions, particularly as it relates to the determination of fair value. Sub
+--------------------------------------------------------------------------------
+【SIG-003】
+搜索关键词: We may incur future impairments of our technology license purchases
+文件位置: 字符偏移 109197
+上下文:
+  sh flow, we may face a cash shortfall. Also, our cash and cash equivalents could be adversely affected if the financial institutions in which we hold our cash and cash equivalents fail.General Risks�Our worldwide operations are subject to political, legal and economic risks and natural disasters.�We may incur future impairments of our technology license purchases.�Our inability to continue to attract and retain qualified personnel may hinder our business.�Our stock price is subject to volatility.For a more complete discussion of the material risks facing our business, see below.16Table of Cont
+--------------------------------------------------------------------------------
+【SIG-004】
+搜索关键词: asset impairments and declines in the value of our financial instruments
+备注: 模糊匹配
+文件位置: 字符偏移 114598
+上下文:
+  ty of capital and credit markets, making it more difficult for us to raise funds through borrowings or private or public sales of debt or equity securities. An economic downturn or increased uncertainty could also lead to failures of counterparties including financial institutions and insurers, asset impairments and declines in the value of our financial instruments. 17Table of ContentsThe semiconductor industry is highly cyclical and has experienced severe downturns that have materially adversely affected, and may continue to materially adversely affect, our business in the future.The semicon
+--------------------------------------------------------------------------------
+【SIG-005】
+搜索关键词: Amortization expense related to finite-lived intangible assets
+备注: 未找到
+文件位置: 字符偏移 None
+上下文:
+  未找到
+--------------------------------------------------------------------------------

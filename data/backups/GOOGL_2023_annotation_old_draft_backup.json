@@ -1,0 +1,354 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-07-20",
+    "annotator": "zhongyang-260714 (AI-assisted, human-reviewed)",
+    "review_status": "confirmed",
+    "filing_source": "SEC EDGAR - 10-K Annual Report"
+  },
+  "company": {
+    "ticker": "GOOGL",
+    "name": "Alphabet Inc.",
+    "fiscal_year": "2023",
+    "fiscal_year_end": "2023-12-31",
+    "report_period_end": "2023-12-31",
+    "industry": "Internet / Cloud / AI",
+    "primary_assets": "Servers, Network Equipment, Data Centers, YouTube Content, R&D Facilities",
+    "file_path": "data/raw/googl_2023_10k.html"
+  },
+  "financial_highlights": {
+    "revenue_millions": 307394,
+    "net_income_millions": 73795,
+    "depreciation_millions": 11946,
+    "depreciation_note": "FY2023 depreciation expense per Note 7 and MD&A; $3.9B reduction due to useful life extension from 4 to 6 years",
+    "capex_millions": 32251,
+    "capex_to_revenue_ratio": 0.1051,
+    "depreciation_to_revenue_ratio": 0.0389,
+    "total_property_equipment_gross_millions": 134345,
+    "accumulated_depreciation_millions": 112668,
+    "total_property_equipment_net_millions": 134345,
+    "ppe_growth_yoy_pct": 19.0,
+    "depreciation_change_yoy_millions": -1529
+  },
+  "accounting_policy": {
+    "depreciation_method": "straight-line",
+    "server_useful_life_years_pre2023": "4",
+    "server_useful_life_years_post2023": "6",
+    "network_equipment_useful_life_years_pre2023": "5",
+    "network_equipment_useful_life_years_post2023": "6",
+    "building_useful_life_years": "up to 25",
+    "change_in_estimate_date": "January 2023",
+    "change_in_estimate_method": "prospectively",
+    "key_change_2023": "In January 2023, extended server useful life from 4 to 6 years and network equipment from 5 to 6 years. Effect: $3.9B reduction in depreciation expense and $3.0B increase in net income for FY2023.",
+    "policy_risk_note": "Google is the only company in the five-company sample that BOTH extended lives AND quantified the exact profit impact ($3.9B depreciation reduction, $3.0B net income boost). This makes it the most confident 'standard positive sample' for the model."
+  },
+  "risk_signals": [
+    {
+      "signal_id": "GOOGL-2023-SIG-001",
+      "source": "Notes to Financial Statements - Note 1 / MD&A / Critical Accounting Estimates",
+      "keyword_matched": "change in the estimated useful life of our servers and certain network equipment to six years",
+      "text_excerpt": "In January 2023, we completed an assessment of the useful lives of our servers and network equipment resulting in a change in the estimated useful life of our servers and certain network equipment to six years. The effect of this change was a reduction in depreciation expense of $3.9 billion for the year ended December 31, 2023, recognized primarily in cost of revenues and R&D expenses.",
+      "page_location": "Note 1 (lines 2886-2893), MD&A Cost of Revenues (lines 2120-2125), Critical Accounting Estimates (lines 2583-2588)",
+      "risk_type": "depreciation_life_extension_risk",
+      "severity": "critical",
+      "relevance_to_depreciation": "The strongest signal across all 5 companies. Google extended server life from 4 to 6 years and network equipment from 5 to 6 years, directly reducing FY2023 depreciation by $3.9B and increasing net income by $3.0B ($0.24 EPS). With AI GPUs iterating every 1-2 years (H100→B100→B200), a 6-year server life assumes the same physical box generates economic value through 2029. The $3.9B benefit went straight to profit.",
+      "evidence_chain": [
+        "January 2023: Server life extended 4→6 years; network equipment 5→6 years",
+        "FY2023 effect: $3.9B reduction in depreciation expense, $3.0B increase in net income",
+        "Benefit recognized in cost of revenues and R&D (flattering both gross margin and operating margin)",
+        "GPU technology cycle: H100(2022)→B100(2024)→B200(2025) = 1-2 years",
+        "Server life assumption (6 years) >> technology cycle (1-2 years), mismatch 3-6x",
+        "If Google replaces servers every 2-3 years for AI, last 3-4 years of depreciation are fictitious",
+        "Result: $3.9B profit boost in FY2023 alone; cumulative understatement over 6-year life could exceed $10B"
+      ]
+    },
+    {
+      "signal_id": "GOOGL-2023-SIG-002",
+      "source": "MD&A - Cost of Revenues / R&D",
+      "keyword_matched": "reduction in depreciation due to the change in estimated useful lives",
+      "text_excerpt": "cost of revenues benefited from a reduction in depreciation due to the change in estimated useful lives of our servers and network equipment... The $722 million increase in depreciation expense reflected an offsetting benefit of the change in the estimated useful lives of our servers and network equipment.",
+      "page_location": "MD&A Cost of Revenues (lines 2099-2101); MD&A R&D (lines 2261-2269)",
+      "risk_type": "profit_inflation_from_depreciation_change",
+      "severity": "critical",
+      "relevance_to_depreciation": "Google explicitly states that cost of revenues AND R&D both benefited from the depreciation life extension. Without the extension, R&D depreciation alone would have increased by $722M more. The extension masked underlying growth in depreciation (more servers added). Profit impact spread across multiple line items.",
+      "evidence_chain": [
+        "Cost of revenues: benefited from reduced depreciation",
+        "R&D expenses: $722M increase would have been larger without the extension",
+        "The extension masked underlying growth in depreciation (more servers added)",
+        "Profit impact is spread across multiple line items, making it harder to detect",
+        "Result: FY2023 profit flattered by $3.9B from accounting change, not operational improvement"
+      ]
+    },
+    {
+      "signal_id": "GOOGL-2023-SIG-003",
+      "source": "Note 3 - Accelerated Depreciation and Lease Exit Costs",
+      "keyword_matched": "Changes in the expected useful life of our servers and certain network equipment resulted in $269 million of accelerated depreciation and $1.8 billion of exit charges",
+      "text_excerpt": "Changes in the expected useful life of our servers and certain network equipment resulted in $269 million of accelerated depreciation and $1.8 billion of exit charges for early lease terminations and asset write-offs related to the reduction of our office space.",
+      "page_location": "Note 3 (lines 3002-3005)",
+      "risk_type": "accelerated_depreciation_and_impairment",
+      "severity": "high",
+      "relevance_to_depreciation": "Direct evidence that Google DOES impair assets when assumptions change. $269M accelerated depreciation + $1.8B office space exit charges in 2023 prove that asset lives are NOT immutable. If AI server utilization drops, similar charges could follow for data center assets.",
+      "evidence_chain": [
+        "2023: $269M accelerated depreciation from server life changes",
+        "2023: $1.8B office space exit charges (early lease termination + asset write-offs)",
+        "Google has demonstrated willingness to impair when assumptions change",
+        "Office space was written down; data center servers could be next if AI demand shifts"
+      ]
+    },
+    {
+      "signal_id": "GOOGL-2023-SIG-004",
+      "source": "Risk Factors - Acquisitions",
+      "keyword_matched": "impairment of goodwill and/or purchased long-lived assets",
+      "text_excerpt": "acquisitions and other strategic arrangements could also result in... impairment of goodwill and/or purchased long-lived assets, and restructuring charges, any of which could harm our financial condition and operating results.",
+      "page_location": "Risk Factors (lines 1698-1702)",
+      "risk_type": "acquisition_related_impairment_risk",
+      "severity": "medium",
+      "relevance_to_depreciation": "Standard acquisition risk disclosure. Google has made major AI acquisitions (DeepMind, various AI startups). If acquired technology becomes obsolete faster than amortization schedules assume, impairments may be needed.",
+      "evidence_chain": [
+        "Google has significant goodwill and intangibles from acquisitions",
+        "AI technology evolves rapidly; acquired tech may become obsolete",
+        "Amortization assumes stable economic benefit over asset life",
+        "If AI paradigm shifts, prior acquisitions may lose value"
+      ]
+    },
+    {
+      "signal_id": "GOOGL-2023-SIG-005",
+      "source": "Risk Factors - Investments",
+      "keyword_matched": "impairment on our marketable and non-marketable securities",
+      "text_excerpt": "impairment on our marketable and non-marketable securities, performance fees, and income (loss) and impairment from our equity method investments.",
+      "page_location": "Risk Factors / Notes to Financial Statements (lines 2068-2072, 2508-2527)",
+      "risk_type": "investment_impairment_risk",
+      "severity": "medium",
+      "relevance_to_depreciation": "Google holds massive investment portfolio ($30B+ non-marketable securities). Same macro triggers (recession, tech downturn) that cause investment impairments would also pressure server utilization assumptions embedded in depreciation schedules.",
+      "evidence_chain": [
+        "Google holds large portfolio of non-marketable equity securities",
+        "Impairment testing requires judgment on investee financial position",
+        "Macro downturn = investment impairments + reduced cloud demand",
+        "Reduced cloud demand = lower server utilization = impairment trigger for fixed assets"
+      ]
+    },
+    {
+      "signal_id": "GOOGL-2023-SIG-006",
+      "source": "MD&A - Segment Results / Google Cloud",
+      "keyword_matched": "operating loss of $1.9 billion in 2023 compared to operating loss of $2.9 billion in 2022",
+      "text_excerpt": "Google Cloud operating income was $1.0 billion in 2023 compared to an operating loss of $1.9 billion in 2022... The increase in operating income was primarily due to an increase in Google Cloud revenues and a reduction in depreciation expense due to the change in the estimated useful lives of our servers and network equipment.",
+      "page_location": "MD&A Google Cloud (lines 2320-2328)",
+      "risk_type": "segment_profit_inflation",
+      "severity": "high",
+      "relevance_to_depreciation": "Google Cloud swung from -$1.9B loss to +$1.0B profit ($2.9B swing). Google explicitly states that the depreciation life extension contributed to this improvement. Without the accounting change, Cloud may still have been unprofitable. This masks the true economics of Google's AI infrastructure business.",
+      "evidence_chain": [
+        "Google Cloud operating income: +$1.0B in 2023 vs -$1.9B loss in 2022",
+        "Google explicitly states depreciation extension contributed to the improvement",
+        "Without the $3.9B benefit, Cloud segment may still be loss-making",
+        "Segment profitability used to justify massive CAPEX is partially accounting-driven"
+      ]
+    },
+    {
+      "signal_id": "GOOGL-2023-SIG-007",
+      "source": "Critical Accounting Estimates - Useful Lives",
+      "keyword_matched": "changes in technology, industry conditions, or the manner of use of our assets may result in a need to modify the estimated useful lives",
+      "text_excerpt": "changes in technology, industry conditions, or the manner of use of our assets may result in a need to modify the estimated useful lives of our servers and network equipment, which could result in a material change in our depreciation expense.",
+      "page_location": "Critical Accounting Estimates (lines 2583-2588)",
+      "risk_type": "estimate_sensitivity_disclosure",
+      "severity": "high",
+      "relevance_to_depreciation": "Google's own critical accounting estimates section admits that technology changes MAY require further changes to useful lives. This is a double-edged sword: it justifies the 2023 extension (technology improved) but also implies that if AI technology shifts again, they may need to shorten lives or impair.",
+      "evidence_chain": [
+        "Google admits technology changes could require further useful life modifications",
+        "2023 extension justified by 'technology advances'",
+        "If AI server architecture changes (e.g., liquid cooling, new chip designs), current 6-year assumption may be invalidated",
+        "Material change in depreciation expense = material change in reported profit"
+      ]
+    },
+    {
+      "signal_id": "GOOGL-2023-SIG-008",
+      "source": "Note 7 - Property and Equipment / Balance Sheet",
+      "keyword_matched": "Property and equipment, net: $134,345 million (2023) vs $112,668 million (2022)",
+      "text_excerpt": "Property and equipment, net: $134,345 million (2023); $112,668 million (2022). Depreciation expense: $11,946 million (2023); $13,475 million (2022).",
+      "page_location": "Note 7 (lines 13766-13772, 13778-13782)",
+      "risk_type": "depreciation_fingerprint",
+      "severity": "critical",
+      "relevance_to_depreciation": "The 'depreciation fingerprint' is the strongest evidence of accounting manipulation: PP&E net grew 19% ($112.7B→$134.3B), but depreciation expense FELL 11% ($13.5B→$11.9B). Normally, more assets = more depreciation. The only explanation is the life extension cutting the depreciation rate per dollar of asset. This is the inverse of what should happen with $32.3B of new CAPEX.",
+      "evidence_chain": [
+        "PP&E net: +19% ($112.7B → $134.3B)",
+        "Depreciation expense: -11% ($13.5B → $11.9B)",
+        "CAPEX: $32.3B (record high)",
+        "Normal relationship: more assets + more CAPEX = more depreciation",
+        "Actual relationship: more assets + more CAPEX = LESS depreciation",
+        "Only explanation: useful life extension reduced depreciation rate per asset dollar",
+        "This 'fingerprint' is the single best predictor of depreciation risk in financial statements"
+      ]
+    },
+    {
+      "signal_id": "GOOGL-2023-SIG-009",
+      "source": "Risk Factors - Cloud and AI Competition",
+      "keyword_matched": "rapidly evolving technology and significant competition",
+      "text_excerpt": "We face significant competition from other providers of cloud services, including Amazon Web Services and Microsoft Azure. The markets for these services are rapidly evolving and characterized by significant price competition.",
+      "page_location": "Risk Factors (lines 1150-1156)",
+      "risk_type": "competitive_pressure_on_asset_utilization",
+      "severity": "medium",
+      "relevance_to_depreciation": "Google acknowledges 'rapidly evolving' and 'significant price competition' in cloud. Price wars reduce server utilization and revenue per server. If utilization falls below the assumptions embedded in 6-year depreciation schedules, impairment may be required. AWS and Azure are also extending lives (Microsoft 4→6 years), creating an industry-wide race to the bottom on depreciation assumptions.",
+      "evidence_chain": [
+        "Google acknowledges 'rapidly evolving' cloud market",
+        "Significant price competition from AWS and Azure",
+        "Price wars reduce revenue per server and utilization",
+        "Lower utilization = lower economic benefit = potential impairment trigger",
+        "Industry-wide pattern: MSFT also extended 4→6 years, creating competitive pressure to match optimistic assumptions"
+      ]
+    },
+    {
+      "signal_id": "GOOGL-2023-SIG-010",
+      "source": "Risk Factors - Regulatory / Antitrust",
+      "keyword_matched": "We are subject to antitrust and other legal proceedings",
+      "text_excerpt": "We are subject to antitrust and other legal proceedings, including ongoing investigations and litigation in the U.S., Europe, and other jurisdictions... adverse outcomes could result in... requirements to divest businesses or assets.",
+      "page_location": "Risk Factors (lines 950-960)",
+      "risk_type": "regulatory_forced_divestiture",
+      "severity": "low",
+      "relevance_to_depreciation": "Remote but material tail risk: if antitrust action forces divestiture of Cloud or YouTube, data center assets may be written down. Depreciation assumptions assume continuous use; forced divestiture would trigger impairment.",
+      "evidence_chain": [
+        "Ongoing antitrust investigations in US and EU",
+        "Potential remedies include divestiture of businesses or assets",
+        "If Cloud business divested, server assets may be written down",
+        "6-year depreciation assumes continuous use; divestiture breaks assumption"
+      ]
+    }
+  ],
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "折旧年限 vs 技术实际寿命",
+      "weight": 0.25,
+      "score": 5,
+      "score_max": 5,
+      "score_label": "最高风险",
+      "reasoning": "服务器折旧年限从4年延长到6年，网络设备从5年延长到6年。AI服务器搭载的GPU迭代周期仅1-2年（H100→B100→B200）。Google在2023年主动延长年限，6年会计寿命 vs 1-2年技术迭代，错配3-6倍。这是五家中唯一'本期变更+全额量化'的样本。",
+      "supporting_signals": ["GOOGL-2023-SIG-001", "GOOGL-2023-SIG-002", "GOOGL-2023-SIG-008"],
+      "key_metrics": {
+        "stated_server_useful_life_pre2023_years": "4",
+        "stated_server_useful_life_post2023_years": "6",
+        "stated_network_equipment_useful_life_pre2023_years": "5",
+        "stated_network_equipment_useful_life_post2023_years": "6",
+        "estimated_tech_cycle_years": "1-2",
+        "life_extension_pct": "50%",
+        "life_mismatch_ratio": "3.0-6.0x"
+      }
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "会计政策保守性",
+      "weight": 0.20,
+      "score": 5,
+      "score_max": 5,
+      "score_label": "最高风险",
+      "reasoning": "Google在2023年主动延长折旧年限（4→6年），直接减少折旧费用$3.9B、增加净利润$3.0B。采用未来适用法（prospectively），历史少提的折旧不补回。五家中唯一同时做到'本期执行变更+量化利润影响'的公司，是项目要识别的行为的标准正样本。",
+      "supporting_signals": ["GOOGL-2023-SIG-001", "GOOGL-2023-SIG-006"],
+      "key_metrics": {
+        "change_direction": "extended (less conservative)",
+        "change_method": "prospectively",
+        "fy2023_depreciation_reduction_millions": 3900,
+        "fy2023_net_income_boost_millions": 3000,
+        "fy2023_eps_boost": 0.24,
+        "retrospective_adjustment": false
+      }
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值风险触发",
+      "weight": 0.20,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "reasoning": "2023年发生$269M加速折旧+$1.8B办公空间退出费用，证明Google确实会减值资产。Risk Factors提到投资减值和收购相关减值。但数据中心服务器本身尚未发生大规模减值（与Meta $2.43B数据中心减值相比）。减值信号密集但尚未在核心服务器资产上兑现。",
+      "supporting_signals": ["GOOGL-2023-SIG-003", "GOOGL-2023-SIG-004", "GOOGL-2023-SIG-005"],
+      "key_metrics": {
+        "accelerated_depreciation_2023_millions": 269,
+        "office_exit_charges_2023_millions": 1800,
+        "investment_impairment_risk": "medium",
+        "acquisition_impairment_risk": "medium",
+        "ppe_impairment_risk": "low_to_moderate"
+      }
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本支出(CAPEX)强度",
+      "weight": 0.20,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中等风险",
+      "reasoning": "FY2023 CAPEX $32.3B，收入$307.4B，CAPEX/收入=10.5%。绝对金额巨大但强度低于Meta(20.2%)和Microsoft(18.1%)。Google正在大规模扩建AI基础设施（TPU集群、数据中心），但折旧年限延长反而使折旧费用下降，形成'投资扩张+折旧收缩'的矛盾。",
+      "supporting_signals": ["GOOGL-2023-SIG-001", "GOOGL-2023-SIG-008"],
+      "key_metrics": {
+        "capex_millions": 32251,
+        "revenue_millions": 307394,
+        "capex_to_revenue_ratio": 0.1051,
+        "ppe_gross_millions": 134345,
+        "depreciation_millions": 11946
+      }
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "行业竞争/技术替代",
+      "weight": 0.15,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "reasoning": "Google Cloud面临AWS和Azure的激烈竞争。TPU迭代周期与NVIDIA GPU相当（1-2年）。Gemini军备竞赛核心参与者，直接运营海量GPU和TPU集群。软硬件全栈垂直整合略降低替代风险，但AI技术路线变化（如从Transformer到下一代架构）可能导致现有TPU集群过时。",
+      "supporting_signals": ["GOOGL-2023-SIG-001", "GOOGL-2023-SIG-009"],
+      "key_metrics": {
+        "cloud_competitors": ["AWS", "Azure"],
+        "tpu_iteration_cycle_years": "1-2",
+        "vertical_integration": "TPU + software stack",
+        "market_position": "strong but challenged by NVIDIA GPU ecosystem",
+        "ai_competition_intensity": "very high"
+      }
+    }
+  ],
+  "composite_score": {
+    "weighted_score": 4.25,
+    "max_score": 5.0,
+    "risk_level": "HIGH",
+    "risk_level_color": "#DC3545",
+    "confidence": 0.90,
+    "confidence_reason": "Very strong direct signals: company explicitly disclosed the $3.9B depreciation reduction and $3.0B net income impact of depreciation life extension, with exact numbers and line-item breakdown. Server life extension from 4 to 6 years is the most aggressive and best-documented policy change among all 5 annotated companies. The 'depreciation fingerprint' (PP&E +19%, depreciation -11%) is the single best predictor of depreciation risk."
+  },
+  "summary": "Google/Alphabet is the most confident 'standard positive sample' for the depreciation risk detection model. In January 2023, Google extended server useful life from 4 to 6 years and network equipment from 5 to 6 years, directly reducing FY2023 depreciation by $3.9B and boosting net income by $3.0B ($0.24 EPS). This is the only company that both made the change AND quantified the exact profit impact. The 'depreciation fingerprint' is unmistakable: PP&E net grew 19% ($112.7B to $134.3B) and CAPEX hit a record $32.3B, yet depreciation expense FELL 11% ($13.5B to $11.9B). This inverse relationship (more assets = less depreciation) is only possible through aggressive life extension. With AI GPUs iterating every 1-2 years, a 6-year server life assumes economic value through 2029, which is 3-6x the technology cycle. Google Cloud swung from a $1.9B loss to a $1.0B profit, and Google explicitly admits the depreciation change contributed to this improvement. If servers are replaced every 2-3 years for AI, the last 3-4 years of depreciation are fictitious. Confidence: 0.90 (highest among 5 companies).",
+  "key_metrics": {
+    "depreciation_expense_2023_millions": 11946,
+    "depreciation_expense_2022_millions": 13475,
+    "depreciation_change_yoy_millions": -1529,
+    "depreciation_change_yoy_pct": -11.3,
+    "total_DNA_2023_millions": 11946,
+    "capex_2023_millions": 32251,
+    "capex_to_revenue_ratio": 0.1051,
+    "revenue_2023_millions": 307394,
+    "net_income_2023_millions": 73795,
+    "ppe_net_2023_millions": 134345,
+    "ppe_net_2022_millions": 112668,
+    "ppe_growth_yoy_pct": 19.2,
+    "useful_life_servers_post2023": "6 years",
+    "useful_life_servers_pre2023": "4 years",
+    "depreciation_reduction_from_change_millions": 3900,
+    "net_income_boost_from_change_millions": 3000,
+    "eps_boost_from_change": 0.24,
+    "cloud_operating_income_2023_millions": 1000,
+    "cloud_operating_income_2022_millions": -1900,
+    "accelerated_depreciation_2023_millions": 269,
+    "office_exit_charges_2023_millions": 1800
+  },
+  "peer_comparison": {
+    "server_depreciation_years": {
+      "GOOGL": 6,
+      "MSFT": 6,
+      "META": "4-5",
+      "NVDA": "4-5",
+      "AMD": "2-15 (implied)"
+    },
+    "depreciation_fingerprint": {
+      "GOOGL": "PP&E +19%, Depreciation -11% ( strongest )",
+      "MSFT": "PP&E +29%, Depreciation +38% (extension masked larger growth)",
+      "META": "PP&E +37%, Depreciation +26% (extension partially masked growth)",
+      "NVDA": "Light asset model, depreciation minimal",
+      "AMD": "Light asset model, depreciation minimal"
+    }
+  }
+}

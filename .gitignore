@@ -74,5 +74,5 @@ Thumbs.db
 *.env
 config/secrets.yaml
 
-# Streamlit
-.streamlit/
+# Streamlit（只忽略密钥文件，主题配置 config.toml 需要上传共享）
+.streamlit/secrets.toml

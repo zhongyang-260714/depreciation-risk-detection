@@ -4,8 +4,9 @@
     "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
     "annotated_at": "2026-07-22",
     "annotator": "Kimi AI-assisted (pending review by project lead)",
-    "review_status": "draft_pending_review",
-    "filing_source": "SEC EDGAR - 10-K Annual Report"
+    "review_status": "confirmed",
+    "filing_source": "SEC EDGAR - 10-K Annual Report",
+    "review_note": "2026-07-22 由项目负责人依据《第二批评分依据与推断核对》人工核对通过，分数无调整。"
   },
   "company": {
     "ticker": "INTC",
@@ -295,7 +296,12 @@
       "score_label": "高风险",
       "score_label_en": "High Risk",
       "reasoning": "变更后机器设备折旧年限3-8年、生产设备顶格8年，按锚点'≥6年→5'触及最高档。但必须区分制造设备与AI服务器：晶圆厂设备物理磨损寿命确实长达8-15年，且Intel明确以'设备跨代复用'（re-use of machinery and tools across each generation，L4239-4240）作为延长依据，EUV光刻机客观上可服务Intel 4/3/20A/18A多代节点——5-8年在半导体制造业属常规区间，不能硬套云厂商结论。然而相对其自身技术迭代仍存在实质错配：公司自认寿命评估取决于'节点转换节奏'（L4238），而自身路线图是四年五节点（约1-1.25年/代，L581-582），8年寿命横跨约6代节点；对process-specific专用设备，节点迭代直接侵蚀其经济价值，2023年$411M过剩产能费用已证明旧节点产能利用率下滑。综合：年限数字达最高档、方向与技术节奏相反，但跨代复用的制造业现实部分成立，评4分而非5分。",
-      "supporting_signals": ["INTC-FY2023-SIG-001", "INTC-FY2023-SIG-004", "INTC-FY2023-SIG-005", "INTC-FY2023-SIG-006"],
+      "supporting_signals": [
+        "INTC-FY2023-SIG-001",
+        "INTC-FY2023-SIG-004",
+        "INTC-FY2023-SIG-005",
+        "INTC-FY2023-SIG-006"
+      ],
       "key_metrics": {
         "stated_useful_life_years_after_change": "8 (certain production machinery); 3-8 (all M&E)",
         "stated_useful_life_years_before_change": "5",
@@ -309,13 +315,17 @@
       "dimension_id": "D2",
       "dimension_name": "会计政策保守性",
       "dimension_name_en": "Accounting Policy Conservatism",
-      "weight": 0.20,
+      "weight": 0.2,
       "score": 5,
       "score_max": 5,
       "score_label": "高风险",
       "score_label_en": "High Risk",
       "reasoning": "本期（2023年1月/Q1）刚刚延长折旧年限并采用未来适用法（prospectively），为锚点最高档'本期延长→5'。变更量化影响：折旧减少$4.2B、毛利率增加~$2.5B、研发费用减少~$400M、期末存货减少~$1.3B。关键背景：2023年收入下滑14%、经营利润仅$93M、税前利润仅$762M——若无此项变更，Intel 2023年将录得约$2.8B经营亏损，该估计变更对当期盈亏具有决定性作用，比Google（净利润$73.8B中$3.0B，占4.1%）的报表美化程度更为极端。且折旧进入制造费用池吸收进存货，管理层自述实际年度影响'impractical to individually and specifically quantify'（L1789-1791），透明度进一步受限。",
-      "supporting_signals": ["INTC-FY2023-SIG-001", "INTC-FY2023-SIG-002", "INTC-FY2023-SIG-009"],
+      "supporting_signals": [
+        "INTC-FY2023-SIG-001",
+        "INTC-FY2023-SIG-002",
+        "INTC-FY2023-SIG-009"
+      ],
       "key_metrics": {
         "change_method": "prospectively",
         "change_effective": "2023-01 (Q1 2023)",
@@ -331,13 +341,18 @@
       "dimension_id": "D3",
       "dimension_name": "减值风险触发",
       "dimension_name_en": "Impairment Risk Triggers",
-      "weight": 0.20,
+      "weight": 0.2,
       "score": 4,
       "score_max": 5,
       "score_label": "高风险",
       "score_label_en": "High Risk",
       "reasoning": "2023年有实际资产减值但规模小（重组内资产减值$45M），按'本期实际减值→4-5'与'仅间接→3'之间取4。减值触发信号密集且多为直接信号：MD&A明示'IDM 2.0战略不成功可能导致PP&E减值'（L1773-1774）；风险因素明示新节点回报不足'可能需减记制造资产与设施'（L2427-2428）、需求持续下滑'可能需缩短设备年限并加速折旧'（L2383-2384）；2023年已实际发生$411M过剩产能费用。近期减值历史密集：2022年Optane存货减值$723M、2022/2021重组资产减值$151M/$287M、2021年商誉减值$238M（累计商誉减值$957M）。2023/2022商誉年度测试未减值。综合：直接信号充足+连续年度减值记录，但本期PP&E纯减值规模小，评4分。",
-      "supporting_signals": ["INTC-FY2023-SIG-003", "INTC-FY2023-SIG-007", "INTC-FY2023-SIG-008", "INTC-FY2023-SIG-010"],
+      "supporting_signals": [
+        "INTC-FY2023-SIG-003",
+        "INTC-FY2023-SIG-007",
+        "INTC-FY2023-SIG-008",
+        "INTC-FY2023-SIG-010"
+      ],
       "key_metrics": {
         "asset_impairment_2023_millions": 45,
         "asset_impairment_2022_millions": 151,
@@ -347,20 +362,31 @@
         "goodwill_impairment_2023_millions": 0,
         "excess_capacity_charges_2023_millions": 411,
         "direct_impairment_signals_count": 3,
-        "impairment_triggers_identified": ["idm2_strategy_failure", "node_economics_shortfall", "demand_driven_underutilization", "technology_exit_optane", "process_delays"]
+        "impairment_triggers_identified": [
+          "idm2_strategy_failure",
+          "node_economics_shortfall",
+          "demand_driven_underutilization",
+          "technology_exit_optane",
+          "process_delays"
+        ]
       }
     },
     {
       "dimension_id": "D4",
       "dimension_name": "资本支出(CAPEX)强度",
       "dimension_name_en": "Capital Expenditure Intensity",
-      "weight": 0.20,
+      "weight": 0.2,
       "score": 5,
       "score_max": 5,
       "score_label": "高风险",
       "score_label_en": "High Risk",
       "reasoning": "CAPEX/收入=25,750/54,228=47.5%，远超'≥25%→5'锚点，为本批样本中资本强度最高者（META 20.2%、GOOGL 10.5%）。机器设备总值$100.0B、在建工程$43.4B（占净PP&E 45%，尚未开始计提折旧）、资本开支承诺$27.5B（大部分12个月内到期）。折旧假设偏差的杠杆效应极大：年限变更单项即影响$4.2B年折旧；2023年折旧/CAPEX仅0.30，资产扩张速度远超账面消耗速度，未来折旧洪峰已锁定。IDM 2.0+Smart Capital（Brookfield Arizona Fab $29.0B承诺）进一步固化重资产路径。",
-      "supporting_signals": ["INTC-FY2023-SIG-002", "INTC-FY2023-SIG-003", "INTC-FY2023-SIG-004", "INTC-FY2023-SIG-009"],
+      "supporting_signals": [
+        "INTC-FY2023-SIG-002",
+        "INTC-FY2023-SIG-003",
+        "INTC-FY2023-SIG-004",
+        "INTC-FY2023-SIG-009"
+      ],
       "key_metrics": {
         "capex_millions": 25750,
         "revenue_millions": 54228,
@@ -382,7 +408,12 @@
       "score_label": "高风险",
       "score_label_en": "High Risk",
       "reasoning": "Intel面临三线竞争替代且均为公司自认：（1）先进制程竞赛落后——自认10nm/7nm延误使'使用TSMC等第三方代工厂的竞争对手受益'（L2410-2414），IFS代工须与TSMC正面竞争，四年五节点是追赶型军备竞赛；（2）AI芯片竞争——DCAI 2023收入-20%至$15,521M、经营亏损$530M，AI加速市场由NVIDIA主导，Gaudi基数小；（3）行业'高度竞争、技术快速演进'，公司自认产品与技术'can become uncompetitive or obsolete'（L2190-2191）。竞争压力直接缩短制程技术与晶圆厂资产的经济寿命：一旦18A/IFS不及预期，$100B机器设备+$43B在建工程面临利用率与价值双杀（SIG-003/007/008）。为本批样本中竞争替代对资产端冲击最直接的案例，评5分。",
-      "supporting_signals": ["INTC-FY2023-SIG-006", "INTC-FY2023-SIG-007", "INTC-FY2023-SIG-011", "INTC-FY2023-SIG-012"],
+      "supporting_signals": [
+        "INTC-FY2023-SIG-006",
+        "INTC-FY2023-SIG-007",
+        "INTC-FY2023-SIG-011",
+        "INTC-FY2023-SIG-012"
+      ],
       "key_metrics": {
         "industry": "Semiconductors / IDM / Foundry",
         "process_race_competitor": "TSMC (fabless competitors ride its nodes)",

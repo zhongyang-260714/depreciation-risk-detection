@@ -4,8 +4,9 @@
     "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
     "annotated_at": "2026-07-22",
     "annotator": "Kimi AI-assisted (pending review by project lead)",
-    "review_status": "draft_pending_review",
-    "filing_source": "SEC EDGAR - 10-K Annual Report"
+    "review_status": "confirmed",
+    "filing_source": "SEC EDGAR - 10-K Annual Report",
+    "review_note": "2026-07-22 由项目负责人依据《第二批评分依据与推断核对》人工核对通过，分数无调整。"
   },
   "company": {
     "ticker": "ORCL",
@@ -218,7 +219,11 @@
       "score_label": "高风险",
       "score_label_en": "High Risk",
       "reasoning": "服务器折旧年限经FY2023 Q1变更后现行5年（Note 5明细表'Computer, network, machinery and equipment 1-5年'，L7923-7925），落在锚点4-6年档→4分。⚠️前提修正：外部信息所称'FY2024延至8年'在10-K中不存在（全文'eight years'仅指员工任期L761），实际为FY2023由4年延至5年。对照AI硬件1-2年迭代周期（NVIDIA H100 2022→B100 2024），错配比2.5-5倍。公司自身在Risk Factors承认AI'rapidly evolving'（L887）与硬件'obsolescence risk'（L911），年限与经济现实方向相反。",
-      "supporting_signals": ["ORCL-FY2024-SIG-001", "ORCL-FY2024-SIG-002", "ORCL-FY2024-SIG-005"],
+      "supporting_signals": [
+        "ORCL-FY2024-SIG-001",
+        "ORCL-FY2024-SIG-002",
+        "ORCL-FY2024-SIG-005"
+      ],
       "key_metrics": {
         "stated_useful_life_years_after_change": "5",
         "stated_useful_life_years_before_change": "4",
@@ -231,13 +236,16 @@
       "dimension_id": "D2",
       "dimension_name": "会计政策保守性",
       "dimension_name_en": "Accounting Policy Conservatism",
-      "weight": 0.20,
+      "weight": 0.2,
       "score": 4,
       "score_max": 5,
       "score_label": "高风险",
       "score_label_en": "High Risk",
       "reasoning": "锚点'历史有延长→4'：FY2023 Q1将服务器年限4→5年、按未来适用法处理（基于2022-05-31账面价值、不追溯），减少FY2023经营费用$434M（约占FY2023净利润$8,503M的5.1%），该估计变更的持续效应贯穿FY2024全部服务器折旧。FY2024本期无进一步变更（故不到5分），但历史变更方向为延长（利己），且连续三年无重大固定资产减值（L7323），估计裁量呈单向特征。",
-      "supporting_signals": ["ORCL-FY2024-SIG-001", "ORCL-FY2024-SIG-003"],
+      "supporting_signals": [
+        "ORCL-FY2024-SIG-001",
+        "ORCL-FY2024-SIG-003"
+      ],
       "key_metrics": {
         "change_method": "prospectively",
         "change_effective": "FY2023 Q1 (beginning of fiscal 2023)",
@@ -252,18 +260,28 @@
       "dimension_id": "D3",
       "dimension_name": "减值风险触发",
       "dimension_name_en": "Impairment Risk Triggers",
-      "weight": 0.20,
+      "weight": 0.2,
       "score": 3,
       "score_max": 5,
       "score_label": "中风险",
       "score_label_en": "Medium Risk",
       "reasoning": "FY2024有实际减值但很小：MD&A两处（L1780、L3482）披露acquisition related and other费用（$314M）含'certain asset impairment charges'，未单独量化；Note 1明确声明FY2024/2023/2022连续三年无重大固定资产减值（L7323）。直接信号存在（固定资产减值政策L7323、收购减值风险L931、数据中心容量/终止费风险L894、供应链过时风险L911），但多数为政策性与非PP&E，缺乏Meta（$2.43B）式的大额实际减值。介于'有实际减值或≥3处直接信号→4'与'仅间接→3'之间，因实际减值不重大且明确非property级，取3分。",
-      "supporting_signals": ["ORCL-FY2024-SIG-003", "ORCL-FY2024-SIG-004", "ORCL-FY2024-SIG-005", "ORCL-FY2024-SIG-007"],
+      "supporting_signals": [
+        "ORCL-FY2024-SIG-003",
+        "ORCL-FY2024-SIG-004",
+        "ORCL-FY2024-SIG-005",
+        "ORCL-FY2024-SIG-007"
+      ],
       "key_metrics": {
         "ppe_impairment_fy2024_millions": 0,
         "unquantified_asset_impairment_charges": "within acquisition related and other expenses of $314M (FY2024)",
         "direct_impairment_signals_count": 4,
-        "impairment_triggers_identified": ["acquisition_related", "data_center_capacity_overcommitment", "supply_chain_obsolescence", "ai_investment_recoupment"],
+        "impairment_triggers_identified": [
+          "acquisition_related",
+          "data_center_capacity_overcommitment",
+          "supply_chain_obsolescence",
+          "ai_investment_recoupment"
+        ],
         "off_bs_datacenter_lease_commitments_millions": 32200
       }
     },
@@ -271,13 +289,16 @@
       "dimension_id": "D4",
       "dimension_name": "资本支出(CAPEX)强度",
       "dimension_name_en": "Capital Expenditure Intensity",
-      "weight": 0.20,
+      "weight": 0.2,
       "score": 3,
       "score_max": 5,
       "score_label": "中风险",
       "score_label_en": "Medium Risk",
       "reasoning": "CAPEX/收入=6,866/52,961=13.0%，落在8-15%档→3分（FY2023为8,695/49,954=17.4%，FY2024表观回落）。但需注意结构性低估：Oracle大量数据中心容量通过经营租赁获得（FY2024租赁费$1.2B，另有$22.9B未上表承诺+期后$9.3B新签），真实基础设施投入强度远高于现金流量表CAPEX所显示；在建工程（主要为数据中心计算机设备）同比+46.5%至$5,634M，FY2025-2027折旧阶梯式上升已成定局。",
-      "supporting_signals": ["ORCL-FY2024-SIG-004", "ORCL-FY2024-SIG-008"],
+      "supporting_signals": [
+        "ORCL-FY2024-SIG-004",
+        "ORCL-FY2024-SIG-008"
+      ],
       "key_metrics": {
         "capex_millions": 6866,
         "revenue_millions": 52961,
@@ -299,12 +320,21 @@
       "score_label": "高风险",
       "score_label_en": "High Risk",
       "reasoning": "Oracle以OCI直接运营AI云基础设施，是算力竞赛主力之一：承接大规模AI训练/推理负载（与NVIDIA深度合作、参股ARM服务器芯片商Ampere约29%），管理层自述AI'highly competitive and rapidly evolving'且投入'重大资源'（L887），并以$32.2B数据中心租赁承诺+在建工程+46.5%激进扩产。竞争对手（Microsoft/Google/Amazon/Meta）同步军备竞赛迫使硬件1-2年持续升级。但Oracle自有基础模型暴露弱于Google/Meta（更多以基础设施服务商身份参与），评4分。",
-      "supporting_signals": ["ORCL-FY2024-SIG-006", "ORCL-FY2024-SIG-004", "ORCL-FY2024-SIG-008"],
+      "supporting_signals": [
+        "ORCL-FY2024-SIG-006",
+        "ORCL-FY2024-SIG-004",
+        "ORCL-FY2024-SIG-008"
+      ],
       "key_metrics": {
         "industry": "Enterprise Software / AI Cloud Infrastructure (OCI)",
         "gpu_iteration_cycle_years": "1-2",
         "ai_role": "OCI hyperscaler + ~29% stake in Ampere Computing (ARM server chips, related party)",
-        "competitors_ramping_capex": ["MSFT", "GOOGL", "AMZN", "META"],
+        "competitors_ramping_capex": [
+          "MSFT",
+          "GOOGL",
+          "AMZN",
+          "META"
+        ],
         "capacity_commitments_millions": 32200
       }
     }
@@ -318,11 +348,31 @@
     "confidence": 0.85,
     "confidence_reason": "全部财务数据与引文逐字核对于FY2024 10-K正文（含行号）。前提修正已落实：外部假设的'FY2024 5→8年'在文件中不存在，实际为FY2023 Q1 4→5年（-$434M费用，L7317），本标注按文件事实评分。扣分项：FY2024本期无年限变更、无重大PP&E减值，故D2/D3不及GOOGL/META；加分项：$32.2B表外数据中心租赁承诺与在建工程+46.5%显示风险正在向后累积。",
     "score_breakdown": {
-      "D1": {"score": 4, "weight": 0.25, "weighted": 1.0},
-      "D2": {"score": 4, "weight": 0.20, "weighted": 0.8},
-      "D3": {"score": 3, "weight": 0.20, "weighted": 0.6},
-      "D4": {"score": 3, "weight": 0.20, "weighted": 0.6},
-      "D5": {"score": 4, "weight": 0.15, "weighted": 0.6}
+      "D1": {
+        "score": 4,
+        "weight": 0.25,
+        "weighted": 1.0
+      },
+      "D2": {
+        "score": 4,
+        "weight": 0.2,
+        "weighted": 0.8
+      },
+      "D3": {
+        "score": 3,
+        "weight": 0.2,
+        "weighted": 0.6
+      },
+      "D4": {
+        "score": 3,
+        "weight": 0.2,
+        "weighted": 0.6
+      },
+      "D5": {
+        "score": 4,
+        "weight": 0.15,
+        "weighted": 0.6
+      }
     }
   },
   "comparative_context": {

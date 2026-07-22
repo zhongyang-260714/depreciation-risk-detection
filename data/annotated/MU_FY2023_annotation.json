@@ -4,8 +4,9 @@
     "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
     "annotated_at": "2026-07-22",
     "annotator": "Kimi AI-assisted (pending review by project lead)",
-    "review_status": "draft_pending_review",
-    "filing_source": "SEC EDGAR - 10-K Annual Report"
+    "review_status": "confirmed",
+    "filing_source": "SEC EDGAR - 10-K Annual Report",
+    "review_note": "2026-07-22 由项目负责人依据《第二批评分依据与推断核对》人工核对通过，分数无调整。"
   },
   "company": {
     "ticker": "MU",
@@ -248,7 +249,11 @@
       "score_label": "高风险",
       "score_label_en": "High Risk",
       "reasoning": "生产设备折旧年限7年（建筑物10-30年、软件3-5年），按评分锚点≥6年属最高档。存储节点迭代周期约1-2年一代（1x→1y→1z→1α→1β，五年内五代；232层NAND 2023年量产，EUV将在1β之后节点导入），表面错配比3-5倍。但制造设备口径需与云厂商服务器区分：晶圆厂设备（光刻/刻蚀/沉积/量测）可跨多个节点复用，公司在关键会计估计中明确以'技术节点迁移、资本开支、设备复用率'评估年限（L2575-2577），说明7年假设内含复用预期，真实错配小于服务器口径。综合：表面档位5，因设备跨节点复用的真实性下调至4。",
-      "supporting_signals": ["MU-FY2023-SIG-001", "MU-FY2023-SIG-002", "MU-FY2023-SIG-008"],
+      "supporting_signals": [
+        "MU-FY2023-SIG-001",
+        "MU-FY2023-SIG-002",
+        "MU-FY2023-SIG-008"
+      ],
       "key_metrics": {
         "stated_production_equipment_life_years": "7",
         "estimated_node_transition_cycle_years": "1-2",
@@ -261,13 +266,16 @@
       "dimension_id": "D2",
       "dimension_name": "会计政策保守性",
       "dimension_name_en": "Accounting Policy Conservatism",
-      "weight": 0.20,
+      "weight": 0.2,
       "score": 3,
       "score_max": 5,
       "score_label": "中风险",
       "score_label_en": "Medium Risk",
       "reasoning": "FY2023未发生任何折旧年限变更：全文检索'prospectively'、'change in estimate'、'extend/shorten useful life'均无正文命中（已核实）。公司既未像GOOGL/MSFT那样延长年限虚增利润，也未在下行年缩短年限加速折旧——政策保持中性，按锚点'无变更→3'评分。值得注意：在史上最严重下行年、毛利率-9%的情况下，管理层未重估7年年限，估计裁量的'不作为'本身使折旧计提缺乏周期适应性，但这是被动而非主动粉饰。",
-      "supporting_signals": ["MU-FY2023-SIG-002", "MU-FY2023-SIG-010"],
+      "supporting_signals": [
+        "MU-FY2023-SIG-002",
+        "MU-FY2023-SIG-010"
+      ],
       "key_metrics": {
         "useful_life_change_in_fy2023": false,
         "change_method": "NA - no change",
@@ -279,13 +287,18 @@
       "dimension_id": "D3",
       "dimension_name": "减值风险触发",
       "dimension_name_en": "Impairment Risk Triggers",
-      "weight": 0.20,
+      "weight": 0.2,
       "score": 5,
       "score_max": 5,
       "score_label": "高风险",
       "score_label_en": "High Risk",
       "reasoning": "FY2023为本批样本中减值/减记实际触发最重的年份：①存货NRV减记$1,831M（现金流量表与MD&A双重确认，且为审计师唯一关键审计事项，L3596-3613）；②SBU商誉全额减值$101M（Q4定量测试，L2903-2916）；③产能闲置期间成本$382M（L2124-2125）；④重组费用$171M、裁员约15%（L3405-3413）；⑤重组及资产减值非现金调整$11M。按锚点'本期实际减值/大额减记→4-5'，取5。需注意解释口径：净亏损年这些减记是行业周期风险的兑现，恰好证明7年折旧计划未预提此类周期性价值塌陷——风险不是'虚高利润'而是'资产账面价值与周期现实脱节'。",
-      "supporting_signals": ["MU-FY2023-SIG-003", "MU-FY2023-SIG-004", "MU-FY2023-SIG-005", "MU-FY2023-SIG-006"],
+      "supporting_signals": [
+        "MU-FY2023-SIG-003",
+        "MU-FY2023-SIG-004",
+        "MU-FY2023-SIG-005",
+        "MU-FY2023-SIG-006"
+      ],
       "key_metrics": {
         "inventory_nrv_writedown_millions": 1831,
         "goodwill_impairment_millions": 101,
@@ -299,13 +312,16 @@
       "dimension_id": "D4",
       "dimension_name": "资本支出(CAPEX)强度",
       "dimension_name_en": "Capital Expenditure Intensity",
-      "weight": 0.20,
+      "weight": 0.2,
       "score": 5,
       "score_max": 5,
       "score_label": "高风险",
       "score_label_en": "High Risk",
       "reasoning": "CAPEX/收入=7,676/15,540=49.4%，远超25%锚点上限。下行年比率有失真成分（收入同比-49%而资本开支仅削减36%），但正常年份同样极端：FY2022为39.2%（12,067/30,758）、FY2021为36.2%（10,030/27,705），三年均≥25%。设备总值$65.6B、累计折旧$49.7B（已消耗57%）、未投入使用设备$2.91B+在建工程$2.46B，FY2024指引仍'slightly above $7 billion'。年折旧$7.67B已超经营现金流$1.56B，折旧假设的资产负债表杠杆效应为本批样本中最大。",
-      "supporting_signals": ["MU-FY2023-SIG-009", "MU-FY2023-SIG-005"],
+      "supporting_signals": [
+        "MU-FY2023-SIG-009",
+        "MU-FY2023-SIG-005"
+      ],
       "key_metrics": {
         "capex_millions": 7676,
         "revenue_millions": 15540,
@@ -328,11 +344,19 @@
       "score_label": "高风险",
       "score_label_en": "High Risk",
       "reasoning": "AI驱动的HBM竞赛是FY2023行业主线：生成式AI拉动HBM需求'very strong'（L188-190），但Micron FY2023仅处于HBM3E送样阶段、2024日历年年初才量产爬坡，落后于SK海力士（HBM3已规模供货）和三星，处于追赶位置。技术迭代同时加速：1β DRAM与232层NAND均于2023年量产、下一节点将导入EUV光刻（L573-576），HBM所需的TSV堆叠与先进封装要求新增设备组合。三强寡头竞争（SK海力士/三星/美光）迫使持续高强度资本开支换代，压缩存量设备经济寿命；但存储行业设备跨节点复用程度高于AI服务器，替代压力略低于GOOGL/META面对的GPU代际淘汰，评4分。",
-      "supporting_signals": ["MU-FY2023-SIG-008", "MU-FY2023-SIG-009", "MU-FY2023-SIG-001"],
+      "supporting_signals": [
+        "MU-FY2023-SIG-008",
+        "MU-FY2023-SIG-009",
+        "MU-FY2023-SIG-001"
+      ],
       "key_metrics": {
         "industry": "Memory (DRAM/NAND) - oligopoly: SK hynix, Samsung, Micron",
         "hbm_status": "HBM3E sampling in FY2023; mass production ramp early calendar 2024 (behind SK hynix)",
-        "node_transitions_fy2023": ["1-beta DRAM ramp", "232-layer NAND ramp", "EUV planned on post-1-beta node"],
+        "node_transitions_fy2023": [
+          "1-beta DRAM ramp",
+          "232-layer NAND ramp",
+          "EUV planned on post-1-beta node"
+        ],
         "ai_driver": "generative AI drove very strong HBM demand in FY2023"
       }
     }

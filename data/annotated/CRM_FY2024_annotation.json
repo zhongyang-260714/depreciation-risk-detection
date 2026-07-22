@@ -4,8 +4,9 @@
     "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
     "annotated_at": "2026-07-22",
     "annotator": "Kimi AI-assisted (pending review by project lead)",
-    "review_status": "draft_pending_review",
-    "filing_source": "SEC EDGAR - 10-K Annual Report"
+    "review_status": "confirmed",
+    "filing_source": "SEC EDGAR - 10-K Annual Report",
+    "review_note": "2026-07-22 由项目负责人依据《第二批评分依据与推断核对》人工核对通过，分数无调整。"
   },
   "company": {
     "ticker": "CRM",
@@ -195,7 +196,9 @@
       "score_label": "中风险",
       "score_label_en": "Medium Risk",
       "reasoning": "计算机设备/软件折旧年限 3-5 年，落在锚点 3-4 年档（→3 分），上限 5 年虽触及 4-6 年档边缘，但整体短于 GOOGL 的 6 年、与 META 4-5 年相当或略优。错配比约 1.5-5 倍。更重要的是资产基数极小（PPE 净值 $3.7B，占总资产 3.7%），年限错配的绝对利润影响微弱。注意：该维度评分锚点按年限档位机械对应为 3，未因资产基数小而进一步下调——基数效应已在 D4 体现。",
-      "supporting_signals": ["CRM-FY2024-SIG-001"],
+      "supporting_signals": [
+        "CRM-FY2024-SIG-001"
+      ],
       "key_metrics": {
         "stated_useful_life_years": "3-5 (computers, equipment and software)",
         "estimated_tech_cycle_years": "1-2",
@@ -208,13 +211,15 @@
       "dimension_id": "D2",
       "dimension_name": "会计政策保守性",
       "dimension_name_en": "Accounting Policy Conservatism",
-      "weight": 0.20,
+      "weight": 0.2,
       "score": 3,
       "score_max": 5,
       "score_label": "中风险",
       "score_label_en": "Medium Risk",
       "reasoning": "全文 'prospectively'/'change in estimate' 零命中：本期无折旧年限变更，按锚点'无变更→3 分'。在 2023 年 AI 军备竞赛中，GOOGL（4→6 年，+$3.0B 净利）与 MSFT（4→6 年）均选择延长年限，Salesforce 未跟进，会计估计裁量未被用于利润管理，属中性偏保守。FY2024 折旧摊销 $1.1B 与 PPE 总值增长（+6.8%）方向一致，无'资产增折旧降'的异常形态。",
-      "supporting_signals": ["CRM-FY2024-SIG-002"],
+      "supporting_signals": [
+        "CRM-FY2024-SIG-002"
+      ],
       "key_metrics": {
         "change_in_estimate_disclosed": false,
         "prospectively_keyword_hits": 0,
@@ -226,33 +231,43 @@
       "dimension_id": "D3",
       "dimension_name": "减值风险触发",
       "dimension_name_en": "Impairment Risk Triggers",
-      "weight": 0.20,
+      "weight": 0.2,
       "score": 2,
       "score_max": 5,
       "score_label": "低风险",
       "score_label_en": "Low Risk",
       "reasoning": "本期有真实但小规模的资产相关冲销：重组中办公空间削减 $447M（含非现金 ROU 冲销约 $418M），性质类似 GOOGL 的 office exit，但规模更小且全部集中在租赁/办公资产；战略投资减值及下调 $465M 非 PP&E。无任何计算设备（computers/equipment/software）减值，无 PP&E 减值科目。按锚点'稀少→2 分'：实际冲销存在但远离折旧风险的核心资产类别。真正的大额减值敞口在商誉 $48.6B（年度测试），属并购会计问题而非折旧风险。",
-      "supporting_signals": ["CRM-FY2024-SIG-003", "CRM-FY2024-SIG-004"],
+      "supporting_signals": [
+        "CRM-FY2024-SIG-003",
+        "CRM-FY2024-SIG-004"
+      ],
       "key_metrics": {
         "ppe_impairment_fy2024_millions": 0,
         "restructuring_office_space_charges_millions": 447,
         "restructuring_noncash_items_millions": 445,
         "strategic_investment_impairments_millions_non_ppe": 465,
         "goodwill_at_risk_millions": 48620,
-        "impairment_triggers_identified": ["restructuring_office_exits", "acquisition_goodwill_annual_test", "strategic_investment_market_decline"]
+        "impairment_triggers_identified": [
+          "restructuring_office_exits",
+          "acquisition_goodwill_annual_test",
+          "strategic_investment_market_decline"
+        ]
       }
     },
     {
       "dimension_id": "D4",
       "dimension_name": "资本支出(CAPEX)强度",
       "dimension_name_en": "Capital Expenditure Intensity",
-      "weight": 0.20,
+      "weight": 0.2,
       "score": 1,
       "score_max": 5,
       "score_label": "低风险",
       "score_label_en": "Low Risk",
       "reasoning": "CAPEX/收入 = $736M / $34,857M = 2.11%，落在锚点 <3% 档（→1 分），与预期一致。对比：META 20.2%（4 分）、GOOGL 10.5%（3 分）。固定资产折旧摊销 $1.1B 仅为收入的 3.2%；PPE 净值占总资产 3.7%；无在建工程单列披露。折旧假设偏差的杠杆效应在结构上被锁死——这是轻资产 SaaS 负样本的核心定量证据。",
-      "supporting_signals": ["CRM-FY2024-SIG-005", "CRM-FY2024-SIG-001"],
+      "supporting_signals": [
+        "CRM-FY2024-SIG-005",
+        "CRM-FY2024-SIG-001"
+      ],
       "key_metrics": {
         "capex_millions": 736,
         "revenue_millions": 34857,
@@ -271,7 +286,10 @@
       "score_label": "低风险",
       "score_label_en": "Low Risk",
       "reasoning": "Salesforce 不直接运营 GPU 集群：AI 能力（Einstein/Agentforce）构建在租用的第三方机房与公有云合作伙伴之上，并明确'continue to move to cloud computing platform providers'。AI 军备竞赛的算力迭代成本由其基础设施供应商（AWS 等）承担，公司自身资产负债表几乎不暴露于 GPU 1-2 年迭代周期。按锚点'间接/无暴露→1-2 分'取 1 分。公司面临的是 AI 产品竞争（软件层），而非算力资产折旧风险（硬件层）。",
-      "supporting_signals": ["CRM-FY2024-SIG-005", "CRM-FY2024-SIG-007"],
+      "supporting_signals": [
+        "CRM-FY2024-SIG-005",
+        "CRM-FY2024-SIG-007"
+      ],
       "key_metrics": {
         "operates_own_gpu_fleet": false,
         "infrastructure_model": "co-location + public cloud platform partners (Hyperforce)",

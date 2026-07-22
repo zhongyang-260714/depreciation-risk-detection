@@ -4,8 +4,9 @@
     "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
     "annotated_at": "2026-07-22",
     "annotator": "Kimi AI-assisted (pending review by project lead)",
-    "review_status": "draft_pending_review",
-    "filing_source": "SEC EDGAR - 10-K Annual Report"
+    "review_status": "confirmed",
+    "filing_source": "SEC EDGAR - 10-K Annual Report",
+    "review_note": "2026-07-22 由项目负责人依据《第二批评分依据与推断核对》人工核对通过，分数无调整。"
   },
   "company": {
     "ticker": "TSLA",
@@ -210,7 +211,11 @@
       "score_label": "高风险",
       "score_label_en": "High Risk",
       "reasoning": "制造设备口径：machinery/equipment 3-15年，上限达15年，触及锚点≥6年档；但需区分资产性质——Gigafactory的冲压、压铸、总装设备物理寿命确实可达10-15年，tooling 4-7年与产线迭代周期大体匹配（相对诚实）。真正的错配集中在两点：(1) 平台/工艺迭代（Cybertruck新工艺、4680电池、下一代低成本平台）可能使现役专用设备在3-6年内提前淘汰，公司自己在SIG-001中承认此机制；(2) computer equipment 3-10年，而AI训练硬件技术周期仅1-2年，该资产类别总值一年内+83%至$3,799M。综合：上限年限长、区间披露不透明、AI算力部分错配严重，但传统制造部分有物理依据，评4分（未到Meta式纯粹算力错配的5分档）。",
-      "supporting_signals": ["TSLA-2023-SIG-001", "TSLA-2023-SIG-002", "TSLA-2023-SIG-003"],
+      "supporting_signals": [
+        "TSLA-2023-SIG-001",
+        "TSLA-2023-SIG-002",
+        "TSLA-2023-SIG-003"
+      ],
       "key_metrics": {
         "machinery_equipment_useful_life_years": "3-15",
         "tooling_useful_life_years": "4-7",
@@ -225,13 +230,16 @@
       "dimension_id": "D2",
       "dimension_name": "会计政策保守性",
       "dimension_name_en": "Accounting Policy Conservatism",
-      "weight": 0.20,
+      "weight": 0.2,
       "score": 3,
       "score_max": 5,
       "score_label": "中风险",
       "score_label_en": "Medium Risk",
       "reasoning": "2023年无任何折旧年限变更（'change in estimate'全文仅出现于所得税语境，'prospectively'仅用于两项ASU准则采用），既未延长也未缩短，落在锚点'无变更→3'档。与GOOGL（本期延长服务器年限至6年，+5分档）形成鲜明对比。相对保守的加分项：Panasonic $2.02B设备按产量法折旧（SIG-005）；折旧费用增速(+38%)高于PP&E总值增速(+28%)，未发现费用被压低的量化异常。扣分项：区间披露+直线法为主的单一方法，保留了未来单向裁量空间。评3分。",
-      "supporting_signals": ["TSLA-2023-SIG-002", "TSLA-2023-SIG-005"],
+      "supporting_signals": [
+        "TSLA-2023-SIG-002",
+        "TSLA-2023-SIG-005"
+      ],
       "key_metrics": {
         "useful_life_change_in_2023": false,
         "change_method": "n/a (no change)",
@@ -244,13 +252,17 @@
       "dimension_id": "D3",
       "dimension_name": "减值风险触发",
       "dimension_name_en": "Impairment Risk Triggers",
-      "weight": 0.20,
+      "weight": 0.2,
       "score": 2,
       "score_max": 5,
       "score_label": "低风险",
       "score_label_en": "Low Risk",
       "reasoning": "2021-2023连续三年长期资产零重大减值（Note 2原文），商誉零减值，2023年数字资产减值'不重大'（2022年$204M为比特币减值，非PP&E）。按锚点属'稀少→2'档：存在间接触发因素——Risk Factor明确承认设备可能提前淘汰（SIG-001）、存货跌价$233M（Note 6，含过时存货）、毛利率骤降9.1pp使资产现金流更接近减值测试阈值；但减值测试采用未折现现金流（弱兜底），且高交付量维持现金流为正，测试难以触发。与Meta的$2.43B已实现减值（4-5分档）差距明显，评2分。",
-      "supporting_signals": ["TSLA-2023-SIG-001", "TSLA-2023-SIG-004", "TSLA-2023-SIG-007"],
+      "supporting_signals": [
+        "TSLA-2023-SIG-001",
+        "TSLA-2023-SIG-004",
+        "TSLA-2023-SIG-007"
+      ],
       "key_metrics": {
         "ppe_impairment_2023_millions": 0,
         "goodwill_impairment_2023_millions": 0,
@@ -264,13 +276,16 @@
       "dimension_id": "D4",
       "dimension_name": "资本支出(CAPEX)强度",
       "dimension_name_en": "Capital Expenditure Intensity",
-      "weight": 0.20,
+      "weight": 0.2,
       "score": 3,
       "score_max": 5,
       "score_label": "中风险",
       "score_label_en": "Medium Risk",
       "reasoning": "CAPEX/收入=$8,898M/$96,773M=9.2%，落在8-15%档（→3分）。绝对额$8.9B且指引2024年超$10B、2025-2026年每年$8-10B，扩张确定性强。在建工程$5,791M构成未来折旧管道；PP&E总值一年+28%至$41,782M。与超大规模云厂商（Meta 20.2%、GOOGL 10.5%）相比强度中等，但对制造业而言属重资产扩张。折旧假设偏差的杠杆：若年限整体高估20%，年费用少计约$0.8B，约占营业利润9%。评3分。",
-      "supporting_signals": ["TSLA-2023-SIG-006", "TSLA-2023-SIG-002"],
+      "supporting_signals": [
+        "TSLA-2023-SIG-006",
+        "TSLA-2023-SIG-002"
+      ],
       "key_metrics": {
         "capex_millions": 8898,
         "revenue_millions": 96773,
@@ -291,14 +306,22 @@
       "score_label": "高风险",
       "score_label_en": "High Risk",
       "reasoning": "双重替代压力且均已实质化：(1) 电动车价格战——2023年多次降价被MD&A明确确认，汽车毛利率28.5%→19.4%崩塌9.1pp，比亚迪等中国厂商及传统车企电动化直接冲击份额，Risk Factor将price reductions列为竞争后果；(2) AI算力自研路线——FSD训练硬件/下一代车端芯片（HW3→HW4已发生一次车端算力代际更替）处于1-2年迭代轨道，公司AI训练算力资产一年+83%扩张，与NVIDIA供应的外部算力形成自研-外购双线竞争。价格战压缩资产回报、平台切换加速旧设备淘汰，两条路径都直接缩短资产经济寿命。评4分。",
-      "supporting_signals": ["TSLA-2023-SIG-003", "TSLA-2023-SIG-007", "TSLA-2023-SIG-001"],
+      "supporting_signals": [
+        "TSLA-2023-SIG-003",
+        "TSLA-2023-SIG-007",
+        "TSLA-2023-SIG-001"
+      ],
       "key_metrics": {
         "automotive_gross_margin_2022": 0.285,
         "automotive_gross_margin_2023": 0.194,
         "price_reductions_confirmed_in_mdna": true,
         "ai_compute_asset_growth_yoy": 0.83,
         "vehicle_compute_generation": "HW3 -> HW4",
-        "competitors": ["BYD", "legacy OEMs EV lines", "NVIDIA (external AI compute supply)"]
+        "competitors": [
+          "BYD",
+          "legacy OEMs EV lines",
+          "NVIDIA (external AI compute supply)"
+        ]
       }
     }
   ],

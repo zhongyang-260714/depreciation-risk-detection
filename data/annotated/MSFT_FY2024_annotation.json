@@ -1,239 +1,502 @@
 {
-  "company": "Microsoft Corporation",
-  "ticker": "MSFT",
-  "filing_type": "10-K",
-  "fiscal_year": 2024,
-  "report_date": "2024-07-30",
-  "annotator": "zhongyang-260714",
-  "annotation_date": "2025-07-14",
-  "overall_risk_score": 4.2,
-  "risk_level": "HIGH",
-  "dimensions": {
-    "D1_policy_transparency": {
-      "score": 5,
-      "weight": 0.20,
-      "weighted_score": 1.00,
-      "evidence": [
-        {
-          "type": "explicit_depreciation_policy",
-          "text": "Depreciation is computed using the straight-line method over the estimated useful lives of the assets",
-          "location": "Note 1 - Accounting Policies - Property and Equipment",
-          "significance": "high",
-          "note": "标准直线法披露，但关键变化在年限"
-        },
-        {
-          "type": "useful_life_table",
-          "text": "Computer equipment and software: 2 to 15 years; Buildings: 34 to 44 years; Leasehold improvements: shorter of lease term or 15 years",
-          "location": "Note 1 - Property and Equipment",
-          "significance": "high",
-          "note": "设备年限范围极大(2-15年)，给管理层极大自由裁量空间"
-        },
-        {
-          "type": "policy_change_explicit",
-          "text": "In July 2022, we completed an assessment of the useful lives of our server and network equipment. Due to investments in software that increased efficiencies in our data centers, we determined we should increase the useful lives of our server and network equipment from 4 years to 6 years",
-          "location": "Note 1 - Property and Equipment",
-          "significance": "critical",
-          "note": "CRITICAL: 服务器/网络设备年限从4年延长到6年，50%增幅，直接影响Azure折旧费用。FY2023生效。"
-        }
-      ],
-      "risk_indicators": [
-        "服务器年限从4年延至6年，与Google 2023年行为高度一致，暗示行业协同或会计准则压力",
-        "2-15年的设备年限范围过宽，同类服务器可有3倍差异，缺乏行业可比性"
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-07-22",
+    "annotator": "Kimi AI-assisted (pending review by project lead)",
+    "review_status": "draft_pending_review",
+    "filing_source": "SEC EDGAR - 10-K Annual Report"
+  },
+  "company": {
+    "ticker": "MSFT",
+    "name": "Microsoft Corporation",
+    "fiscal_year": 2024,
+    "filing_date": "2024-07-30",
+    "report_period_end": "2024-06-30",
+    "industry": "Software / Cloud Infrastructure (Azure) / AI Services / Devices & Gaming",
+    "primary_assets": "Servers and Network Equipment (Azure/AI datacenters), Datacenter Buildings, Computer Equipment and Software, Finance-Leased Datacenter Equipment, Acquired Intangibles and Goodwill (Activision Blizzard etc.)",
+    "file_path": "data/raw/msft_fy2024_10k.html",
+    "coverage_note": "Microsoft 财年为 7 月 1 日至次年 6 月 30 日。本 10-K 覆盖 FY2024（2023-07-01 至 2024-06-30），签署/提交日期 2024-07-30。服务器及网络设备折旧年限变更（4→6 年）发生于 2022 年 7 月、FY2023 期初生效，在 FY2024 10-K 中作为既有会计估计于 MD&A（L1840）与 Note 1（L7078）再次披露；FY2024 本期内无任何折旧年限变更。"
+  },
+  "financial_highlights": {
+    "revenue_millions": 245122,
+    "net_income_millions": 88136,
+    "operating_income_millions": 109433,
+    "income_tax_expense_millions": 19651,
+    "rd_expense_millions": 29510,
+    "operating_cash_flow_millions": 118548,
+    "capex_millions": 44477,
+    "depreciation_millions": 15200,
+    "depreciation_note": "FY2024 10-K Note 7 仅披露四舍五入值'depreciation expense was $15.2 billion'（L13766），正文无百万级精确值；旧标注 $15,202M 源自 XBRL company facts，不在本文件。",
+    "amortization_millions": 4800,
+    "amortization_note": "无形资产摊销费用（Note 10，L15261：FY2024 $4.8B / FY2023 $2.5B / FY2022 $2.0B）。现金流量表'Depreciation, amortization, and other' FY2024 为 $22,287M（L5765-5768），口径含其他项目，不可直接当 D&A 精确拆分。",
+    "impairment_charges_millions": 0,
+    "impairment_charges_note": "FY2024 本期 PP&E/商誉/无形资产减值均为零：Note 9 'No instances of impairment were identified in our May 1, 2024, May 1, 2023, or May 1, 2022 tests'（L14731）；Note 10 'No material impairments of intangible assets were identified during fiscal years 2024, 2023, or 2022'（L15042）；分部非 GAAP 对账 'Severance, hardware-related impairment, and lease consolidation costs' FY2024=$0（L3166-3169）。历史：FY2023 Q2 $1.2B charge 含硬件组合变化减值，金额未单独量化（L2245）。",
+    "total_assets_millions": 512163,
+    "total_property_equipment_millions": 212012,
+    "property_equipment_net_millions": 135591,
+    "accumulated_depreciation_millions": 76421,
+    "goodwill_millions": 119220,
+    "intangible_assets_net_millions": 27597,
+    "construction_in_progress_millions": null,
+    "construction_in_progress_note": "NA - 资产负债表与 Note 7 未单独列示在建工程科目；但 Note 7 披露 $35.4B 数据中心相关建设承诺（L13766），MD&A 合同承诺表列示 construction commitments $35,391M（L3775-3786）。",
+    "finance_lease_payments_millions": null,
+    "finance_lease_note": "Microsoft 融资租赁计入 PP&E：FY2024 新增融资租赁 ROU 资产 $11,633M（Note 14，L18308-18311）；融资租赁 PP&E 成本 $32,248M、累计折旧 $6,386M（L18542-18556）；FY2024 融资租赁总成本 $2,534M（ROU 摊销 $1,800M + 利息 $734M，L18030-18113）。含融资租赁的广义资本开支 = $44,477M + $11,633M = $56,110M。",
+    "capex_to_revenue_ratio": 0.1814,
+    "depreciation_to_revenue_ratio": 0.062,
+    "depreciation_prior_year_millions": 11000,
+    "capex_prior_year_millions": 28107,
+    "computer_network_machinery_equipment_gross_millions": 93780,
+    "useful_life_change_opex_reduction_millions_fy2023": null,
+    "useful_life_change_impact_note": "NA - FY2024 10-K 未量化 4→6 年变更对费用的影响（FY2023 10-K 曾披露减少折旧约 $3.7B，不在本文件）；本文件仅定性披露 'Excluding the impact of the change in accounting estimate, gross margin percentage increased slightly'（L2251/2578/2588）。",
+    "construction_commitments_millions": 35391,
+    "purchase_commitments_datacenters_millions": 72022,
+    "finance_lease_rou_obtained_millions": 11633,
+    "restructuring_expense_millions": 0,
+    "restructuring_note": "FY2024 'Severance, hardware-related impairment, and lease consolidation costs' = $0（L3166-3169）；FY2023 毛利层面同口径 $152M、Q2 charge 合计 $1.2B（L2245）。",
+    "server_depreciation_pct_of_total": null,
+    "server_depreciation_pct_note": "NA - depreciation by asset class not disclosed；分部折旧亦不可拆分（'It is impracticable for us to separately identify the amount of amortization and depreciation by segment'，L21742）。"
+  },
+  "accounting_policy": {
+    "depreciation_method": "straight-line",
+    "ppe_useful_life_range_years": "1-20",
+    "server_useful_life_years_before": "4",
+    "server_useful_life_years_after": "6",
+    "computer_equipment_useful_life_years": "2-6",
+    "internal_use_software_useful_life_years": "3",
+    "buildings_and_improvements_useful_life_years": "5-15",
+    "furniture_fixtures_other_useful_life_years": "1-10",
+    "land": "not depreciated",
+    "leasehold_improvements": "3-20 years; depreciated over the shorter of the estimated useful life of the asset or the lease term",
+    "intangible_assets_useful_life_years": "all finite-lived; amortized over estimated useful life in proportion to economic benefits received (no fixed year range disclosed)",
+    "change_effective": "July 2022 assessment completed; effective beginning fiscal year 2023 (i.e., 2022-07-01)",
+    "change_in_estimate_method": "prospectively (change in accounting estimate effective beginning FY2023; no retrospective adjustment of prior periods, consistent with US GAAP treatment of estimate changes)",
+    "change_impact_operating_expense_reduction_millions": null,
+    "change_impact_note": "FY2024 10-K 未量化变更影响；变更理由为 'investments in software that increased efficiencies' 与 'advances in technology'（L1840/L7078）",
+    "change_impact_recognized_in_fiscal_year": 2023,
+    "no_useful_life_change_in_fiscal_2024": true,
+    "property_impairment_statement": "No material impairments of intangible assets were identified during fiscal years 2024, 2023, or 2022 (L15042); No instances of goodwill impairment in May 1, 2024/2023/2022 tests (L14731); FY2024 severance/hardware-impairment/lease-consolidation costs = $0 (L3166-3169)",
+    "policy_risk_note": "⚠️样本事实修正（相对旧标注）：①旧标注折旧政策表'Computer equipment and software: 2 to 15 years'与本文件不符——本文件为 computer equipment 2-6 年、buildings and improvements 5-15 年（L7451）；②旧标注折旧 $15,202M、商誉 $118.3B、capex $55.3B、FY2023 硬件减值 $0.8B 等精确数值均不见于本 10-K 正文，本文件对应口径为：折旧 $15.2B（四舍五入，L13766）、商誉 $119,220M（L5219-5222）、现金 capex $44,477M + 融资租赁新增 $11,633M（L6248-6259、L18308-18311）、FY2023 Q2 $1.2B charge 含未量化硬件减值（L2245）。方向性证据不变：Microsoft 于 2022 年 7 月将服务器/网络设备年限 4→6 年（样本最乐观档，与 GOOGL 并列）、未来适用不追溯，FY2024 折旧 $15.2B 在 6 年低折旧率下仍 +38%，AI 算力扩张与年限假设的错配为本项目核心风险画像。"
+  },
+  "risk_signals": [
+    {
+      "signal_id": "MSFT-FY2024-SIG-001",
+      "source": "Item 7. MD&A - Change in Accounting Estimate; Note 1. Accounting Policies (Item 8)",
+      "keyword_matched": "increase the estimated useful lives of both server and network equipment from four years to six years",
+      "text_excerpt": "In July 2022, we completed an assessment of the useful lives of our server and network equipment. Due to investments in software that increased efficiencies in how we operate our server and network equipment, as well as advances in technology, we determined we should increase the estimated useful lives of both server and network equipment from four years to six years. This change in accounting estimate was effective beginning fiscal year 2023.",
+      "page_location": "Item 7. MD&A - Change in Accounting Estimate (HTML line 1840); identical disclosure in Note 1. Accounting Policies (HTML line 7078)",
+      "risk_type": "useful_life_extension_change_in_estimate",
+      "severity": "critical",
+      "relevance_to_depreciation": "本项目标注的核心行为：Microsoft 于 2022 年 7 月（FY2023 期初生效）将服务器及网络设备折旧年限从 4 年延长至 6 年（+50%），理由是软件投资提升效率及技术进步。该变更以会计估计变更处理（未来适用、不追溯），FY2024 全部 Azure/AI 服务器均按 6 年折旧。FY2024 10-K 未量化变更影响（FY2023 10-K 曾披露减少折旧约 $3.7B，不在本文件），但 MD&A 三处定性披露显示剔除该变更影响后毛利率才基本持平（L2251/2578/2588），说明变更对 FY2024 利润仍有持续增厚作用。",
+      "evidence_chain": [
+        "官方披露：2022 年 7 月评估，服务器与网络设备年限 4→6 年，FY2023 期初生效（L1840、L7078）",
+        "会计估计变更→未来适用法，FY2022 及以前少提折旧永不修正",
+        "变更理由为'软件投资提升运营效率+技术进步'，与 AI 硬件 1-2 年迭代的行业现实方向相反",
+        "MD&A 三处'Excluding the impact of the change in accounting estimate, gross margin percentage increased slightly'（L2251、L2578、L2588）→ 变更仍在抬高 FY2024 报告毛利率",
+        "结果：FY2024 净利润 $88,136M 内嵌年限延长的持续收益；6 年年限横跨 3-6 个 AI 硬件技术代际"
       ]
     },
-    "D2_financial_impact": {
-      "score": 4,
+    {
+      "signal_id": "MSFT-FY2024-SIG-002",
+      "source": "Notes to Financial Statements - Note 1. Accounting Policies - Property and Equipment",
+      "keyword_matched": "computer equipment, two to six years",
+      "text_excerpt": "Property and equipment is stated at cost less accumulated depreciation, and depreciated using the straight-line method over the shorter of the estimated useful life of the asset or the lease term. The estimated useful lives of our property and equipment are generally as follows: computer software developed or acquired for internal use, three years ; computer equipment, two to six years ; buildings and improvements, five to 15 years ; leasehold improvements, three to 20 years ; and furniture and equipment, one to 10 years . Land is not depreciated.",
+      "page_location": "Note 1. Accounting Policies - Property and Equipment (HTML line 7451)",
+      "risk_type": "depreciation_policy_useful_life_table",
+      "severity": "high",
+      "relevance_to_depreciation": "变更后的官方折旧政策表：计算机设备 2-6 年（上限即延长后的服务器年限 6 年）、内部开发/外购软件 3 年、建筑物及改良 5-15 年、租赁改良 3-20 年、家具设备 1-10 年，直线法、按资产寿命与租期孰短折旧。注意：旧标注所称'Computer equipment and software: 2 to 15 years'与本文件不符，本文件建筑物才是 5-15 年。2-6 年区间给予管理层在同属'计算机设备'内最高 3 倍的年限裁量空间。",
+      "evidence_chain": [
+        "直线法折旧，按估计寿命与租期孰短（L7451）",
+        "计算机设备年限区间 2-6 年，上限为 2022 年变更后的服务器/网络设备年限",
+        "同类资产年限裁量达 3 倍，与同业（ORCL 1-5 年、GOOGL/META 6 年）可比性弱",
+        "结果：年限上限设在样本最乐观水平（与 GOOGL 并列 6 年），折旧费用被结构性压低"
+      ]
+    },
+    {
+      "signal_id": "MSFT-FY2024-SIG-003",
+      "source": "Notes to Financial Statements - Note 7. Property and Equipment",
+      "keyword_matched": "depreciation expense was $ 15.2 billion",
+      "text_excerpt": "During fiscal years 2024, 2023, and 2022, depreciation expense was $ 15.2 billion, $ 11.0 billion, and $ 12.6 billion, respectively. As of June 30, 2024, we have committed $ 35.4 billion for the construction of new buildings, building improvements, and leasehold improvements, primarily related to datacenters.",
+      "page_location": "Note 7. Property and Equipment (HTML line 13766)",
+      "risk_type": "depreciation_expense_surge_and_construction_commitments",
+      "severity": "high",
+      "relevance_to_depreciation": "FY2024 折旧费用 $15.2B（四舍五入披露，本文件无百万级精确值；旧标注 $15,202M 来自 XBRL facts），同比 +38%（FY2023 $11.0B），且这是在年限已延长至 6 年的低折旧率基础上实现的，说明资产基数扩张极快。同时承诺 $35.4B 用于数据中心相关建筑/改良建设，未来折旧阶梯式上升已成定局。",
+      "evidence_chain": [
+        "折旧费用：FY2024 $15.2B vs FY2023 $11.0B vs FY2022 $12.6B（L13766）",
+        "6 年年限下折旧仍 +38% YoY → 服务器/数据中心资产扩张速度超过年限延长的摊薄效应",
+        "$35.4B 建设承诺（主要数据中心）尚未转固，转固后将叠加在现有 $15.2B 之上",
+        "结果：当前折旧线显著低估 AI 产能的稳态运行成本"
+      ]
+    },
+    {
+      "signal_id": "MSFT-FY2024-SIG-004",
+      "source": "Notes to Financial Statements - Note 7. Property and Equipment",
+      "keyword_matched": "Computer equipment and software",
+      "text_excerpt": "Computer equipment and software: $93,780 million (June 30, 2024) vs $74,961 million (June 30, 2023); Buildings and improvements: $93,943 vs $68,465; Leasehold improvements: $9,594 vs $8,537; Furniture and equipment: $6,532 vs $6,246; Land: $8,163 vs $5,683; Total, at cost: $212,012 vs $163,892; Accumulated depreciation: $(76,421) vs $(68,251); Total, net: $135,591 vs $95,641.",
+      "page_location": "Note 7. Property and Equipment 明细表 (HTML lines 13594-13752；Computer equipment and software 行 L13669/13672/13676)",
+      "risk_type": "depreciation_schedule_disclosure",
+      "severity": "high",
+      "relevance_to_depreciation": "技术淘汰最快的资产类别（计算机设备与软件，含 Azure 服务器）原值同比 +25.1% 至 $93,780M，占总 PP&E 原值 44.2%；PP&E 净值同比 +41.8% 至 $135,591M。累计折旧仅占原值 36.0%，资产组合极为年轻——最大、最新的资产队列全部按 6 年乐观年限折旧。（注：本段为多行表格数值拼接，逐单元格见标注行号。）",
+      "evidence_chain": [
+        "计算机设备与软件原值 $74,961M→$93,780M（+25.1%）（L13669-13676）",
+        "PP&E 总原值 $163,892M→$212,012M（+29.4%）；净值 $95,641M→$135,591M（+41.8%）（L13707-13752）",
+        "累计折旧 $76,421M = 原值的 36.0%，资产组合年轻且快速膨胀",
+        "结果：错配风险集中在增长最快的资产类别上"
+      ]
+    },
+    {
+      "signal_id": "MSFT-FY2024-SIG-005",
+      "source": "Consolidated Statements of Cash Flows; Note 14. Leases",
+      "keyword_matched": "Additions to property and equipment",
+      "text_excerpt": "Additions to property and equipment: $(44,477) million FY2024, $(28,107) FY2023, $(23,886) FY2022 (Cash Flows, L6248-6259). Right-of-use assets obtained in exchange for lease obligations - Finance leases: $11,633 million FY2024, $3,128 FY2023, $4,234 FY2022 (Note 14, L18278-18319).",
+      "page_location": "Consolidated Statements of Cash Flows (HTML lines 6248-6259); Note 14. Leases (HTML lines 18278-18319)",
+      "risk_type": "capex_surge_including_finance_leases",
+      "severity": "critical",
+      "relevance_to_depreciation": "FY2024 现金资本开支 $44,477M（+58.2% YoY），另有 $11,633M 融资租赁新增 ROU 资产（同比 +272%），广义资本开支合计 $56,110M，占收入 22.9%。融资租赁资产直接计入 PP&E 并计提折旧（FY2024 融资租赁 ROU 摊销 $1,800M，L18045-18048）。注意：旧标注'capex $55.3B'在本文件中无对应原文，本文件口径为 $44,477M（现金）+$11,633M（融资租赁）。",
+      "evidence_chain": [
+        "现金 capex $28,107M→$44,477M（+58.2%）（L6248-6259）",
+        "融资租赁新增资产 $3,128M→$11,633M（+272%）（L18308-18311）",
+        "广义 capex/收入 = 56,110/245,122 = 22.9%，为样本最高水平之一",
+        "FY2024 折旧 $15.2B 仅为广义 capex 的 27% → 未来折旧巨额递延",
+        "结果：AI 军备竞赛的资本投入速度远超折旧确认速度"
+      ]
+    },
+    {
+      "signal_id": "MSFT-FY2024-SIG-006",
+      "source": "Item 7. MD&A - Non-GAAP Financial Measures; Segment Reconciliations",
+      "keyword_matched": "$1.2 billion charge in the second quarter of fiscal year 2023",
+      "text_excerpt": "Prior year non-GAAP financial measures exclude the impact of a $1.2 billion charge in the second quarter of fiscal year 2023 (�Q2 charge�), which included employee severance expenses, impairment charges resulting from changes to our hardware portfolio, and costs related to lease consolidation activities.",
+      "page_location": "Item 7. MD&A (HTML line 2245；同一表述见 L3086)；分部对账 FY2024 该行为 $0 (HTML lines 3166-3173)",
+      "risk_type": "historical_hardware_impairment_record",
+      "severity": "critical",
+      "relevance_to_depreciation": "历史减值记录：FY2023 Q2 确认 $1.2B 费用，其中包含'硬件组合变化导致的减值费用'（本文件未单独量化硬件部分；旧标注 $0.8B 出自 FY2023 10-K，不在本文件）。这证明 Microsoft 硬件资产的实际经济寿命确实短于账面年限、减值会真实发生。对照组：FY2024 同口径'Severance, hardware-related impairment, and lease consolidation costs'为 $0（L3166-3169）——本期干净，但触发机制仍在。",
+      "evidence_chain": [
+        "FY2023 Q2：$1.2B charge，含硬件组合变化减值+遣散+租赁合并（L2245）",
+        "FY2024：同口径费用 $0（L3166-3169），商誉/无形资产亦无减值（L14731、L15042）",
+        "硬件组合调整→减值的传导链条已被实际验证一次",
+        "6 年折旧年限不变，而产品组合一年内即可触发减值 → 年限假设与资产实际流转矛盾",
+        "结果：本期利润干净是事件未发生，而非风险不存在"
+      ]
+    },
+    {
+      "signal_id": "MSFT-FY2024-SIG-007",
+      "source": "Notes to Financial Statements - Note 9. Goodwill; Consolidated Balance Sheets",
+      "keyword_matched": "No instances of impairment were identified",
+      "text_excerpt": "We test goodwill for impairment annually on May 1 at the reporting unit level, primarily using a discounted cash flow methodology with a peer-based, risk-adjusted weighted average cost of capital. We believe use of a discounted cash flow approach is the most reliable indicator of the fair values of the businesses. No instances of impairment were identified in our May 1, 2024, May 1, 2023, or May 1, 2022 tests. As of June 30, 2024 and 2023, accumulated goodwill impairment was $ 11.3 billion.",
+      "page_location": "Note 9. Goodwill (HTML line 14731)；商誉余额 $119,220M 见 Consolidated Balance Sheets (HTML lines 5219-5222)",
+      "risk_type": "goodwill_impairment_testing",
+      "severity": "high",
+      "relevance_to_depreciation": "商誉 $119,220M（占总资产 23.3%，主要来自 Activision $75.4B 收购），连续三年 5 月 1 日测试均无减值，历史累计商誉减值 $11.3B。商誉测试以报告单元整体 DCF 进行，单个资产/业务的过时被组合现金流稀释——与 PP&E 减值测试同样的'大数掩盖'机制，使技术淘汰难以触达利润表。注意：旧标注'商誉 $118.3B'与本文件不符，本文件为 $119,220M。",
+      "evidence_chain": [
+        "商誉 $119,220M（L5219-5222），同比 +75.6%（FY2023 $67,886M），主因 Activision",
+        "May 1, 2024/2023/2022 三次年度测试均无减值（L14731）",
+        "累计商誉减值 $11.3B → 历史上商誉减值真实发生过",
+        "报告单元级 DCF 测试对单一业务过时高度不敏感",
+        "结果：$119B 商誉+连续三年零减值 = 减值确认机制的结构性钝化"
+      ]
+    },
+    {
+      "signal_id": "MSFT-FY2024-SIG-008",
+      "source": "Notes to Financial Statements - Note 10. Intangible Assets",
+      "keyword_matched": "No material impairments of intangible assets",
+      "text_excerpt": "No material impairments of intangible assets were identified during fiscal years 2024, 2023, or 2022. We estimate that we have no significant residual value related to our intangible assets.",
+      "page_location": "Note 10. Intangible Assets (HTML line 15042)；摊销费用见 HTML line 15261；无形资产净值 $27,597M 见 Balance Sheets (HTML lines 5230-5233)",
+      "risk_type": "intangible_amortization_and_impairment",
+      "severity": "medium",
+      "relevance_to_depreciation": "无形资产净值 $27,597M（含 Activision 相关 $22.0B，L15042 脚注），FY2024 摊销费用 $4.8B（FY2023 $2.5B、FY2022 $2.0B，L15261），同比 +92%。全部无形资产为有限寿命、按经济利益比例摊销，且连续三年无重大减值——收购型无形资产的摊销/减值行为与 PP&E 折旧同构：年限估计由管理层裁量，减值从未被触发。",
+      "evidence_chain": [
+        "无形资产净值 $9,366M→$27,597M（+194.7%），Activision 贡献 $22.0B（L15042、L5230-5233）",
+        "摊销费用 $2.5B→$4.8B（+92%）（L15261）",
+        "FY2024/2023/2022 无重大无形资产减值，且估计无重大残值",
+        "结果：与折旧相同的'只摊不减'单向估计模式"
+      ]
+    },
+    {
+      "signal_id": "MSFT-FY2024-SIG-009",
+      "source": "Item 7. MD&A - Overview",
+      "keyword_matched": "will continue to increase our operating costs and may decrease our operating margins",
+      "text_excerpt": "The investments we are making in cloud and AI infrastructure and devices will continue to increase our operating costs and may decrease our operating margins. We continue to identify and evaluate opportunities to expand our datacenter locations and increase our server capacity to meet the evolving needs of our customers, particularly given the growing demand for AI services.",
+      "page_location": "Item 7. MD&A - Overview (HTML line 1833)",
+      "risk_type": "ai_infrastructure_margin_pressure",
+      "severity": "medium",
+      "relevance_to_depreciation": "管理层自述云与 AI 基础设施投资将持续推高运营成本、可能压低运营利润率，并明确数据中心扩张依赖 GPU 供应。GPU 是迭代最快（1-2 年）的资产类别，其采购规模扩张直接放大 6 年折旧年限的错配敞口。",
+      "evidence_chain": [
+        "云+AI 基础设施投资将继续增加运营成本、或降低运营利润率（L1833）",
+        "数据中心扩张依赖土地、电力与 GPU 等服务器组件供应（L1833）",
+        "GPU 1-2 年换代 vs 6 年账面年限 = 3-6 倍错配",
+        "结果：管理层已预告利润率承压，但压力通过 6 年折旧被平滑递延"
+      ]
+    },
+    {
+      "signal_id": "MSFT-FY2024-SIG-010",
+      "source": "Item 1A. Risk Factors - Operational Risks",
+      "keyword_matched": "excess or obsolete inventory",
+      "text_excerpt": "We may experience quality or supply problems. There are limited suppliers for certain device and datacenter components. We continue to identify and evaluate opportunities to expand our datacenter locations and increase our server capacity to meet the evolving needs of our customers, particularly given the growing demand for AI services. Capacity available to us may be affected as competitors use some of the same suppliers and materials for hardware components. If components are delayed or become unavailable, whether because of supplier capacity constraint, industry shortages, legal or regulatory changes that restrict supply sources, or other reasons, we may not obtain timely replacement supplies, resulting in reduced sales or inadequate datacenter capacity to support the delivery and continued development of our products and services. Component shortages, excess or obsolete inventory, or price reductions resulting in inventory adjustments may increase our cost of revenue.",
+      "page_location": "Item 1A. Risk Factors - Operational Risks (HTML line 1208)",
+      "risk_type": "technology_obsolescence_supply_chain",
+      "severity": "medium",
+      "relevance_to_depreciation": "风险因素中直接出现'obsolete'：组件短缺、过剩或过时库存、降价导致的存货调整将增加收入成本。同时披露数据中心组件供应商有限、竞争对手争夺相同供应商与物料。管理层承认硬件物料存在过时风险，但该风险未反映在任何折旧年限缩短中。",
+      "evidence_chain": [
+        "数据中心组件供应商有限，与竞争对手争抢相同供应链（L1208）",
+        "'excess or obsolete inventory' 明确写入风险因素（L1208）",
+        "全文 'obsolescence' 0 命中，仅此处以 'obsolete' 形式出现 → 过时风险被刻意轻描淡写",
+        "结果：风险披露（会过时）与会计估计（6 年不变）内部不一致"
+      ]
+    },
+    {
+      "signal_id": "MSFT-FY2024-SIG-011",
+      "source": "Item 7. MD&A - Other Planned Uses of Capital; Contractual Obligations",
+      "keyword_matched": "We expect capital expenditures to increase in coming years",
+      "text_excerpt": "Additions to property and equipment will continue, including new facilities, datacenters, and computer systems for research and development, sales and marketing, support, and administrative staff. We expect capital expenditures to increase in coming years to support growth in our cloud offerings and our investments in AI infrastructure and training.",
+      "page_location": "Item 7. MD&A - Other Planned Uses of Capital (HTML line 3886)；采购承诺 $72,022M 主要为数据中心 (HTML lines 3805-3816, footnote L3878)",
+      "risk_type": "forward_capex_commitments",
+      "severity": "high",
+      "relevance_to_depreciation": "管理层明确指引未来数年资本开支继续增长以支持云与 AI 基础设施及训练。承诺表显示：建设承诺 $35,391M（L3775-3786）、采购承诺 $72,022M（主要为数据中心、含 take-or-pay 合同，L3805-3816/L3878）、经营+融资租赁承诺（含利息）$172,725M（L3790-3801）。合计 $360,018M 合同承诺相当于总资产的 70%，折旧与租赁费用将在 FY2025+ 阶梯式上升。",
+      "evidence_chain": [
+        "官方指引：capex 未来数年继续增长，投向云与 AI 基础设施/训练（L3886）",
+        "建设承诺 $35,391M + 数据中心采购承诺 $72,022M（含 take-or-pay）",
+        "租赁承诺 $172,725M（含利息）大量为数据中心",
+        "结果：折旧风险向后递延累积，FY2025-2027 利润表将承受阶梯式费用上升或再次延长年限的抉择"
+      ]
+    },
+    {
+      "signal_id": "MSFT-FY2024-SIG-012",
+      "source": "Item 1A. Risk Factors - Risks Relating to the Evolution of Our Business",
+      "keyword_matched": "If our goodwill or amortizable intangible assets become impaired",
+      "text_excerpt": "If our goodwill or amortizable intangible assets become impaired, we may be required to record a significant charge to earnings. We acquire other companies and intangible assets and may not realize all the economic benefit from those acquisitions, which could cause an impairment of goodwill or intangibles. We review our amortizable intangible assets for impairment when events or changes in circumstances indicate the carrying value may not be recoverable. We test goodwill for impairment at least annually. Factors that may be a change in circumstances, indicating that the carrying value of our goodwill or amortizable intangible assets may not be recoverable, include a decline in our stock price and market capitalization, reduced future cash flow estimates, and slower growth rates in industry segments in which we participate. We have in the past recorded, and may in the future be required to record, a significant charge in our consolidated financial statements during the period in which any impairment of our goodwill or amortizable intangible assets is determined, negatively affecting our results of operations.",
+      "page_location": "Item 1A. Risk Factors (HTML line 1165)",
+      "risk_type": "impairment_risk_factor_disclosure",
+      "severity": "medium",
+      "relevance_to_depreciation": "风险因素承认：过去曾记录、未来可能被要求记录重大减值费用，触发因素包括股价/市值下跌、未来现金流估计下调、行业增速放缓。这是 SEC 强制披露下的直接减值信号，与'连续三年零减值'的会计结果并置，显示触发阈值之高。",
+      "evidence_chain": [
+        "直接信号：'We have in the past recorded, and may in the future be required to record, a significant charge'（L1165）",
+        "触发因素=现金流估计下调/行业增速放缓——AI 投资回报不确定性正属此类",
+        "同期实际确认：零减值（L14731、L15042）",
+        "结果：风险披露与减值确认之间存在巨大触发门槛"
+      ]
+    }
+  ],
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "折旧年限 vs 技术实际寿命",
+      "dimension_name_en": "Depreciation Life vs Technology Useful Life",
       "weight": 0.25,
-      "weighted_score": 1.00,
-      "evidence": [
-        {
-          "type": "depreciation_expense",
-          "text": "Depreciation expense: $15,202 million (FY2024); $11,023 million (FY2023); $12,641 million (FY2022)",
-          "location": "Note 7 - Property and Equipment",
-          "significance": "high",
-          "note": "FY2024折旧费暴增38%($15.2B vs $11.0B)，但这是在年限延长(6年)基础上的增长，说明资产规模扩张极快"
-        },
-        {
-          "type": "accumulated_depreciation",
-          "text": "Accumulated depreciation: $76,442 million (2024); $68,343 million (2023)",
-          "location": "Note 7 - Balance Sheet",
-          "significance": "high",
-          "note": "累计折旧$76.4B，年增$8.1B，增速11.9%"
-        },
-        {
-          "type": "total_DNA",
-          "text": "Depreciation and amortization: $22,307 million (FY2024); $13,931 million (FY2023); $14,511 million (FY2022)",
-          "location": "Cash Flow Statement / Note 15",
-          "significance": "critical",
-          "note": "D&A从$13.9B(FY2023)跳升至$22.3B(FY2024)，+60%增长，主要因Activision收购无形资产摊销激增"
-        },
-        {
-          "type": "impairment_recorded",
-          "text": "In the second quarter of fiscal year 2023, we recognized a charge of $1.2 billion, including $0.8 billion of hardware-related impairment",
-          "location": "Note 17 - Restructuring and Impairment",
-          "significance": "critical",
-          "note": "实际硬件减值$0.8B发生，但仅在'重组'名义下披露，非日常折旧政策的一部分。证明资产确实会提前淘汰。"
-        }
-      ],
-      "risk_indicators": [
-        "D&A FY2024暴增60%至$22.3B，显示收购驱动摊销激增，未来5年将持续拖累利润",
-        "FY2024折旧费$15.2B，即使年限延长至6年仍增长38%，AI军备竞赛资本开支失控",
-        "FY2023已发生$0.8B硬件减值，证明实际使用寿命可能短于账面6年"
-      ]
-    },
-    "D3_acquisition_complexity": {
       "score": 4,
-      "weight": 0.20,
-      "weighted_score": 0.80,
-      "evidence": [
-        {
-          "type": "major_acquisition",
-          "text": "We completed the acquisition of Activision Blizzard, Inc. for approximately $49.2 billion in cash",
-          "location": "Note 8 - Acquisitions",
-          "significance": "critical",
-          "note": "Activision Blizzard $49.2B收购，产生巨额商誉($25.4B)和无形资产($23.9B)，摊销压力巨大"
-        },
-        {
-          "type": "goodwill_breakdown",
-          "text": "Goodwill: $118.3 billion (2024); $67.5 billion (2023). Increase primarily due to Activision acquisition",
-          "location": "Note 9 - Goodwill and Intangible Assets",
-          "significance": "high",
-          "note": "商誉从$67.5B增至$118.3B，+75%，为美股科技公司最大商誉风险之一"
-        },
-        {
-          "type": "intangible_assets",
-          "text": "Intangible assets, net: $53.2 billion (2024); $11.2 billion (2023). Included $23.9B from Activision",
-          "location": "Note 9 - Intangible Assets",
-          "significance": "high",
-          "note": "无形资产净值从$11.2B暴增至$53.2B，主要来自Activision游戏IP和技术的资本化"
-        },
-        {
-          "type": "amortization_schedule",
-          "text": "Amortization expense for intangible assets: $7.1 billion (FY2024); $2.9 billion (FY2023); $1.9 billion (FY2022)",
-          "location": "Note 9 - Intangible Assets",
-          "significance": "high",
-          "note": "摊销费用从$2.9B增至$7.1B，+144%，未来5年预计每年摊销$7B+"
-        }
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "服务器及网络设备折旧年限经 2022 年 7 月评估由 4 年延至 6 年（L1840、L7078），现行政策表 'computer equipment, two to six years' 上限即 6 年（L7451），落在锚点 4-6 年档顶端→4 分。对照 AI 硬件 1-2 年迭代周期（NVIDIA H100 2022→B100/GB200 2024），错配比 3-6 倍，为样本内最乐观水平（与 GOOGL 6 年并列）。公司自述 AI 需求驱动数据中心与 GPU 扩容（L1208、L1833），FY2024 计算机设备与软件原值 +25.1% 至 $93,780M（L13669-13676）——增长最快的资产队列全部按最乐观年限折旧。",
+      "supporting_signals": [
+        "MSFT-FY2024-SIG-001",
+        "MSFT-FY2024-SIG-002",
+        "MSFT-FY2024-SIG-004"
       ],
-      "risk_indicators": [
-        "Activision $49B收购产生$25B商誉，若游戏业务表现不及预期，减值风险巨大",
-        "无形资产净值$53.2B，其中游戏IP摊销年限通常5-10年，但AI技术迭代可能使这些IP更快贬值",
-        "商誉$118.3B占股东权益比例极高，一旦减值将严重影响财报"
-      ]
+      "key_metrics": {
+        "stated_useful_life_years_after_change": "6",
+        "stated_useful_life_years_before_change": "4",
+        "estimated_tech_cycle_years": "1-2",
+        "life_mismatch_ratio": "3-6x",
+        "computer_equipment_software_gross_millions": 93780,
+        "premise_note": "6 年为样本最乐观档（与 GOOGL 并列），故处 4-6 年锚点档顶端"
+      }
     },
-    "D4_technology_obsolescence": {
-      "score": 5,
-      "weight": 0.20,
-      "weighted_score": 1.00,
-      "evidence": [
-        {
-          "type": "AI_infrastructure_disclosure",
-          "text": "We are increasing our data center capacity and capabilities to support our AI services and cloud demand. Capital expenditures, including finance leases, were $55.3 billion in FY2024",
-          "location": "MD&A - Liquidity / Note 7",
-          "significance": "critical",
-          "note": "FY2024资本开支$55.3B，同比+77%，主要投入AI数据中心和GPU服务器，这些资产技术淘汰风险极高"
-        },
-        {
-          "type": "hardware_impairment",
-          "text": "$0.8 billion of hardware-related impairment... driven by changes in our hardware product portfolio",
-          "location": "Note 17 - Restructuring",
-          "significance": "critical",
-          "note": "硬件组合变化导致$0.8B减值，证明Surface/服务器等硬件产品生命周期短于账面年限"
-        },
-        {
-          "type": "cloud_depreciation",
-          "text": "Server and network equipment depreciation: increased due to higher asset base from cloud and AI infrastructure expansion",
-          "location": "Note 7 - MD&A Analysis",
-          "significance": "high",
-          "note": "Azure AI基础设施扩张导致资产基数激增，但6年折旧年限可能无法反映AI硬件1-3年的实际淘汰周期"
-        },
-        {
-          "type": "investment_impairment",
-          "text": "Equity investments recognized net losses of $0.3 billion in FY2024 compared to gains of $0.2 billion in FY2023, reflecting impairment charges",
-          "location": "Note 4 - Investments",
-          "significance": "medium",
-          "note": "股权投资减值增加，反映科技投资环境恶化，可能波及被投企业资产价值"
-        }
-      ],
-      "risk_indicators": [
-        "AI服务器技术迭代极快(1-2年)，6年折旧年限严重不匹配，FY2023已发生硬件减值证明这一点",
-        "FY2024 Capex $55.3B(+77%)，其中大量AI专用芯片和服务器，若AI泡沫破裂，这些资产将迅速贬值",
-        "Azure OpenAI服务依赖GPT模型迭代，若OpenAI技术路线变化，相关定制化硬件可能淘汰"
-      ]
-    },
-    "D5_accounting_quality": {
+    {
+      "dimension_id": "D2",
+      "dimension_name": "会计政策保守性",
+      "dimension_name_en": "Accounting Policy Conservatism",
+      "weight": 0.2,
       "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "锚点'历史有延长→4'：2022 年 7 月（FY2023 期初生效）将服务器/网络设备年限 4→6 年，按会计估计变更未来适用、不追溯（L1840、L7078）。FY2024 10-K 未量化变更影响（FY2023 10-K 曾披露 -$3.7B，不在本文件），但 MD&A 三处定性披露 'Excluding the impact of the change in accounting estimate, gross margin percentage increased slightly'（L2251、L2578、L2588），证明变更对 FY2024 报告毛利率仍有持续增厚。FY2024 本期无进一步变更（故不到 5 分）；连续三年商誉/无形/PP&E 零减值（L14731、L15042、L3166-3169），估计裁量呈单向特征。",
+      "supporting_signals": [
+        "MSFT-FY2024-SIG-001",
+        "MSFT-FY2024-SIG-007",
+        "MSFT-FY2024-SIG-008"
+      ],
+      "key_metrics": {
+        "change_method": "prospectively",
+        "change_effective": "beginning of fiscal year 2023 (July 2022)",
+        "retrospective_adjustment": false,
+        "change_impact_quantified_in_this_filing": false,
+        "qualitative_margin_impact_disclosures": 3,
+        "no_change_in_fiscal_2024": true,
+        "impairments_fy2024": 0
+      }
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值风险触发",
+      "dimension_name_en": "Impairment Risk Triggers",
+      "weight": 0.2,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "锚点'有直接信号+历史记录但本期减值小→4'：本期（FY2024）实际减值为零——商誉测试无减值（L14731）、无形资产无重大减值（L15042）、'Severance, hardware-related impairment, and lease consolidation costs'=$0（L3166-3169）。历史记录：FY2023 Q2 $1.2B charge 含 'impairment charges resulting from changes to our hardware portfolio'（L2245，硬件部分未单独量化）——证明硬件组合一年内即可触发减值。直接信号：Risk Factor 明示'We have in the past recorded, and may in the future be required to record, a significant charge'（L1165）及 'excess or obsolete inventory'（L1208）。本期无大额 PP&E 减值，故不到 5 分。",
+      "supporting_signals": [
+        "MSFT-FY2024-SIG-006",
+        "MSFT-FY2024-SIG-012",
+        "MSFT-FY2024-SIG-010",
+        "MSFT-FY2024-SIG-007"
+      ],
+      "key_metrics": {
+        "ppe_impairment_fy2024_millions": 0,
+        "goodwill_intangible_impairment_fy2024_millions": 0,
+        "historical_charge_fy2023_q2_millions": 1200,
+        "hardware_portion_quantified": false,
+        "direct_impairment_signals_count": 3,
+        "impairment_triggers_identified": [
+          "hardware_portfolio_change",
+          "goodwill_intangible_risk_factor",
+          "obsolete_inventory_supply_chain"
+        ],
+        "accumulated_goodwill_impairment_millions": 11300
+      }
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本支出(CAPEX)强度",
+      "dimension_name_en": "Capital Expenditure Intensity",
+      "weight": 0.2,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "现金 capex/收入 = 44,477/245,122 = 18.1%，>15% 档→4 分；含融资租赁新增 ROU $11,633M 的广义口径达 22.9%（56,110/245,122）。PP&E 净值占总资产 26.5%（135,591/512,163，上年 23.2%）。承诺层面：建设承诺 $35,391M（L3775-3786）+ 采购承诺 $72,022M 主要为数据中心（L3805-3816/L3878）+ 租赁承诺 $172,725M（L3790-3801），合计 $360,018M 合同承诺相当于总资产 70%。管理层指引未来数年 capex 继续增长（L3886）。FY2024 折旧 $15.2B 仅为广义 capex 的 27%，费用向后递延显著。",
+      "supporting_signals": [
+        "MSFT-FY2024-SIG-005",
+        "MSFT-FY2024-SIG-011",
+        "MSFT-FY2024-SIG-003"
+      ],
+      "key_metrics": {
+        "capex_millions": 44477,
+        "finance_lease_rou_obtained_millions": 11633,
+        "capex_incl_finance_leases_millions": 56110,
+        "revenue_millions": 245122,
+        "capex_to_revenue_ratio": 0.1814,
+        "capex_incl_leases_to_revenue_ratio": 0.2289,
+        "ppe_net_to_total_assets": 0.2647,
+        "construction_commitments_millions": 35391,
+        "purchase_commitments_millions": 72022,
+        "depreciation_to_broad_capex_ratio": 0.271
+      }
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "技术淘汰压力",
+      "dimension_name_en": "Technology Obsolescence Pressure",
       "weight": 0.15,
-      "weighted_score": 0.60,
-      "evidence": [
-        {
-          "type": "goodwill_testing",
-          "text": "We test goodwill for impairment annually on May 1 at the reporting unit level, or more frequently if indicators of impairment exist",
-          "location": "Note 1 - Goodwill Impairment Testing",
-          "significance": "medium",
-          "note": "商誉年度测试，但阈值高（reporting unit level），且Activision刚收购不久，减值窗口未到"
-        },
-        {
-          "type": "R&D_expense",
-          "text": "Research and development: $29.5 billion (FY2024); $24.5 billion (FY2023); $22.1 billion (FY2022)",
-          "location": "Income Statement / Note 19",
-          "significance": "high",
-          "note": "R&D $29.5B全部费用化，无资本化。这反而是保守的，但与行业(Google部分资本化)不可比"
-        },
-        {
-          "type": "segment_disclosure",
-          "text": "Productivity and Business Processes: $77.3B revenue; Intelligent Cloud: $105.4B revenue; More Personal Computing: $62.0B revenue",
-          "location": "Note 20 - Segment Information",
-          "significance": "medium",
-          "note": "Azure($105.4B)单独披露，但折旧费用未按 segment拆分，无法评估各业务真实盈利能力"
-        },
-        {
-          "type": "useful_life_changes_impact",
-          "text": "The change in useful lives from 4 to 6 years decreased depreciation expense by approximately $3.7 billion in fiscal year 2023",
-          "location": "Note 1 - Property and Equipment (prior year disclosure)",
-          "significance": "critical",
-          "note": "年限延长4→6年，FY2023直接减少折旧费$3.7B。FY2024在6年基础上继续增长，说明原始基数已膨胀"
-        }
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "财报对技术迭代/过时风险的表述强度中高：风险因素承认 'Investments in new technology are speculative'（L1163）；MD&A 明示云与 AI 基础设施投资将持续推高成本、或压低利润率，且依赖 GPU 供应（L1833）；'excess or obsolete inventory' 直接出现（L1208）；自研 AI 加速器 Azure Maia 与 CPU Azure Cobalt（L782）本身即 1-2 年迭代节奏的证明。但全文 'obsolescence' 0 命中，未直言服务器经济寿命短于折旧年限，且 Microsoft 以自研模型+基础设施双重身份深度暴露于 AI 军备竞赛→4 分。",
+      "supporting_signals": [
+        "MSFT-FY2024-SIG-009",
+        "MSFT-FY2024-SIG-010",
+        "MSFT-FY2024-SIG-012"
       ],
-      "risk_indicators": [
-        "年限变更直接减少$3.7B折旧，这是明确的利润管理工具，FY2024继续在6年基础上折旧，基数已被人为提高",
-        "R&D全部费用化($29.5B)是保守的，但意味着未来无相关摊销，与资本化策略的公司不可比",
-        "Azure收入$105.4B但无单独折旧拆分，掩盖AI基础设施的真实盈利能力"
-      ]
+      "key_metrics": {
+        "obsolescence_keyword_hits": 0,
+        "obsolete_keyword_hits": 1,
+        "gpu_supply_dependence_disclosed": true,
+        "custom_silicon": [
+          "Azure Maia",
+          "Azure Cobalt"
+        ],
+        "ai_role": "hyperscaler (Azure) + OpenAI strategic partnership + in-house silicon",
+        "competitors_ramping_capex": [
+          "GOOGL",
+          "AMZN",
+          "META",
+          "ORCL"
+        ]
+      }
+    }
+  ],
+  "composite_score": {
+    "weighted_score": 4.0,
+    "max_score": 5.0,
+    "risk_level": "高风险",
+    "risk_level_en": "High Risk",
+    "risk_level_color": "#DC3545",
+    "confidence": 0.85,
+    "confidence_reason": "全部财务数据与引文逐字核对于 FY2024 10-K 正文（含 HTML 行号），旧标注中不见于本文件的数值（$15,202M 折旧、$118.3B 商誉、$55.3B capex、$0.8B 硬件减值、2-15 年设备年限）已全部修正或标注 NA。扣分约束：FY2024 本期无年限变更、无实际减值，D2/D3 受锚点限制为 4；年限变更影响未在本文件量化，评分依赖 FY2023 延续效应的定性披露。",
+    "score_breakdown": {
+      "D1": {
+        "score": 4,
+        "weight": 0.25,
+        "weighted": 1.0
+      },
+      "D2": {
+        "score": 4,
+        "weight": 0.2,
+        "weighted": 0.8
+      },
+      "D3": {
+        "score": 4,
+        "weight": 0.2,
+        "weighted": 0.8
+      },
+      "D4": {
+        "score": 4,
+        "weight": 0.2,
+        "weighted": 0.8
+      },
+      "D5": {
+        "score": 4,
+        "weight": 0.15,
+        "weighted": 0.6
+      }
     }
   },
-  "summary": "Microsoft是5家公司中折旧政策披露最详尽的公司，但风险极高。关键红线：服务器年限从4年延长至6年（与Google同步），FY2024年资本开支$55.3B(+77%)投入AI基础设施，但6年折旧年限与AI硬件1-3年淘汰周期严重错配。FY2023已发生$0.8B硬件减值，证明实际寿命确实短于账面。Activision收购带来$49B代价、$25B商誉和$24B无形资产，未来摊销压力巨大。D&A总计$22.3B(+60%)，为5家公司中最高。唯一保守点是R&D全部费用化($29.5B)。",
-  "key_metrics": {
-    "depreciation_expense_fy2024": 15202,
-    "depreciation_expense_fy2023": 11023,
-    "depreciation_expense_fy2022": 12641,
-    "total_DNA_fy2024": 22307,
-    "total_DNA_fy2023": 13931,
-    "accumulated_depreciation_2024": 76442,
-    "accumulated_depreciation_2023": 68343,
-    "capex_fy2024": 55300,
-    "capex_fy2023": 31200,
-    "useful_life_servers": "6 years (changed from 4 in July 2022)",
-    "goodwill_2024": 118300,
-    "intangible_assets_net_2024": 53200,
-    "R&D_expense_fy2024": 29500,
-    "impairment_recorded_fy2023": 1200,
-    "hardware_impairment_fy2023": 800
+  "comparative_context": {
+    "sector_median_score": 3.6,
+    "sector": "Software / AI Cloud Infrastructure",
+    "peer_comparison": [
+      {
+        "company": "Meta Platforms",
+        "ticker": "META",
+        "estimated_score": 4.0,
+        "note": "CONFIRMED (project lead, 2025-07-15). Servers 4-5 years, realized $2.43B facilities-consolidation impairment in 2023. MSFT (4.00) 与 META 并列：MSFT 年限更乐观（6 年）但本期零减值，META 有大额实际减值。"
+      },
+      {
+        "company": "Alphabet (Google)",
+        "ticker": "GOOGL",
+        "estimated_score": 4.25,
+        "note": "DRAFT (2026-07-20). Servers 4->6 years effective FY2023, -$3.9B depreciation quantified in three locations. MSFT 同为 4->6 年但 FY2024 10-K 未量化影响、披露位置更少，透明度略低。"
+      },
+      {
+        "company": "Oracle",
+        "ticker": "ORCL",
+        "estimated_score": 3.6,
+        "note": "CONFIRMED (2026-07-22). Servers 4->5 years (FY2023 Q1), -$434M opex; three years zero PP&E impairment; $32.2B off-BS datacenter leases. MSFT 更高：年限更乐观（6 vs 5 年）、capex 强度更大（22.9% vs 13.0% 广义口径）、有历史硬件减值记录。"
+      },
+      {
+        "company": "NVIDIA",
+        "ticker": "NVDA",
+        "estimated_score": 3.1,
+        "note": "Estimated. Sells GPUs rather than operating hyperscale fleets; manufacturing-equipment asset structure; different depreciation risk profile."
+      },
+      {
+        "company": "AMD",
+        "ticker": "AMD",
+        "estimated_score": 2.4,
+        "note": "Estimated. Fabless chip designer; asset-light relative to cloud operators; pending annotation."
+      }
+    ],
+    "microsoft_positioning_note": "MSFT 综合 4.00（高风险），处样本第一梯队（GOOGL 4.25 草稿 > MSFT/META 4.00 > ORCL 3.6）。特征：年限最乐观（6 年，与 GOOGL 并列）+ capex 强度样本最高（广义 22.9%/收入）+ FY2023 已有硬件组合减值实证 + FY2024 本期零减值零变更的'平静期'。风险呈向后递延形态：$360B 合同承诺（含 $72B 数据中心采购承诺、$35.4B 建设承诺）将在 FY2025-2027 转化为折旧阶梯，重估时重点跟踪服务器年限是否再次延长及 AI 资产减值确认。"
   },
-  "peer_comparison": {
-    "server_depreciation_years": {
-      "MSFT": 6,
-      "GOOGL": 6,
-      "META": 4,
-      "NVIDIA": "implied shorter",
-      "AMD": "implied shorter"
-    },
-    "D&A_growth_yoy": {
-      "MSFT": "+60%",
-      "GOOGL": "+38%",
-      "META": "+26%",
-      "NVIDIA": "+25%",
-      "AMD": "declining"
-    }
+  "annotation_methodology": {
+    "source_document": "Microsoft Corporation Fiscal 2024 Annual Report on Form 10-K (CIK 0000789019, fiscal year ended June 30, 2024, filed July 30, 2024)",
+    "filing_accessed": "SEC EDGAR - https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000789019",
+    "text_extraction_method": "HTML parsing with Python (regex tag-stripping, html.unescape, whitespace normalization, encoding errors replaced) + keyword search (useful life/lives, depreciation, impairment, obsolescence/obsolete, capital expenditures, finance lease, construction commitments, change in accounting estimate); every candidate hit manually verified in visible body text with HTML line numbers; hidden ix:hidden XBRL tag matches excluded; multi-row financial tables transcribed cell-by-cell with line ranges noted",
+    "premise_verification": "旧标注线索逐条复核：①服务器年限 4→6 年、2022 年 7 月、FY2023 生效——确认（L1840、L7078）；②FY2024 折旧 $15,202M——本文件仅披露 '$15.2 billion'（L13766），精确值标注为四舍五入口径；③FY2024 capex $55.3B——本文件无此原文，实际为现金 capex $44,477M（L6248-6259）+ 融资租赁新增 $11,633M（L18308-18311）；④商誉 $118.3B——本文件为 $119,220M（L5219-5222）；⑤'设备年限 2-15 年'——本文件为 computer equipment 2-6 年（L7451）；⑥FY2023 硬件减值 $0.8B——本文件仅披露 $1.2B Q2 charge 含未量化硬件减值（L2245）。标注一律以本文件事实为准。",
+    "scoring_method": "Five-dimension weighted scoring (D1 0.25 / D2 0.20 / D3 0.20 / D4 0.20 / D5 0.15), 1-5 integer scale per dimension, anchored to confirmed META 2023 benchmark (4.0), GOOGL 2023 draft (4.25) and ORCL FY2024 (3.6)",
+    "human_verification": "All quoted text excerpts programmatically extracted from tag-stripped 10-K text at cited HTML line numbers and spot-checked verbatim; financial figures transcribed from statement/note tables with line references",
+    "limitation": "Single-year 10-K analysis. Microsoft discloses depreciation expense only in rounded billions, no depreciation by asset class or segment, no separate construction-in-progress line, and does not quantify the FY2023 useful-life change impact or the hardware portion of the FY2023 Q2 charge in this filing (marked NA/null). FY2023 10-K cross-check for the original 4->6 year change quantification (-$3.7B) is pending and out of scope for this single-document annotation."
   }
 }

@@ -1,0 +1,393 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-07-22",
+    "annotator": "Kimi AI-assisted (pending review by project lead)",
+    "review_status": "draft_pending_review",
+    "filing_source": "SEC EDGAR - 10-K Annual Report"
+  },
+  "company": {
+    "ticker": "MU",
+    "name": "Micron Technology, Inc.",
+    "fiscal_year": 2023,
+    "filing_date": "2023-10-06",
+    "report_period_end": "2023-08-31",
+    "industry": "Semiconductors / Memory (DRAM / NAND) / Storage",
+    "primary_assets": "Wafer Fab Production Equipment, Buildings (Fabs), Construction in Progress, Software, Finance Lease ROU Assets",
+    "file_path": "data/raw/mu_fy2023_10k.html",
+    "coverage_note": "Micron fiscal year is the 52/53-week period ending on the Thursday closest to August 31; FY2023 ran from 2022-09-02 to 2023-08-31, so its reporting window is shifted ~4 months earlier than calendar-year filers (META/GOOGL). FY2023 was a severe memory down-cycle year: revenue -49% YoY, gross margin negative 9%, net loss $5,833M. Manufacturing-asset (fab tool) depreciation economics differ from cloud-vendor server fleets; analyzed on its own basis."
+  },
+  "financial_highlights": {
+    "revenue_millions": 15540,
+    "net_income_millions": -5833,
+    "operating_income_millions": -5745,
+    "income_tax_expense_millions": 177,
+    "income_tax_note": "Income tax PROVISION (expense) of $177M in FY2023 despite a $5,658M pretax loss (driven by $178M foreign current tax and $84M U.S. federal deferred provision); labeled 'Income tax (provision) benefit' in the income statement.",
+    "rd_expense_millions": 3114,
+    "operating_cash_flow_millions": 1559,
+    "capex_millions": 7676,
+    "depreciation_millions": 7670,
+    "amortization_millions": 86,
+    "depreciation_and_amortization_combined_millions": 7756,
+    "impairment_charges_millions": 112,
+    "impairment_note": "Fixed-asset/intangible-class impairments: $101M SBU goodwill impairment (Q4 FY2023, other operating expense) + $11M non-cash restructure and asset impairment adjustment per cash flow statement. Excludes the $1,831M inventory NRV write-down (current asset, recorded in COGS) reported separately below.",
+    "inventory_writedown_millions": 1831,
+    "restructure_charges_millions": 171,
+    "facility_underutilization_costs_millions": 382,
+    "total_assets_millions": 64254,
+    "ppe_gross_millions": 87585,
+    "ppe_net_millions": 37928,
+    "accumulated_depreciation_millions": 49657,
+    "goodwill_millions": 1150,
+    "intangible_assets_net_millions": 404,
+    "construction_in_progress_millions": 2464,
+    "equipment_not_placed_into_service_millions": 2910,
+    "finance_lease_payments_millions": 109,
+    "finance_lease_note": "Cash flows used for financing activities - finance leases: $109M in FY2023 (plus $24M finance-lease interest in operating cash flows). Separately, 'Payments on equipment purchase contracts' of $138M appear in financing activities. Finance lease ROU assets of $1,311M are included in PP&E.",
+    "capex_to_revenue_ratio": 0.494,
+    "depreciation_to_revenue_ratio": 0.4936,
+    "depreciation_prior_year_millions": 7030,
+    "capex_prior_year_millions": 12067,
+    "gross_margin_millions": -1416,
+    "fy2024_capex_guidance": "slightly above $7 billion (net of partner contributions)"
+  },
+  "accounting_policy": {
+    "depreciation_method": "straight-line",
+    "building_useful_life_years": "10-30",
+    "production_equipment_useful_life_years": "7",
+    "other_equipment_useful_life_years": "up to 7",
+    "software_useful_life_years": "3-5",
+    "intangible_product_process_technology_life_years": "weighted-average 9",
+    "assets_held_for_sale": "lower of estimated fair value or carrying value; included in current assets",
+    "useful_life_assessment_basis": "periodically assessed based on technology node transitions, capital spending, and equipment re-use rates",
+    "long_lived_asset_impairment_test": "undiscounted expected future cash flows vs carrying value; impairment = excess of carrying value over estimated fair value",
+    "change_in_estimate_method": "NA - no useful-life change (extension or shortening) disclosed in FY2023; keyword search for 'prospectively' / 'change in estimate' returned no body-text hits. The only recent accounting change was the FY2021 inventory costing switch from average cost to FIFO (cumulative effect $133M, not retrospectively adjusted), unrelated to depreciation.",
+    "policy_risk_note": "生产设备折旧年限7年，公司在关键会计估计中明确将年限与'技术节点迁移、资本开支、设备复用率'挂钩，说明管理层承认节点迭代会影响设备经济寿命；但FY2023未做任何年限调整。晶圆厂设备（尤其光刻、刻蚀、沉积设备）可跨多个节点复用，与云厂商服务器1-2年淘汰的口径不同，真实错配程度小于表面数字；然而FY2023下行期出现的$382M产能闲置成本和$1.83B存货减记表明，7年直线折旧并未反映利用率与技术价值的周期性塌陷。"
+  },
+  "risk_signals": [
+    {
+      "signal_id": "MU-FY2023-SIG-001",
+      "source": "Notes to Consolidated Financial Statements - Significant Accounting Policies - Property, Plant, and Equipment",
+      "keyword_matched": "useful lives of generally ... 7 years for production equipment",
+      "text_excerpt": "Property, plant, and equipment is stated at cost and depreciated using the straight-line method over estimated useful lives of generally 10 to 30 years for buildings, 7 years for production equipment, up to 7 years for other equipment, and 3 to 5 years for software.",
+      "page_location": "Notes - Significant Accounting Policies - Property, Plant, and Equipment (HTML line 2789)",
+      "risk_type": "depreciation_schedule_disclosure",
+      "severity": "critical",
+      "relevance_to_depreciation": "Official depreciation schedule: fab production equipment is depreciated over 7 years straight-line. Against a DRAM/NAND technology node cadence of roughly 1-2 years per node (1x->1y->1z->1-alpha->1-beta within ~5 years), the 7-year accounting life spans 3-5 node generations. Equipment gross value is $65,555M - the dominant asset class - so this single assumption drives $7.67B of annual depreciation.",
+      "evidence_chain": [
+        "Official production equipment life: 7 years straight-line (line 2789)",
+        "Equipment gross: $65,555M of $87,585M total PP&E gross (line 2901); FY2023 depreciation $7.67B",
+        "Node cadence: CNBU 2023 sales still on 1x/1y/1z/1-alpha nodes while 1-beta already qualified (lines 164-167); 232-layer NAND ramped in 2023 (line 576)",
+        "Micron plans EUV lithography on the node AFTER 1-beta (line 575) - each such transition can strand or devalue pre-EUV tools",
+        "Result: 7-year life assumes multi-node tool reuse; if HBM/EUV transitions accelerate node turnover, depreciation is systematically back-loaded relative to economic value loss"
+      ]
+    },
+    {
+      "signal_id": "MU-FY2023-SIG-002",
+      "source": "MD&A - Critical Accounting Estimates - Property, Plant, and Equipment",
+      "keyword_matched": "useful lives ... based on technology node transitions",
+      "text_excerpt": "We periodically assess the estimated useful lives of our property, plant, and equipment based on technology node transitions, capital spending, and equipment re-use rates. We also review the carrying value of property, plant, and equipment for impairment when events and circumstances indicate that the carrying value of an asset or group of assets may not be recoverable from the estimated future cash flows expected to result from its use and/or disposition.",
+      "page_location": "Item 7. MD&A - Critical Accounting Estimates (HTML lines 2574-2584)",
+      "risk_type": "technology_obsolescence_risk",
+      "severity": "high",
+      "relevance_to_depreciation": "Management itself names 'technology node transitions' as a primary driver of useful-life estimates - an explicit admission that depreciation assumptions are hostage to the node cadence. Despite a brutal FY2023 down-cycle and a node transition to 1-beta/EUV underway, NO useful-life revision was made in FY2023, leaving the 7-year assumption unchanged through the sharpest downturn in company history.",
+      "evidence_chain": [
+        "Company admits useful lives are a critical estimate driven by node transitions and re-use rates",
+        "FY2023: worst down-cycle in memory industry history, wafer starts 'significantly reduced' (lines 2120-2123), yet no life revision disclosed",
+        "Undiscounted-cash-flow recoverability test is a weak backstop at asset-group level",
+        "Estimate discretion operates asymmetrically: lives are not shortened in downturns, only revisited when convenient",
+        "Result: depreciation schedule embeds a normal-utilization, stable-node assumption that FY2023 reality violated"
+      ]
+    },
+    {
+      "signal_id": "MU-FY2023-SIG-003",
+      "source": "MD&A - Overview / Inventory NRV write-downs; Cash Flow Statement; Auditor's Report (CAM)",
+      "keyword_matched": "write down inventories to their estimated net realizable value",
+      "text_excerpt": "Due to the challenging pricing environment, we recognized charges of $1.83 billion in 2023 to write down inventories to their estimated net realizable value. ... Provision to write down inventories to net realizable value 1,831 (cash flow statement). ... The Company recorded charges of $1.83 billion to cost of goods sold to write down the carrying value of work in process and finished goods inventories to their estimated net realizable value (Critical Audit Matter).",
+      "page_location": "Item 7. MD&A - Overview (HTML lines 2107-2108); Inventory NRV write-downs table (line 2219); Consolidated Statements of Cash Flows (line 2659); Report of Independent Registered Public Accounting Firm - Critical Audit Matter (lines 3610-3613)",
+      "risk_type": "realized_inventory_writedown",
+      "severity": "critical",
+      "relevance_to_depreciation": "The $1.83B inventory NRV write-down is a REALIZED, auditor-flagged (sole Critical Audit Matter) consequence of the same ASP collapse that undermines the revenue assumptions behind 7-year equipment depreciation. Inventory write-downs are the leading edge of asset-value impairment in memory: when selling prices fall below cost, the fixed assets producing that inventory are also economically impaired long before any PP&E impairment test triggers.",
+      "evidence_chain": [
+        "FY2023 inventory NRV write-down: $1,831M to COGS (vs $0 in 2022/2021); net impact $987M after $844M lower-cost benefit",
+        "PwC designated NRV of inventories as THE Critical Audit Matter (lines 3596-3613)",
+        "Same ASP collapse drove gross margin to negative 9% (line 2205) and SBU goodwill impairment",
+        "PP&E impairment test uses undiscounted cash flows and asset-group pooling - did NOT trigger despite the same price collapse",
+        "Result: current assets are marked to economic reality while $87.6B of gross PP&E continues on a 7-year schedule; depreciation risk is real but absorbed asymmetrically across asset classes"
+      ]
+    },
+    {
+      "signal_id": "MU-FY2023-SIG-004",
+      "source": "Notes to Consolidated Financial Statements - Goodwill",
+      "keyword_matched": "charge of $101 million ... to impair all of the goodwill assigned to our SBU reporting unit",
+      "text_excerpt": "In the fourth quarter of 2023, we recognized a charge of $101 million included in other operating income (loss) to impair all of the goodwill assigned to our SBU reporting unit based on a quantitative assessment for impairment. ... The impairment of SBU goodwill reflects lower forecasted cash flows for SBU as a result of adverse conditions in the storage industry environment due to weak demand in many end markets combined with global and macroeconomic challenges and lower demand resulting from customer actions to reduce elevated inventory levels.",
+      "page_location": "Notes - Goodwill (HTML lines 2903-2916); corroborated in Other Operating (Income) Expense table (line 3413) and cash flow statement",
+      "risk_type": "realized_impairment",
+      "severity": "high",
+      "relevance_to_depreciation": "Actual realized impairment in FY2023: ALL goodwill of the Storage Business Unit (SBU, NAND/SSD) was written off because forecasted cash flows collapsed. This proves management's own DCF no longer supports carrying values in the NAND/storage franchise - yet the NAND fab equipment producing those same products remains on its 7-year depreciation schedule with no impairment.",
+      "evidence_chain": [
+        "Q4 FY2023: $101M SBU goodwill fully impaired via quantitative DCF test",
+        "Cause: lower forecasted cash flows from adverse storage industry conditions, ASP and bit-shipment declines",
+        "Same NAND fabs/assets that support SBU cash flows tested only under the weaker undiscounted-cash-flow long-lived-asset standard",
+        "Goodwill (most protected asset class) failed its test; PP&E (least protected by test design) passed",
+        "Result: impairment recognition is test-design-dependent; depreciation schedule absorbs none of the economic loss revealed by the goodwill write-off"
+      ]
+    },
+    {
+      "signal_id": "MU-FY2023-SIG-005",
+      "source": "MD&A - Overview / Consolidated Gross Margin",
+      "keyword_matched": "facility underutilization costs",
+      "text_excerpt": "As a result of these conditions and increases in our inventory levels, we have reduced capital expenditures and also significantly reduced wafer starts in 2023 for both DRAM and NAND. We expect wafer starts will remain significantly below peak capacity levels for the foreseeable future ... We recognized period costs from fabrication facility underutilization of $382 million in 2023 due to wafer start reductions. ... consolidated gross margin percentage decreased to negative 9% for 2023 from 45% for 2022 ... and $382 million of facility underutilization costs in 2023.",
+      "page_location": "Item 7. MD&A - Overview (HTML lines 2119-2125); Consolidated Gross Margin (lines 2205-2209)",
+      "risk_type": "capacity_underutilization",
+      "severity": "high",
+      "relevance_to_depreciation": "Micron recognized $382M of period costs because fabs ran significantly below capacity - a direct admission that part of the depreciating asset base was economically idle in FY2023. Underutilization expensed as period cost is economically equivalent to accelerated depreciation of idle capacity; it demonstrates that the 7-year straight-line schedule does not match the pattern of economic benefit when utilization collapses.",
+      "evidence_chain": [
+        "Wafer starts significantly reduced for BOTH DRAM and NAND in 2023; expected to remain below peak 'for the foreseeable future'",
+        "$382M underutilization period costs recognized in FY2023 (vs $335M at MTU in 2021)",
+        "Equipment continues depreciating on schedule whether or not wafers run",
+        "Additionally $2.91B of equipment was not yet placed into service as of Aug 31, 2023 (line 2901 footnote) - capex ahead of demand",
+        "Result: economic consumption of fab capacity is usage/cycle-linked, but accounting depreciation is time-based; in down-cycles this overstates asset values and understates true cost of idle capacity"
+      ]
+    },
+    {
+      "signal_id": "MU-FY2023-SIG-006",
+      "source": "Notes to Consolidated Financial Statements - Restructure and Asset Impairments",
+      "keyword_matched": "2023 Restructure Plan ... restructure charges of $171 million",
+      "text_excerpt": "In 2023, we initiated the 2023 Restructure Plan in response to challenging industry conditions. Under the 2023 Restructure Plan, we expect our headcount reduction to approach 15% by the end of calendar 2023 through a combination of voluntary attrition and personnel reductions. In connection with the plan, we incurred restructure charges of $171 million in 2023, primarily related to employee severance costs.",
+      "page_location": "Notes - Restructure and Asset Impairments (HTML lines 3405-3413)",
+      "risk_type": "restructure_charges",
+      "severity": "medium",
+      "relevance_to_depreciation": "A 15%-of-workforce restructuring mid-downturn confirms the severity of the cycle that the unchanged 7-year equipment depreciation schedule does not reflect. The FY2023 charge was mostly cash severance ($11M non-cash asset impairment per the cash flow statement), but the prior-cycle comparator (FY2021 Lehi/3D XPoint exit: $435M restructure and asset impairment charge, $488M total) shows technology-exit risk in this industry materializes as sudden asset write-offs rather than through depreciation.",
+      "evidence_chain": [
+        "FY2023 restructure: $171M charges, ~15% headcount reduction, plan substantially complete by Q3 FY2023",
+        "FY2021 precedent: $435M restructure and asset impairment on 3D XPoint exit (line 2846) - a whole technology/facility abandoned mid-life",
+        "3D XPoint exit proves node/technology bets can be stranded before end of depreciable life",
+        "Result: technology-exit impairments in memory are episodic and large; annual depreciation systematically fails to pre-provision them"
+      ]
+    },
+    {
+      "signal_id": "MU-FY2023-SIG-007",
+      "source": "MD&A - Critical Accounting Estimates - Property, Plant, and Equipment (impairment test)",
+      "keyword_matched": "undiscounted expected future cash flows are less than the carrying value",
+      "text_excerpt": "In cases where undiscounted expected future cash flows are less than the carrying value, an impairment loss is recognized equal to the amount by which the carrying value exceeds the estimated fair value of the assets. The estimate of future cash flows involves numerous assumptions which require significant judgment by us, including, but not limited to, future use of the assets for our operations versus sale or disposal of the assets, future selling prices for our products, and future production and sales volumes.",
+      "page_location": "Item 7. MD&A - Critical Accounting Estimates (HTML lines 2581-2589)",
+      "risk_type": "impairment_testing_policy",
+      "severity": "medium",
+      "relevance_to_depreciation": "The long-lived asset recoverability test compares carrying value to UNDISCOUNTED cash flows at the asset-group level - a very low bar for fabs that generate some cash in almost any price environment. This explains why FY2023 saw $1.83B inventory write-downs and a full SBU goodwill impairment but zero PP&E impairment: the test structure shields the 7-year depreciation schedule from cyclical reality.",
+      "evidence_chain": [
+        "Recoverability measured against undiscounted future cash flows - time value ignored",
+        "Assets pooled at group level, diluting obsolescence of any single tool generation",
+        "Key assumptions (future ASPs, volumes, use vs sale) are management-judgment-heavy, as the goodwill DCF failure shows",
+        "FY2023 outcome: goodwill impaired, inventories written down, PP&E untouched despite negative gross margin",
+        "Result: gap between 7-year accounting life and cyclical/technological reality can persist for years without income-statement recognition"
+      ]
+    },
+    {
+      "signal_id": "MU-FY2023-SIG-008",
+      "source": "Item 1. Business - CNBU / R&D",
+      "keyword_matched": "HBM ... mass production ramp for HBM3E in early calendar 2024 / 1-beta DRAM node",
+      "text_excerpt": "HBM, used in high performance computing, had very strong demand this year, driven by demand for generative AI. We are working closely with our customers and have begun sampling our industry-leading HBM3E product offering. We expect to begin a mass production ramp for HBM3E in early calendar 2024. ... In DRAM, our 1-beta node was introduced ahead of the industry and we ramped our manufacturing of it during 2023. We plan to implement EUV lithography on the DRAM node after 1-beta. In NAND, the introduction of our 232-layer node was also ahead of the industry and we ramped our manufacturing of it during 2023.",
+      "page_location": "Item 1. Business (HTML lines 188-192, 573-577); HBM also at lines 208, 584",
+      "risk_type": "industry_competition_tech_substitution",
+      "severity": "high",
+      "relevance_to_depreciation": "AI-driven HBM demand is forcing an accelerated capital rotation: HBM3E ramp in early CY2024, 1-beta ramped in 2023, EUV insertion on the next node. HBM production (TSV stacking, advanced packaging) requires new tool sets; each node transition partially strands or de-rates prior-node equipment being depreciated over 7 years. Micron is racing SK hynix and Samsung in HBM - a capex-intensive catch-up that shortens the economic life of the installed base.",
+      "evidence_chain": [
+        "Generative AI drove 'very strong' HBM demand in FY2023; Micron only sampling HBM3E with ramp in early CY2024 - behind SK hynix's HBM3 lead",
+        "1-beta DRAM and 232-layer NAND both ramped in 2023; EUV lithography planned on the post-1-beta node",
+        "Node transitions and HBM/EUV packaging require new capital equipment while old tools carry 7-year book schedules",
+        "FY2024 capex guided to 'slightly above $7 billion' despite the downturn (lines 2341-2343) - technology race forces continued spend",
+        "Result: competitive-technological refresh pressure continuously compresses economic life below the 7-year accounting life"
+      ]
+    },
+    {
+      "signal_id": "MU-FY2023-SIG-009",
+      "source": "MD&A - Liquidity and Capital Resources / Cash Flows",
+      "keyword_matched": "expenditures for property, plant, and equipment",
+      "text_excerpt": "For 2023, net cash used for investing activities consisted primarily of $7.68 billion of expenditures for property, plant, and equipment; contributions of $710 million received from partners to offset capital expenditures ... We estimate capital expenditures in 2024 for property, plant, and equipment, net of partner contributions, to be slightly above $7 billion.",
+      "page_location": "Item 7. MD&A - Investing Activities (HTML lines 2417-2420); Liquidity (lines 2341-2343)",
+      "risk_type": "capex_intensity",
+      "severity": "high",
+      "relevance_to_depreciation": "FY2023 capex of $7,676M equals 49.4% of revenue ($15,540M) - an extreme capital intensity distorted upward by the revenue collapse, but extreme even in normal years (FY2022: $12,067M / $30,758M = 39.2%). Depreciation of $7.67B already exceeds operating cash flow of $1.56B: the entire earnings model hinges on the 7-year life assumption for a $65.6B equipment base, and each 1-year error in average life is worth roughly $1B+ of annual expense.",
+      "evidence_chain": [
+        "FY2023 capex $7,676M (49.4% of revenue); FY2022 $12,067M (39.2%); FY2021 $10,030M (36.2%)",
+        "FY2023 depreciation $7.67B vs operating cash flow $1,559M and net loss $5,833M",
+        "PP&E gross $87,585M, accumulated depreciation $49,657M (57% consumed)",
+        "$2.91B equipment not yet placed into service + $2,464M construction in progress = future depreciation locked in",
+        "FY2024 capex guided slightly above $7B even after a 36% cut",
+        "Result: depreciation assumption risk has maximum balance-sheet leverage at Micron; small life errors swing reported results by billions"
+      ]
+    },
+    {
+      "signal_id": "MU-FY2023-SIG-010",
+      "source": "Item 1A. Risk Factors - Acquisitions; Inventory risks",
+      "keyword_matched": "impairment of acquired intangible assets, goodwill, or other assets as a result of changing business conditions or technological advancements",
+      "text_excerpt": "impairment of acquired intangible assets, goodwill, or other assets as a result of changing business conditions or technological advancements. ... we may incur charges in connection with obsolete or excess inventories, or we may not fully recover our costs, which would reduce our gross margins. For example, in 2023, we recorded aggregate charges of $1.83 billion to write down the carrying value of our inventories to their estimated net realizable value. ... which may result in excess and obsolescence charges in future periods.",
+      "page_location": "Item 1A. Risk Factors (HTML lines 1583-1585, 938-946)",
+      "risk_type": "risk_factor_corroboration",
+      "severity": "medium",
+      "relevance_to_depreciation": "Risk Factors explicitly link impairment to 'technological advancements' and cite the realized $1.83B inventory write-down as the example of obsolescence risk, while warning of future 'excess and obsolescence charges'. Note: Risk Factors contain NO signal of any depreciation useful-life change (extension or shortening) in FY2023 - the section corroborates impairment/obsolescence risk but is silent on the 7-year schedule itself.",
+      "evidence_chain": [
+        "Risk Factors tie asset impairment directly to technological advancements",
+        "Inventory obsolescence risk factor cites the actual FY2023 $1.83B write-down",
+        "Customized products create future excess/obsolescence charge exposure",
+        "No useful-life change disclosed anywhere in the filing (verified by keyword search)",
+        "Result: risk disclosure framework acknowledges technology-driven value loss for inventories/intangibles/goodwill but treats the PP&E depreciation schedule as stable"
+      ]
+    }
+  ],
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "折旧年限 vs 技术实际寿命",
+      "dimension_name_en": "Depreciation Life vs Technology Useful Life",
+      "weight": 0.25,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "生产设备折旧年限7年（建筑物10-30年、软件3-5年），按评分锚点≥6年属最高档。存储节点迭代周期约1-2年一代（1x→1y→1z→1α→1β，五年内五代；232层NAND 2023年量产，EUV将在1β之后节点导入），表面错配比3-5倍。但制造设备口径需与云厂商服务器区分：晶圆厂设备（光刻/刻蚀/沉积/量测）可跨多个节点复用，公司在关键会计估计中明确以'技术节点迁移、资本开支、设备复用率'评估年限（L2575-2577），说明7年假设内含复用预期，真实错配小于服务器口径。综合：表面档位5，因设备跨节点复用的真实性下调至4。",
+      "supporting_signals": ["MU-FY2023-SIG-001", "MU-FY2023-SIG-002", "MU-FY2023-SIG-008"],
+      "key_metrics": {
+        "stated_production_equipment_life_years": "7",
+        "estimated_node_transition_cycle_years": "1-2",
+        "surface_life_mismatch_ratio": "3.5-7x",
+        "equipment_gross_millions": 65555,
+        "mitigating_factor": "fab tools reusable across multiple nodes; useful life assessment explicitly incorporates equipment re-use rates"
+      }
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "会计政策保守性",
+      "dimension_name_en": "Accounting Policy Conservatism",
+      "weight": 0.20,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "FY2023未发生任何折旧年限变更：全文检索'prospectively'、'change in estimate'、'extend/shorten useful life'均无正文命中（已核实）。公司既未像GOOGL/MSFT那样延长年限虚增利润，也未在下行年缩短年限加速折旧——政策保持中性，按锚点'无变更→3'评分。值得注意：在史上最严重下行年、毛利率-9%的情况下，管理层未重估7年年限，估计裁量的'不作为'本身使折旧计提缺乏周期适应性，但这是被动而非主动粉饰。",
+      "supporting_signals": ["MU-FY2023-SIG-002", "MU-FY2023-SIG-010"],
+      "key_metrics": {
+        "useful_life_change_in_fy2023": false,
+        "change_method": "NA - no change",
+        "fifo_inventory_costing_change": "FY2021, $133M cumulative effect, unrelated to depreciation",
+        "policy_stance": "neutral - no opportunistic estimate revision in either direction"
+      }
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值风险触发",
+      "dimension_name_en": "Impairment Risk Triggers",
+      "weight": 0.20,
+      "score": 5,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "FY2023为本批样本中减值/减记实际触发最重的年份：①存货NRV减记$1,831M（现金流量表与MD&A双重确认，且为审计师唯一关键审计事项，L3596-3613）；②SBU商誉全额减值$101M（Q4定量测试，L2903-2916）；③产能闲置期间成本$382M（L2124-2125）；④重组费用$171M、裁员约15%（L3405-3413）；⑤重组及资产减值非现金调整$11M。按锚点'本期实际减值/大额减记→4-5'，取5。需注意解释口径：净亏损年这些减记是行业周期风险的兑现，恰好证明7年折旧计划未预提此类周期性价值塌陷——风险不是'虚高利润'而是'资产账面价值与周期现实脱节'。",
+      "supporting_signals": ["MU-FY2023-SIG-003", "MU-FY2023-SIG-004", "MU-FY2023-SIG-005", "MU-FY2023-SIG-006"],
+      "key_metrics": {
+        "inventory_nrv_writedown_millions": 1831,
+        "goodwill_impairment_millions": 101,
+        "facility_underutilization_costs_millions": 382,
+        "restructure_charges_millions": 171,
+        "total_realized_writedown_and_charges_millions": 2485,
+        "sole_critical_audit_matter": "Net Realizable Value of Finished Goods and Work in Process Inventories"
+      }
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本支出(CAPEX)强度",
+      "dimension_name_en": "Capital Expenditure Intensity",
+      "weight": 0.20,
+      "score": 5,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "CAPEX/收入=7,676/15,540=49.4%，远超25%锚点上限。下行年比率有失真成分（收入同比-49%而资本开支仅削减36%），但正常年份同样极端：FY2022为39.2%（12,067/30,758）、FY2021为36.2%（10,030/27,705），三年均≥25%。设备总值$65.6B、累计折旧$49.7B（已消耗57%）、未投入使用设备$2.91B+在建工程$2.46B，FY2024指引仍'slightly above $7 billion'。年折旧$7.67B已超经营现金流$1.56B，折旧假设的资产负债表杠杆效应为本批样本中最大。",
+      "supporting_signals": ["MU-FY2023-SIG-009", "MU-FY2023-SIG-005"],
+      "key_metrics": {
+        "capex_millions": 7676,
+        "revenue_millions": 15540,
+        "capex_to_revenue_ratio": 0.494,
+        "capex_to_revenue_ratio_fy2022": 0.392,
+        "capex_to_revenue_ratio_fy2021": 0.362,
+        "depreciation_millions": 7670,
+        "depreciation_vs_operating_cash_flow": "7,670 vs 1,559",
+        "equipment_not_in_service_plus_cip_millions": 5374,
+        "fy2024_capex_guidance": "slightly above $7 billion"
+      }
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "行业竞争/技术替代",
+      "dimension_name_en": "Industry Competition & Technology Substitution",
+      "weight": 0.15,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "AI驱动的HBM竞赛是FY2023行业主线：生成式AI拉动HBM需求'very strong'（L188-190），但Micron FY2023仅处于HBM3E送样阶段、2024日历年年初才量产爬坡，落后于SK海力士（HBM3已规模供货）和三星，处于追赶位置。技术迭代同时加速：1β DRAM与232层NAND均于2023年量产、下一节点将导入EUV光刻（L573-576），HBM所需的TSV堆叠与先进封装要求新增设备组合。三强寡头竞争（SK海力士/三星/美光）迫使持续高强度资本开支换代，压缩存量设备经济寿命；但存储行业设备跨节点复用程度高于AI服务器，替代压力略低于GOOGL/META面对的GPU代际淘汰，评4分。",
+      "supporting_signals": ["MU-FY2023-SIG-008", "MU-FY2023-SIG-009", "MU-FY2023-SIG-001"],
+      "key_metrics": {
+        "industry": "Memory (DRAM/NAND) - oligopoly: SK hynix, Samsung, Micron",
+        "hbm_status": "HBM3E sampling in FY2023; mass production ramp early calendar 2024 (behind SK hynix)",
+        "node_transitions_fy2023": ["1-beta DRAM ramp", "232-layer NAND ramp", "EUV planned on post-1-beta node"],
+        "ai_driver": "generative AI drove very strong HBM demand in FY2023"
+      }
+    }
+  ],
+  "composite_score": {
+    "weighted_score": 4.2,
+    "max_score": 5.0,
+    "risk_level": "高风险",
+    "risk_level_en": "High Risk",
+    "risk_level_color": "#DC3545",
+    "confidence": 0.85,
+    "confidence_reason": "All key figures (7-year equipment life, $1.83B inventory write-down, $101M goodwill impairment, $382M underutilization, $7.68B capex, PP&E note breakdown) verified verbatim against filing text with line numbers; absence of any useful-life change confirmed by exhaustive keyword search. Interpretation caveat: FY2023 was a net-loss cyclical-trough year, so high D3/D4 scores reflect realized cycle risk and balance-sheet leverage rather than profit inflation - the risk signature differs in mechanism from cloud-vendor peers (META/GOOGL)."
+  },
+  "comparative_context": {
+    "sector_median_score": 3.7,
+    "sector": "Semiconductors / Memory (vs Internet/AI peers in batch)",
+    "peer_comparison": [
+      {
+        "company": "Meta Platforms",
+        "ticker": "META",
+        "estimated_score": 4.0,
+        "note": "CONFIRMED benchmark. Servers 4-5 years, realized $2.43B facilities-consolidation impairment. MU scores slightly higher (4.2) due to heavier realized write-downs ($1.83B inventory + $101M goodwill) and far higher capex intensity (49% vs 20%), though MU's 7-year fab-equipment life is more defensible than server lives due to cross-node tool reuse."
+      },
+      {
+        "company": "Alphabet",
+        "ticker": "GOOGL",
+        "estimated_score": 4.25,
+        "note": "DRAFT (same batch). Extended server life 4->6 years in 2023, +$3.0B net income. MU has NO such opportunistic estimate change (D2=3 vs GOOGL D2=5), but much heavier realized impairments."
+      },
+      {
+        "company": "Microsoft",
+        "ticker": "MSFT",
+        "estimated_score": 4.2,
+        "note": "Also extended server useful lives (4->6 years, FY2023). Comparable composite to MU but opposite mechanism: MSFT risk is assumption-driven profit inflation; MU risk is cyclical asset-value impairment on a 7-year schedule."
+      },
+      {
+        "company": "NVIDIA",
+        "ticker": "NVDA",
+        "estimated_score": 3.1,
+        "note": "Fabless GPU designer; asset-light relative to MU's owned-fab model. MU's manufacturing asset base makes depreciation assumptions far more balance-sheet-critical."
+      },
+      {
+        "company": "AMD",
+        "ticker": "AMD",
+        "estimated_score": 2.4,
+        "note": "Fabless chip designer; low fixed-asset intensity. Contrast highlights that MU's high score is driven by its IDM (owned fab) structure, not by semiconductor industry membership per se."
+      }
+    ]
+  },
+  "annotation_methodology": {
+    "source_document": "Micron Technology, Inc. 2023 Annual Report on Form 10-K (fiscal year ended August 31, 2023; filed 2023-10-06)",
+    "filing_accessed": "SEC EDGAR - https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000723125",
+    "text_extraction_method": "HTML parsing with Python (regex tag-stripping, latin-1 decoding) + keyword search (useful life/lives, depreciation, impairment, obsolescence, write-down, HBM, prospectively, change in estimate); every candidate hit manually verified in visible body text with line numbers; hidden ix:hidden XBRL tag matches excluded",
+    "scoring_method": "Five-dimension weighted scoring (D1 0.25 / D2 0.20 / D3 0.20 / D4 0.20 / D5 0.15), 1-5 integer scale per dimension, anchored to confirmed META 2023 benchmark (4.0) and draft GOOGL (4.25); manufacturing-asset (fab) basis applied for D1/D5 rather than cloud-server basis",
+    "human_verification": "All quoted text excerpts manually verified against original 10-K filing at cited HTML line numbers",
+    "limitation": "Scoring based on single-year 10-K covering a cyclical trough; depreciation-to-revenue and capex-to-revenue ratios are distorted by the revenue collapse and flagged as such. Micron does not disclose depreciation by asset class or a separate PP&E impairment line; combined 'Restructure and asset impairments' line mixes severance and asset charges (non-cash asset portion $11M per cash flow statement). Multi-year trend analysis and peer filings (SK hynix/Samsung, non-US GAAP) out of scope."
+  }
+}

@@ -1,0 +1,336 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-07-22",
+    "annotator": "Kimi AI-assisted (pending review by project lead)",
+    "review_status": "draft_pending_review",
+    "filing_source": "SEC EDGAR - 10-K Annual Report"
+  },
+  "company": {
+    "ticker": "CRM",
+    "name": "Salesforce, Inc.",
+    "fiscal_year": 2024,
+    "filing_date": "2024-03-06",
+    "report_period_end": "2024-01-31",
+    "industry": "Enterprise SaaS / CRM Software / Cloud Applications",
+    "primary_assets": "Co-location data center equipment, office facilities, leasehold improvements, finance lease ROU assets, goodwill & acquired intangibles (Slack etc.)",
+    "coverage_note": "Salesforce 财年于 1 月 31 日结束：FY2024 覆盖 2023-02-01 至 2024-01-31，与自然年口径（META/GOOGL 的 2023 财年）相差约 1 个月，跨年对比时注意错位。",
+    "file_path": "data/raw/crm_fy2024_10k.html"
+  },
+  "financial_highlights": {
+    "revenue_millions": 34857,
+    "net_income_millions": 4136,
+    "operating_income_millions": 5011,
+    "income_tax_expense_millions": 814,
+    "rd_expense_millions": 4906,
+    "operating_cash_flow_millions": 10234,
+    "capex_millions": 736,
+    "depreciation_millions": 1100,
+    "depreciation_note": "Note 5 原文：'Depreciation and amortization expense totaled $1.1 billion, $903 million and $678 million during fiscal 2024, 2023 and 2022' —— 为固定资产（含融资租赁 ROU）折旧摊销口径，取整为 1,100。现金流量表合并口径 'Depreciation and amortization' 为 $3,959M（含收购无形资产摊销与经营租赁 ROU 摊销/减值，见 depreciation_and_amortization_cashflow_millions）。",
+    "depreciation_and_amortization_cashflow_millions": 3959,
+    "amortization_millions": 1869,
+    "amortization_note": "利润表脚注 (1)：收购无形资产摊销计入 cost of revenues $978M + marketing and sales $891M = $1,869M（FY2024）。Note 8 无形资产表 'Expense and retirements, net' 列为 $1,610M（含报废净额，脚注称 retire 了 $261M 已摊完资产），与利润表口径差异源于报废。",
+    "impairment_charges_millions": null,
+    "impairment_note": "NA - FY2024 无单独列示的 PP&E 减值科目。现金流量表 D&A 脚注 (1) 注明其包含 'amortization and impairment of right-of-use assets'（使用权资产摊销与减值），但未单独量化；重组附注中办公空间削减相关非现金项目 $418M（FY2024）主要为租赁 ROU 冲销，计入重组费用而非减值科目。另有战略投资减值及下调 $465M（非 PP&E，计入 gains/losses on strategic investments）。",
+    "restructuring_charges_millions": 988,
+    "restructuring_note": "利润表 Restructuring 行 FY2024 $988M（FY2023 $828M）；Note 10 拆分：workforce reduction $541M + office space reductions $447M，非现金项目合计 $445M。",
+    "strategic_investment_impairments_and_downward_adjustments_millions": 465,
+    "capex_to_revenue_ratio": 0.0211,
+    "depreciation_to_revenue_ratio": 0.0316,
+    "da_cashflow_to_revenue_ratio": 0.1136,
+    "server_depreciation_pct_of_total": null,
+    "server_depreciation_pct_note": "NA - 未按资产类别披露折旧构成；公司无自有大规模服务器集群，computers/equipment/software 原值仅 $4,209M。",
+    "total_assets_millions": 99823,
+    "total_property_equipment_millions": 6841,
+    "property_equipment_net_millions": 3689,
+    "accumulated_depreciation_millions": 3152,
+    "goodwill_millions": 48620,
+    "intangible_assets_net_millions": 5278,
+    "construction_in_progress_millions": null,
+    "construction_in_progress_note": "NA - Note 5 PPE 明细表（Land 293 / Buildings 490 / Computers,equipment and software 4,209 / Furniture 245 / Leasehold improvements 1,604）无在建工程单列项目。",
+    "finance_lease_payments_millions": 629,
+    "finance_lease_payments_note": "现金流量表融资活动 'Principal payments on financing obligations' FY2024 $629M（含融资租赁本金及其他融资义务）。Note 6 租赁到期表：融资租赁最低付款总额 $1,028M，其中 FY2025 到期 $397M；FY2024 融资租赁成本 = ROU 摊销 $264M + 利息 $29M。",
+    "useful_life_change_depreciation_reduction_millions": null,
+    "useful_life_change_note": "NA - FY2024 10-K 全文无 'prospectively' / 'change in estimate' 命中，本期未发生折旧年限估计变更（与 GOOGL/MSFT 形成鲜明对照）。"
+  },
+  "accounting_policy": {
+    "depreciation_method": "straight-line",
+    "computers_equipment_software_useful_life_years": "3-5",
+    "building_useful_life_years": "10-40",
+    "furniture_fixtures_useful_life_years": "5",
+    "leasehold_improvements": "shorter of the estimated lease term or 10 years",
+    "acquired_intangibles_weighted_avg_remaining_life_years": 4.0,
+    "acquired_developed_technology_remaining_life_years": 2.2,
+    "goodwill_impairment_test": "annually in Q4, or more often if circumstances indicate goodwill may not be recoverable",
+    "change_in_estimate_method": "N/A - no change in accounting estimate disclosed in FY2024",
+    "policy_risk_note": "Salesforce 计算机设备/软件折旧年限 3-5 年，短于 GOOGL 变更后的 6 年、与 META 4-5 年相当；本期无任何年限延长。但公司 PPE 净值仅 $3.7B（占总资产 3.7%），折旧假设偏差的利润杠杆极小——真正的资产负债表风险在商誉 $48.6B（占总资产 48.7%，主要来自 Slack 等收购）而非折旧。"
+  },
+  "risk_signals": [
+    {
+      "signal_id": "CRM-FY2024-SIG-001",
+      "source": "Notes to Consolidated Financial Statements - Note 1. Summary of Business and Significant Accounting Policies",
+      "keyword_matched": "useful lives / straight-line / 3 to 5 years",
+      "text_excerpt": "Depreciation is calculated on a straight-line basis over the estimated useful lives of those assets as follows: Buildings and building improvements 10 to 40 years; Computers, equipment and software 3 to 5 years; Furniture and fixtures 5 years; Leasehold improvements Shorter of the estimated lease term or 10 years. The Company estimates the useful lives of property and equipment upon initial recognition and periodically evaluates the useful lives and whether events or changes in circumstances warrant a revision to the useful lives.",
+      "page_location": "Note 1. Property and Equipment (HTML lines 4160-4167)",
+      "risk_type": "depreciation_schedule_disclosure",
+      "severity": "medium",
+      "relevance_to_depreciation": "官方折旧年限表：计算机设备/软件 3-5 年，介于 GOOGL（6 年）与纯技术迭代周期（1-2 年）之间，错配比约 1.5-5 倍。但关键背景是资产基数极小：PPE 总值 $6,841M、净值 $3,689M，仅占总资产 $99,823M 的 3.7%——即使年限假设过于乐观，对利润的杠杆效应也非常有限。这是典型的轻资产负样本特征。",
+      "evidence_chain": [
+        "官方披露：computers, equipment and software 折旧 3-5 年（直线法）",
+        "技术迭代周期约 1-2 年，年限错配 1.5-5 倍（弱于 GOOGL 3-6 倍、META 2-2.5 倍）",
+        "PPE 净值 $3,689M 仅占总资产 3.7%；FY2024 固定资产折旧摊销 $1.1B 仅为收入的 3.2%",
+        "即使按最悲观 2 年重估，折旧增量对 $5,011M 营业利润的冲击也在个位数百分比内",
+        "Result: 年限假设存在温和错配，但资产基数太小，折旧操纵空间结构性受限"
+      ]
+    },
+    {
+      "signal_id": "CRM-FY2024-SIG-002",
+      "source": "Full-text keyword scan (XBRL noise excluded)",
+      "keyword_matched": "prospectively / change in estimate / change in accounting estimate",
+      "text_excerpt": "(Zero hits) FY2024 10-K 全文中 'prospectively'、'change in estimate'、'change in accounting estimate' 均无任何命中——本期未发生折旧年限估计变更。",
+      "page_location": "Full document scan of crm_fy2024_10k.html (5,002 lines)",
+      "risk_type": "absence_of_useful_life_change",
+      "severity": "low",
+      "relevance_to_depreciation": "这是一条负信号（保护性证据）。GOOGL 2023 年 1 月将服务器年限 4→6 年、MSFT 同期 4→6 年，均以'未来适用法'直接增厚利润；Salesforce 在同期 AI 军备竞赛中没有跟进延长年限，会计估计裁量未被用于利润管理。对训练模型的价值：学会识别'无变更'这一低风险形态。",
+      "evidence_chain": [
+        "全文 0 命中 'prospectively' / 'change in estimate'",
+        "对比：GOOGL 同字段直接量化 -$3.9B 折旧、+$3.0B 净利（GOOGL-2023-SIG-001）",
+        "Salesforce FY2024 折旧摊销 $1.1B 与资产增长（PPE 总值 $6,404M→$6,841M，+6.8%）大体匹配，无 GOOGL 式'资产增、折旧降'异常",
+        "Result: 会计政策保守性维度无本期恶化信号，按锚点评 3 分（无变更）"
+      ]
+    },
+    {
+      "signal_id": "CRM-FY2024-SIG-003",
+      "source": "Notes to Consolidated Financial Statements - Note 10. Restructuring",
+      "keyword_matched": "Restructuring Plan / office space reductions",
+      "text_excerpt": "In January 2023, the Company announced a restructuring plan (the \"Restructuring Plan\") intended to reduce operating costs, improve operating margins and continue advancing the Company's ongoing commitment to profitable growth. This plan included a reduction of the Company's workforce and select real estate exits and office space reductions within certain markets... Charges: Workforce Reduction $541 / Office Space Reductions $447 / Total $988 (fiscal 2024); Non-cash items: $(445) fiscal 2024.",
+      "page_location": "Note 10. Restructuring (HTML lines 4565-4580); corroborated in MD&A Highlights (lines 2919-2922) and MD&A Restructuring (lines 3094-3103)",
+      "risk_type": "realized_restructuring_with_rou_writedown",
+      "severity": "medium",
+      "relevance_to_depreciation": "FY2024 实际确认重组费用 $988M（占收入 2.8%），其中办公空间削减 $447M 含约 $418M 非现金项目（主要为经营租赁 ROU 资产冲销），实质是对'办公类资产按原计划使用'假设的修正——与 GOOGL $269M 加速折旧同类。但全部集中于租赁/办公资产，不涉及计算设备，规模有限。",
+      "evidence_chain": [
+        "FY2024 重组费用 $988M = 裁员 $541M + 办公空间削减 $447M",
+        "非现金项目 $445M（其中办公空间 $418M）= 租赁 ROU 资产的实际冲销",
+        "性质与 GOOGL 的 office space exit + accelerated depreciation 相同：承认部分资产原摊销进度过慢",
+        "但对象全部为办公/租赁资产，computers/equipment/software 未受任何减值",
+        "Result: 存在小规模的'实际减值'证据，但不在折旧风险的核心资产类别上"
+      ]
+    },
+    {
+      "signal_id": "CRM-FY2024-SIG-004",
+      "source": "Notes to Consolidated Financial Statements - Note 1. Impairment Assessment / Goodwill",
+      "keyword_matched": "impairment whenever events or changes in circumstances / undiscounted cash flows",
+      "text_excerpt": "The Company evaluates intangible assets and other long-lived assets for possible impairment whenever events or changes in circumstances indicate that the carrying amount of such assets may not be recoverable... Recoverability of these assets is measured by comparing the carrying amount of each asset to the future undiscounted cash flows the asset is expected to generate... The Company evaluates and tests the recoverability of its goodwill for impairment at least annually during its fourth quarter of each fiscal year or more often if and when circumstances indicate that goodwill may not be recoverable.",
+      "page_location": "Note 1. Impairment Assessment / Goodwill (HTML lines 4234-4248)",
+      "risk_type": "impairment_testing_policy",
+      "severity": "low",
+      "relevance_to_depreciation": "标准 US GAAP 减值框架：长期资产以未折现现金流做可回收性测试（低门槛），商誉年度测试。对 Salesforce 而言，该框架的主要风险敞口不在固定资产（$3.7B 净值），而在商誉 $48,620M（总资产 48.7%）与收购无形资产 $5,278M——这些才是 Salesforce 资产负债表上真正的'估计依赖型'资产。",
+      "evidence_chain": [
+        "长期资产减值测试门槛为未折现现金流（宽松），与 GOOGL/META 相同",
+        "但固定资产盘子仅 $3.7B，即使测试失效影响也小",
+        "商誉 $48.6B（Slack 等收购形成）占总资产近半，年度测试依赖预测假设",
+        "Result: 减值政策信号存在，但指向商誉/无形资产而非折旧算法的目标资产"
+      ]
+    },
+    {
+      "signal_id": "CRM-FY2024-SIG-005",
+      "source": "Item 1. Business / Item 1A. Risk Factors / Item 2. Properties",
+      "keyword_matched": "third-party data center facilities / cloud computing platform partners / co-location lease",
+      "text_excerpt": "We have historically provided, and continue to provide, our services to our customers from infrastructure designed and operated by us but secured within third-party data center facilities. In combination with these third-party data center facilities, we also provide our services via cloud computing platform partners... As we add data centers and capacity and continue to move to cloud computing platform providers... We operate data centers in the U.S., Europe and Asia pursuant to various co-location lease arrangements.",
+      "page_location": "Item 1. Business - Infrastructure (HTML lines 483-487); Item 1A. Risk Factors - Service Disruptions (lines 964-966); Item 2. Properties (line 2665)",
+      "risk_type": "asset_light_infrastructure_model",
+      "severity": "low",
+      "relevance_to_depreciation": "这是 Salesforce 作为负样本的结构性证据：算力以 co-location 租赁机房 + 公有云合作伙伴（Hyperforce 模式）为主，并明确'继续向云计算平台提供商迁移'。公司拥有的是设备（3-5 年折旧），不拥有数据中心建筑与土地的重资产敞口；AI 算力需求通过租用而非自建 GPU 集群满足，技术迭代风险大部分转移给基础设施提供商。",
+      "evidence_chain": [
+        "基础设施模式：自有设备托管于第三方机房 + 公有云平台合作伙伴",
+        "明确趋势：'continue to move to cloud computing platform providers'（向租用算力进一步迁移）",
+        "CAPEX $736M = 收入的 2.1%，vs META 20.2% / GOOGL 10.5%",
+        "无自有 GPU 集群、无大规模在建工程（CIP 未披露/不重大）",
+        "Result: AI 算力迭代风险由供应商承担，公司自身折旧风险敞口结构性极低"
+      ]
+    },
+    {
+      "signal_id": "CRM-FY2024-SIG-006",
+      "source": "Item 1A. Risk Factors - Acquisitions",
+      "keyword_matched": "depreciation and amortization of acquired intangible assets / potential write-offs of acquired assets",
+      "text_excerpt": "difficulties in managing, or potential write-offs of, acquired assets, and potential financial and credit risks associated with acquired customers; negative impact to our results of operations because of the depreciation and amortization of acquired intangible assets, fixed assets and operating lease right-of-use assets",
+      "page_location": "Item 1A. Risk Factors - Risks related to acquisitions (HTML lines 1011-1014)",
+      "risk_type": "acquisition_intangible_amortization_risk",
+      "severity": "medium",
+      "relevance_to_depreciation": "Risk Factors 中唯一直接提及 depreciation/amortization 影响利润的条目，但指向的是收购形成的无形资产摊销（FY2024 $1,869M）而非固定资产折旧。Salesforce 的'类折旧'风险集中在并购会计：Slack（$27.7B）等收购形成 $48.6B 商誉 + $5.3B 无形净值，收购技术开发剩余摊销期仅 2.2 年（Note 8），摊销节奏已相当快。",
+      "evidence_chain": [
+        "风险因素自认：收购资产可能 write-off，收购无形/固定/ROU 资产摊销拖累利润",
+        "FY2024 收购无形资产摊销 $1,869M（COGS $978M + M&S $891M），是固定资产折旧（$1.1B）的 1.7 倍",
+        "Note 8：收购技术开发净值 $1,416M，加权平均剩余摊销期 2.2 年——摊销已贴近技术寿命",
+        "商誉 $48.6B 不摊销、仅年度测试，是未来最大一次性减值来源",
+        "Result: 若项目把口径扩展到'广义摊销风险'，Salesforce 的敞口在并购端而非设备折旧端"
+      ]
+    },
+    {
+      "signal_id": "CRM-FY2024-SIG-007",
+      "source": "Full-text keyword scan / Item 1A. Risk Factors",
+      "keyword_matched": "obsolescence / data center",
+      "text_excerpt": "(obsolescence: zero hits) Risk Factors 中 data center 相关条目仅涉及容量与服务可用性（'strains on our data center capacity, our customers could experience performance degradation or service outages'），无任何关于计算设备技术过时、折旧年限不足的表述。",
+      "page_location": "Item 1A. Risk Factors - Service Disruptions (HTML lines 961-966); full-document scan",
+      "risk_type": "direct_signal_absence_note",
+      "severity": "low",
+      "relevance_to_depreciation": "明确记录'直接信号缺失'：全文 0 命中 obsolescence；数据中心风险因素讨论的是服务中断/容量，不是资产过时。对比 META（自认 technological advancements 缩短寿命）和 GOOGL（量化年限变更影响），Salesforce 10-K 中不存在可被算法误抓的强信号——这正是负样本需要的'干净'特征，防止模型把任何 tech 公司都判为高风险。",
+      "evidence_chain": [
+        "obsolescence 0 命中；technological advancements + useful life 组合 0 命中",
+        "数据中心风险因素 = 可用性/安全风险，与折旧假设无关",
+        "结合 SIG-002（无年限变更）与 SIG-005（租用算力），低风险结论三向互证",
+        "Result: 标注置信度提高——低分不是证据不足，而是证据充分支持低风险"
+      ]
+    }
+  ],
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "折旧年限 vs 技术实际寿命",
+      "dimension_name_en": "Depreciation Life vs Technology Useful Life",
+      "weight": 0.25,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "计算机设备/软件折旧年限 3-5 年，落在锚点 3-4 年档（→3 分），上限 5 年虽触及 4-6 年档边缘，但整体短于 GOOGL 的 6 年、与 META 4-5 年相当或略优。错配比约 1.5-5 倍。更重要的是资产基数极小（PPE 净值 $3.7B，占总资产 3.7%），年限错配的绝对利润影响微弱。注意：该维度评分锚点按年限档位机械对应为 3，未因资产基数小而进一步下调——基数效应已在 D4 体现。",
+      "supporting_signals": ["CRM-FY2024-SIG-001"],
+      "key_metrics": {
+        "stated_useful_life_years": "3-5 (computers, equipment and software)",
+        "estimated_tech_cycle_years": "1-2",
+        "life_mismatch_ratio": "1.5-5x",
+        "ppe_net_millions": 3689,
+        "ppe_pct_of_total_assets": 0.037
+      }
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "会计政策保守性",
+      "dimension_name_en": "Accounting Policy Conservatism",
+      "weight": 0.20,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "全文 'prospectively'/'change in estimate' 零命中：本期无折旧年限变更，按锚点'无变更→3 分'。在 2023 年 AI 军备竞赛中，GOOGL（4→6 年，+$3.0B 净利）与 MSFT（4→6 年）均选择延长年限，Salesforce 未跟进，会计估计裁量未被用于利润管理，属中性偏保守。FY2024 折旧摊销 $1.1B 与 PPE 总值增长（+6.8%）方向一致，无'资产增折旧降'的异常形态。",
+      "supporting_signals": ["CRM-FY2024-SIG-002"],
+      "key_metrics": {
+        "change_in_estimate_disclosed": false,
+        "prospectively_keyword_hits": 0,
+        "ppe_depreciation_trend_millions": "678 (FY2022) -> 903 (FY2023) -> 1,100 (FY2024)",
+        "ppe_gross_trend_millions": "6,404 (FY2023) -> 6,841 (FY2024)"
+      }
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值风险触发",
+      "dimension_name_en": "Impairment Risk Triggers",
+      "weight": 0.20,
+      "score": 2,
+      "score_max": 5,
+      "score_label": "低风险",
+      "score_label_en": "Low Risk",
+      "reasoning": "本期有真实但小规模的资产相关冲销：重组中办公空间削减 $447M（含非现金 ROU 冲销约 $418M），性质类似 GOOGL 的 office exit，但规模更小且全部集中在租赁/办公资产；战略投资减值及下调 $465M 非 PP&E。无任何计算设备（computers/equipment/software）减值，无 PP&E 减值科目。按锚点'稀少→2 分'：实际冲销存在但远离折旧风险的核心资产类别。真正的大额减值敞口在商誉 $48.6B（年度测试），属并购会计问题而非折旧风险。",
+      "supporting_signals": ["CRM-FY2024-SIG-003", "CRM-FY2024-SIG-004"],
+      "key_metrics": {
+        "ppe_impairment_fy2024_millions": 0,
+        "restructuring_office_space_charges_millions": 447,
+        "restructuring_noncash_items_millions": 445,
+        "strategic_investment_impairments_millions_non_ppe": 465,
+        "goodwill_at_risk_millions": 48620,
+        "impairment_triggers_identified": ["restructuring_office_exits", "acquisition_goodwill_annual_test", "strategic_investment_market_decline"]
+      }
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本支出(CAPEX)强度",
+      "dimension_name_en": "Capital Expenditure Intensity",
+      "weight": 0.20,
+      "score": 1,
+      "score_max": 5,
+      "score_label": "低风险",
+      "score_label_en": "Low Risk",
+      "reasoning": "CAPEX/收入 = $736M / $34,857M = 2.11%，落在锚点 <3% 档（→1 分），与预期一致。对比：META 20.2%（4 分）、GOOGL 10.5%（3 分）。固定资产折旧摊销 $1.1B 仅为收入的 3.2%；PPE 净值占总资产 3.7%；无在建工程单列披露。折旧假设偏差的杠杆效应在结构上被锁死——这是轻资产 SaaS 负样本的核心定量证据。",
+      "supporting_signals": ["CRM-FY2024-SIG-005", "CRM-FY2024-SIG-001"],
+      "key_metrics": {
+        "capex_millions": 736,
+        "revenue_millions": 34857,
+        "capex_to_revenue_ratio": 0.0211,
+        "depreciation_to_revenue_ratio": 0.0316,
+        "construction_in_progress_millions": null
+      }
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "行业竞争/技术替代",
+      "dimension_name_en": "Industry Competition & Technology Substitution",
+      "weight": 0.15,
+      "score": 1,
+      "score_max": 5,
+      "score_label": "低风险",
+      "score_label_en": "Low Risk",
+      "reasoning": "Salesforce 不直接运营 GPU 集群：AI 能力（Einstein/Agentforce）构建在租用的第三方机房与公有云合作伙伴之上，并明确'continue to move to cloud computing platform providers'。AI 军备竞赛的算力迭代成本由其基础设施供应商（AWS 等）承担，公司自身资产负债表几乎不暴露于 GPU 1-2 年迭代周期。按锚点'间接/无暴露→1-2 分'取 1 分。公司面临的是 AI 产品竞争（软件层），而非算力资产折旧风险（硬件层）。",
+      "supporting_signals": ["CRM-FY2024-SIG-005", "CRM-FY2024-SIG-007"],
+      "key_metrics": {
+        "operates_own_gpu_fleet": false,
+        "infrastructure_model": "co-location + public cloud platform partners (Hyperforce)",
+        "gpu_exposure": "indirect - rented compute, obsolescence borne by infrastructure providers",
+        "competition_layer": "application/software layer, not compute asset layer"
+      }
+    }
+  ],
+  "composite_score": {
+    "weighted_score": 2.1,
+    "max_score": 5.0,
+    "risk_level": "中风险",
+    "risk_level_en": "Medium Risk",
+    "risk_level_color": "#FFC107",
+    "confidence": 0.85,
+    "confidence_reason": "低风险结论有三向互证：(1) 定量：CAPEX/收入 2.1%、PPE 占总资产 3.7%；(2) 定性：全文无年限变更、无 obsolescence 表述；(3) 结构性：算力租用模式将技术迭代风险转移给供应商。低分是证据支持的结论而非证据缺失。扣分不确定性主要在 D1（3-5 年跨度跨两档锚点）与 D3（重组非现金冲销的规模判断）。加权计算：3×0.25 + 3×0.20 + 2×0.20 + 1×0.20 + 1×0.15 = 2.10。"
+  },
+  "comparative_context": {
+    "sector_median_score": 3.28,
+    "sector": "US Big Tech / Cloud & Software",
+    "peer_comparison": [
+      {
+        "company": "Meta Platforms",
+        "ticker": "META",
+        "estimated_score": 4.0,
+        "note": "CONFIRMED (project lead, 2025-07-15). 重资产运营型：服务器 4-5 年 + FY2023 实际设施减值 $2.43B。CRM 比其低 1.9 分，差距主要来自 CAPEX 强度（2.1% vs 20.2%）与算力资产所有权。"
+      },
+      {
+        "company": "Google (Alphabet)",
+        "ticker": "GOOGL",
+        "estimated_score": 4.25,
+        "note": "DRAFT (Kimi, 2026-07-20). 本期实际执行年限延长（4→6 年，+$3.0B 净利）。CRM 无此行为（D2 3 vs 5）。"
+      },
+      {
+        "company": "Microsoft",
+        "ticker": "MSFT",
+        "estimated_score": 4.2,
+        "note": "Estimated pending annotation. Azure 重资产 + 同样延长服务器年限（4→6 年）。"
+      },
+      {
+        "company": "NVIDIA",
+        "ticker": "NVDA",
+        "estimated_score": 3.1,
+        "note": "Fabless，卖 GPU 而非运营；制造设备折旧风险中等。CRM 2.1 显著低于 NVDA 3.1，符合'轻资产负样本应低于 fabless'的先验。"
+      },
+      {
+        "company": "AMD",
+        "ticker": "AMD",
+        "estimated_score": 2.4,
+        "note": "Fabless 芯片设计商，资产轻于 NVDA 之外更无制造设备。CRM 2.1 与 AMD 2.4 同属低分档，但成因不同：AMD 是'无资产可折'，CRM 是'资产小且租用算力'。"
+      }
+    ]
+  },
+  "annotation_methodology": {
+    "source_document": "Salesforce, Inc. FY2024 Annual Report on Form 10-K (CIK 0001108524, document crm-20240131, filed 2024-03-06)",
+    "filing_accessed": "SEC EDGAR - https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001108524",
+    "text_extraction_method": "Keyword search (useful life/useful lives, depreciation, impairment, obsolescence, prospectively, change in estimate, data center, restructuring) with case-insensitive grep + Python HTML tag-stripping; every candidate hit verified in visible body text with line numbers; hidden ix:hidden XBRL tag matches excluded. Note: 文件无法以 UTF-8 直接 Read（编码问题），改用 Python errors='replace' 读取并正则去标签，行号以原始文件为准。",
+    "scoring_method": "Five-dimension weighted scoring (D1 0.25 / D2 0.20 / D3 0.20 / D4 0.20 / D5 0.15), 1-5 integer scale per dimension, anchored to confirmed META 2023 benchmark (4.0) and GOOGL 2023 draft (4.25); CRM treated as natural negative control (asset-light SaaS)",
+    "human_verification": "All quoted text excerpts verified against original 10-K filing at cited HTML line numbers via tag-stripped extraction",
+    "limitation": "Scoring based on single-year 10-K. PP&E 折旧（$1.1B）与收购无形资产摊销（$1,869M）、经营租赁 ROU 摊销/减值在现金流量表合并列示（$3,959M），拆分为近似值；办公空间削减中非现金项目 $418M 未按 ROU 减值与租赁负债调整细分；Salesforce 财年于 1 月 31 日结束，与自然年样本存在约 1 个月错位。"
+  }
+}

@@ -1,0 +1,358 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-07-22",
+    "annotator": "Kimi AI-assisted (pending review by project lead)",
+    "review_status": "draft_pending_review",
+    "filing_source": "SEC EDGAR - 10-K Annual Report"
+  },
+  "company": {
+    "ticker": "TSLA",
+    "name": "Tesla, Inc.",
+    "fiscal_year": 2023,
+    "filing_date": "2024-01-29",
+    "report_period_end": "2023-12-31",
+    "industry": "Electric Vehicles / Energy Storage / AI (FSD, robotics) - Manufacturing-Tech Hybrid",
+    "primary_assets": "Gigafactory Manufacturing Equipment, Tooling, Buildings, Computer Equipment/AI Training Hardware, Solar Energy Systems, Operating Lease Vehicles",
+    "file_path": "data/raw/tsla_2023_10k.html"
+  },
+  "financial_highlights": {
+    "revenue_millions": 96773,
+    "net_income_millions": 14974,
+    "net_income_note": "Net income (consolidated) $14,974M; net income attributable to common stockholders $14,997M. Includes a one-time non-cash tax benefit of $5.93B for the release of valuation allowance on certain U.S. federal and state deferred tax assets (MD&A: 'This included a one-time non-cash tax benefit of $5.93 billion for the release of valuation allowance on certain deferred tax assets'). Reported net income ($14.97B) therefore EXCEEDS income from operations ($8.89B); ex-benefit net income would be roughly $9.0-9.1B.",
+    "operating_income_millions": 8891,
+    "income_tax_expense_millions": -5001,
+    "income_tax_note": "Benefit from income taxes of $5,001M (effective tax rate -50%), driven by release of $6.54B valuation allowance on U.S. federal and certain state deferred tax assets; approximately $5.93B related to deferred tax assets to be realized in future years (MD&A Income Taxes section).",
+    "rd_expense_millions": 3969,
+    "operating_cash_flow_millions": 13256,
+    "capex_millions": 8898,
+    "capex_note": "Consolidated Statements of Cash Flows: 'Purchases of property and equipment excluding finance leases, net of sales ($8,898)M'. MD&A: 'Capital expenditures amounted to $8.90 billion in 2023, compared to $7.16 billion in 2022.' Guidance: capex to exceed $10.00B in 2024 and $8.00-10.00B in each of the following two fiscal years.",
+    "depreciation_millions": 3330,
+    "depreciation_note": "Note 8 - Property, Plant and Equipment, Net: 'Depreciation expense during the years ended December 31, 2023, 2022 and 2021 was $3.33 billion, $2.42 billion and $1.91 billion, respectively.' Separately, solar energy systems depreciation and amortization was $235M (Note 7). Consolidated Statements of Cash Flows present a combined line 'Depreciation, amortization and impairment' of $4,667M (2023), $3,747M (2022), $2,911M (2021).",
+    "amortization_millions": null,
+    "amortization_note": "NA - amortization of intangible assets not separately disclosed. Cash flow statement combines depreciation, amortization and impairment into one line ($4,667M in 2023). Identifiable components: PP&E depreciation $3,330M (Note 8) + solar energy systems D&A $235M (Note 7); the residual (~$1.1B) covers operating lease vehicle depreciation, finance lease ROU amortization and intangible amortization, not broken out by Tesla.",
+    "impairment_charges_millions": 0,
+    "impairment_note": "Note 2: 'For the years ended December 31, 2023, 2022 and 2021, we have recognized no material impairments of our long-lived assets.' 2023 digital assets impairment was 'an immaterial amount' (Note 3); 2022 had $204M digital assets impairment (non-PP&E, bitcoin). No goodwill impairment 2021-2023. No PP&E impairment in any presented year.",
+    "total_assets_millions": 106618,
+    "ppe_gross_millions": 41782,
+    "ppe_net_millions": 29725,
+    "accumulated_depreciation_millions": 12057,
+    "goodwill_millions": 253,
+    "intangible_assets_net_millions": 178,
+    "construction_in_progress_millions": 5791,
+    "finance_lease_payments_millions": 464,
+    "finance_lease_payments_note": "Consolidated Statements of Cash Flows: 'Principal payments on finance leases ($464)M' in 2023. Finance leases include Panasonic battery-cell production equipment at Gigafactory Nevada ($2.02B cumulatively capitalized, depreciated units-of-production, Note 8).",
+    "computer_equipment_hardware_software_gross_millions": 3799,
+    "computer_equipment_hardware_software_gross_prior_millions": 2072,
+    "capex_to_revenue_ratio": 0.0919,
+    "depreciation_to_revenue_ratio": 0.0344
+  },
+  "accounting_policy": {
+    "depreciation_method": "straight-line (generally); units-of-production for Panasonic production equipment under finance lease (Note 8)",
+    "machinery_equipment_vehicles_office_furniture_useful_life_years": "3-15",
+    "tooling_useful_life_years": "4-7",
+    "building_useful_life_years": "15-30",
+    "computer_equipment_software_useful_life_years": "3-10",
+    "solar_energy_systems_useful_life_years": "30-35",
+    "internal_use_software_amortization_years": "3-5",
+    "leasehold_improvements": "shorter of estimated useful life or related lease term",
+    "change_in_estimate": "none disclosed for fiscal 2023 (no useful-life revision for any asset class; keyword 'change in estimate' appears only in income-tax context; 'prospectively' appears only for ASU adoptions effective 2023-01-01)",
+    "impairment_policy": "Long-lived assets reviewed whenever events or changes in circumstances indicate carrying amount may not be recoverable; recoverability measured against future UNDISCOUNTED cash flows; impairment measured as excess of carrying value over fair value (Note 2).",
+    "policy_risk_note": "Tesla 2023年未变更任何资产类别折旧年限、未计提长期资产减值，会计政策本身无操纵迹象。但注意两点：(1) 折旧时间表为区间披露，machinery上限达15年、computer equipment上限达10年，管理层在区间内有不透明的裁量空间；(2) 减值采用未折现现金流测试，门槛较低，与Meta/Google同样的'事件触发+未折现'弱兜底结构。Panasonic设备按产量法折旧，与经济消耗更匹配，属相对保守的例外。"
+  },
+  "risk_signals": [
+    {
+      "signal_id": "TSLA-2023-SIG-001",
+      "source": "Item 1A. Risk Factors",
+      "keyword_matched": "early obsolescence of our manufacturing equipment",
+      "text_excerpt": "We may be negatively impacted by any early obsolescence of our manufacturing equipment. We depreciate the cost of our manufacturing equipment over their expected useful lives. However, product cycles or manufacturing technology may change periodically, and we may decide to update our products or manufacturing processes more quickly than expected. Moreover, improvements in engineering and manufacturing expertise and efficiency may result in our ability to manufacture our products using less of our currently installed equipment. Alternatively, as we ramp and mature the production of our products to higher levels, we may discontinue the use of already installed equipment in favor of different or additional equipment. The useful life of any equipment that would be retired early as a result would be shortened, causing the depreciation on such equipment to be accelerated, and our results of operations may be harmed.",
+      "page_location": "Item 1A. Risk Factors - 标题 'We may be negatively impacted by any early obsolescence of our manufacturing equipment.' 处（纯文本定位串 'We depreciate the cost of our manufacturing equipment'）",
+      "risk_type": "technology_obsolescence_risk",
+      "severity": "critical",
+      "relevance_to_depreciation": "This is Tesla's own explicit acknowledgment of the exact mechanism the project models: product cycles and manufacturing technology changes (new vehicle platforms, 4680 cells, new casting processes) can retire installed equipment before the end of its 3-15 year accounting life, forcing accelerated depreciation. Management admits depreciation is based on 'expected useful lives' that may exceed actual economic lives.",
+      "evidence_chain": [
+        "Manufacturing equipment depreciated over 'expected useful lives' (3-15 years per Note 2)",
+        "Tesla admits product cycles / manufacturing technology may change faster than expected",
+        "Early retirement shortens useful life -> depreciation accelerated -> results harmed",
+        "Real-world corroboration: 2023 saw Cybertruck ramp (new processes), 4680 cell iteration, and next-gen platform development - all equipment-displacing events",
+        "Result: current depreciation expense embeds an optimistic 'no early retirement' assumption; downside is recognized only when retirement occurs (asymmetric, like impairment)"
+      ]
+    },
+    {
+      "signal_id": "TSLA-2023-SIG-002",
+      "source": "Notes to Consolidated Financial Statements - Note 2. Summary of Significant Accounting Policies",
+      "keyword_matched": "Machinery, equipment, vehicles and office furniture 3 to 15 years",
+      "text_excerpt": "Depreciation is generally computed using the straight-line method over the estimated useful lives of the respective assets, as follows: Machinery, equipment, vehicles and office furniture 3 to 15 years Tooling 4 to 7 years Building and building improvements 15 to 30 years Computer equipment and software 3 to 10 years. Leasehold improvements are depreciated on a straight-line basis over the shorter of their estimated useful lives or the terms of the related leases.",
+      "page_location": "Note 2. Summary of Significant Accounting Policies - 'Property, Plant and Equipment, Net' 小节（定位串 'Machinery, equipment, vehicles and office furniture 3 to 15 years'）",
+      "risk_type": "depreciation_schedule_disclosure",
+      "severity": "high",
+      "relevance_to_depreciation": "Official depreciation schedule. Two mismatches stand out: (1) machinery/equipment upper bound of 15 years vs EV product/platform cycles of roughly 3-6 years (Model 3/Y platform 2017-2023, next-gen platform in development); (2) computer equipment and software upper bound of 10 years vs a 1-2 year AI accelerator iteration cycle (NVIDIA H100 2022 -> B100 2024) - if Tesla's AI training hardware (FSD training cluster, the unnamed 'additional computer hardware') is depreciated anywhere near the 10-year bound, under-depreciation is severe. Tooling at 4-7 years is comparatively honest for production-line-specific tools.",
+      "evidence_chain": [
+        "Machinery/equipment range: 3-15 years; computer equipment/software: 3-10 years (straight-line)",
+        "EV platform cycle ~3-6 years; AI accelerator cycle 1-2 years",
+        "Range disclosure means investors cannot see which life applies to which asset - 15-year and 10-year upper bounds give management wide discretion",
+        "Machinery+equipment is the largest PP&E class ($16,372M gross, Note 8); computer equipment gross nearly doubled to $3,799M in 2023",
+        "Result: the two fastest-obsolescing classes carry the widest and longest depreciable ranges"
+      ]
+    },
+    {
+      "signal_id": "TSLA-2023-SIG-003",
+      "source": "Item 1. Business + Note 8. Property, Plant and Equipment, Net",
+      "keyword_matched": "additional computer hardware / Computer equipment, hardware and software $ 3,799 $ 2,072",
+      "text_excerpt": "Our FSD Computer runs our neural networks in our vehicles, and we are also developing additional computer hardware to better enable the massive amounts of field data captured by our vehicles to continually train and improve these neural networks for real-world performance. ... Computer equipment, hardware and software $ 3,799 $ 2,072 (gross, December 31, 2023 vs 2022).",
+      "page_location": "Item 1. Business - 'Self-Driving Development and Artificial Intelligence'（定位串 'additional computer hardware to better enable the massive amounts of field data'）；Note 8 PP&E 表（定位串 'Computer equipment, hardware and software $ 3,799 $ 2,072'）",
+      "risk_type": "ai_compute_asset_obsolescence",
+      "severity": "high",
+      "relevance_to_depreciation": "Tesla's AI training compute asset base (the unnamed 'additional computer hardware' - externally reported as Dojo/FSD training clusters; note: the word 'Dojo' does NOT appear anywhere in this 10-K) grew ~83% in one year ($2,072M -> $3,799M gross). These are exactly the assets whose economic life tracks the 1-2 year AI hardware cycle (HW3->HW4, H100->B100), yet they are depreciated within the 3-10 year 'Computer equipment and software' class. Note 12 also confirms Tesla leases data centers.",
+      "evidence_chain": [
+        "Item 1: Tesla is building its own AI training computer hardware (Dojo-class assets, unnamed in filing)",
+        "Note 8: Computer equipment, hardware and software gross +83% YoY to $3,799M - fastest-growing PP&E class",
+        "Depreciation class for these assets: 3-10 years straight-line (Note 2)",
+        "AI accelerator economic cycle: 1-2 years; FSD training hardware faces same displacement pressure as hyperscaler GPU fleets",
+        "Result: if AI training hardware is depreciated over even the mid-range (5-7 years), annual expense materially understates economic consumption"
+      ]
+    },
+    {
+      "signal_id": "TSLA-2023-SIG-004",
+      "source": "Notes to Consolidated Financial Statements - Note 2. Summary of Significant Accounting Policies",
+      "keyword_matched": "no material impairments of our long-lived assets",
+      "text_excerpt": "We review our property, plant and equipment, solar energy systems, long-term prepayments and intangible assets for impairment whenever events or changes in circumstances indicate that the carrying amount of an asset (or asset group) may not be recoverable. We measure recoverability by comparing the carrying amount to the future undiscounted cash flows that the asset is expected to generate. ... For the years ended December 31, 2023, 2022 and 2021, we have recognized no material impairments of our long-lived assets.",
+      "page_location": "Note 2 - 'Long-Lived Assets Including Acquired Intangible Assets' 小节（定位串 'no material impairments of our long-lived assets'）",
+      "risk_type": "impairment_testing_policy",
+      "severity": "medium",
+      "relevance_to_depreciation": "Two-sided signal. Positive: three consecutive years with zero material long-lived asset impairment suggests depreciation schedules have not yet visibly failed - unlike Meta's $2.43B realized impairment. Negative: the undiscounted-cash-flow recoverability test is a weak backstop (same structure as GOOGL/META); as long as Gigafactories generate positive cash flow, no impairment is triggered even if specific equipment generations are economically obsolete. Obsolescence risk accumulates silently.",
+      "evidence_chain": [
+        "Impairment tested only on triggering events; recoverability vs UNDISCOUNTED cash flows (low bar)",
+        "Zero material long-lived asset impairment 2021-2023",
+        "High utilization (1.85M deliveries 2023) keeps cash flows strong -> test never trips",
+        "But per SIG-001, management itself concedes early retirement can happen - the gap would surface as accelerated depreciation or one-time charges in future periods",
+        "Result: clean impairment history lowers current score but does not eliminate embedded schedule risk"
+      ]
+    },
+    {
+      "signal_id": "TSLA-2023-SIG-005",
+      "source": "Notes to Consolidated Financial Statements - Note 8. Property, Plant and Equipment, Net",
+      "keyword_matched": "units-of-production method",
+      "text_excerpt": "Depreciation on Panasonic production equipment is computed using the units-of-production method whereby capitalized costs are amortized over the total estimated productive life of the respective assets. As of December 31, 2023 and 2022, we had cumulatively capitalized gross costs of $ 2.02 billion and $ 2.01 billion, respectively, on the consolidated balance sheets in relation to the production equipment under our Panasonic arrangement.",
+      "page_location": "Note 8. Property, Plant and Equipment, Net - Panasonic 安排段落（定位串 'units-of-production method whereby capitalized costs are amortized'）",
+      "risk_type": "alternative_depreciation_method_disclosure",
+      "severity": "low",
+      "relevance_to_depreciation": "Counter-signal (conservative): for the $2.02B Panasonic battery-cell production equipment (finance lease), depreciation is tied to actual output rather than calendar time. Units-of-production better matches expense to economic consumption and partially self-corrects if the equipment underperforms. This shows Tesla is capable of using consumption-based methods where contractual structures allow - making the blanket straight-line choice for its own AI/manufacturing equipment a deliberate policy election.",
+      "evidence_chain": [
+        "$2.02B Panasonic production equipment depreciated units-of-production",
+        "Method matches expense to actual productive output - robust to utilization swings",
+        "Tesla's own $41.8B gross PP&E uses straight-line instead",
+        "Result: demonstrates method choice is discretionary; straight-line on fast-iterating assets is the optimistic option"
+      ]
+    },
+    {
+      "signal_id": "TSLA-2023-SIG-006",
+      "source": "Item 7. MD&A - Liquidity and Capital Resources",
+      "keyword_matched": "Capital expenditures amounted to $8.90 billion",
+      "text_excerpt": "Capital expenditures amounted to $8.90 billion in 2023, compared to $7.16 billion in 2022, representing an increase of $1.74 billion. ... we currently expect our capital expenditures to exceed $10.00 billion in 2024 and be between $8.00 to $10.00 billion in each of the following two fiscal years.",
+      "page_location": "Item 7. MD&A - 'Cash Flow and Capital Expenditure Trends'（定位串 'expect our capital expenditures to exceed $10.00 billion in 2024'）",
+      "risk_type": "capex_escalation",
+      "severity": "high",
+      "relevance_to_depreciation": "CAPEX/revenue = 9.2% ($8,898M / $96,773M), in the 8-15% band, with guidance to exceed $10B in 2024 (+12% or more). Construction in progress stands at $5,791M - assets not yet depreciating that will hit the expense line as Gigafactory expansions (Texas, Berlin, Nevada Semi/4680) complete. Every dollar of new manufacturing and AI compute capex inherits the 3-15 / 3-10 year schedules flagged in SIG-002, amplifying the leverage of any useful-life overestimation.",
+      "evidence_chain": [
+        "2023 CAPEX $8,898M (9.2% of revenue); 2024 guidance >$10B; 2025-2026 $8-10B/yr",
+        "Construction in progress $5,791M (Note 8) - future depreciation pipeline",
+        "PP&E gross grew 28% YoY ($32,589M -> $41,782M) while depreciation grew 38% ($2.42B -> $3.33B) - currently honest",
+        "Depreciation/revenue only 3.4%; if lives are overstated by even 20%, ~$0.8B of annual expense is deferred",
+        "Result: expanding asset base + long schedules = growing profit-inflation leverage"
+      ]
+    },
+    {
+      "signal_id": "TSLA-2023-SIG-007",
+      "source": "Item 1A. Risk Factors + Item 7. MD&A - Results of Operations",
+      "keyword_matched": "price reductions / lower average selling price",
+      "text_excerpt": "Increased competition could result in our lower vehicle unit sales, price reductions, revenue shortfalls, loss of customers and loss of market share... The increase was partially offset by a lower average selling price on our vehicles driven by overall price reductions year over year... Gross margin total automotive 19.4 % 28.5 % 29.3 % (2023 vs 2022 vs 2021).",
+      "page_location": "Item 1A. Risk Factors - 竞争风险（定位串 'Increased competition could result in our lower vehicle unit sales, price reductions'）；Item 7. MD&A - Automotive revenues 分析（定位串 'overall price reductions year over year'）与毛利率表",
+      "risk_type": "industry_competition_margin_compression",
+      "severity": "high",
+      "relevance_to_depreciation": "The 2023 EV price war is the realized form of competition-driven asset-return compression: Tesla cut prices repeatedly, automotive gross margin collapsed from 28.5% to 19.4% (-9.1pp). Lower per-unit margins reduce the cash flows generated by manufacturing assets, bringing them closer to the undiscounted-cash-flow impairment threshold and shortening the payback window embedded in 15-year equipment lives. Price pressure also accelerates the shift to the next-gen low-cost platform - an explicit trigger for early retirement of current-generation tooling per SIG-001.",
+      "evidence_chain": [
+        "2023: repeated price cuts acknowledged ('overall price reductions year over year')",
+        "Automotive gross margin 28.5% (2022) -> 19.4% (2023)",
+        "Risk factor explicitly links competition to price reductions and market share loss",
+        "Margin compression shrinks asset cash flows toward impairment-test thresholds",
+        "Next-gen platform push (cost reduction) pressures early retirement of existing tooling",
+        "Result: economic life of current-generation manufacturing assets is being compressed by competition faster than the 4-15 year accounting schedule assumes"
+      ]
+    },
+    {
+      "signal_id": "TSLA-2023-SIG-008",
+      "source": "Item 7. MD&A - Overview / Income Taxes",
+      "keyword_matched": "one-time non-cash tax benefit of $5.93 billion",
+      "text_excerpt": "In 2023, our net income attributable to common stockholders was $15.00 billion, representing a favorable change of $2.44 billion, compared to the prior year. This included a one-time non-cash tax benefit of $5.93 billion for the release of valuation allowance on certain deferred tax assets.",
+      "page_location": "Item 7. MD&A - Overview（定位串 'one-time non-cash tax benefit of $5.93 billion'）；MD&A Income Taxes 段落（定位串 'released $6.54 billion of our valuation allowance'）",
+      "risk_type": "profit_quality_masking",
+      "severity": "medium",
+      "relevance_to_depreciation": "Not a depreciation signal per se, but critical for model calibration: 2023 reported net income ($14.97B) exceeds income from operations ($8.89B) because of the $5.93B one-time deferred-tax valuation allowance release. Headline profit therefore masks a 35% YoY collapse in operating income ($13.66B -> $8.89B) driven by price cuts. Any ratio computed off reported net income (e.g., depreciation/net income) is distorted; annotation and training must use operating income or ex-benefit net income.",
+      "evidence_chain": [
+        "Reported net income $14,974M includes $5.93B one-time non-cash tax benefit",
+        "Operating income fell 35% YoY ($13,656M -> $8,891M) on price reductions",
+        "Headline 'net income +19%' narrative contradicts operating reality",
+        "Depreciation-to-net-income and similar ratios are flattered by the benefit",
+        "Result: training labels must flag this period's bottom line as non-comparable; use operating income for depreciation-risk ratios"
+      ]
+    }
+  ],
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "折旧年限 vs 技术实际寿命",
+      "dimension_name_en": "Depreciation Life vs Technology Useful Life",
+      "weight": 0.25,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "制造设备口径：machinery/equipment 3-15年，上限达15年，触及锚点≥6年档；但需区分资产性质——Gigafactory的冲压、压铸、总装设备物理寿命确实可达10-15年，tooling 4-7年与产线迭代周期大体匹配（相对诚实）。真正的错配集中在两点：(1) 平台/工艺迭代（Cybertruck新工艺、4680电池、下一代低成本平台）可能使现役专用设备在3-6年内提前淘汰，公司自己在SIG-001中承认此机制；(2) computer equipment 3-10年，而AI训练硬件技术周期仅1-2年，该资产类别总值一年内+83%至$3,799M。综合：上限年限长、区间披露不透明、AI算力部分错配严重，但传统制造部分有物理依据，评4分（未到Meta式纯粹算力错配的5分档）。",
+      "supporting_signals": ["TSLA-2023-SIG-001", "TSLA-2023-SIG-002", "TSLA-2023-SIG-003"],
+      "key_metrics": {
+        "machinery_equipment_useful_life_years": "3-15",
+        "tooling_useful_life_years": "4-7",
+        "computer_equipment_useful_life_years": "3-10",
+        "ev_platform_cycle_years": "3-6",
+        "ai_accelerator_cycle_years": "1-2",
+        "life_mismatch_ratio_machinery": "up to 2.5-5x vs platform cycle",
+        "life_mismatch_ratio_ai_compute": "up to 5-10x vs AI cycle"
+      }
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "会计政策保守性",
+      "dimension_name_en": "Accounting Policy Conservatism",
+      "weight": 0.20,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "2023年无任何折旧年限变更（'change in estimate'全文仅出现于所得税语境，'prospectively'仅用于两项ASU准则采用），既未延长也未缩短，落在锚点'无变更→3'档。与GOOGL（本期延长服务器年限至6年，+5分档）形成鲜明对比。相对保守的加分项：Panasonic $2.02B设备按产量法折旧（SIG-005）；折旧费用增速(+38%)高于PP&E总值增速(+28%)，未发现费用被压低的量化异常。扣分项：区间披露+直线法为主的单一方法，保留了未来单向裁量空间。评3分。",
+      "supporting_signals": ["TSLA-2023-SIG-002", "TSLA-2023-SIG-005"],
+      "key_metrics": {
+        "useful_life_change_in_2023": false,
+        "change_method": "n/a (no change)",
+        "depreciation_growth_yoy": 0.376,
+        "ppe_gross_growth_yoy": 0.282,
+        "units_of_production_assets_millions": 2020
+      }
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值风险触发",
+      "dimension_name_en": "Impairment Risk Triggers",
+      "weight": 0.20,
+      "score": 2,
+      "score_max": 5,
+      "score_label": "低风险",
+      "score_label_en": "Low Risk",
+      "reasoning": "2021-2023连续三年长期资产零重大减值（Note 2原文），商誉零减值，2023年数字资产减值'不重大'（2022年$204M为比特币减值，非PP&E）。按锚点属'稀少→2'档：存在间接触发因素——Risk Factor明确承认设备可能提前淘汰（SIG-001）、存货跌价$233M（Note 6，含过时存货）、毛利率骤降9.1pp使资产现金流更接近减值测试阈值；但减值测试采用未折现现金流（弱兜底），且高交付量维持现金流为正，测试难以触发。与Meta的$2.43B已实现减值（4-5分档）差距明显，评2分。",
+      "supporting_signals": ["TSLA-2023-SIG-001", "TSLA-2023-SIG-004", "TSLA-2023-SIG-007"],
+      "key_metrics": {
+        "ppe_impairment_2023_millions": 0,
+        "goodwill_impairment_2023_millions": 0,
+        "digital_assets_impairment_2023": "immaterial",
+        "inventory_writedowns_2023_millions": 233,
+        "impairment_test_basis": "undiscounted cash flows",
+        "direct_risk_factor_signal": "early obsolescence of manufacturing equipment (SIG-001)"
+      }
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本支出(CAPEX)强度",
+      "dimension_name_en": "Capital Expenditure Intensity",
+      "weight": 0.20,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "CAPEX/收入=$8,898M/$96,773M=9.2%，落在8-15%档（→3分）。绝对额$8.9B且指引2024年超$10B、2025-2026年每年$8-10B，扩张确定性强。在建工程$5,791M构成未来折旧管道；PP&E总值一年+28%至$41,782M。与超大规模云厂商（Meta 20.2%、GOOGL 10.5%）相比强度中等，但对制造业而言属重资产扩张。折旧假设偏差的杠杆：若年限整体高估20%，年费用少计约$0.8B，约占营业利润9%。评3分。",
+      "supporting_signals": ["TSLA-2023-SIG-006", "TSLA-2023-SIG-002"],
+      "key_metrics": {
+        "capex_millions": 8898,
+        "revenue_millions": 96773,
+        "capex_to_revenue_ratio": 0.0919,
+        "capex_2024_guidance": ">$10,000M",
+        "construction_in_progress_millions": 5791,
+        "ppe_gross_millions": 41782,
+        "depreciation_to_capex_ratio": 0.374
+      }
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "行业竞争/技术替代",
+      "dimension_name_en": "Industry Competition & Technology Substitution",
+      "weight": 0.15,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "双重替代压力且均已实质化：(1) 电动车价格战——2023年多次降价被MD&A明确确认，汽车毛利率28.5%→19.4%崩塌9.1pp，比亚迪等中国厂商及传统车企电动化直接冲击份额，Risk Factor将price reductions列为竞争后果；(2) AI算力自研路线——FSD训练硬件/下一代车端芯片（HW3→HW4已发生一次车端算力代际更替）处于1-2年迭代轨道，公司AI训练算力资产一年+83%扩张，与NVIDIA供应的外部算力形成自研-外购双线竞争。价格战压缩资产回报、平台切换加速旧设备淘汰，两条路径都直接缩短资产经济寿命。评4分。",
+      "supporting_signals": ["TSLA-2023-SIG-003", "TSLA-2023-SIG-007", "TSLA-2023-SIG-001"],
+      "key_metrics": {
+        "automotive_gross_margin_2022": 0.285,
+        "automotive_gross_margin_2023": 0.194,
+        "price_reductions_confirmed_in_mdna": true,
+        "ai_compute_asset_growth_yoy": 0.83,
+        "vehicle_compute_generation": "HW3 -> HW4",
+        "competitors": ["BYD", "legacy OEMs EV lines", "NVIDIA (external AI compute supply)"]
+      }
+    }
+  ],
+  "composite_score": {
+    "weighted_score": 3.2,
+    "max_score": 5.0,
+    "risk_level": "中高风险",
+    "risk_level_en": "Medium-High Risk",
+    "risk_level_color": "#FD7E14",
+    "confidence": 0.8,
+    "confidence_reason": "Direct verbatim evidence for all eight signals (Risk Factor obsolescence disclosure, Note 2 schedule, Note 8 PP&E detail, MD&A tax benefit). Scoring tempered by Tesla's genuinely clean record (no life extension, no impairment, depreciation growing faster than PP&E), which distinguishes it from GOOGL/META; residual uncertainty comes from range-based life disclosure (no per-asset-class life assignment) and the absence of Dojo-specific disclosure (the word does not appear in the filing), so AI compute depreciation treatment must be inferred from the 'Computer equipment and software' class."
+  },
+  "comparative_context": {
+    "sector_median_score": 3.55,
+    "sector": "EV Manufacturing / AI - Manufacturing-Tech Hybrid",
+    "peer_comparison": [
+      {
+        "company": "Meta Platforms",
+        "ticker": "META",
+        "estimated_score": 4.0,
+        "note": "CONFIRMED (project lead). Pure compute-fleet operator with 4-5yr server lives vs 1-2yr GPU cycle plus realized $2.43B impairment. TSLA lower: manufacturing assets have real 10-15yr physical lives, no realized PP&E impairment."
+      },
+      {
+        "company": "Alphabet",
+        "ticker": "GOOGL",
+        "estimated_score": 4.25,
+        "note": "CONFIRMED. Executed actual server life extension 4->6 years in 2023 (-$3.9B depreciation, +$3.0B net income). TSLA made no such change - key differentiator lowering D2 from 5 to 3."
+      },
+      {
+        "company": "Microsoft",
+        "ticker": "MSFT",
+        "estimated_score": 4.2,
+        "note": "Also extended server useful lives (4->6 years, FY2023). Similar change-in-estimate behavior to GOOGL. TSLA has no life-extension event."
+      },
+      {
+        "company": "NVIDIA",
+        "ticker": "NVDA",
+        "estimated_score": 3.1,
+        "note": "Sells accelerators rather than operating fleets; manufacturing equipment asset base. TSLA (3.2) scores marginally higher: it OPERATES AI training compute (unnamed Dojo-class assets, +83% YoY) on 3-10yr schedules, adding an NVDA-like compute-obsolescence exposure on top of manufacturing risk."
+      },
+      {
+        "company": "AMD",
+        "ticker": "AMD",
+        "estimated_score": 2.4,
+        "note": "Fabless, asset-light; lowest risk among annotated peers. TSLA's heavy Gigafactory asset base and price-war margin compression place it well above AMD."
+      }
+    ]
+  },
+  "annotation_methodology": {
+    "source_document": "Tesla, Inc. 2023 Annual Report on Form 10-K (CIK 0001318605, document tsla-20231231)",
+    "filing_accessed": "SEC EDGAR - https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001318605",
+    "text_extraction_method": "Source HTML is a Workiva inline-XBRL document compressed into ~4 super-long lines, so line-number citation is unusable. Text extracted via Python regex tag-stripping + HTML entity unescaping into a plain-text working copy, then sentence-wrapped (newline after sentence terminators) for grep-based keyword search (-i): useful life/lives, depreciation, impairment, obsolescence, prospectively, change in estimate, Dojo, tooling, price reductions, capital expenditures. All locations cited as 'section name + short verbatim locator string' instead of line numbers. All quoted excerpts verified verbatim against the extracted body text; XBRL header/hidden-tag noise (ix:hidden metadata on source line 1) excluded from evidence.",
+    "scoring_method": "Five-dimension weighted scoring (D1 0.25 / D2 0.20 / D3 0.20 / D4 0.20 / D5 0.15), 1-5 integer scale per dimension, anchored to confirmed META 2023 benchmark (4.0) and validated GOOGL 2023 sample (4.25)",
+    "human_verification": "All text excerpts and financial figures transcribed verbatim from the 10-K body text at the cited section+locator positions; cross-checked MD&A vs Notes vs Statements for consistency (revenue, net income, capex, depreciation, PP&E detail all internally consistent)",
+    "limitation": "Single-year 10-K. (1) Useful lives disclosed as ranges only; no per-asset-class assignment, so D1 scoring relies on upper bounds. (2) 'Dojo' does not appear anywhere in this filing; Tesla's AI training compute exposure is inferred from Item 1 'additional computer hardware' language and the +83% growth of the 'Computer equipment, hardware and software' PP&E class - the exact depreciation life applied to AI training assets is unobservable. (3) Amortization and any small impairments are not separately disclosed (combined CF line $4,667M). (4) 2023 net income is distorted by the $5.93B one-time tax benefit; operating-income-based ratios preferred."
+  }
+}

@@ -1,0 +1,449 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-07-22",
+    "annotator": "Kimi AI-assisted (pending review by project lead)",
+    "review_status": "draft_pending_review",
+    "filing_source": "SEC EDGAR - 10-K Annual Report"
+  },
+  "company": {
+    "ticker": "INTC",
+    "name": "Intel Corporation",
+    "fiscal_year": 2023,
+    "filing_date": "2024-01-26",
+    "report_period_end": "2023-12-30",
+    "industry": "Semiconductors / IDM (Integrated Device Manufacturing) / Foundry",
+    "primary_assets": "Wafer Fabrication Equipment (incl. EUV Lithography Tools), Assembly & Test Equipment, Fab Buildings, Construction in Progress",
+    "file_path": "data/raw/intc_fy2023_10k.html"
+  },
+  "financial_highlights": {
+    "revenue_millions": 54228,
+    "net_income_millions": 1675,
+    "net_income_attributable_to_intel_millions": 1689,
+    "operating_income_millions": 93,
+    "income_tax_expense_millions": -913,
+    "income_tax_note": "Benefit from taxes of $913M in 2023 (effective tax rate -119.8%); pre-tax income was only $762M",
+    "rd_expense_millions": 16046,
+    "operating_cash_flow_millions": 11471,
+    "capex_millions": 25750,
+    "capex_note": "Additions to property, plant, and equipment per Consolidated Statements of Cash Flows; net additions (adjusted for partner contributions) $23,228M per non-GAAP free cash flow reconciliation",
+    "depreciation_millions": 7847,
+    "depreciation_prior_year_millions": 11128,
+    "amortization_millions": 1755,
+    "amortization_note": "Amortization of intangibles per Consolidated Statements of Cash Flows; identified intangible assets net $4,589M (developed technology $2,524M, customer relationships and brands $700M, licensed technology and patents $1,360M, other non-amortizing $5M)",
+    "impairment_charges_millions": 45,
+    "impairment_note": "2023 asset impairment charges of $45M within Restructuring and Other Charges (2022: $151M; 2021: $287M). Additionally 2022 included a $723M Optane inventory impairment in cost of sales, and 2021 included a $238M goodwill impairment. No goodwill impairment in 2023 or 2022. No standalone PP&E impairment line item disclosed.",
+    "restructuring_and_other_charges_millions": -62,
+    "optane_inventory_impairment_2022_millions": 723,
+    "goodwill_impairment_2021_millions": 238,
+    "excess_capacity_charges_2023_millions": 411,
+    "useful_life_change_depreciation_reduction_millions": 4200,
+    "useful_life_change_gross_margin_increase_millions": 2500,
+    "useful_life_change_rd_decrease_millions": 400,
+    "useful_life_change_ending_inventory_decrease_millions": 1300,
+    "government_incentives_depreciation_reduction_millions": 226,
+    "total_assets_millions": 191572,
+    "ppe_gross_millions": 194657,
+    "ppe_net_millions": 96647,
+    "land_and_buildings_gross_millions": 51182,
+    "machinery_and_equipment_gross_millions": 100033,
+    "accumulated_depreciation_millions": 98010,
+    "goodwill_millions": 27591,
+    "intangible_assets_net_millions": 4589,
+    "construction_in_progress_millions": 43442,
+    "finance_lease_payments_millions": 96,
+    "finance_leased_assets_in_ppe_millions": 619,
+    "capex_commitments_millions": 27500,
+    "capex_to_revenue_ratio": 0.4749,
+    "depreciation_to_revenue_ratio": 0.1447,
+    "server_depreciation_pct_of_total": null,
+    "server_depreciation_pct_note": "NA - Intel is an IDM manufacturer, not a server-fleet operator; depreciation by asset class is not disclosed because most depreciation sits in factory overhead cost pools and is absorbed into inventory (Note 3, HTML lines 4676-4685: 'it is impracticable to determine the total depreciation expense included as a component of each operating segment's operating income (loss) results')"
+  },
+  "accounting_policy": {
+    "depreciation_method": "straight-line",
+    "machinery_equipment_useful_life_years": "3-8",
+    "machinery_equipment_useful_life_years_before": "5 (certain production machinery and equipment in wafer fabrication facilities)",
+    "machinery_equipment_useful_life_years_after": "8",
+    "building_useful_life_years": "10-25",
+    "capitalized_interest": "interest on borrowings related to eligible capital expenditures is capitalized and depreciated with the asset",
+    "useful_life_evaluation_factors": "process technology cadence between node transitions; changes in machinery and equipment technology; re-use of machinery and tools across each generation of process technology (evaluated at least annually)",
+    "change_effective": "2023-01 (applied prospectively beginning Q1 2023)",
+    "change_in_estimate_method": "prospectively (no retrospective adjustment)",
+    "change_impact_depreciation_reduction_millions": 4200,
+    "change_impact_gross_margin_increase_millions": 2500,
+    "change_impact_rd_decrease_millions": 400,
+    "change_impact_ending_inventory_decrease_millions": 1300,
+    "impairment_testing_policy": "Assets categorized and evaluated for impairment at the lowest level of identifiable cash flows; recoverability tested against undiscounted cash flows; review triggered by significant under-performance, negative industry/economic trends, or changes in use and fungibility of assets",
+    "policy_risk_note": "公司2023年1月将晶圆厂部分生产机器设备折旧年限从5年延长至8年并未来适用，估计减少2023年折旧$4.2B、增加毛利率~$2.5B、减少研发费用~$400M、降低期末存货~$1.3B。2023年经营利润仅$93M、税前利润仅$762M——若无此项变更，Intel 2023年将录得大额经营亏损，该会计估计变更对当期盈亏具有决定性作用。公司自认折旧大部分进入制造费用池并吸收进存货（L1784-1791），变更的实际年度影响'impractical to individually and specifically quantify'，披露透明度有限。"
+  },
+  "risk_signals": [
+    {
+      "signal_id": "INTC-FY2023-SIG-001",
+      "source": "Notes to Consolidated Financial Statements - Note 1. Basis of Presentation / Long-Lived Assets",
+      "keyword_matched": "useful lives ... increased from 5 to 8 years / applied prospectively",
+      "text_excerpt": "Effective January 2023, the estimated useful lives of certain machinery and equipment in our wafer fabrication facilities were increased from 5 to 8 years. This change in estimate was applied prospectively beginning in the first quarter of 2023.",
+      "page_location": "Note 1. Summary of Significant Accounting Policies - Property, Plant, and Equipment (HTML lines 4247-4249)",
+      "risk_type": "useful_life_extension_change_in_estimate",
+      "severity": "critical",
+      "relevance_to_depreciation": "This is the exact core behavior the project targets: Intel extended the depreciation life of wafer-fab production machinery from 5 to 8 years effective Q1 2023, applied prospectively, at the very moment its own process roadmap ('five nodes in four years', ~1-1.25 years per node) implies the fastest node-transition cadence in company history. The 8-year life now spans roughly 6 process-node generations.",
+      "evidence_chain": [
+        "Official disclosure: certain wafer-fab production machinery useful life 5 -> 8 years, effective January 2023, prospective",
+        "Same-period revenue fell 14% ($63,054M -> $54,228M) and operating income collapsed to $93M from $2,334M",
+        "8-year accounting life vs ~1-1.25-year node cadence (Intel 4 shipped Q3 2023; Intel 3/20A/18A to follow by 2025) = ~6 node generations per depreciation life",
+        "Prospective application means prior-period under-depreciation (if any) is never corrected",
+        "Result: 2023 cost of sales and R&D materially understated relative to prior-year depreciation policy"
+      ]
+    },
+    {
+      "signal_id": "INTC-FY2023-SIG-002",
+      "source": "MD&A - Gross Margin / Liquidity discussion",
+      "keyword_matched": "total depreciation expense in 2023 was reduced by $4.2 billion",
+      "text_excerpt": "Effective January 2023, we increased the estimated useful life of certain production machinery and equipment from 5 to 8 years. When compared to the estimated useful life in place as of the end of 2022, we estimate total depreciation expense in 2023 was reduced by $4.2 billion. We estimate this change resulted in an approximately $2.5 billion increase to gross margin, $400 million decrease in R&D expenses, and $1.3 billion decrease in ending inventory values.",
+      "page_location": "Item 7. MD&A (HTML lines 1774-1791); corroborated in Note 6 (lines 4744-4750)",
+      "risk_type": "useful_life_extension_quantified_impact",
+      "severity": "critical",
+      "relevance_to_depreciation": "The 10-K itself quantifies the profit effect: -$4.2B depreciation, +$2.5B gross margin, -$400M R&D, -$1.3B ending inventory. Against 2023 operating income of only $93M and pre-tax income of $762M, the ~$2.9B P&L benefit (gross margin + R&D) is the difference between a reported operating profit and a multi-billion-dollar operating loss. The estimate change, not operations, kept Intel profitable in 2023.",
+      "evidence_chain": [
+        "Disclosed effect: total 2023 depreciation reduced by $4.2B vs 2022 life assumptions",
+        "+$2.5B gross margin and -$400M R&D expense hit the 2023 income statement; $1.3B remained in ending inventory (deferred to future COGS)",
+        "2023 operating income was $93M; without the change, operating result would have been a loss of roughly $2.8B",
+        "Management states the precise YoY impact is 'impractical to individually and specifically quantify' because depreciation sits in overhead pools absorbed into inventory (lines 1784-1791) - limiting auditability",
+        "Result: reported 2023 profitability is substantially manufactured by an accounting assumption change"
+      ]
+    },
+    {
+      "signal_id": "INTC-FY2023-SIG-003",
+      "source": "MD&A - IDM 2.0 capital investments",
+      "keyword_matched": "we could incur asset impairments on property, plant, and equipment assets if our IDM 2.0 strategy is not successful",
+      "text_excerpt": "As of December 30, 2023, our capital investments classified as construction in progress totaled $43.4 billion ($36.7 billion as of December 31, 2022). These assets have not yet been placed into service and have not yet begun depreciating... Additionally, we could incur asset impairments on property, plant, and equipment assets if our IDM 2.0 strategy is not successful.",
+      "page_location": "Item 7. MD&A (HTML lines 1763-1774)",
+      "risk_type": "idm2_capex_impairment_risk",
+      "severity": "high",
+      "relevance_to_depreciation": "Management explicitly ties its PP&E carrying value to IDM 2.0 execution risk. $43.4B of construction in progress (45% of net PP&E) has not yet begun depreciating; once placed in service it will sharply raise future depreciation against a declining revenue base, and if the foundry strategy fails the fallback is impairment - i.e., today's depreciation schedule assumes a success scenario.",
+      "evidence_chain": [
+        "CIP $43,442M as of Dec 30, 2023 (up from $36,727M), not yet depreciating",
+        "Management: as CIP enters service, depreciation will hit production costs and gross margin unless revenue grows",
+        "Management: IDM 2.0 failure could trigger PP&E impairments",
+        "2023 revenue fell 14% and DCAI/NEX segments shrank, contradicting the revenue-growth assumption",
+        "Result: both legs of the risk (higher future depreciation, or impairment) are management-acknowledged"
+      ]
+    },
+    {
+      "signal_id": "INTC-FY2023-SIG-004",
+      "source": "Notes to Consolidated Financial Statements - Note 6. Other Financial Statement Details",
+      "keyword_matched": "machinery and equipment, 3 to 8 years; and buildings, 10 to 25 years",
+      "text_excerpt": "Land and buildings $51,182 ($44,808); Machinery and equipment 100,033 (92,711); Construction in progress 43,442 (36,727); Total property, plant, and equipment, gross 194,657 (174,246); Less: Accumulated depreciation (98,010) (93,386); Total property, plant, and equipment, net $96,647 ($80,860). Our depreciable property, plant, and equipment assets are depreciated over the following estimated useful lives: machinery and equipment, 3 to 8 years; and buildings, 10 to 25 years.",
+      "page_location": "Note 6. Other Financial Statement Details - Property, Plant, and Equipment (HTML lines 4742-4747)",
+      "risk_type": "depreciation_schedule_disclosure",
+      "severity": "high",
+      "relevance_to_depreciation": "Official post-change schedule: machinery and equipment 3-8 years, buildings 10-25 years. Machinery and equipment gross of $100.0B is 51% of gross PP&E - the depreciating base subject to the 8-year assumption is enormous. Unlike cloud-server samples, fab buildings (10-25 years) are conventional; the risk concentrates in the $100B machinery pool and its interaction with node cadence.",
+      "evidence_chain": [
+        "Machinery and equipment gross: $100,033M (2023), up $7,322M YoY",
+        "Post-change M&E life band: 3-8 years straight-line; production machinery specifically moved to the 8-year ceiling",
+        "Gross PP&E grew 11.7% ($174,246M -> $194,657M) while cash-flow depreciation FELL 29.5% ($11,128M -> $7,847M)",
+        "Machinery-heavy asset mix means every year added to useful life moves billions in annual expense",
+        "Result: depreciation schedule disclosure confirms the largest asset class sits at the top of the life band after the 2023 change"
+      ]
+    },
+    {
+      "signal_id": "INTC-FY2023-SIG-005",
+      "source": "Notes to Consolidated Financial Statements - Note 1. Long-Lived Assets",
+      "keyword_matched": "process technology cadence between node transitions",
+      "text_excerpt": "At least annually, we evaluate the period over which we expect to recover the economic value of our property, plant, and equipment, considering factors such as the process technology cadence between node transitions, changes in machinery and equipment technology, and re-use of machinery and tools across each generation of process technology. As we make manufacturing process conversions and other factory planning decisions, we use assumptions involving the use of management judgments regarding the remaining useful lives of assets, primarily process-specific semiconductor manufacturing tools and building improvements.",
+      "page_location": "Note 1. Summary of Significant Accounting Policies - Property, Plant, and Equipment (HTML lines 4236-4247)",
+      "risk_type": "technology_obsolescence_risk",
+      "severity": "high",
+      "relevance_to_depreciation": "Intel's own policy text establishes that useful life is a function of node-transition cadence and identifies 'process-specific semiconductor manufacturing tools' as the judgment-intensive asset class. This is management's own framework connecting depreciation life to technology iteration - and under that framework, an accelerating roadmap (five nodes in four years) should shorten, not lengthen, lives. The 2023 assessment concluded the opposite.",
+      "evidence_chain": [
+        "Policy: life evaluation considers node-transition cadence, equipment technology change, cross-generation tool re-use",
+        "Judgment concentrates on 'process-specific semiconductor manufacturing tools'",
+        "Node cadence accelerated to ~1 node/year (five nodes in four years) starting with Intel 4 in 2023",
+        "Under the company's own framework, faster cadence shortens economic recovery periods for process-specific tools",
+        "Yet the January 2023 evaluation extended lives from 5 to 8 years - a one-directional, expense-reducing conclusion",
+        "Result: estimate discretion applied asymmetrically against the company's own stated evaluation logic"
+      ]
+    },
+    {
+      "signal_id": "INTC-FY2023-SIG-006",
+      "source": "Item 1. Business - Process Technology Roadmap",
+      "keyword_matched": "five technology nodes in four years",
+      "text_excerpt": "We are committed to achieving process technology leadership in 2025 by planning to deliver five technology nodes in four years... Intel 4, our first EUV node... The Intel Core Ultra processor is our first high-volume client product on Intel 4 and began shipping to customers in Q3 2023... Intel 3 is expected to deliver further logic scaling... Intel 20A will follow Intel 3... Intel 18A, our second IFS advanced node offering, will improve on Intel 20A...",
+      "page_location": "Item 1. Business (HTML lines 580-610)",
+      "risk_type": "process_node_cadence_vs_asset_life",
+      "severity": "high",
+      "relevance_to_depreciation": "Intel's disclosed roadmap is ~1.25 nodes per year (Intel 7 -> 4 -> 3 -> 20A -> 18A, 2021-2025). An 8-year depreciation life for wafer-fab production machinery therefore spans ~6 node generations. Caveat for manufacturing reality: much fab equipment (cleanroom, bulk tools, and especially EUV scanners) is genuinely re-usable across multiple nodes, so the mismatch is weaker than for AI servers - but for process-specific tools and for utilization-dependent economics, the cadence-vs-life tension is real and management-acknowledged (SIG-005).",
+      "evidence_chain": [
+        "Roadmap: five nodes in four years; Intel 4 in high-volume manufacturing Q3 2023",
+        "8-year M&E life = ~6 node generations at disclosed cadence",
+        "Cross-node tool re-use partially mitigates (Intel's stated basis for the extension)",
+        "But each node transition requires new process-specific tooling and factory conversions (Note 1), and older-node capacity became underutilized in 2023 (excess capacity charges $411M)",
+        "Result: accounting life assumes durable cross-node economics that current underutilization data already contradicts"
+      ]
+    },
+    {
+      "signal_id": "INTC-FY2023-SIG-007",
+      "source": "Item 1A. Risk Factors - Process Technology Development",
+      "keyword_matched": "we may be required to write down the value of some of our manufacturing assets and facilities",
+      "text_excerpt": "We cannot guarantee that we will realize the expected benefits of next-generation process technologies, including the expected cost, performance, power, and density advantages, or that we will achieve an adequate return on our capital and R&D investments, particularly as the development of new nodes has grown increasingly expensive. In such circumstances, we may be required to write down the value of some of our manufacturing assets and facilities, increasing our expenses.",
+      "page_location": "Item 1A. Risk Factors (HTML lines 2417-2428)",
+      "risk_type": "manufacturing_asset_writedown_risk",
+      "severity": "high",
+      "relevance_to_depreciation": "A direct Risk Factor signal: Intel explicitly warns it may have to write down manufacturing assets if next-generation node economics disappoint. Depreciation assumes full recovery of carrying value through use; this disclosure admits a failure mode in which recovery fails - precisely the scenario in which the extended 8-year schedule proves too slow.",
+      "evidence_chain": [
+        "Risk factor: node development costs escalating; adequate return on capital/R&D not guaranteed",
+        "Failure consequence stated as 'write down the value of some of our manufacturing assets and facilities'",
+        "10nm and 7nm delays (acknowledged at lines 2404-2408) are precedent for node-economics failure",
+        "Extended 8-year life lengthens the exposure window during which book value must be recovered",
+        "Result: direct signal present in Risk Factors - NOT a 'direct signal missing' case"
+      ]
+    },
+    {
+      "signal_id": "INTC-FY2023-SIG-008",
+      "source": "Item 1A. Risk Factors - Demand / Capacity Utilization",
+      "keyword_matched": "shorten the useful lives of under-used facilities and equipment and accelerate depreciation",
+      "text_excerpt": "To the extent the demand decrease is prolonged, our manufacturing or assembly and test capacity could be underutilized, and we may be required to write down our long-lived assets, which would increase our expenses. We may also be required to shorten the useful lives of under-used facilities and equipment and accelerate depreciation. As we continue to make substantial investments in increasing our manufacturing capacity as part of our IDM 2.0 strategy, these underutilization risks may be heightened.",
+      "page_location": "Item 1A. Risk Factors (HTML lines 2375-2385)",
+      "risk_type": "underutilization_accelerated_depreciation_risk",
+      "severity": "high",
+      "relevance_to_depreciation": "Intel warns that prolonged demand weakness may force it to SHORTEN useful lives and accelerate depreciation - the exact reverse of what it did in January 2023. The warning is not hypothetical: 2023 gross margin already absorbed $411M of excess capacity charges (MD&A gross margin bridge, line 1760) while revenue fell 14%. The 5->8 year extension was executed into rising underutilization.",
+      "evidence_chain": [
+        "Risk factor contemplates life SHORTENING + accelerated depreciation under underutilization",
+        "2023 actuals: revenue -14%, $411M excess capacity charges in cost of sales",
+        "Same year, management extended production machinery life 5 -> 8 years (expense-reducing direction)",
+        "IDM 2.0 capacity additions ($27.5B capex commitments, line 5158) heighten underutilization risk per the filing itself",
+        "Result: accounting policy moved opposite to the risk direction management itself discloses"
+      ]
+    },
+    {
+      "signal_id": "INTC-FY2023-SIG-009",
+      "source": "Consolidated Statements of Cash Flows",
+      "keyword_matched": "Depreciation 7,847 / Additions to property, plant, and equipment (25,750)",
+      "text_excerpt": "Depreciation 7,847 (2023), 11,128 (2022), 9,953 (2021)... Additions to property, plant, and equipment (25,750) (2023), (24,844) (2022), (18,733) (2021).",
+      "page_location": "Consolidated Statements of Cash Flows - Year Ended December 30, 2023 (HTML line 4146)",
+      "risk_type": "depreciation_trend_anomaly",
+      "severity": "high",
+      "relevance_to_depreciation": "Depreciation expense collapsed 29.5% YoY ($11,128M -> $7,847M) while gross PP&E grew 11.7% and capex rose to $25,750M. A rapidly expanding asset base producing sharply shrinking depreciation is only possible because of the 5->8 year life extension (disclosed effect -$4.2B) - quantitative proof the expense line is assumption-driven, not economics-driven.",
+      "evidence_chain": [
+        "2023 depreciation $7,847M vs 2022 $11,128M (-$3,281M)",
+        "Disclosed life-change effect: -$4.2B (partially offset by new assets entering service)",
+        "Gross PP&E $194,657M (+$20,411M YoY); capex $25,750M",
+        "Depreciation-to-capex ratio fell to 0.30 - the fleet is being consumed far slower on paper than cash is being spent to build it",
+        "Result: reported cost lines materially understate economic consumption of the fab asset base"
+      ]
+    },
+    {
+      "signal_id": "INTC-FY2023-SIG-010",
+      "source": "MD&A / Note 7. Restructuring and Other Charges; Note 3 / Note 11",
+      "keyword_matched": "Asset impairment charges 45 151 287 / inventory impairment of $723 million",
+      "text_excerpt": "Restructuring and Other Charges Years Ended (In Millions) Dec 30, 2023 / Dec 31, 2022 / Dec 25, 2021: Employee severance and benefit arrangements $222 / $1,038 / $48; Litigation charges and other (329) / (1,187) / 2,291; Asset impairment charges 45 / 151 / 287; Total restructuring and other charges $(62) / $2 / $2,626... In 2022, we initiated the wind-down of our Intel Optane memory business... we recognized an inventory impairment of $723 million in cost of sales on the Consolidated Statements of Income in 2022.",
+      "page_location": "MD&A Restructuring and Other Charges (HTML line 1800); Note 3 Operating Segments (lines 4692-4698); Note 11 Goodwill (line 4913)",
+      "risk_type": "realized_impairment_history",
+      "severity": "medium",
+      "relevance_to_depreciation": "Intel has a recurring realized-impairment pattern: asset impairment charges in restructuring of $287M (2021), $151M (2022), $45M (2023); the $723M Optane inventory impairment (2022) from a technology-strategy exit; a $238M goodwill impairment (2021); accumulated goodwill impairment of $957M. 2023 PP&E impairment was small, but the pattern shows strategic pivots repeatedly strand assets faster than depreciation schedules consume them.",
+      "evidence_chain": [
+        "Three consecutive years of asset impairment charges within restructuring: 287 / 151 / 45",
+        "Optane wind-down (2022): $723M inventory impairment - a technology bet abandoned mid-life",
+        "Goodwill impairment $238M (2021); accumulated $957M across CCG/DCAI/NEX",
+        "No goodwill impairment in 2023/2022; annual quantitative assessments concluded not impaired (lines 4911-4912)",
+        "Result: impairment risk is realized in Intel's recent history, not merely theoretical - but 2023 PP&E-specific impairment was minimal"
+      ]
+    },
+    {
+      "signal_id": "INTC-FY2023-SIG-011",
+      "source": "Item 1A. Risk Factors - Supply Chain",
+      "keyword_matched": "ASML is currently the sole supplier of EUV photolithography tools",
+      "text_excerpt": "ASML Holding N.V. (ASML) is currently the sole supplier of EUV photolithography tools that we are deploying in our Intel 4 and subsequent manufacturing process nodes. These tools are highly complex to develop and produce, and increasingly costly, and from time to time there are increases in lead times or delays in their development and availability, which could delay the development or ramp of our future process nodes.",
+      "page_location": "Item 1A. Risk Factors - Supply Chain (HTML lines 2825-2832)",
+      "risk_type": "euv_tool_concentration_node_dependency",
+      "severity": "medium",
+      "relevance_to_depreciation": "The cutting edge of Intel's $100B machinery pool is single-sourced EUV lithography, deployed from Intel 4 onward and 'increasingly costly' (next-gen High-NA EUV installation begun, line 612). These tools anchor each new node; their cost escalation inflates the per-node asset base being depreciated over the newly extended 8-year life, and any delay strands prior-node capacity investment.",
+      "evidence_chain": [
+        "EUV tools sole-sourced from ASML, deployed at Intel 4 and all subsequent nodes",
+        "Tools 'increasingly costly'; world's first High-NA EUV installation begun (line 612)",
+        "EUV scanner cost per unit is the largest single component of fab capex escalation",
+        "8-year life assumes these tools retain economic value across ~6 node generations",
+        "Result: concentration + cost escalation raises the stakes of the useful-life assumption on the fastest-growing part of the machinery pool"
+      ]
+    },
+    {
+      "signal_id": "INTC-FY2023-SIG-012",
+      "source": "Item 1A. Risk Factors - Competition",
+      "keyword_matched": "competitors using third-party foundries, such as TSMC / uncompetitive or obsolete",
+      "text_excerpt": "These delays have allowed competitors using third-party foundries, such as TSMC, to benefit from advancements in manufacturing processes introduced ahead of us, including improvements in performance, energy efficiency, and other features... The industry in which we operate is highly competitive and subject to rapid technological, geopolitical, and market developments... our products or technologies can become uncompetitive or obsolete.",
+      "page_location": "Item 1A. Risk Factors (HTML lines 2410-2414 and 2185-2191)",
+      "risk_type": "industry_competition_tech_substitution",
+      "severity": "high",
+      "relevance_to_depreciation": "Intel acknowledges it lost process leadership: fabless competitors riding TSMC's nodes gained performance/efficiency advantages, and its own products/technologies 'can become uncompetitive or obsolete'. DCAI (data center/AI) revenue fell 20% in 2023 to $15,521M with an operating loss of $530M amid NVIDIA's AI accelerator dominance. Competitive substitution directly shortens the economic life of both products and the fabs that make them.",
+      "evidence_chain": [
+        "Filing admits TSMC-based competitors benefited from processes 'introduced ahead of us'",
+        "Industry 'subject to rapid technological developments'; products 'can become uncompetitive or obsolete'",
+        "DCAI 2023: revenue -20%, operating loss $530M; IFS operating loss $482M",
+        "AI accelerator market dominated by NVIDIA; Intel Gaudi ramping from a small base",
+        "Result: competitive-economic life of Intel's process technology and fab assets is shorter than the 8-year accounting assumption"
+      ]
+    }
+  ],
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "折旧年限 vs 技术实际寿命",
+      "dimension_name_en": "Depreciation Life vs Technology Useful Life",
+      "weight": 0.25,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "变更后机器设备折旧年限3-8年、生产设备顶格8年，按锚点'≥6年→5'触及最高档。但必须区分制造设备与AI服务器：晶圆厂设备物理磨损寿命确实长达8-15年，且Intel明确以'设备跨代复用'（re-use of machinery and tools across each generation，L4239-4240）作为延长依据，EUV光刻机客观上可服务Intel 4/3/20A/18A多代节点——5-8年在半导体制造业属常规区间，不能硬套云厂商结论。然而相对其自身技术迭代仍存在实质错配：公司自认寿命评估取决于'节点转换节奏'（L4238），而自身路线图是四年五节点（约1-1.25年/代，L581-582），8年寿命横跨约6代节点；对process-specific专用设备，节点迭代直接侵蚀其经济价值，2023年$411M过剩产能费用已证明旧节点产能利用率下滑。综合：年限数字达最高档、方向与技术节奏相反，但跨代复用的制造业现实部分成立，评4分而非5分。",
+      "supporting_signals": ["INTC-FY2023-SIG-001", "INTC-FY2023-SIG-004", "INTC-FY2023-SIG-005", "INTC-FY2023-SIG-006"],
+      "key_metrics": {
+        "stated_useful_life_years_after_change": "8 (certain production machinery); 3-8 (all M&E)",
+        "stated_useful_life_years_before_change": "5",
+        "building_useful_life_years": "10-25",
+        "own_node_cadence_years": "~1.25 (five nodes in four years)",
+        "node_generations_per_depreciation_life": "~6",
+        "life_mismatch_note": "mismatch assessed vs Intel's own node cadence, not cloud-server AI cycle; cross-node tool re-use partially mitigates"
+      }
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "会计政策保守性",
+      "dimension_name_en": "Accounting Policy Conservatism",
+      "weight": 0.20,
+      "score": 5,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "本期（2023年1月/Q1）刚刚延长折旧年限并采用未来适用法（prospectively），为锚点最高档'本期延长→5'。变更量化影响：折旧减少$4.2B、毛利率增加~$2.5B、研发费用减少~$400M、期末存货减少~$1.3B。关键背景：2023年收入下滑14%、经营利润仅$93M、税前利润仅$762M——若无此项变更，Intel 2023年将录得约$2.8B经营亏损，该估计变更对当期盈亏具有决定性作用，比Google（净利润$73.8B中$3.0B，占4.1%）的报表美化程度更为极端。且折旧进入制造费用池吸收进存货，管理层自述实际年度影响'impractical to individually and specifically quantify'（L1789-1791），透明度进一步受限。",
+      "supporting_signals": ["INTC-FY2023-SIG-001", "INTC-FY2023-SIG-002", "INTC-FY2023-SIG-009"],
+      "key_metrics": {
+        "change_method": "prospectively",
+        "change_effective": "2023-01 (Q1 2023)",
+        "retrospective_adjustment": false,
+        "depreciation_reduction_millions": 4200,
+        "gross_margin_increase_millions": 2500,
+        "rd_decrease_millions": 400,
+        "operating_income_millions": 93,
+        "change_pnl_benefit_vs_operating_income": "~2,900M benefit vs 93M operating income - change determined profit/loss sign"
+      }
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值风险触发",
+      "dimension_name_en": "Impairment Risk Triggers",
+      "weight": 0.20,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "2023年有实际资产减值但规模小（重组内资产减值$45M），按'本期实际减值→4-5'与'仅间接→3'之间取4。减值触发信号密集且多为直接信号：MD&A明示'IDM 2.0战略不成功可能导致PP&E减值'（L1773-1774）；风险因素明示新节点回报不足'可能需减记制造资产与设施'（L2427-2428）、需求持续下滑'可能需缩短设备年限并加速折旧'（L2383-2384）；2023年已实际发生$411M过剩产能费用。近期减值历史密集：2022年Optane存货减值$723M、2022/2021重组资产减值$151M/$287M、2021年商誉减值$238M（累计商誉减值$957M）。2023/2022商誉年度测试未减值。综合：直接信号充足+连续年度减值记录，但本期PP&E纯减值规模小，评4分。",
+      "supporting_signals": ["INTC-FY2023-SIG-003", "INTC-FY2023-SIG-007", "INTC-FY2023-SIG-008", "INTC-FY2023-SIG-010"],
+      "key_metrics": {
+        "asset_impairment_2023_millions": 45,
+        "asset_impairment_2022_millions": 151,
+        "asset_impairment_2021_millions": 287,
+        "optane_inventory_impairment_2022_millions": 723,
+        "goodwill_impairment_2021_millions": 238,
+        "goodwill_impairment_2023_millions": 0,
+        "excess_capacity_charges_2023_millions": 411,
+        "direct_impairment_signals_count": 3,
+        "impairment_triggers_identified": ["idm2_strategy_failure", "node_economics_shortfall", "demand_driven_underutilization", "technology_exit_optane", "process_delays"]
+      }
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本支出(CAPEX)强度",
+      "dimension_name_en": "Capital Expenditure Intensity",
+      "weight": 0.20,
+      "score": 5,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "CAPEX/收入=25,750/54,228=47.5%，远超'≥25%→5'锚点，为本批样本中资本强度最高者（META 20.2%、GOOGL 10.5%）。机器设备总值$100.0B、在建工程$43.4B（占净PP&E 45%，尚未开始计提折旧）、资本开支承诺$27.5B（大部分12个月内到期）。折旧假设偏差的杠杆效应极大：年限变更单项即影响$4.2B年折旧；2023年折旧/CAPEX仅0.30，资产扩张速度远超账面消耗速度，未来折旧洪峰已锁定。IDM 2.0+Smart Capital（Brookfield Arizona Fab $29.0B承诺）进一步固化重资产路径。",
+      "supporting_signals": ["INTC-FY2023-SIG-002", "INTC-FY2023-SIG-003", "INTC-FY2023-SIG-004", "INTC-FY2023-SIG-009"],
+      "key_metrics": {
+        "capex_millions": 25750,
+        "revenue_millions": 54228,
+        "capex_to_revenue_ratio": 0.4749,
+        "machinery_equipment_gross_millions": 100033,
+        "construction_in_progress_millions": 43442,
+        "capex_commitments_millions": 27500,
+        "depreciation_to_capex_ratio": 0.305,
+        "cip_pct_of_net_ppe": 0.45
+      }
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "行业竞争/技术替代",
+      "dimension_name_en": "Industry Competition & Technology Substitution",
+      "weight": 0.15,
+      "score": 5,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "Intel面临三线竞争替代且均为公司自认：（1）先进制程竞赛落后——自认10nm/7nm延误使'使用TSMC等第三方代工厂的竞争对手受益'（L2410-2414），IFS代工须与TSMC正面竞争，四年五节点是追赶型军备竞赛；（2）AI芯片竞争——DCAI 2023收入-20%至$15,521M、经营亏损$530M，AI加速市场由NVIDIA主导，Gaudi基数小；（3）行业'高度竞争、技术快速演进'，公司自认产品与技术'can become uncompetitive or obsolete'（L2190-2191）。竞争压力直接缩短制程技术与晶圆厂资产的经济寿命：一旦18A/IFS不及预期，$100B机器设备+$43B在建工程面临利用率与价值双杀（SIG-003/007/008）。为本批样本中竞争替代对资产端冲击最直接的案例，评5分。",
+      "supporting_signals": ["INTC-FY2023-SIG-006", "INTC-FY2023-SIG-007", "INTC-FY2023-SIG-011", "INTC-FY2023-SIG-012"],
+      "key_metrics": {
+        "industry": "Semiconductors / IDM / Foundry",
+        "process_race_competitor": "TSMC (fabless competitors ride its nodes)",
+        "ai_competition": "NVIDIA dominates AI accelerators; Intel DCAI revenue -20%, operating loss $530M (2023)",
+        "ifs_operating_loss_2023_millions": -482,
+        "own_roadmap": "five nodes in four years (Intel 7/4/3/20A/18A), leadership target 2025",
+        "competitive_obsolescence_language_in_filing": true
+      }
+    }
+  ],
+  "composite_score": {
+    "weighted_score": 4.55,
+    "max_score": 5.0,
+    "risk_level": "高风险",
+    "risk_level_en": "High Risk",
+    "risk_level_color": "#DC3545",
+    "confidence": 0.9,
+    "confidence_reason": "Strongest evidence class: the 10-K itself quantifies the exact target behavior (production machinery life 5->8 years, -$4.2B depreciation, +$2.5B gross margin) in both MD&A and Note 6, corroborated by the anomalous YoY depreciation decline (-29.5%) amid record capex and PP&E growth, plus direct Risk Factor language on manufacturing-asset write-downs, forced life-shortening, and IDM 2.0 impairment. All figures verified against original filing text with line numbers. Caveat reflected in D1: fab-equipment cross-node reuse means the life-vs-tech-cycle mismatch is structurally weaker than for cloud server fleets."
+  },
+  "comparative_context": {
+    "sector_median_score": 3.6,
+    "sector": "Semiconductors / Technology Hardware",
+    "peer_comparison": [
+      {
+        "company": "Meta Platforms",
+        "ticker": "META",
+        "estimated_score": 4.0,
+        "note": "CONFIRMED (project lead, 2025-07-15). Servers 4-5 years, no life extension in 2023, realized $2.43B facilities-consolidation impairment. INTC scores higher: it executed an in-period life extension whose P&L benefit (~$2.9B) exceeded its entire operating income ($93M)."
+      },
+      {
+        "company": "Alphabet",
+        "ticker": "GOOGL",
+        "estimated_score": 4.25,
+        "note": "DRAFT (same batch). Servers 4->6 years effective FY2023, -$3.9B depreciation, +$3.0B net income (4.1% of net income). INTC's change is larger relative to profit (determined the profit/loss sign) and its capex intensity (47.5% vs 10.5%) is far higher, but GOOGL's server economics mismatch with AI cycles is more clear-cut than fab equipment."
+      },
+      {
+        "company": "Microsoft",
+        "ticker": "MSFT",
+        "estimated_score": 4.2,
+        "note": "Cloud/AI fleet operator; also extended server useful lives effective FY2023. Pending full annotation."
+      },
+      {
+        "company": "NVIDIA",
+        "ticker": "NVDA",
+        "estimated_score": 3.1,
+        "note": "Fabless; sells accelerators rather than operating fabs or fleets; asset-light. Estimated pending annotation."
+      },
+      {
+        "company": "AMD",
+        "ticker": "AMD",
+        "estimated_score": 2.4,
+        "note": "Fabless chip designer; asset-light; the natural low-risk anchor for this batch. INTC (IDM, owns fabs) sits at the opposite, highest-risk end of the semiconductor asset-structure spectrum."
+      }
+    ]
+  },
+  "annotation_methodology": {
+    "source_document": "Intel Corporation 2023 Annual Report on Form 10-K (CIK 0000050863, fiscal year ended December 30, 2023)",
+    "filing_accessed": "SEC EDGAR - https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000050863",
+    "text_extraction_method": "Keyword search (useful life, useful lives, depreciation, impairment, obsolescence, prospectively, change in estimate, technological, node) with -i and line numbers on the raw HTML, followed by line-range text extraction (HTML tag stripping) for every candidate hit; XBRL inline tags (ix:nonfraction/ix:nonnumeric) read through to underlying values; every quoted excerpt verified in visible body text",
+    "scoring_method": "Five-dimension weighted scoring (D1 0.25 / D2 0.20 / D3 0.20 / D4 0.20 / D5 0.15), 1-5 integer scale per dimension, anchored to confirmed META 2023 benchmark (4.0) and same-batch GOOGL (4.25); manufacturing-specific adjustment applied to D1 (fab equipment physical/reuse life vs node cadence, not cloud-server AI cycle)",
+    "human_verification": "All quoted text excerpts verified against original 10-K filing at cited HTML line numbers",
+    "limitation": "Scoring based on single-year 10-K. Intel does not disclose depreciation by asset class (overhead pool / inventory absorption), so the split of the $4.2B estimate-change benefit between P&L and inventory cannot be fully isolated; server_depreciation_pct marked NA as not applicable to an IDM manufacturer; multi-year trend analysis pending."
+  }
+}

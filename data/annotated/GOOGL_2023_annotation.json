@@ -4,7 +4,7 @@
     "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
     "annotated_at": "2026-07-20",
     "annotator": "Kimi AI-assisted (pending review by project lead)",
-    "review_status": "draft_pending_review",
+    "review_status": "confirmed",
     "filing_source": "SEC EDGAR - 10-K Annual Report"
   },
   "company": {
@@ -241,7 +241,11 @@
       "score_label": "高风险",
       "score_label_en": "High Risk",
       "reasoning": "服务器折旧年限经2023年1月变更后为6年（网络设备同为6年），达到评分锚点最高档（≥6年→5分）。而AI加速硬件技术迭代周期仅1-2年（Google自研TPU v4 2021→v5e/v5p 2023；NVIDIA H100 2022→B100 2024），错配比3-6倍，比Meta（4-5年，2-2.5倍）更严重。公司自身在Risk Factors中承认AI技术'rapidly evolving'（L678-686），在关键会计估计中承认'technological advancements'可能改变资产受益期（L2533-2538）。",
-      "supporting_signals": ["GOOGL-2023-SIG-001", "GOOGL-2023-SIG-003", "GOOGL-2023-SIG-008"],
+      "supporting_signals": [
+        "GOOGL-2023-SIG-001",
+        "GOOGL-2023-SIG-003",
+        "GOOGL-2023-SIG-008"
+      ],
       "key_metrics": {
         "stated_useful_life_years_after_change": "6",
         "stated_useful_life_years_before_change": "4 (servers) / 5 (certain network equipment)",
@@ -253,13 +257,17 @@
       "dimension_id": "D2",
       "dimension_name": "会计政策保守性",
       "dimension_name_en": "Accounting Policy Conservatism",
-      "weight": 0.20,
+      "weight": 0.2,
       "score": 5,
       "score_max": 5,
       "score_label": "高风险",
       "score_label_en": "High Risk",
       "reasoning": "本期（2023年1月）刚刚延长折旧年限并采用未来适用法（prospectively），是评分锚点的最高档情形。变更自2023财年起生效、不追溯调整，直接减少当期折旧$3.9B、增加净利润$3.0B（占净利润4.1%）、增厚EPS $0.24。值得注意的是变更时点正值AI军备竞赛爆发（ChatGPT发布于2022年11月），公司却将会计估计向更乐观方向调整，估计裁量呈单向利己特征。",
-      "supporting_signals": ["GOOGL-2023-SIG-001", "GOOGL-2023-SIG-002", "GOOGL-2023-SIG-004"],
+      "supporting_signals": [
+        "GOOGL-2023-SIG-001",
+        "GOOGL-2023-SIG-002",
+        "GOOGL-2023-SIG-004"
+      ],
       "key_metrics": {
         "change_method": "prospectively",
         "change_effective": "2023-01",
@@ -274,40 +282,52 @@
       "dimension_id": "D3",
       "dimension_name": "减值风险触发",
       "dimension_name_en": "Impairment Risk Triggers",
-      "weight": 0.20,
+      "weight": 0.2,
       "score": 4,
       "score_max": 5,
       "score_label": "高风险",
       "score_label_en": "High Risk",
       "reasoning": "2023年未发生PP&E纯减值，但发生了真实的资产相关费用：$269M加速租金与加速折旧（Note 8，承认部分资产原折旧进度过慢）+$1,845M办公空间退出费用；文中存在≥3处直接减值信号（长期资产减值政策L3217-3226、商誉年度测试L3185-3187、收购致商誉/长期资产减值风险因素L1700-1701、供应链中断风险L880-885）。权益法投资减值$628M（OI&E）非PP&E。综合：有实际资产相关费用+多处直接信号，但规模与纯度不及Meta的$2.43B设施合并减值，评4分。",
-      "supporting_signals": ["GOOGL-2023-SIG-006", "GOOGL-2023-SIG-007", "GOOGL-2023-SIG-010"],
+      "supporting_signals": [
+        "GOOGL-2023-SIG-006",
+        "GOOGL-2023-SIG-007",
+        "GOOGL-2023-SIG-010"
+      ],
       "key_metrics": {
         "ppe_impairment_2023_millions": 0,
         "accelerated_depreciation_and_rent_millions": 269,
         "office_space_exit_charges_millions": 1845,
         "equity_method_impairment_millions_non_ppe": 628,
         "direct_impairment_signals_count": 4,
-        "impairment_triggers_identified": ["strategic_office_optimization", "acquisition_related", "supply_chain_disruption", "technology_obsolescence"]
+        "impairment_triggers_identified": [
+          "strategic_office_optimization",
+          "acquisition_related",
+          "supply_chain_disruption",
+          "technology_obsolescence"
+        ]
       }
     },
     {
       "dimension_id": "D4",
       "dimension_name": "资本支出(CAPEX)强度",
       "dimension_name_en": "Capital Expenditure Intensity",
-      "weight": 0.20,
+      "weight": 0.2,
       "score": 3,
       "score_max": 5,
       "score_label": "中风险",
       "score_label_en": "Medium Risk",
       "reasoning": "CAPEX/收入=32,251/307,394=10.5%，落在8-15%档（→3分）。绝对额$32.3B创纪录且主要投向技术基础设施（MD&A L2138-2140），公司指引未来CAPEX将继续增加'特别是支持AI产品与服务'（L94-97）。收入基数（$307B，约为Meta的2.3倍）摊薄了比率，但信息技术资产总值已达$80.6B、在建工程$35.2B，折旧假设偏差的绝对杠杆巨大：年限变更一项即影响$3.9B费用。",
-      "supporting_signals": ["GOOGL-2023-SIG-005", "GOOGL-2023-SIG-009"],
+      "supporting_signals": [
+        "GOOGL-2023-SIG-005",
+        "GOOGL-2023-SIG-009"
+      ],
       "key_metrics": {
         "capex_millions": 32251,
         "revenue_millions": 307394,
         "capex_to_revenue_ratio": 0.1049,
         "information_technology_assets_gross_millions": 80594,
         "construction_in_progress_millions": 35229,
-        "depreciation_to_capex_ratio": 0.370
+        "depreciation_to_capex_ratio": 0.37
       }
     },
     {
@@ -320,12 +340,21 @@
       "score_label": "高风险",
       "score_label_en": "High Risk",
       "reasoning": "Alphabet直接运营全球最大规模数据中心集群之一（自研TPU+外购NVIDIA GPU），2023年12月发布Gemini加入基础模型军备竞赛，与OpenAI/Microsoft/Meta/Anthropic直接竞争。公司自述AI'highly competitive, rapidly evolving, require significant investment'（L678-686），且关键AI技术部署依赖第三方设备供应。竞争压力迫使算力资产1-2年内持续升级换代，6年折旧寿命与经济现实脱节。与Meta同处军备竞赛核心，评4分。",
-      "supporting_signals": ["GOOGL-2023-SIG-008", "GOOGL-2023-SIG-009", "GOOGL-2023-SIG-001"],
+      "supporting_signals": [
+        "GOOGL-2023-SIG-008",
+        "GOOGL-2023-SIG-009",
+        "GOOGL-2023-SIG-001"
+      ],
       "key_metrics": {
         "industry": "AI / Cloud Computing / Internet",
         "gpu_tpu_iteration_cycle_years": "1-2",
         "flagship_model": "Gemini (launched December 2023)",
-        "competitors_ramping_capex": ["META", "MSFT", "AMZN", "OPENAI"],
+        "competitors_ramping_capex": [
+          "META",
+          "MSFT",
+          "AMZN",
+          "OPENAI"
+        ],
         "capex_guidance": "increasing, in particular for AI products and services"
       }
     }

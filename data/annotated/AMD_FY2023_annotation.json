@@ -4,7 +4,7 @@
     "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
     "annotated_at": "2026-07-20",
     "annotator": "Kimi AI-assisted (pending review by project lead)",
-    "review_status": "draft_pending_review",
+    "review_status": "confirmed",
     "filing_source": "SEC EDGAR - 10-K Annual Report"
   },
   "company": {
@@ -204,7 +204,11 @@
       "score_label": "中风险",
       "score_label_en": "Medium Risk",
       "reasoning": "设备折旧年限披露为2-15年直线法（Note 1，行3689-3693），按折旧费用$441M/设备原值$2,346M推算隐含平均设备年限约5-6年，处于4-6年锚点区间；但AMD是fabless设计公司，PP&E净额仅$1,589M（占总资产2.3%），其设备为工程/测试设备而非自有AI算力集群，1-2年迭代压力首先冲击的是其产品（存货）和收购来的技术资产而非自有设备。真正极端的年限错配在收购无形资产：Xilinx开发技术按16年、客户关系按14年摊销，Q4 2023刚达到技术可行性的$970M IPR&D按15年摊销（行3932、3952-3955），而公司自己在Risk Factors承认'rapid obsolescence'（行1721-1722）。综合：直接折旧错配有限、摊销错配极端，取中档3分。",
-      "supporting_signals": ["AMD-FY2023-SIG-001", "AMD-FY2023-SIG-002", "AMD-FY2023-SIG-006"],
+      "supporting_signals": [
+        "AMD-FY2023-SIG-001",
+        "AMD-FY2023-SIG-002",
+        "AMD-FY2023-SIG-006"
+      ],
       "key_metrics": {
         "stated_equipment_useful_life_years": "2-15",
         "implied_avg_equipment_life_years": "5-6",
@@ -217,13 +221,16 @@
       "dimension_id": "D2",
       "dimension_name": "会计政策保守性",
       "dimension_name_en": "Accounting Policy Conservatism",
-      "weight": 0.20,
+      "weight": 0.2,
       "score": 2,
       "score_max": 5,
       "score_label": "中低风险",
       "score_label_en": "Medium-Low Risk",
       "reasoning": "全文检索'prospectively'零命中：FY2023没有任何折旧/摊销年限变更披露，既无延长年限+未来适用（Meta式5分情形），也无历史延长记录，属于'无变更'的相对保守情形，给2分。需要注明的抵减项：公司在收购初始计量时给Xilinx开发技术定了16年、客户关系14年的超长年限，等于把乐观假设前置到了初始确认而非后续变更；该激进性已计入D1/D3，不在D2重复扣分。",
-      "supporting_signals": ["AMD-FY2023-SIG-001", "AMD-FY2023-SIG-008"],
+      "supporting_signals": [
+        "AMD-FY2023-SIG-001",
+        "AMD-FY2023-SIG-008"
+      ],
       "key_metrics": {
         "change_in_estimate_disclosed": false,
         "prospectively_keyword_hits": 0,
@@ -235,13 +242,18 @@
       "dimension_id": "D3",
       "dimension_name": "减值风险触发",
       "dimension_name_en": "Impairment Risk Triggers",
-      "weight": 0.20,
+      "weight": 0.2,
       "score": 3,
       "score_max": 5,
       "score_label": "中风险",
       "score_label_en": "Medium Risk",
       "reasoning": "FY2023实际减值为零（Note 6：年度商誉定性测试通过，行4002-4005），无Meta式已实现大额减值。直接减值信号数量不少但均指向商誉/无形资产/技术许可/存货而非自有PP&E：①Risk Factors专章警告Xilinx/Pensando形成的商誉及有形/无形资产可能减值（行2496-2529）；②技术许可减值风险专章（行2729-2737）；③存货过时减记风险且FY2022 Q3已在Gaming/Client实际发生（行1737-1749）；④Note 1长期资产减值政策明示'changes in any of these factors could necessitate impairment recognition in future periods'（行3604-3611）。对'折旧'这一狭义口径而言属于间接信号，推断强度下调；但商誉+无形资产合计$45.6B占总资产67%，Embedded报告单元单扛$21.1B商誉，尾部风险集中。按'仅间接信号→3'锚点给3分。",
-      "supporting_signals": ["AMD-FY2023-SIG-003", "AMD-FY2023-SIG-004", "AMD-FY2023-SIG-005", "AMD-FY2023-SIG-008"],
+      "supporting_signals": [
+        "AMD-FY2023-SIG-003",
+        "AMD-FY2023-SIG-004",
+        "AMD-FY2023-SIG-005",
+        "AMD-FY2023-SIG-008"
+      ],
       "key_metrics": {
         "fy2023_realized_impairment_millions": 0,
         "fy2022_q3_inventory_charges_realized": true,
@@ -255,13 +267,16 @@
       "dimension_id": "D4",
       "dimension_name": "资本支出(CAPEX)强度",
       "dimension_name_en": "Capital Expenditure Intensity",
-      "weight": 0.20,
+      "weight": 0.2,
       "score": 1,
       "score_max": 5,
       "score_label": "低风险",
       "score_label_en": "Low Risk",
       "reasoning": "FY2023 CAPEX（购置不动产与设备）$546M，CAPEX/收入=2.41%，低于3%锚点下限，典型fabless轻资产结构（对比Meta 20.2%）。折旧费用$441M仅占收入1.9%，即使折旧年限假设严重失真，对利润的杠杆效应也小。真正的利润杠杆在收购无形资产摊销（$2,811M，占收入12.4%，为净利润的3.3倍），但该口径不属于CAPEX强度维度，已在D1/D3反映。按'<3%→1'锚点给1分。",
-      "supporting_signals": ["AMD-FY2023-SIG-001", "AMD-FY2023-SIG-006"],
+      "supporting_signals": [
+        "AMD-FY2023-SIG-001",
+        "AMD-FY2023-SIG-006"
+      ],
       "key_metrics": {
         "capex_millions": 546,
         "revenue_millions": 22680,
@@ -281,11 +296,18 @@
       "score_label": "中风险",
       "score_label_en": "Medium Risk",
       "reasoning": "AMD直接处于AI芯片军备竞赛中心：Data Center部门以MI300系列GPU正面竞争NVIDIA，公司在Risk Factors中明言竞争将因'rapid technological changes, frequent product introductions'持续激烈（行1226-1229），并承认市场'short product lifecycles...rapid obsolescence'（行1721-1722）。但按维度口径，AMD是卖芯片而非运营GPU资产的一方：技术替代风险通过存货减记、无形资产/商誉减值、定价压力传导，而非通过自有算力资产折旧。属于'卖芯片而非运营、间接暴露→2-3'区间，考虑到其对NVIDIA 1-2年迭代节奏的直接跟随压力及Xilinx收购技术资产的高暴露，取区间上限3分。",
-      "supporting_signals": ["AMD-FY2023-SIG-002", "AMD-FY2023-SIG-003", "AMD-FY2023-SIG-004"],
+      "supporting_signals": [
+        "AMD-FY2023-SIG-002",
+        "AMD-FY2023-SIG-003",
+        "AMD-FY2023-SIG-004"
+      ],
       "key_metrics": {
         "industry": "Semiconductors / AI accelerators",
         "operates_own_gpu_fleets": false,
-        "primary_competitors": ["NVDA", "INTC"],
+        "primary_competitors": [
+          "NVDA",
+          "INTC"
+        ],
         "ai_product_line": "Instinct MI300 GPU, EPYC CPU, Pensando DPU, Xilinx adaptive SoC",
         "gpu_iteration_cycle_years": "1-2",
         "exposure_channel": "inventory writedowns, intangible/goodwill impairment, pricing pressure"

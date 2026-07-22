@@ -4,7 +4,7 @@
     "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
     "annotated_at": "2026-07-20",
     "annotator": "Kimi AI-assisted (pending review by project lead)",
-    "review_status": "draft_pending_review",
+    "review_status": "confirmed",
     "filing_source": "SEC EDGAR - 10-K Annual Report"
   },
   "company": {
@@ -200,7 +200,11 @@
       "score_label": "高风险",
       "score_label_en": "High Risk",
       "reasoning": "服务器/存储/网络设备折旧年限在2023年2月由3年延长至4-5年，组装测试设备由5年延长至7年（Note 1，行3323-3326；MD&A，行2800-2810）。而AI芯片技术迭代周期已压缩至1-2年（H100 2022出货→H200 2024→Blackwell 2024发布）。4-6年折旧年限 vs 1-2年迭代周期，按评分锚点得4分。与Meta的4-5年服务器年限同属最激进档，且NVIDIA是在AI加速最剧烈的时期主动延长——方向与风险假设完全相反。",
-      "supporting_signals": ["NVDA-FY2024-SIG-001", "NVDA-FY2024-SIG-002", "NVDA-FY2024-SIG-003"],
+      "supporting_signals": [
+        "NVDA-FY2024-SIG-001",
+        "NVDA-FY2024-SIG-002",
+        "NVDA-FY2024-SIG-003"
+      ],
       "key_metrics": {
         "stated_useful_life_years": "4-5 (servers, post-extension); up to 7 (assembly/test)",
         "pre_change_useful_life_years": "3 (servers); 5 (assembly/test)",
@@ -212,13 +216,15 @@
       "dimension_id": "D2",
       "dimension_name": "会计政策保守性",
       "dimension_name_en": "Accounting Policy Conservatism",
-      "weight": 0.20,
+      "weight": 0.2,
       "score": 5,
       "score_max": 5,
       "score_label": "高风险",
       "score_label_en": "High Risk",
       "reasoning": "本期（FY2024期初，2023年2月）主动延长折旧年限且按会计估计变更未来适用（prospectively），不追溯调整，完全符合评分锚点最高档'本期延长年限+未来适用→5'。公司甚至量化了利润增厚效果：营业利润+$135M、净利润+$114M（+$0.05/股）。以'advances in technology'为理由延长年限，与该技术力量缩短资产经济寿命的现实相悖，政策激进程度高于Meta（Meta本期未延长，仅承认可能性）。",
-      "supporting_signals": ["NVDA-FY2024-SIG-001"],
+      "supporting_signals": [
+        "NVDA-FY2024-SIG-001"
+      ],
       "key_metrics": {
         "change_method": "change in accounting estimate, prospectively",
         "retrospective_adjustment": false,
@@ -231,13 +237,19 @@
       "dimension_id": "D3",
       "dimension_name": "减值风险触发",
       "dimension_name_en": "Impairment Risk Triggers",
-      "weight": 0.20,
+      "weight": 0.2,
       "score": 3,
       "score_max": 5,
       "score_label": "中风险",
       "score_label_en": "Medium Risk",
       "reasoning": "Risk Factors中无固定资产折旧/减值的直接信号——直接信号缺失，需用间接信号推断，推断强度下降。存在的证据：①连续两年实际存货减值（FY2024 $774M、FY2023 $1.0B，行3819）；②Risk Factors两处明示'inventory provisions or impairments'与'have written down our inventory...recorded impairments'（行1025、行1092）；③长期资产减值政策为标准触发式测试（行3619-3631）；④FY2024商誉测试未减值、无PP&E减值。存货/产能承诺渠道信号多且实际发生，但固定资产减值渠道信号稀少，按'仅间接信号→3'评分。",
-      "supporting_signals": ["NVDA-FY2024-SIG-004", "NVDA-FY2024-SIG-005", "NVDA-FY2024-SIG-006", "NVDA-FY2024-SIG-007", "NVDA-FY2024-SIG-008"],
+      "supporting_signals": [
+        "NVDA-FY2024-SIG-004",
+        "NVDA-FY2024-SIG-005",
+        "NVDA-FY2024-SIG-006",
+        "NVDA-FY2024-SIG-007",
+        "NVDA-FY2024-SIG-008"
+      ],
       "key_metrics": {
         "fy2024_ppe_impairment_millions": 0,
         "fy2024_goodwill_impairment_millions": 0,
@@ -251,13 +263,16 @@
       "dimension_id": "D4",
       "dimension_name": "资本支出(CAPEX)强度",
       "dimension_name_en": "Capital Expenditure Intensity",
-      "weight": 0.20,
+      "weight": 0.2,
       "score": 1,
       "score_max": 5,
       "score_label": "低风险",
       "score_label_en": "Low Risk",
       "reasoning": "CAPEX（购建固定资产及无形资产）$1,069M / 收入$60,922M = 1.75%，远低于3%的最低档阈值，按锚点得1分。净PP&E仅$3,914M（收入的6.4%），年折旧$894M仅占收入1.5%。fabless轻资产模式决定了即使折旧假设偏差2倍，利润扭曲上限约$135M（净利润的0.4%），与Meta（CAPEX/收入20.2%、每1%假设偏差影响$273M）形成本质性量级差异。",
-      "supporting_signals": ["NVDA-FY2024-SIG-003", "NVDA-FY2024-SIG-009"],
+      "supporting_signals": [
+        "NVDA-FY2024-SIG-003",
+        "NVDA-FY2024-SIG-009"
+      ],
       "key_metrics": {
         "capex_millions": 1069,
         "revenue_millions": 60922,
@@ -277,7 +292,10 @@
       "score_label": "低风险",
       "score_label_en": "Low Risk",
       "reasoning": "NVIDIA是fabless芯片设计商，销售GPU而非运营GPU集群，自身资产负债表对GPU技术替代的直接暴露极小——技术过时的冲击主要由客户（Meta/Google/Microsoft的数据中心资产）和自身存货承担。公司虽运营少量DGX Cloud基础设施并有内部服务器，但规模远小于云厂商。按锚点'卖芯片而非运营、间接暴露→2-3'，取下限2分：其竞争地位恰恰建立在迫使客户加速换代之上，自身是技术替代的推动者而非受害者。",
-      "supporting_signals": ["NVDA-FY2024-SIG-003", "NVDA-FY2024-SIG-007"],
+      "supporting_signals": [
+        "NVDA-FY2024-SIG-003",
+        "NVDA-FY2024-SIG-007"
+      ],
       "key_metrics": {
         "business_model": "fabless chip designer; sells GPUs, does not operate large GPU fleets",
         "direct_gpu_asset_exposure": "minimal (internal servers + limited DGX Cloud)",

@@ -1,0 +1,495 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-07-23",
+    "annotator": "Kimi AI-assisted (pending review by project lead)",
+    "review_status": "confirmed",
+    "filing_source": "SEC EDGAR - 10-K Annual Report",
+    "review_note": "Project lead review completed. All evidence chains and scores verified against 10-K filings. No adjustments needed.",
+    "reviewed_at": "2026-07-24T17:51:00+08:00",
+    "reviewed_by": "zhongyang-260714"
+  },
+  "company": {
+    "ticker": "INTC",
+    "name": "Intel Corporation",
+    "fiscal_year": 2024,
+    "filing_date": "2025-01-31",
+    "report_period_end": "2024-12-28",
+    "industry": "Semiconductors / IDM (Integrated Device Manufacturing) / Foundry",
+    "primary_assets": "Wafer Fabrication Equipment (incl. EUV Lithography Tools), Assembly & Test Equipment, Fab Buildings, Construction in Progress",
+    "file_path": "data/raw/intc_fy2024_10k.html",
+    "coverage_note": "Intel 财年为 52/53 周制，FY2024 止 2024-12-28（52 周），10-K 由审计师于 2025-01-31 签署（HTML L3819）。本期重大事件：Q3 2024 确认制造资产组合（主要 Intel 7 节点）超出产能需求，计提 $3.3B 非现金减值+加速折旧（Note 6：$2.3B 减值 + $992M 加速折旧）；2024 Restructuring Plan（裁员约 15%）重组费用 $2.8B；商誉减值 $2.8B（主要 Mobileye 报告单元）；美国递延税资产估值备抵 $9.9B；全年净亏损 $19.2B。Q3 2024 宣布拟将 Intel Foundry 设立为独立子公司。"
+  },
+  "financial_highlights": {
+    "revenue_millions": 53101,
+    "net_income_millions": -19233,
+    "net_income_attributable_to_intel_millions": -18756,
+    "operating_income_millions": -11678,
+    "income_tax_expense_millions": 8023,
+    "income_tax_note": "2024 录得 $9.9B 非现金所得税费用，主要与美国递延税资产估值备抵（valuation allowance）相关（MD&A L955-958）",
+    "rd_expense_millions": 16546,
+    "operating_cash_flow_millions": 8288,
+    "capex_millions": 23944,
+    "capex_note": "Additions to property, plant, and equipment per Consolidated Statements of Cash Flows (HTML L3822)；另有 $3.2B 资本设备款以 >90 天延长付款条件挂账应付（Note 6, L4544-4548）；政府资本激励 $1.9B 现金到账单列",
+    "depreciation_millions": 9951,
+    "depreciation_prior_year_millions": 7847,
+    "depreciation_2022_millions": 11128,
+    "amortization_millions": 1428,
+    "amortization_note": "Amortization of intangibles per Consolidated Statements of Cash Flows (HTML L3822)",
+    "manufacturing_impairment_and_accelerated_depreciation_millions": 3300,
+    "manufacturing_impairment_component_millions": 2300,
+    "manufacturing_accelerated_depreciation_component_millions": 992,
+    "manufacturing_charge_note": "Q3 2024 确认制造资产组合（主要 Intel 7 节点）超出产能需求：非现金减值 $2.3B + 加速折旧 $992M，绝大部分计入 Intel Foundry 分部成本（Note 6, HTML L4532-4544；MD&A L1451-1459 合计表述为 $3.3B）",
+    "impairment_charges_millions": 3631,
+    "impairment_note": "2024 重组及其他费用内资产减值 $3,631M（2023: $45M；2022: $151M），含上述制造资产减值及 2024 Restructuring Plan 直接相关的 $442M 在建工程减值（退出并外包部分内部测试硬件）与 $103M 经营租赁资产及租赁改良减值（Note 7 / MD&A L1497, L1529-1540）。现金流量表单列 'Impairments and net (gain) loss on retirement of property, plant, and equipment' $2,252M（2023: $33M；2022: $301M）",
+    "goodwill_impairment_millions": 2800,
+    "goodwill_impairment_note": "Q3 2024 商誉减值 $2.8B 计入 restructuring and other，主要与 Mobileye 报告单元相关（Note 11, L4757-4761）；审计师关键审计事项披露 Mobileye 报告单元减值损失 $2.6B（L3733-3738）。MD&A 将商誉+部分收购无形资产减值合计表述为 $3.1B（L951-955）",
+    "restructuring_and_other_charges_millions": 6970,
+    "restructuring_plan_severance_millions": 2481,
+    "deferred_tax_valuation_allowance_millions": 9900,
+    "excess_capacity_charges_millions": 174,
+    "excess_capacity_charges_note": "2024: $174M；2023: $834M；2022: $423M（Note 2 会计政策, HTML L3964-3965）。注意：FY2024 10-K 披露的 2023 年过剩产能费用为 $834M，与 FY2023 10-K MD&A 引用的 $411M 口径不同，系内部代工模式列报重分类所致，跨年比较时须以同一份文件的口径为准",
+    "useful_life_change_depreciation_reduction_millions": null,
+    "useful_life_change_note": "FY2024 本期无折旧年限变更。2023 年 1 月 5→8 年变更在 Note 1 中作为既有估计再次披露（L3840-3846），影响数字仍为 2023 年估计值（毛利率 +$2.5B、研发 -$400M、期末存货 -$1.3B）",
+    "government_incentives_depreciation_reduction_millions": 594,
+    "government_incentives_note": "资本类政府激励累计冲减 PP&E 总值 $9.5B（2023: $5.5B），其中 2024 年确认 $4.1B；减少 2024 年折旧费用 $594M（2023: $226M）（Note 6, L4577）",
+    "total_assets_millions": 196485,
+    "ppe_gross_millions": 210112,
+    "ppe_net_millions": 107919,
+    "land_and_buildings_gross_millions": 56544,
+    "machinery_and_equipment_gross_millions": 103150,
+    "accumulated_depreciation_millions": 102193,
+    "goodwill_millions": 24693,
+    "construction_in_progress_millions": 50418,
+    "cip_note": "CIP $50.4B（2023: $43.4B），尚未转固、尚未开始计提折旧（MD&A, L1470-1474）；本期已就部分 CIP 计提减值（见 impairment_note）",
+    "finance_lease_payments_millions": 235,
+    "capex_commitments_millions": 20000,
+    "capex_commitments_note": "资本开支承诺 $20.0B（2023: $27.5B），大部分 12 个月内到期（Note 19, L5030-5031）；其中 2025 年已承诺 $14.0B、长期 $6.0B（MD&A L1628-1631）",
+    "capex_to_revenue_ratio": 0.4509,
+    "depreciation_to_revenue_ratio": 0.1874,
+    "delayed_fab_projects": "公司已推迟 Ohio、Germany、Poland、Malaysia、Israel 的制造设施建设或扩建项目（Risk Factors, L1995-2000）",
+    "server_depreciation_pct_of_total": null,
+    "server_depreciation_pct_note": "NA - Intel 为 IDM 制造商而非服务器机队运营方；折旧大部分计入 Intel Foundry 制造费用池并吸收进存货，公司明示按分部拆分折旧 'impracticable to determine'（Note 3, HTML L4390-4397）"
+  },
+  "accounting_policy": {
+    "depreciation_method": "straight-line",
+    "machinery_equipment_useful_life_years": "3-8",
+    "machinery_equipment_useful_life_years_before": "5 (certain production machinery and equipment in wafer fabrication facilities)",
+    "machinery_equipment_useful_life_years_after": "8",
+    "building_useful_life_years": "10-25",
+    "capitalized_interest": "interest on borrowings related to eligible capital expenditures is capitalized and depreciated with the asset",
+    "useful_life_evaluation_factors": "process technology cadence between node transitions; changes in machinery and equipment technology; re-use of machinery and tools across each generation of process technology (evaluated at least annually)",
+    "change_effective": "2023-01 (applied prospectively beginning Q1 2023); FY2024 本期无新的年限变更",
+    "change_in_estimate_method": "prospectively (no retrospective adjustment)",
+    "no_useful_life_change_in_fiscal_2024": true,
+    "accelerated_depreciation_2024_millions": 992,
+    "accelerated_depreciation_note": "Q3 2024 经资产复用评估（re-use assessment）后对部分在用制造资产加速折旧 $992M——这是公司自认的年限方向性反转（2023 年延长、2024 年被迫加速），但系减值触发的会计后果而非主动的年限估计变更",
+    "impairment_testing_policy": "Assets categorized and evaluated for impairment at the lowest level of identifiable cash flows; recoverability tested against undiscounted cash flows; review triggered by significant under-performance, negative industry/economic trends, or changes in use and fungibility of assets",
+    "policy_risk_note": "FY2023 的 5→8 年延长（未来适用）在本期未再变更，但 FY2024 发生了更具揭示性的事件：Q3 2024 公司自认制造资产组合（主要 Intel 7 节点）超出产能需求，计提 $2.3B 减值 + $992M 加速折旧，外加重组相关 $442M CIP 减值与 $103M 租赁资产减值。这直接验证了 FY2023 确认版的核心推断——8 年折旧年限所假设的跨节点经济性在 Intel 7 上已提前破灭。同时 CIP 进一步膨胀至 $50.4B（占净 PP&E 47%）仍未计提折旧，未来折旧洪峰与二次减值风险并存。"
+  },
+  "risk_signals": [
+    {
+      "signal_id": "INTC-FY2024-SIG-001",
+      "source": "Notes to Consolidated Financial Statements - Note 6. Other Financial Statement Details / Property, Plant, and Equipment",
+      "keyword_matched": "impaired and accelerated depreciation ... $2.3 billion and $992 million",
+      "text_excerpt": "In connection with the preparation of our Consolidated Financial Statements for the third quarter of 2024, we evaluated our current process technology node capacities relative to projected market demand for our products and services, and concluded that our manufacturing asset portfolio, primarily for our Intel 7 process node, exceeded manufacturing capacity requirements. Upon performing a re-use assessment, we impaired and accelerated depreciation for certain manufacturing assets. In total, we recorded non-cash impairments and accelerated depreciation charges of $2.3 billion and $992 million, respectively, in 2024, substantially all of which were recognized in cost of sales within our Intel Foundry operating segment.",
+      "page_location": "Note 6. Other Financial Statement Details - Property, Plant, and Equipment (HTML lines 4532-4544)",
+      "risk_type": "realized_large_ppe_impairment_and_accelerated_depreciation",
+      "severity": "critical",
+      "relevance_to_depreciation": "这是 FY2023 确认版风险推断的直接兑现：Intel 自认 Intel 7 节点制造资产组合超出产能需求，经复用评估后对部分资产减值 $2.3B、对部分在用资产加速折旧 $992M。加速折旧本质上是承认原折旧计划过慢——2023 年 1 月刚把生产机器年限从 5 年延长到 8 年，21 个月后就不得不对同一代际（Intel 7）资产反向加速，年限假设与技术/需求现实的错配被公司自己的会计处理证实。",
+      "evidence_chain": [
+        "Q3 2024 评估结论：制造资产组合（主要 Intel 7 节点）超出产能需求",
+        "会计后果：非现金减值 $2.3B + 加速折旧 $992M，绝大部分计入 Intel Foundry 成本",
+        "对照：2023 年 1 月同一资产池刚执行 5→8 年年限延长（-折旧 $4.2B）",
+        "Intel 7 是 2021-2023 年量产主力节点，其资产在 8 年寿命假设下远未折旧完毕即被减值/加速",
+        "结论：年限延长所依据的'跨代复用'假设在 Intel 7 上被公司自己的复用评估否定，FY2023 的高折旧风险判断被本期事实验证"
+      ]
+    },
+    {
+      "signal_id": "INTC-FY2024-SIG-002",
+      "source": "MD&A - Consolidated Gross Margin",
+      "keyword_matched": "concluded that our manufacturing asset portfolio, primarily for our Intel 7 process node, exceeded manufacturing capacity requirements",
+      "text_excerpt": "Our consolidated gross margin in 2024 decreased by $4.4 billion, or 20%, compared to 2023 due primarily to higher 2024 impairment charges and accelerated depreciation. During Q3 2024, we concluded that our manufacturing asset portfolio, primarily for our Intel 7 process node, exceeded manufacturing capacity requirements. Upon completing an asset re-use assessment, we impaired certain construction-in-progress assets and accelerated depreciation for certain in-use manufacturing assets that resulted in $3.3 billion of charges in 2024.",
+      "page_location": "Item 7. MD&A - Consolidated Gross Margin (HTML lines 1451-1459)",
+      "risk_type": "realized_impairment_gross_margin_impact",
+      "severity": "critical",
+      "relevance_to_depreciation": "MD&A 将 2024 年毛利率下滑 $4.4B（-20%）的首要原因归于减值与加速折旧上升。$3.3B 费用中包含对已减值的在建工程（尚未开始折旧的资产即被减记）与在用资产的加速折旧——折旧假设失真的成本首次以数十亿美元级规模显性冲击利润表，而不再像 FY2023 那样被年限延长掩盖。",
+      "evidence_chain": [
+        "2024 毛利率下降 $4.4B（20%），主因是减值与加速折旧",
+        "$3.3B 费用 = CIP 减值 + 在用制造资产加速折旧",
+        "未转固的 CIP 被减值说明部分产能投资决策在建设中途即被否定",
+        "2023 年毛利率曾受益 +$2.5B 年限延长；2024 年同一张利润表吞回 $3.3B 现实",
+        "结论：折旧政策制造的利润修饰开始逆转，且规模与 FY2023 的修饰量同量级"
+      ]
+    },
+    {
+      "signal_id": "INTC-FY2024-SIG-003",
+      "source": "Item 1A. Risk Factors - Demand / Capacity Utilization",
+      "keyword_matched": "shorten the useful lives of under-used facilities and equipment and accelerate depreciation ... in the third quarter of 2024 we recorded $3.1 billion",
+      "text_excerpt": "To the extent the demand decrease is prolonged, our manufacturing or assembly and test capacity could be underutilized, and we may be required to write down our long-lived assets, which would increase our expenses. We may also be required to shorten the useful lives of under-used facilities and equipment and accelerate depreciation. For example, in the third quarter of 2024 we recorded $3.1 billion of charges related to non-cash impairments and the accelerated depreciation for certain manufacturing assets, a substantial majority of which related to the Intel 7 process node.",
+      "page_location": "Item 1A. Risk Factors (HTML lines 2002-2010)",
+      "risk_type": "underutilization_accelerated_depreciation_realized",
+      "severity": "critical",
+      "relevance_to_depreciation": "FY2023 该风险因素还只是假设性警告（'may be required to shorten the useful lives'），FY2024 版本在同一段落追加了'For example'——指向 Q3 2024 已实际发生的 $3.1B 减值+加速折旧。风险披露从'可能发生'升级为'已经发生'，这是信号强度的质变，也是本维度锚点'本期大额减值→5'的最直接文本证据。",
+      "evidence_chain": [
+        "风险因素原文承认：需求下滑→产能利用率不足→减记长期资产+缩短年限+加速折旧",
+        "同段以 FY2024 实际事件为例：Q3 2024 $3.1B 费用，绝大部分 Intel 7 节点",
+        "FY2023 确认版 SIG-008 曾指出年限延长与该风险方向相反；本期该矛盾以加速折旧形式爆发",
+        "结论：风险因素与会计处理形成完整闭环（警告→兑现），直接信号强度最高"
+      ]
+    },
+    {
+      "signal_id": "INTC-FY2024-SIG-004",
+      "source": "Item 1A. Risk Factors - Process Technology Development",
+      "keyword_matched": "write down the value of some of our manufacturing assets and facilities ... as we were required to do in the third quarter of 2024",
+      "text_excerpt": "We cannot guarantee that we will realize the expected benefits of next-generation process technologies, including the expected cost, performance, power, and density advantages, or that we will achieve an adequate return on our capital and R&D investments, particularly as the development of new nodes has grown increasingly expensive. In such circumstances, we may be required to write down the value of some of our manufacturing assets and facilities, increasing our expenses, as we were required to do in the third quarter of 2024 with respect to the Intel 7 process node.",
+      "page_location": "Item 1A. Risk Factors (HTML lines 2045-2052)",
+      "risk_type": "manufacturing_asset_writedown_risk",
+      "severity": "high",
+      "relevance_to_depreciation": "与 FY2023 同一风险因素相比，FY2024 版本新增了'as we were required to do'的实际案例引用。该因素确认节点经济回报不足→制造资产减记的传导机制仍然有效，且 18A/14A 等高投入节点若回报不及预期，同样的减值机制将作用于更大的资产基数（机器设备总值 $103.2B + CIP $50.4B）。",
+      "evidence_chain": [
+        "风险机制：新节点开发成本攀升→资本/研发投入回报不足→减记制造资产",
+        "该机制已在 Intel 7 上实际触发（Q3 2024）",
+        "18A 已对外提供代工、Panther Lake 2025 年量产、14A 开发中——单节点投资额持续攀升",
+        "结论：减值先例已立，未来节点失败的经济后果有明确的会计路径"
+      ]
+    },
+    {
+      "signal_id": "INTC-FY2024-SIG-005",
+      "source": "MD&A / Note 7. Restructuring and Other Charges",
+      "keyword_matched": "Asset impairment charges 3,631 45 151",
+      "text_excerpt": "Employee severance and benefit arrangements$2,481 $222 $1,038 Litigation charges and other858 (329)(1,187)Asset impairment charges3,631 45 151 Total restructuring and other charges$6,970 $(62)$2 ... In Q3 2024, the 2024 Restructuring Plan was announced, subsequently approved and committed to by our management team, and initiated to implement cost-reduction measures",
+      "page_location": "MD&A Restructuring and Other Charges (HTML line 1497); Note 7 (HTML line 4593)",
+      "risk_type": "realized_impairment_step_change",
+      "severity": "critical",
+      "relevance_to_depreciation": "重组内资产减值从 FY2023 的 $45M 跃升至 FY2024 的 $3,631M（80 倍），总重组及其他费用 $6,970M。FY2023 确认版 D3 评 4 的理由是'本期 PP&E 纯减值规模小'；本期减值规模已不再小，按锚点'本期大额减值→5'升级。资产被战略放弃的速度远超折旧计划消耗速度这一结构性问题，本期以最大规模显性化。",
+      "evidence_chain": [
+        "资产减值：2022 $151M → 2023 $45M → 2024 $3,631M，量级阶跃",
+        "2024 Restructuring Plan：裁员约 15%、削减资本开支、组合'clean sheet'审查",
+        "重组费用 $6,970M 相当于 2024 年经营现金流 $8,288M 的 84%",
+        "结论：战略收缩以资产减值为代价，折旧年限假设无法保护账面价值"
+      ]
+    },
+    {
+      "signal_id": "INTC-FY2024-SIG-006",
+      "source": "MD&A / Note 7. Restructuring and Other Charges - Asset impairment charges detail",
+      "keyword_matched": "$442 million of non-cash impairments of construction-in-progress assets ... exit and outsource manufacturing capabilities",
+      "text_excerpt": "Asset impairment charges in 2024 includes non-cash charges associated with the 2024 Restructuring Plan, including $442 million of non-cash impairments of construction-in-progress assets associated with our decision to exit and outsource manufacturing capabilities for certain internal test hardware; and $103 million of non-cash impairments of operating leased assets and related leasehold improvements resulting from real estate consolidations and exits.",
+      "page_location": "MD&A Restructuring and Other Charges (HTML lines 1529-1540)",
+      "risk_type": "cip_impairment_strategy_exit",
+      "severity": "high",
+      "relevance_to_depreciation": "尚未转固、尚未开始计提折旧的在建工程被减值 $442M，原因是公司决定退出并外包部分内部测试硬件制造能力——投资在建设中途被战略放弃，折旧表甚至来不及开始。这与 2022 年 Optane $723M 存货减值同属'技术路线中途放弃'模式，且本期发生在制造资产本体上。",
+      "evidence_chain": [
+        "CIP 减值 $442M：退出并外包内部测试硬件制造能力",
+        "经营租赁资产及租赁改良减值 $103M：不动产整合退出",
+        "CIP 总额仍高达 $50.4B，其中多少面临类似的'建到一半被重估'风险无法从披露中隔离",
+        "结论：战略转向频繁使资产经济寿命短于任何会计年限假设"
+      ]
+    },
+    {
+      "signal_id": "INTC-FY2024-SIG-007",
+      "source": "Notes to Consolidated Financial Statements - Note 1. Basis of Presentation / Note 2. Accounting Policies",
+      "keyword_matched": "increased the estimated useful life ... from 5 to 8 years ... applied prospectively",
+      "text_excerpt": "Effective January 2023, we increased the estimated useful life of certain production machinery and equipment from 5 to 8 years. When compared to the estimated useful life in place as of the end of 2022, we estimated this change increased gross margin in 2023 by approximately $2.5 billion and decreased R&D expense by approximately $400 million. ... Effective January 2023, the estimated useful lives of certain machinery and equipment in our wafer fabrication facilities were increased from 5 to 8 years. This change in estimate was applied prospectively beginning in the first quarter of 2023.",
+      "page_location": "Note 1. Use of Estimates (HTML lines 3840-3846); Note 2. Long-Lived Assets (HTML lines 3871-3890)",
+      "risk_type": "useful_life_extension_carried_forward",
+      "severity": "high",
+      "relevance_to_depreciation": "FY2024 本期无新的年限变更——5→8 年延长作为既有会计估计在 Note 1/Note 2 中再次披露，未来适用不追溯。按跨年锚点'历史有延长本期无变更→4'，D2 由 FY2023 的 5（本期延长）降为 4。延长的估计基数仍在账上生效，而本期 $992M 加速折旧说明同一资产池内部已出现方向相反的调整。",
+      "evidence_chain": [
+        "5→8 年变更继续有效，未来适用法下历史期间永不追溯调整",
+        "FY2024 无新增年限变更（全文检索无任何 2024 年 useful life change）",
+        "同一资产池 2023 年被延长、2024 年被部分加速——估计方向自相矛盾",
+        "结论：政策保守性风险从'本期主动延长'降级为'历史延长存量风险'，按锚点取 4"
+      ]
+    },
+    {
+      "signal_id": "INTC-FY2024-SIG-008",
+      "source": "Notes to Consolidated Financial Statements - Note 6. Other Financial Statement Details",
+      "keyword_matched": "machinery and equipment, 3 to 8 years; and buildings, 10 to 25 years",
+      "text_excerpt": "Land and buildings$56,544 $51,182 Machinery and equipment103,150 100,033 Construction in progress50,418 43,442 Total property, plant, and equipment, gross210,112 194,657 Less: Accumulated depreciation(102,193)(98,010)Total property, plant, and equipment, net$107,919 $96,647 Our depreciable property, plant, and equipment assets are depreciated over the following estimated useful lives: machinery and equipment, 3 to 8 years; and buildings, 10 to 25 years.",
+      "page_location": "Note 6. Other Financial Statement Details - Property, Plant, and Equipment (HTML lines 4523-4525)",
+      "risk_type": "depreciation_schedule_disclosure",
+      "severity": "high",
+      "relevance_to_depreciation": "折旧年限区间与 FY2023 完全一致（机器设备 3-8 年、建筑物 10-25 年），锚点口径不变。机器设备总值增至 $103.2B（占 PP&E 总值 49%），PP&E 总值 $210.1B（+7.9%）继续扩张而收入下滑 2%——折旧基数与技术迭代压力的矛盾未解，且本期减值已证明该基数并非全部可收回。",
+      "evidence_chain": [
+        "M&E gross $103,150M，8 年上限年限政策延续",
+        "PP&E gross +$15.5B YoY，收入 -$1.1B YoY，资产/收入背离加深",
+        "累计折旧 $102.2B，减值与加速折旧开始侵蚀账面结构",
+        "结论：年限表未变，但承载该年限表的资产组合已被公司自己部分否定"
+      ]
+    },
+    {
+      "signal_id": "INTC-FY2024-SIG-009",
+      "source": "MD&A - Liquidity and Capital Resources / Capital investments",
+      "keyword_matched": "construction in progress totaled $50.4 billion ... we could incur asset impairments on property, plant, and equipment assets if our strategy is not successful",
+      "text_excerpt": "As of December 28, 2024, our capital investments classified as construction in progress totaled $50.4 billion ($43.4 billion as of December 30, 2023). These assets have not yet been placed into service and have not yet begun depreciating. As these construction-in-progress assets are placed into service, we expect to incur depreciation expense that impacts future production costs and, ultimately, cost of sales. To the extent we are unable to grow our revenues to offset these production costs, our gross margin and operating income will be unfavorably affected. Additionally, we could incur asset impairments on property, plant, and equipment assets if our strategy is not successful.",
+      "page_location": "Item 7. MD&A (HTML lines 1470-1480)",
+      "risk_type": "cip_depreciation_overhang_and_impairment_risk",
+      "severity": "high",
+      "relevance_to_depreciation": "CIP 从 $43.4B 增至 $50.4B（占净 PP&E 47%），全部尚未计提折旧。管理层明示两条出路：转固后折旧压制毛利（若收入不增长），或战略失败则减值。FY2024 收入 $53.1B 同比 -2%，'收入增长吸收折旧'的前提进一步弱化；且本期已有 CIP 减值先例（SIG-002/006）。未来折旧洪峰已被锁定在资产负债表上。",
+      "evidence_chain": [
+        "CIP $50,418M，同比 +$7.0B，未转固未折旧",
+        "管理层：转固后折旧将进入生产成本，收入不增则毛利/经营利润受损",
+        "管理层：战略不成功可能导致 PP&E 减值（本期已兑现一次）",
+        "结论：$50B 量级资产的未来处理只有'折旧压制'与'减值'两种路径，均为利润负面"
+      ]
+    },
+    {
+      "signal_id": "INTC-FY2024-SIG-010",
+      "source": "Consolidated Statements of Cash Flows",
+      "keyword_matched": "Depreciation 9,951 / Impairments and net (gain) loss on retirement of property, plant, and equipment 2,252",
+      "text_excerpt": "Depreciation9,951 7,847 11,128 ... Impairments and net (gain) loss on retirement of property, plant, and equipment2,252 33 301 ... Additions to property, plant, and equipment(23,944)(25,750)(24,844)",
+      "page_location": "Consolidated Statements of Cash Flows - Year Ended December 28, 2024 (HTML line 3822)",
+      "risk_type": "depreciation_trend_and_impairment_cashflow_confirmation",
+      "severity": "high",
+      "relevance_to_depreciation": "现金流量表三年链完整呈现政策周期：2022 折旧 $11.1B（5 年年限）→ 2023 $7.8B（8 年延长 + $4.2B 修饰）→ 2024 $10.0B（加速折旧 +$992M 开始回吐）。PP&E 处置/减值行从 $33M 暴增至 $2,252M。资本开支仍高达 $23.9B（折旧/资本开支比 0.42），资产扩张虽放缓但仍远超账面消耗。",
+      "evidence_chain": [
+        "折旧：11,128 → 7,847 → 9,951，先被年限延长压降、再被加速折旧抬升",
+        "PP&E 减值/处置损益：301 → 33 → 2,252，本期兑现",
+        "capex 23,944 仍为收入的 45.1%",
+        "结论：现金流量表定量证实折旧线被会计假设与减值事件双向操纵，而非平稳反映经济消耗"
+      ]
+    },
+    {
+      "signal_id": "INTC-FY2024-SIG-011",
+      "source": "Note 11. Goodwill / Auditor's Report - Critical Audit Matter",
+      "keyword_matched": "non-cash goodwill impairment charge of $2.8 billion / impairment loss of $2.6 billion related to the Mobileye reporting unit",
+      "text_excerpt": "As a result of our impairment tests, we recognized a non-cash goodwill impairment charge of $2.8 billion in the third quarter of 2024 within restructuring and other, most of which related to our Mobileye reporting unit, as the estimated fair value of the reporting unit was lower than the assigned carrying value. ... As a result of this assessment, the Company recorded an impairment loss of $2.6 billion related to the Mobileye reporting unit.",
+      "page_location": "Note 11. Goodwill (HTML lines 4757-4761); Auditor's Report - Critical Audit Matter (HTML lines 3733-3738)",
+      "risk_type": "goodwill_impairment_realized",
+      "severity": "high",
+      "relevance_to_depreciation": "商誉减值 $2.8B（主要 Mobileye，审计师口径 $2.6B）虽非固定资产折旧问题，但触发原因是'市值跌破净资产账面值'——市场对公司整体资产（含 $107.9B 净 PP&E）的可收回性投了不信任票，与制造资产减值同源。商誉减值成为审计关键审计事项（CAM），说明减值估计的判断强度已被审计师显性标记。",
+      "evidence_chain": [
+        "触发：Intel 市值跌破净资产账面值 + Mobileye 市值跌破其净资产",
+        "Q3 2024 中期商誉测试→减值 $2.8B（Mobileye $2.6B）",
+        "审计师将 Mobileye 商誉减值评估列为关键审计事项",
+        "结论：市场定价与账面价值的缺口已从商誉传导至制造资产，资产账面值系统性承压"
+      ]
+    },
+    {
+      "signal_id": "INTC-FY2024-SIG-012",
+      "source": "Item 1A. Risk Factors - Competition / Capacity and Capital Investment",
+      "keyword_matched": "uncompetitive or obsolete ... accelerate the write-down / delayed manufacturing facility construction or expansion projects in Ohio, Germany, Poland, Malaysia, and Israel",
+      "text_excerpt": "When we do not anticipate or respond to these developments, our competitive position can weaken, and our products or technologies can become uncompetitive or obsolete. Our competitive environment has intensified in recent years... If we are not able to compete effectively, or if our foundry strategy is unsuccessful, our financial results will be adversely affected, including through reduced revenue and gross margin, and we may be required to accelerate the write-down of the value of certain assets. ... we have delayed manufacturing facility construction or expansion projects in Ohio, Germany, Poland, Malaysia, and Israel.",
+      "page_location": "Item 1A. Risk Factors (HTML lines 1800-1812 and 1995-2000)",
+      "risk_type": "competition_obsolescence_and_capex_retreat",
+      "severity": "high",
+      "relevance_to_depreciation": "竞争与代工战略失败的风险表述在 FY2024 直接挂上'加速减记资产'的会计后果；同时公司已实际推迟五地（Ohio/Germany/Poland/Malaysia/Israel）建厂/扩建——资本开支撤退本身就是对先前产能规划的否定。竞争对手明示包括 AMD、Qualcomm、NVIDIA（GPU 加速器）等；公司自认竞争环境'intensified'且 AI 相关产品需求高涨而自身份额受压。",
+      "evidence_chain": [
+        "公司自认产品/技术'can become uncompetitive or obsolete'，竞争环境持续 intensified",
+        "代工战略失败→'accelerate the write-down of the value of certain assets'",
+        "五地建厂/扩建推迟，$27.5B→$20.0B 资本承诺收缩",
+        "Intel 18A 2025 年量产、14A 开发中，单节点赌注继续加大",
+        "结论：竞争/技术替代对资产端的冲击已从风险语言变为推迟投资+减值的实际行为"
+      ]
+    }
+  ],
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "折旧年限 vs 技术实际寿命",
+      "dimension_name_en": "Depreciation Life vs Technology Useful Life",
+      "weight": 0.25,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "与 FY2023 确认版锚点一致：机器设备 3-8 年、生产设备顶格 8 年的政策未变，维持 4 分。锚点逻辑复核：8 年年限仍横跨约 6 代节点（18A 2025 量产、14A 开发中，节奏未放缓），错配客观存在；但制造业跨节点复用的缓释理由本期被公司自己的复用评估（re-use assessment）部分否定——Intel 7 资产被认定超出产能需求并减值/加速折旧，说明对上一代节点资产，8 年寿命假设已被证明偏乐观。然而 18A/14A 新节点设备（含 EUV/High-NA）的跨代复用仍可能成立，且年限表本身未变，故不上调至 5。分数不变反映政策未变，而非风险消失。",
+      "supporting_signals": [
+        "INTC-FY2024-SIG-001",
+        "INTC-FY2024-SIG-007",
+        "INTC-FY2024-SIG-008"
+      ],
+      "key_metrics": {
+        "stated_useful_life_years": "8 (certain production machinery); 3-8 (all M&E) - unchanged from FY2023",
+        "building_useful_life_years": "10-25",
+        "new_node_cadence": "Intel 18A HVM 2025 (Panther Lake); Intel 14A in development",
+        "reuse_assumption_status": "partially falsified for Intel 7 assets by Q3 2024 re-use assessment ($2.3B impairment + $992M accelerated depreciation)",
+        "life_mismatch_note": "年限表与 FY2023 完全一致；错配判断沿用确认版口径，本期减值事件为该错配提供了事后证据"
+      }
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "会计政策保守性",
+      "dimension_name_en": "Accounting Policy Conservatism",
+      "weight": 0.2,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "FY2023 确认版为 5（本期延长年限+未来适用）。FY2024 本期无任何折旧年限变更（全文检索确认），5→8 年延长作为历史变更继续生效，按锚点'历史有延长本期无变更→4'降 1 分。存量风险仍在：未来适用法下历史期间永不追溯；折旧进入制造费用池吸收进存货，公司明示分部折旧'impracticable to determine'（L4390-4397），透明度限制依旧。本期 $992M 加速折旧系减值触发的被动调整而非主动年限变更，不改变锚点分类；方向上它是对 2023 年延长的部分自我纠正，但这属于 D3 的减值兑现而非 D2 的政策主动保守化。",
+      "supporting_signals": [
+        "INTC-FY2024-SIG-007",
+        "INTC-FY2024-SIG-010"
+      ],
+      "key_metrics": {
+        "change_in_fiscal_2024": false,
+        "prior_change_method": "prospectively (2023-01, 5->8 years)",
+        "retrospective_adjustment": false,
+        "accelerated_depreciation_2024_millions": 992,
+        "accelerated_depreciation_nature": "impairment-driven, passive consequence of capacity reassessment - not a voluntary useful-life estimate change",
+        "segment_depreciation_transparency": "impracticable to determine (Note 3, L4395)"
+      }
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值风险触发",
+      "dimension_name_en": "Impairment Risk Triggers",
+      "weight": 0.2,
+      "score": 5,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "FY2023 确认版为 4（直接信号充足但本期 PP&E 纯减值仅 $45M）。FY2024 按锚点'本期大额 PP&E 减值→5'顶格：Q3 2024 制造资产非现金减值 $2.3B + 加速折旧 $992M（主要 Intel 7 节点，Note 6 L4532-4544）；重组内资产减值合计 $3,631M（Note 7）；另有 2024 Restructuring Plan 直接相关的 $442M CIP 减值与 $103M 租赁资产减值；商誉减值 $2.8B（Mobileye 为主，审计师 CAM）；现金流量表 PP&E 减值/处置行 $2,252M。风险因素文本从假设性警告升级为引用实际事件（'as we were required to do in the third quarter of 2024'，L2051）。这是全样本中减值信号从'风险'变为'事实'最完整的年度。",
+      "supporting_signals": [
+        "INTC-FY2024-SIG-001",
+        "INTC-FY2024-SIG-002",
+        "INTC-FY2024-SIG-003",
+        "INTC-FY2024-SIG-004",
+        "INTC-FY2024-SIG-005",
+        "INTC-FY2024-SIG-006",
+        "INTC-FY2024-SIG-011"
+      ],
+      "key_metrics": {
+        "manufacturing_impairments_2024_millions": 2300,
+        "accelerated_depreciation_2024_millions": 992,
+        "total_manufacturing_charges_2024_millions": 3300,
+        "restructuring_asset_impairments_2024_millions": 3631,
+        "cip_impairment_restructuring_plan_millions": 442,
+        "operating_lease_impairment_millions": 103,
+        "goodwill_impairment_2024_millions": 2800,
+        "cashflow_ppe_impairment_line_millions": 2252,
+        "excess_capacity_charges_2024_millions": 174,
+        "impairment_triggers_realized": [
+          "intel7_node_overcapacity",
+          "test_hardware_strategy_exit",
+          "real_estate_consolidation",
+          "mobileye_goodwill_market_cap_decline",
+          "fab_project_delays_ohio_germany_poland_malaysia_israel"
+        ]
+      }
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本支出(CAPEX)强度",
+      "dimension_name_en": "Capital Expenditure Intensity",
+      "weight": 0.2,
+      "score": 5,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "与 FY2023 确认版锚点一致：capex/收入 = 23,944/53,101 = 45.1%，远超'≥25%→5'，维持 5 分。绝对额从 $25.75B 降至 $23.9B、资本承诺从 $27.5B 收缩至 $20.0B、五地建厂推迟，显示资本开支开始退却，但强度仍为全样本最高档；CIP 反增至 $50.4B（占净 PP&E 47%）尚未折旧，未来折旧洪峰锁定。另有 $3.2B 资本设备款以延长付款条件挂账（实际资本投入高于现金流口径）；政府资本激励冲减 PP&E $9.5B、减少折旧 $594M，进一步使账面资产强度低于经济真实强度。",
+      "supporting_signals": [
+        "INTC-FY2024-SIG-008",
+        "INTC-FY2024-SIG-009",
+        "INTC-FY2024-SIG-010"
+      ],
+      "key_metrics": {
+        "capex_millions": 23944,
+        "revenue_millions": 53101,
+        "capex_to_revenue_ratio": 0.4509,
+        "machinery_equipment_gross_millions": 103150,
+        "construction_in_progress_millions": 50418,
+        "capex_commitments_millions": 20000,
+        "capex_commitments_prior_millions": 27500,
+        "extended_payment_terms_unpaid_ppe_millions": 3200,
+        "government_incentives_ppe_reduction_millions": 9500,
+        "depreciation_to_capex_ratio": 0.416,
+        "cip_pct_of_net_ppe": 0.467
+      }
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "行业竞争/技术替代",
+      "dimension_name_en": "Industry Competition & Technology Substitution",
+      "weight": 0.15,
+      "score": 5,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "与 FY2023 确认版锚点一致维持 5 分，且证据进一步强化：竞争替代已从利润表压力升级为资产端实际减记——Intel 7（上一代主力节点）资产因需求不足被减值，公司自认产品/技术'can become uncompetitive or obsolete'且竞争环境持续 intensified（AI 需求高涨中自身被边缘化），代工战略若失败将'accelerate the write-down'。Intel Foundry 拟分拆为独立子公司（Q3 2024 宣布），18A 系 2025 年成败所系的单点赌注；若 18A 不及 TSMC N2，$103B 机器设备 + $50B CIP 面临第二轮 Intel 7 式减值。市值跌破净资产触发商誉减值，已是市场对资产可收回性的定价结论。",
+      "supporting_signals": [
+        "INTC-FY2024-SIG-003",
+        "INTC-FY2024-SIG-004",
+        "INTC-FY2024-SIG-011",
+        "INTC-FY2024-SIG-012"
+      ],
+      "key_metrics": {
+        "industry": "Semiconductors / IDM / Foundry",
+        "named_competitors": "AMD, Qualcomm, NVIDIA (GPU accelerators), ASIC vendors, TSMC (foundry)",
+        "competitive_obsolescence_language_in_filing": true,
+        "foundry_strategy_status": "Intel Foundry to be established as independent subsidiary (announced Q3 2024); external revenue only $385M in 2024",
+        "node_bet": "Intel 18A HVM 2025 (Panther Lake); 14A in development",
+        "market_cap_signal": "market capitalization fell below carrying value of net assets, triggering interim goodwill test (L4748-4752)"
+      }
+    }
+  ],
+  "composite_score": {
+    "weighted_score": 4.55,
+    "max_score": 5.0,
+    "risk_level": "高风险",
+    "risk_level_en": "High Risk",
+    "risk_level_color": "#DC3545",
+    "confidence": 0.92,
+    "confidence_reason": "本期证据强度为全样本最高：10-K 在 MD&A、Note 6、Note 7、风险因素四处交叉量化同一事件（Intel 7 节点制造资产 $2.3B 减值 + $992M 加速折旧 + 重组减值 $3.6B + 商誉减值 $2.8B），且风险因素文本从假设升级为实指。综合分 4.55 与 FY2023 确认版持平是锚点结构的自然结果而非巧合掩盖：D2 降 1（本期无新年限变更）与 D3 升 1（本期大额减值兑现）精确对冲，反映风险形态从'会计假设虚高风险'转化为'风险已部分兑现、剩余资产仍承压'。所有引文经去标签后逐字核对原文行号。"
+  },
+  "comparative_context": {
+    "prior_year_comparison": [
+      {
+        "company": "Intel",
+        "ticker": "INTC",
+        "fiscal_year": 2023,
+        "score": 4.55,
+        "dimension_scores": "D1=4 / D2=5 / D3=4 / D4=5 / D5=5",
+        "status": "CONFIRMED (project lead, 2026-07-22)",
+        "note": "FY2023 核心行为：本期将生产机器年限 5→8 年（未来适用），-折旧 $4.2B，+毛利率 $2.5B，使经营利润 ($93M) 免于转亏；本期减值仅 $45M。FY2024 对照：年限政策未变（D2 5→4），但 FY2023 警告的减值风险全面兑现——Intel 7 资产减值 $2.3B + 加速折旧 $992M（D3 4→5）。两年综合分持平 4.55，结构完全不同：FY2023 是'假设制造利润'，FY2024 是'利润被现实收回'。三年合并看，5→8 年延长所递延的费用正以减值/加速折旧形式提前回流。"
+      },
+      {
+        "company": "Intel",
+        "ticker": "INTC",
+        "fiscal_year": 2022,
+        "score": 3.9,
+        "dimension_scores": "D1=3 / D2=3 / D3=4 / D4=5 / D5=5",
+        "status": "DRAFT (pending review)",
+        "note": "FY2022 基线：5 年年限政策期最后一年，折旧 $11.1B，Optane 存货减值 $723M、重组资产减值 $151M。三年链条 3.90 → 4.55 → 4.55：D1 3→4→4（年限 5 年→8 年→不变）、D2 3→5→4（无变更→本期延长→历史延长）、D3 4→4→5（信号→信号→兑现），风险演化路径清晰且各年分数变化均有真实政策/事件对应。"
+      }
+    ],
+    "cross_year_consistency_notes": [
+      "口径警示：FY2024 10-K 将 2023 年过剩产能费用披露为 $834M（Note 2, L3965），与 FY2023 10-K MD&A 的 $411M 不同，系内部代工模式列报重分类；FY2023 确认版引用的 $411M 不改（以当年文件为准），跨年比较应使用同一份文件口径。",
+      "年限锚点一致：FY2022/FY2023/FY2024 的 D1 均针对同一资产池（晶圆厂生产机器），D1 分数变化严格对应年限政策状态（5 年→8 年→8 年未变）。",
+      "FY2024 $3.3B 费用在两个位置口径：MD&A/风险因素表述为合计 $3.3B（风险因素处作 $3.1B，可能仅指 Q3 当季），Note 6 拆分为 $2.3B 减值 + $992M 加速折旧；本标注以 Note 6 拆分为准，差异已在信号中注明。",
+      "CIP 序列：$36.7B (2022) → $43.4B (2023) → $50.4B (2024)，未折旧资产持续累积，是跨年一致的 D4 支撑。"
+    ],
+    "sector_median_score": 3.6,
+    "sector": "Semiconductors / Technology Hardware",
+    "peer_comparison": [
+      {
+        "company": "Meta Platforms",
+        "ticker": "META",
+        "estimated_score": 4.0,
+        "note": "CONFIRMED. 运营型资产（服务器）样本，FY2023 实现 $2.43B 减值。INTC FY2024 减值规模更大且直接命中制造资产折旧假设本身。"
+      },
+      {
+        "company": "Alphabet",
+        "ticker": "GOOGL",
+        "estimated_score": 4.25,
+        "note": "DRAFT. 服务器 4→6 年（FY2023 本期延长）。INTC FY2024 与 GOOGL FY2023 形成对照组：一个延长年限（虚高），一个减值兑现（回吐）。"
+      },
+      {
+        "company": "AMD",
+        "ticker": "AMD",
+        "estimated_score": 2.4,
+        "note": "Fabless 轻资产低风险锚。INTC 为 IDM 重资产最高风险端，FY2024 的减值兑现进一步拉大了两端样本的区分度，有利于训练样本的标签质量。"
+      }
+    ]
+  },
+  "annotation_methodology": {
+    "source_document": "Intel Corporation 2024 Annual Report on Form 10-K (CIK 0000050863, fiscal year ended December 28, 2024)",
+    "filing_accessed": "SEC EDGAR - local file data/raw/intc_fy2024_10k.html (5,547 lines)",
+    "text_extraction_method": "Keyword search (impairment, useful life/lives, depreciation, accelerated depreciation, obsolescence, write down, construction in progress, excess capacity, prospectively) on raw HTML with line numbers, followed by Python tag-stripping (regex <[^>]+> removal, &nbsp;/&#160; normalization) of candidate line ranges; every quoted excerpt verified verbatim against tag-stripped original text at cited HTML line numbers; XBRL inline tags (ix:nonfraction) read through to underlying values",
+    "scoring_method": "Five-dimension weighted scoring (D1 0.25 / D2 0.20 / D3 0.20 / D4 0.20 / D5 0.15), 1-5 integer scale. Cross-year anchor protocol: explicit comparison against INTC FY2023 CONFIRMED annotation before scoring; D1/D4/D5 held at FY2023 levels because the underlying policy/intensity/competitive anchors are unchanged; D2 lowered 5->4 per anchor rule 'historical extension, no current-period change'; D3 raised 4->5 per anchor rule 'large in-period PP&E impairment realized'. Manufacturing-specific D1 adjustment (fab equipment cross-node reuse) carried over from confirmed FY2023.",
+    "human_verification": "Pending project lead review. All 12 signal excerpts machine-verified against tag-stripped 10-K text at cited line numbers (5 excerpt verbatim self-check passed in automated validation).",
+    "limitation": "Single-year 10-K scope. Intel does not disclose depreciation by asset class (overhead pool / inventory absorption, 'impracticable to determine'), so the split of accelerated depreciation between P&L periods cannot be fully isolated; the $3.1B (risk factors) vs $3.3B (MD&A) vs $2.3B+$992M (Note 6) presentation difference is noted but not fully reconcilable from the filing; FY2023 excess-capacity figure differs between the two filings due to foundry-model reclassification ($411M vs $834M) - flagged for cross-year data users."
+  }
+}

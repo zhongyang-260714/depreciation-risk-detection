@@ -40,7 +40,12 @@ venv.bak/
 # Jupyter
 .ipynb_checkpoints
 
-# Data - exclude raw and processed, but keep annotated outputs
+# Data - exclude raw and processed, but keep annotated outputs and final training set v0.5
+data/raw/
+data/processed/
+!data/annotated/
+!data/processed/training_v05_panel_30.csv
+*.csv
 data/raw/
 data/processed/
 !data/annotated/

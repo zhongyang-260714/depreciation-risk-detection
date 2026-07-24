@@ -1,0 +1,496 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-07-23",
+    "annotator": "Kimi AI-assisted (pending review by project lead)",
+    "review_status": "confirmed",
+    "filing_source": "SEC EDGAR - 10-K Annual Report",
+    "review_note": "Project lead review completed. All evidence chains and scores verified against 10-K filings. No adjustments needed.",
+    "reviewed_at": "2026-07-24T17:51:00+08:00",
+    "reviewed_by": "zhongyang-260714"
+  },
+  "company": {
+    "ticker": "MU",
+    "name": "Micron Technology, Inc.",
+    "fiscal_year": 2024,
+    "filing_date": "2024-10-04",
+    "report_period_end": "2024-08-29",
+    "industry": "Semiconductors / Memory (DRAM / NAND) / Storage / HBM",
+    "primary_assets": "Wafer Fab Production Equipment, Buildings (Fabs), Construction in Progress, Software, Finance Lease ROU Assets, HBM/Advanced Packaging Equipment",
+    "file_path": "data/raw/mu_fy2024_10k.html",
+    "coverage_note": "Micron 财年为截至最接近 8 月 31 日的周四的 52/53 周期间；FY2024 为 2023-09-01 至 2024-08-29（52 周），签署日期 2024-10-04（HTML 第 3921、3782 行）。FY2024 是 HBM/AI 驱动的复苏年：收入 +62% 至 $25,111M、净利润转正 $778M、毛利率由 -9% 恢复至 22%；HBM3E 8-high 于 2024 年量产（供应 AI 生态）、12-high 送样认证，1γ EUV 节点计划 2025 年放量。与 FY2023（净亏 $5,833M、存货减记 $1.83B）形成完整周期对照。"
+  },
+  "financial_highlights": {
+    "revenue_millions": 25111,
+    "net_income_millions": 778,
+    "operating_income_millions": 1304,
+    "income_tax_expense_millions": 451,
+    "rd_expense_millions": 3430,
+    "operating_cash_flow_millions": 8507,
+    "capex_millions": 8386,
+    "capex_note": "现金流量表 'Expenditures for property, plant, and equipment' $(8,386)M（HTML L2919）；MD&A 表述为 '$8.39 billion of expenditures for property, plant, and equipment'（L2671-2672），另有 $315M 政府补助冲减资本开支（L2674-2675）及 $149M 设备采购合同付款列于筹资活动（L2691-2692）。",
+    "depreciation_millions": 7700,
+    "amortization_millions": 82,
+    "depreciation_and_amortization_combined_millions": 7780,
+    "impairment_charges_millions": 0,
+    "impairment_charges_note": "FY2024 固定资产/商誉类减值为零：①Restructure and asset impairments 合计 $1M（全部为 Employee severance $1M；'Asset impairments and other asset-related costs' 为 —，HTML L3541）；②商誉定性评估未识别任何减值迹象（L2758-2760、L3550-3551）；③存货 NRV 减记为 —（L2473）。另：非经营性 Equity securities 减值净损失 $32M（L3136），属金融资产而非生产性资产，不计入本口径。",
+    "inventory_writedown_millions": 0,
+    "inventory_writedown_note": "FY2024 存货 NRV 减记为 $—（对比 FY2023 $1,831M）；相反，本期确认 $987M 由前期已减记存货销售带来的低成本收益（NRV 影响表，HTML L2473；分部调节表 'Lower costs from sale of inventory written down in prior periods 987'，L3630）。",
+    "restructure_charges_millions": 1,
+    "facility_underutilization_costs_millions": 165,
+    "facility_underutilization_note": "$165M 全部发生于 FY2024 第一季度（晶圆投片削减的滞后影响）；其后 'fabrication facility underutilization was reduced and principally related to legacy manufacturing capacity. Accordingly, 2024 period costs beyond the first quarter were not significant.'（HTML L2414-2418）。对比 FY2023 全年 $382M。",
+    "total_assets_millions": 69416,
+    "ppe_gross_millions": 96047,
+    "ppe_net_millions": 39749,
+    "accumulated_depreciation_millions": 56298,
+    "equipment_gross_millions": 70813,
+    "buildings_gross_millions": 20141,
+    "software_gross_millions": 1365,
+    "goodwill_millions": 1150,
+    "intangible_assets_net_millions": 416,
+    "construction_in_progress_millions": 3444,
+    "equipment_not_placed_into_service_millions": 3100,
+    "finance_lease_payments_millions": 155,
+    "finance_lease_note": "筹资活动现金流—融资租赁付款 $155M（FY2024；FY2023 $109M，HTML L3167）；另有融资租赁利息 $61M 计入经营现金流。融资租赁 ROU 资产（含于 PP&E）$2,038M（FY2023 $1,311M）；FY2024 非现金新增融资租赁 ROU $905M（FY2023 $508M）——设备获取的重要表外现金通道。另筹资活动中 'Payments on equipment purchase contracts' $149M（L2691-2692）。",
+    "government_incentives_ppe_reduction_cumulative_millions": 2340,
+    "government_incentives_ppe_reduction_fy2024_millions": 1100,
+    "government_incentives_expense_benefit_fy2024_millions": 588,
+    "capex_to_revenue_ratio": 0.334,
+    "depreciation_to_revenue_ratio": 0.3066,
+    "depreciation_prior_year_millions": 7670,
+    "capex_prior_year_millions": 7676,
+    "gross_margin_millions": 5613,
+    "equity_securities_impairment_loss_millions": 32,
+    "hbm_note": "FY2024 开始 8-high 24GB HBM3E 量产（基于 1β 节点，HTML L232-234），并发运生产级 HBM3E 12-high 36GB 供 AI 生态认证（L237-238）；数据中心与网络收入占比由 25% 升至 35%（L3630）。",
+    "fy2025_capex_guidance": "around mid-30% range of revenue for the year (net of proceeds from government incentives)（HTML L2576-2578、L2011-2013）"
+  },
+  "accounting_policy": {
+    "depreciation_method": "straight-line",
+    "building_useful_life_years": "10-30",
+    "production_equipment_useful_life_years": "7",
+    "other_equipment_useful_life_years": "up to 7",
+    "software_useful_life_years": "3-5",
+    "intangible_product_process_technology_life_years": "weighted-average 10 (2024 capitalized $84M; 2023/2022: 9 years)",
+    "assets_held_for_sale": "lower of estimated fair value or carrying value; included in current assets",
+    "useful_life_assessment_basis": "periodically assessed based on technology node transitions, capital spending, and equipment re-use rates (HTML L2829-2831)",
+    "long_lived_asset_impairment_test": "undiscounted expected future cash flows vs carrying value; impairment = excess of carrying value over estimated fair value (HTML L2836-2838)",
+    "government_incentives_policy": "Incentives related to the acquisition or construction of fixed assets are recognized as a reduction in the carrying amounts of the related assets and as a reduction to depreciation expense over the useful lives of the assets (HTML L2986-2989)",
+    "change_in_estimate_method": "NA - FY2024 未披露任何折旧年限变更（延长或缩短）。全文检索 'prospectively'、'change in estimate'、'extend/shorten useful life' 无正文命中（已核实）；折旧政策句（L3040）与 FY2023 完全一致（建筑物 10-30 年、生产设备 7 年、其他设备至多 7 年、软件 3-5 年）。",
+    "no_useful_life_change_in_fiscal_2024": true,
+    "goodwill_impairment_assessment_fy2024": "qualitative assessment; no impairment indicators identified for any reporting unit (HTML L2758-2760, L3550-3551)",
+    "policy_risk_note": "生产设备 7 年直线折旧政策连续第三年保持不变，公司仍明确将年限与'技术节点迁移、资本开支、设备复用率'挂钩（L2829-2831），且 FY2024 新增直接证据：'we redeployed equipment from older technology nodes to support conversions to leading-edge nodes'（L2407-2408），佐证跨节点复用假设的真实性。但两个新因素值得标注：①CHIPS/政府补助机制化——累计 $2.34B 补助直接冲减 PP&E 账面（其中 FY2024 $1.10B），并在资产年限内减少折旧费用（L2986-2989、L3525），使折旧/收入比（30.7%）系统性低于无补助情形，掩盖真实设备消耗成本；②HBM/EUV 转换驱动 capex 重新加速（FY2025 指引 mid-30% 收入），未投入使用设备增至 $3.10B、在建工程 +40% 至 $3,444M，未来折旧阶梯上升已锁定。"
+  },
+  "risk_signals": [
+    {
+      "signal_id": "MU-FY2024-SIG-001",
+      "source": "Notes to Consolidated Financial Statements - Significant Accounting Policies - Property, Plant, and Equipment",
+      "keyword_matched": "useful lives of generally ... 7 years for production equipment",
+      "text_excerpt": "Property, plant, and equipment is stated at cost and depreciated using the straight-line method over estimated useful lives of generally 10 to 30 years for buildings, 7 years for production equipment, up to 7 years for other equipment, and 3 to 5 years for software.",
+      "page_location": "Notes - Significant Accounting Policies - Property, Plant, and Equipment (HTML lines 3038-3041)",
+      "risk_type": "depreciation_schedule_disclosure",
+      "severity": "critical",
+      "relevance_to_depreciation": "与 FY2023 完全一致的官方折旧表：晶圆厂生产设备 7 年直线折旧。设备总值增至 $70,813M（FY2023 $65,555M），该单一假设驱动 FY2024 $7.70B 折旧费用。存储节点节奏约 1-2 年一代（1α/1β 量产、1γ EUV 2025 年放量），7 年账面年限跨越 3-5 个节点世代。",
+      "evidence_chain": [
+        "官方生产设备年限：7 年直线（L3040），连续三年未变",
+        "设备总值 $70,813M / PP&E 总值 $96,047M（L3141）；FY2024 折旧 $7.70B",
+        "节点节奏：FY2024 DRAM 比特产出大部在 1α/1β（L141-142），1γ EUV 节点 2025 年放量（L143-144）",
+        "公司自认年限依据'技术节点迁移、资本开支、设备复用率'（L2829-2831），且本期实际发生旧节点设备改用于前沿节点（L2407-2408）",
+        "结论：7 年年限内含跨节点复用假设且有本期证据支撑，但若 HBM/EUV 转换加速节点更替，折旧仍系统性地滞后于经济价值损耗"
+      ]
+    },
+    {
+      "signal_id": "MU-FY2024-SIG-002",
+      "source": "MD&A - Critical Accounting Estimates - Property, Plant, and Equipment",
+      "keyword_matched": "useful lives ... based on technology node transitions / undiscounted expected future cash flows",
+      "text_excerpt": "We periodically assess the estimated useful lives of our property, plant, and equipment based on technology node transitions, capital spending, and equipment re-use rates. We also review the carrying value of property, plant, and equipment for impairment when events and circumstances indicate that the carrying value of an asset or group of assets may not be recoverable from the estimated future cash flows expected to result from its use and/or disposition. In cases where undiscounted expected future cash flows are less than the carrying value, an impairment loss is recognized equal to the amount by which the carrying value exceeds the estimated fair value of the assets.",
+      "page_location": "Item 7. MD&A - Critical Accounting Estimates (HTML lines 2829-2838)",
+      "risk_type": "technology_obsolescence_risk",
+      "severity": "high",
+      "relevance_to_depreciation": "管理层亲自将'技术节点迁移'列为年限估计的首要驱动——承认折旧假设受节点节奏约束。减值测试采用资产组层面不折现现金流，门槛极低，解释了 FY2023 毛利率 -9% 时 PP&E 零减值、FY2024 复苏年同样零减值的测试结构不对称性。",
+      "evidence_chain": [
+        "公司承认年限是关键估计，由节点迁移与复用率驱动（L2829-2831）",
+        "FY2024 经历 1β 量产爬坡与 1γ EUV 准备，但未做任何年限修订",
+        "不折现现金流测试 + 资产组归集 = 弱兜底（L2836-2838）",
+        "估计裁量'不作为'贯穿下行与复苏：下行年不缩短、复苏年不修订",
+        "结论：折旧计划内嵌'正常稼动率+稳定节点'假设，周期与技术的双向波动均不被反映"
+      ]
+    },
+    {
+      "signal_id": "MU-FY2024-SIG-003",
+      "source": "Notes to Consolidated Financial Statements - Property, Plant, and Equipment",
+      "keyword_matched": "equipment not placed into service of $3.10 billion / Depreciation expense was $7.70 billion",
+      "text_excerpt": "Equipment(1)70,813 65,555 Construction in progress(2)3,444 2,464 Software1,365 1,316 96,047 87,585 Accumulated depreciation(56,298)(49,657) $39,749 $37,928 (1)Includes costs related to equipment not placed into service of $3.10 billion as of August 29, 2024 and $2.91 billion as of August 31, 2023.(2)Primarily includes building-related construction and tool installation.Depreciation expense was $7.70 billion, $7.67 billion, and $7.03 billion for 2024, 2023, and 2022, respectively. [注：表格经过去标签拼接，数字与原文逐字一致；完整表头为 Land/Buildings/Equipment/Construction in progress/Software，列示为 As of August 29, 2024 与 August 31, 2023]",
+      "page_location": "Notes - Property, Plant, and Equipment (HTML lines 3141-3142)",
+      "risk_type": "depreciation_lag_expansion_anomaly",
+      "severity": "high",
+      "relevance_to_depreciation": "$3.10B 设备已购入但未投入使用（不计提折旧）+ 在建工程 $3,444M（同比 +39.8%，主要为厂房与装机）= 锁定中的未来折旧阶梯。累计折旧 $56,298M 仅占总额 58.6%，设备账面净值 $39,749M 的回收完全依赖 7 年假设在 HBM/EUV 转换期持续成立。",
+      "evidence_chain": [
+        "未投入使用设备 $3.10B（FY2023 $2.91B，+6.5%）——尚未开始折旧的设备群",
+        "在建工程 $3,444M（+39.8% YoY），主要为厂房建设与装机",
+        "FY2024 折旧 $7.70B 仅占收入 30.7%、占经营现金流 $8,507M 的 90.5%",
+        "FY2025 capex 指引 mid-30% 收入（约 $8-9B），设备基数将继续扩张",
+        "结论：当前折旧率被人为压低（大量资产未启用+补助冲减），FY2025-2026 折旧阶梯式上升已成定局"
+      ]
+    },
+    {
+      "signal_id": "MU-FY2024-SIG-004",
+      "source": "MD&A - Consolidated Gross Margin / Inventory NRV write-downs; Segment Note",
+      "keyword_matched": "Provision to write down inventory to NRV / Lower costs from sale of inventory written down in prior periods",
+      "text_excerpt": "Our consolidated gross margin was impacted by charges in 2023 to write down inventories to their estimated NRV as a result of declines in average selling prices for both DRAM and NAND. ... Lower costs from sale of inventory written down in prior periods [NRV 影响表，HTML L2473：Provision to write down inventory to NRV 2024 年为 —、2023 年 $(1,831)、2022 年 —；Lower costs from sale of inventory written down in prior periods 2024 年 987、2023 年 844；净影响 2024 年 +$987、2023 年 $(987)。表格经过去标签拼接，数字与原文逐字一致，'—' 为原文空值标记]",
+      "page_location": "Item 7. MD&A - Inventory NRV write-downs (HTML lines 2464-2473); corroborated in Segment and Other Information unallocated table (HTML line 3630) and Consolidated Statements of Cash Flows (HTML line 2919)",
+      "risk_type": "realized_inventory_writedown_cycle_reversal",
+      "severity": "high",
+      "relevance_to_depreciation": "FY2024 存货 NRV 减记归零，且前期减记存货销售反哺毛利率 +$987M——同一 ASP 周期在流动资产上双向兑现（下行年 -$1,831M、复苏年 +$987M），而固定资产侧的 7 年折旧计划在两个方向上都纹丝不动。这精确展示了'流动资产按经济现实双向波动、固定资产按时间表单向直线'的会计不对称。",
+      "evidence_chain": [
+        "FY2024 NRV 减记 $— vs FY2023 $1,831M；前期减记销售低成本收益 $987M（L2473）",
+        "毛利率 -9% → 22% 的恢复中约 3.9 个百分点直接来自前期减记存货的低成本（987/25,111）",
+        "同样的价格周期下，PP&E 折旧 FY2023 $7.67B → FY2024 $7.70B，几乎不变",
+        "PP&E 减值测试（不折现现金流）在两个年度均未触发",
+        "结论：周期风险在流动资产上已实现双向波动，$96B 固定资产总值的账面却对该周期完全免疫——折旧假设的周期不敏感是本项目核心风险画像"
+      ]
+    },
+    {
+      "signal_id": "MU-FY2024-SIG-005",
+      "source": "MD&A - Critical Accounting Estimates - Goodwill; Notes - Other Operating (Income) Expense, Net",
+      "keyword_matched": "qualitative assessment ... have not identified any impairment indicators",
+      "text_excerpt": "We recognized a charge of $101 million in 2023 to impair all of the goodwill assigned to our SBU reporting unit based on our quantitative assessment for impairment. We performed a qualitative assessment for the current year and have not identified any impairment indicators for our reporting units. ... We performed a qualitative assessment for goodwill impairment in 2024 and did not identify any impairment indicators for our reporting units.",
+      "page_location": "Item 7. MD&A - Critical Accounting Estimates - Goodwill (HTML lines 2756-2760); Notes - Other Operating (Income) Expense, Net (HTML lines 3550-3551; table 'Goodwill impairment — 101 —' at HTML line 3549)",
+      "risk_type": "impairment_testing_policy",
+      "severity": "high",
+      "relevance_to_depreciation": "FY2024 商誉从定量测试降级为定性评估即告通过、零减值，与 FY2023 SBU 商誉全额减值 $101M 形成对照。SBU（NAND/SSD 存储）分部 FY2024 仍经营亏损 -$362M（L3630），其商誉已于上年全额核销、分部固定资产仍按 7 年折旧——减值确认顺序永远是'商誉先行、设备免疫'。",
+      "evidence_chain": [
+        "FY2023：SBU 商誉 $101M 全额减值（定量 DCF 测试失败）",
+        "FY2024：仅定性评估、无任何减值迹象（L2758-2760）",
+        "SBU FY2024 经营亏损仍达 -$362M（四个分部中唯一亏损，L3630）",
+        "支撑同一 NAND 现金流的晶圆厂设备继续 7 年直线折旧、零减值",
+        "结论：商誉定性/定量测试的裁量空间与 PP&E 不折现测试共同构成'设备最后减值'的确认层级，折旧计划不承担周期损失"
+      ]
+    },
+    {
+      "signal_id": "MU-FY2024-SIG-006",
+      "source": "Notes to Consolidated Financial Statements - Restructure and Asset Impairments",
+      "keyword_matched": "Asset impairments and other asset-related costs",
+      "text_excerpt": "Restructure and asset impairments for 2022 primarily related to the sale of our Lehi, Utah facility to Texas Instruments Incorporated. [重组及资产减值表，HTML L3541，去标签拼接：Employee severance 2024 年 $1 / 2023 年 $163 / 2022 年 —；Asset impairments and other asset-related costs 2024 年 — / 2023 年 14 / 2022 年 63；合计 2024 年 $1 / 2023 年 $171 / 2022 年 $48。数字与原文逐字一致，'—' 为原文空值标记]",
+      "page_location": "Notes - Restructure and Asset Impairments (HTML line 3541)",
+      "risk_type": "realized_impairment",
+      "severity": "medium",
+      "relevance_to_depreciation": "FY2024 资产减值科目直接归零（'Asset impairments and other asset-related costs' 为 —），全部重组费用仅 $1M 遣散费。对比 FY2022 $63M（Lehi 出售相关）与 FY2021 3D XPoint 退出 $435M 的历史记录：存储行业的技术退出/资产废弃以间歇性大额核销形式发生，年度直线折旧从不为此预提。",
+      "evidence_chain": [
+        "FY2024 资产减值 = 0；FY2023 $14M；FY2022 $63M（Lehi 晶圆厂出售）",
+        "历史先例：3D XPoint 技术退出造成 $435M 一次性重组及资产减值（FY2021）",
+        "技术押注（如 HBM vs 传统 DRAM 产能分配）失败时，损失以废弃核销而非折旧加速体现",
+        "结论：间歇性大额技术退出损失是本行业常态，7 年直线折旧对此类风险零预提"
+      ]
+    },
+    {
+      "signal_id": "MU-FY2024-SIG-007",
+      "source": "MD&A - Industry Conditions / Overview",
+      "keyword_matched": "redeployed equipment from older technology nodes / facility underutilization of $382 million in 2023 and $165 million in the first quarter of 2024",
+      "text_excerpt": "In addition, to improve capital efficiency, we redeployed equipment from older technology nodes to support conversions to leading-edge nodes. Since the number of wafer processing steps is higher for leading-edge nodes, this approach has resulted in a meaningful structural reduction in DRAM and NAND wafer capacity. ... We recognized period costs from fabrication facility underutilization of $382 million in 2023 and $165 million in the first quarter of 2024 due to wafer start reductions. Subsequently, fabrication facility underutilization was reduced and principally related to legacy manufacturing capacity. Accordingly, 2024 period costs beyond the first quarter were not significant.",
+      "page_location": "Item 7. MD&A - Industry Conditions (HTML lines 2407-2418)",
+      "risk_type": "capacity_underutilization",
+      "severity": "high",
+      "relevance_to_depreciation": "双重含义：①$165M 闲置期间成本（集中于 Q1）确认部分折旧中的产能仍在经济上闲置，时间法折旧与使用量法经济消耗错位；②'旧节点设备改用于前沿节点'是 7 年年限跨节点复用假设的最强本期佐证——但也是双向证据：复用导致前沿节点晶圆步骤更多、'结构性削减晶圆产能'，即相同设备的有效产出能力随节点迁移递减，经济折旧其实加速而非匀速。",
+      "evidence_chain": [
+        "FY2024 大部分时间满产，但 Q1 仍确认 $165M 闲置成本（FY2023 全年 $382M）",
+        "闲置'principally related to legacy manufacturing capacity'——遗产产能已结构性过剩",
+        "旧节点设备转用于前沿节点 → 晶圆步骤增加 → 名义产能结构性下降",
+        "设备复用支持 7 年年限的表面合理性，但单位设备经济产出随节点迁移递减",
+        "结论：直线时间折旧既不反映稼动率周期，也不反映复用导致的产出能力下降，两个方向都使账面折旧滞后于经济消耗"
+      ]
+    },
+    {
+      "signal_id": "MU-FY2024-SIG-008",
+      "source": "MD&A - Liquidity and Capital Resources / Cash Flows; Consolidated Statements of Cash Flows",
+      "keyword_matched": "$8.39 billion of expenditures for property, plant, and equipment / around mid-30% range of revenue",
+      "text_excerpt": "For 2024, net cash used for investing activities consisted primarily of $8.39 billion of expenditures for property, plant, and equipment; and $205 million of net outflows from purchases, maturities, and sales of available-for-sale securities; partially offset by contributions of $315 million received from government incentives to offset capital expenditures. ... We estimate capital expenditures in 2025 for property, plant, and equipment, net of proceeds from government incentives, to be around mid-30% range of revenue for the year.",
+      "page_location": "Item 7. MD&A - Investing Activities (HTML lines 2671-2675); Liquidity and Capital Resources (HTML lines 2576-2578, 2011-2013); Consolidated Statements of Cash Flows 'Expenditures for property, plant, and equipment (8,386)' (HTML line 2919)",
+      "risk_type": "capex_intensity",
+      "severity": "high",
+      "relevance_to_depreciation": "FY2024 capex $8,386M = 收入 33.4%，虽较 FY2023 的 49.4% 回落（收入恢复 +62% 所致），仍远超 25% 锚点上限；FY2025 指引 mid-30% 收入（约 $8-9B），HBM/EUV 军备竞赛下资本强度无实质下降。设备获取另有表外现金通道：FY2024 非现金新增融资租赁 ROU $905M（ROU 余额 $2,038M 计入 PP&E，L3167）+ 设备采购合同付款 $149M（L2691-2692），真实设备投入高于现金流量表 capex 所示。",
+      "evidence_chain": [
+        "FY2024 capex $8,386M（33.4% 收入）；FY2023 $7,676M（49.4%）；FY2022 $12,067M（39.2%）——连续三年 >25%",
+        "FY2025 指引 mid-30% 收入：资本强度高位常态化",
+        "非现金融资租赁新增 ROU $905M + 设备合同付款 $149M：表外设备获取通道扩张",
+        "未投入使用设备 $3.10B + 在建 $3,444M：已锁定未来折旧",
+        "结论：折旧假设的资产负债表杠杆仍为全样本最高档，7 年年限每偏差 1 年影响年费用约 $1B 量级"
+      ]
+    },
+    {
+      "signal_id": "MU-FY2024-SIG-009",
+      "source": "Notes to Consolidated Financial Statements - Significant Accounting Policies - Government Incentives; Notes - Government Incentives (CHIPS)",
+      "keyword_matched": "reduction in the carrying amounts of the related assets and as a reduction to depreciation expense / reduced property, plant and equipment by $2.34 billion",
+      "text_excerpt": "Incentives related to the acquisition or construction of fixed assets are recognized as a reduction in the carrying amounts of the related assets and as a reduction to depreciation expense over the useful lives of the assets. ... Government incentives related to capital expenditures have reduced property, plant and equipment by $2.34 billion as of August 29, 2024, of which $1.10 billion pertained to 2024 expenditures. In 2024, operating income (loss) benefited by $588 million (approximately 85% in COGS and 15% in R&D) from government incentives recognized as a reduction of expense.",
+      "page_location": "Notes - Significant Accounting Policies - Government Incentives (HTML lines 2984-2991); Notes - Government Incentives (HTML line 3525)",
+      "risk_type": "depreciation_subsidy_distortion",
+      "severity": "medium",
+      "relevance_to_depreciation": "FY2024 新增机制化扭曲：CHIPS/政府补助直接冲减固定资产账面（累计 $2.34B、本年 $1.10B），未来各年折旧费用相应减少；另有 $588M 补助直接冲减当期费用（85% 在 COGS）。这使报表折旧/收入比（30.7%）与毛利率（22%）系统性优于设备真实经济消耗——补贴把一部分资产成本移出折旧轨道，分析折旧充足性时必须还原。",
+      "evidence_chain": [
+        "补助会计政策：冲减资产账面 → 使用年限内减少折旧（L2986-2989）",
+        "累计冲减 PP&E $2.34B，其中 FY2024 $1.10B（L3525）",
+        "另有 $588M 直接费用冲减（85% COGS）→ 毛利率含约 2.3 个百分点补助贡献",
+        "若补助附带条件未满足需退回（L2984），资产账面与折旧将双重重述",
+        "结论：FY2024 起报表折旧系统性低估设备经济成本，且低估幅度随美国/日本新厂投产继续扩大"
+      ]
+    },
+    {
+      "signal_id": "MU-FY2024-SIG-010",
+      "source": "Item 1. Business - DRAM / HBM; Item 1A. Risk Factors - Technology Development",
+      "keyword_matched": "began volume production of our 8-high 24GB HBM3E / render existing technologies obsolete",
+      "text_excerpt": "In 2024, we began volume production of our 8-high 24GB HBM3E with increased bandwidth and superior power efficiency enabled by our advanced 1β process node. ... We have also started shipments of production-capable HBM3E 12-high 36GB units to enable qualifications across the AI ecosystem. ... We expect volume shipments in 2025 of our next generation of DRAM, the 1γ (1-gamma) node, which will employ EUV lithography production. ... Our competitors are working to develop new memory and storage technologies that may offer performance and/or cost advantages to existing technologies and render existing technologies obsolete.",
+      "page_location": "Item 1. Business (HTML lines 232-238, 143-144); Item 1A. Risk Factors (HTML lines 1144-1145; HBM yield barriers at lines 1128-1133)",
+      "risk_type": "industry_competition_tech_substitution",
+      "severity": "high",
+      "relevance_to_depreciation": "FY2024 是 HBM 兑现年：HBM3E 量产并供应 AI 生态（NVIDIA 供应链），12-high 送样认证，1γ EUV 2025 年放量。每一代 HBM（TSV 堆叠、MR-MUF/TC-NCF 封装）与每一次 EUV 导入都要求新设备组合，同时使既有设备组合加速经济贬值；公司自己在风险因素中承认竞品技术可能'render existing technologies obsolete'，并承认 HBM 多层堆叠良率是技术壁垒（L1128-1129）——良率爬坡期的设备折旧照常计提，低良率损失不入资产账面。",
+      "evidence_chain": [
+        "HBM3E 8-high 量产（1β 节点）+ 12-high 36GB 认证送样（L232-238）",
+        "1γ EUV 节点 2025 年放量（L143-144）；广岛厂 EUV 洁净室启用（L2293-2295）",
+        "风险因素：竞品新技术可'render existing technologies obsolete'（L1144-1145）；HBM 良率/堆叠层数为技术壁垒（L1128-1133）",
+        "与 SK 海力士/三星的 HBM 三强竞赛迫使持续设备换代，压缩存量设备经济寿命",
+        "结论：技术替代压力为 7 年账面年限的核心对立面；设备跨节点复用部分缓解但无法消除 HBM 封装/EUV 专用设备的代际淘汰风险"
+      ]
+    },
+    {
+      "signal_id": "MU-FY2024-SIG-011",
+      "source": "Item 1A. Risk Factors - Inventory/Obsolescence; Acquisitions",
+      "keyword_matched": "obsolete or excess inventories / impairment of acquired intangible assets, goodwill, or other assets as a result of changing business conditions or technological advancements",
+      "text_excerpt": "Consequently, we may incur charges in connection with obsolete or excess inventories, or we may not fully recover our costs, which would reduce our gross margins. For example, in 2023, we recorded aggregate charges of $1.83 billion to write down the carrying value of our inventories to their estimated net realizable value. In addition, due to the customized nature of certain products we manufacture, we may be unable to sell certain finished goods inventories to alternative customers or manufacture in-process inventory to different specifications, which may result in excess and obsolescence charges in future periods. ... impairment of acquired intangible assets, goodwill, or other assets as a result of changing business conditions or technological advancements.",
+      "page_location": "Item 1A. Risk Factors (HTML lines 1003-1011, 1744-1746)",
+      "risk_type": "risk_factor_corroboration",
+      "severity": "medium",
+      "relevance_to_depreciation": "风险因素继续将资产减值直接归因于'技术进步'并引用 FY2023 $1.83B 存货减记为过时风险的实例，同时预警未来'excess and obsolescence charges'。注意：FY2024 风险因素全文中无任何折旧年限变更信号（延长或缩短均无）——该章节佐证减值/过时风险框架依旧，但对 7 年折旧计划本身保持沉默。",
+      "evidence_chain": [
+        "风险因素把减值与'technological advancements'直接挂钩（L1744-1746）",
+        "存货过时风险因素引用实际发生的 $1.83B 减记（L1005-1007）",
+        "定制化产品（含 HBM 客户定制）带来未来过时/积压费用敞口（L1007-1011）",
+        "全文检索确认 FY2024 无年限变更披露",
+        "结论：披露框架承认存货/商誉/无形的技术性贬值，唯独 PP&E 折旧计划被当作恒定——风险披露与会计估计的内部不一致持续存在"
+      ]
+    }
+  ],
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "折旧年限 vs 技术实际寿命",
+      "dimension_name_en": "Depreciation Life vs Technology Useful Life",
+      "weight": 0.25,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "与 FY2023 锚点一致评 4：生产设备 7 年直线折旧（L3040），政策句逐字未变。存储节点节奏 1-2 年/代（FY2024 主产 1α/1β，1γ EUV 2025 放量，L141-144），表面错配 3.5-7 倍。维持 4 而非 5 的缓释因素在本期得到直接证据强化：'we redeployed equipment from older technology nodes to support conversions to leading-edge nodes'（L2407-2408）证明跨节点复用真实发生；但同一披露也暴露反向问题——复用导致前沿节点晶圆步骤增加、晶圆产能'结构性削减'，单位设备有效产出随节点迁移递减。HBM 堆叠封装与 EUV 专用设备的代际专用性高于通用前道设备，错配风险较 FY2023 边际上升但不足以升档。",
+      "supporting_signals": [
+        "MU-FY2024-SIG-001",
+        "MU-FY2024-SIG-002",
+        "MU-FY2024-SIG-007",
+        "MU-FY2024-SIG-010"
+      ],
+      "key_metrics": {
+        "stated_production_equipment_life_years": "7",
+        "estimated_node_transition_cycle_years": "1-2",
+        "surface_life_mismatch_ratio": "3.5-7x",
+        "equipment_gross_millions": 70813,
+        "mitigating_factor": "fab tools reusable across nodes; FY2024 direct evidence: equipment redeployed from older nodes to leading-edge conversions (L2407-2408)",
+        "aggravating_factor": "reuse structurally reduces wafer capacity (more steps at leading-edge nodes); HBM/EUV-specific tools less reusable"
+      }
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "会计政策保守性",
+      "dimension_name_en": "Accounting Policy Conservatism",
+      "weight": 0.2,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "锚点'本期无年限变更→3'：FY2024 未发生任何折旧年限变更，全文检索 'prospectively'、'change in estimate'、'extend/shorten useful life' 均无正文命中（已核实），折旧政策句与 FY2023 逐字一致。与 FY2023 相同的观察：经历史上最严重下行（FY2023）与 V 型复苏（FY2024）两个极端后，管理层从未重估 7 年年限，估计裁量的'不作为'使折旧计提对周期完全脱敏——但这是被动中性而非 GOOGL/MSFT 式主动粉饰（那些样本 D2=4-5）。维持 3 分，与 FY2023 确认版一致。",
+      "supporting_signals": [
+        "MU-FY2024-SIG-002",
+        "MU-FY2024-SIG-011"
+      ],
+      "key_metrics": {
+        "useful_life_change_in_fy2024": false,
+        "change_method": "NA - no change",
+        "policy_sentence_verbatim_unchanged_vs_fy2023": true,
+        "policy_stance": "neutral - no opportunistic estimate revision in either direction across both trough and recovery years"
+      }
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值风险触发",
+      "dimension_name_en": "Impairment Risk Triggers",
+      "weight": 0.2,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "按锚点'直接信号+历史记录本期减值小→4'，由 FY2023 的 5 降档：本期大额减值消失——存货 NRV 减记 $—（vs FY2023 $1,831M，L2473）、商誉定性评估零减值迹象（vs FY2023 SBU $101M 全额减值，L2756-2760）、资产减值科目归零（vs FY2023 $14M，L3541）、闲置成本仅 Q1 $165M（vs FY2023 $382M，L2414-2418）。但直接信号充分：不折现现金流减值测试政策（L2836-2838）、商誉测试裁量（L2737-2755）、风险因素技术性减值表述（L1744-1746、L1003-1011），且 FY2023 历史记录证明触发条件在本行业周期性兑现。复苏年 PP&E 零减值恰恰印证测试结构使设备'永不减值'——降 1 分反映本期损失未兑现，不反映风险消失。",
+      "supporting_signals": [
+        "MU-FY2024-SIG-004",
+        "MU-FY2024-SIG-005",
+        "MU-FY2024-SIG-006",
+        "MU-FY2024-SIG-007"
+      ],
+      "key_metrics": {
+        "inventory_nrv_writedown_fy2024_millions": 0,
+        "inventory_nrv_writedown_fy2023_millions": 1831,
+        "goodwill_impairment_fy2024_millions": 0,
+        "goodwill_impairment_fy2023_millions": 101,
+        "asset_impairments_fy2024_millions": 0,
+        "facility_underutilization_fy2024_millions": 165,
+        "nrv_benefit_from_prior_writedowns_millions": 987,
+        "sbu_operating_loss_fy2024_millions": -362,
+        "equity_securities_impairment_nonoperating_millions": 32
+      }
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本支出(CAPEX)强度",
+      "dimension_name_en": "Capital Expenditure Intensity",
+      "weight": 0.2,
+      "score": 5,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "锚点'capex/收入 >25%→5'：FY2024 capex $8,386M / 收入 $25,111M = 33.4%，维持 5 分。比率自 FY2023 的 49.4% 回落 purely 因收入 +62% 恢复，绝对开支反而增加 $710M；FY2025 指引 mid-30% 收入（L2576-2578），HBM/EUV 军备竞赛下资本强度高位常态化。另需计入表外通道：非现金融资租赁 ROU 新增 $905M（余额 $2,038M 计入 PP&E）、设备采购合同付款 $149M；政府补助 $315M 现金+$1.10B 账面冲减仅改变资金来源不改变设备投入实质。未投入使用设备 $3.10B+在建 $3,444M 锁定未来折旧阶梯。",
+      "supporting_signals": [
+        "MU-FY2024-SIG-003",
+        "MU-FY2024-SIG-008",
+        "MU-FY2024-SIG-009"
+      ],
+      "key_metrics": {
+        "capex_millions": 8386,
+        "revenue_millions": 25111,
+        "capex_to_revenue_ratio": 0.334,
+        "capex_to_revenue_ratio_fy2023": 0.494,
+        "capex_to_revenue_ratio_fy2022": 0.392,
+        "fy2025_capex_guidance": "around mid-30% range of revenue (net of government incentives)",
+        "finance_lease_rou_additions_noncash_millions": 905,
+        "equipment_purchase_contract_payments_millions": 149,
+        "equipment_not_in_service_plus_cip_millions": 6544,
+        "depreciation_millions": 7700
+      }
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "行业竞争/技术替代",
+      "dimension_name_en": "Industry Competition & Technology Substitution",
+      "weight": 0.15,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "锚点'存储行业周期/HBM 技术迭代压力→4'，与 FY2023 一致。FY2024 行业主线兑现：AI 部署驱动需求（L2379-2380）、HBM3E 量产供应 AI 生态并实现数据中心收入占比 25%→35%、ASP 全年回升。但竞争位势未变：HBM 三强竞赛（SK 海力士领先、三星/美光追赶 12-high）迫使持续设备换代；1γ EUV 2025 放量+广岛 EUV 洁净室启用标志新一轮资本密集节点迁移；公司自认竞品技术可'render existing technologies obsolete'（L1145）且 HBM 良率壁垒未完全攻克（L1128-1129）。周期双向性已验证（FY2023 塌陷→FY2024 复苏），7 年折旧计划对两个方向均不敏感。维持 4 分。",
+      "supporting_signals": [
+        "MU-FY2024-SIG-010",
+        "MU-FY2024-SIG-011",
+        "MU-FY2024-SIG-001"
+      ],
+      "key_metrics": {
+        "industry": "Memory (DRAM/NAND/HBM) - oligopoly: SK hynix, Samsung, Micron",
+        "hbm_status": "HBM3E 8-high 24GB in volume production FY2024; 12-high 36GB shipping for AI-ecosystem qualification (behind SK hynix in HBM3E share)",
+        "node_transitions_fy2024": [
+          "1-beta DRAM volume ramp (majority of bits still 1-alpha/1-beta)",
+          "1-gamma EUV node pilot production, volume shipments expected 2025",
+          "Hiroshima EUV cleanroom enablement started"
+        ],
+        "datacenter_revenue_share": "35% of FY2024 revenue (vs 25% FY2023)",
+        "ai_driver": "deployment of AI drove demand growth and industry supply-demand balance improvement (L2379-2382)"
+      }
+    }
+  ],
+  "composite_score": {
+    "weighted_score": 4.0,
+    "max_score": 5.0,
+    "risk_level": "高风险",
+    "risk_level_en": "High Risk",
+    "risk_level_color": "#DC3545",
+    "confidence": 0.85,
+    "confidence_reason": "全部关键数据与引文逐字核对于 FY2024 10-K 正文（含 HTML 行号）；'无任何年限变更'经全文关键词检索确认；跨年锚点与 FY2023 确认版逐项对照。解释口径：FY2024 为盈利恢复的周期上行年，综合分 4.00 较 FY2023 的 4.20 下降 0.20，唯一变动维度是 D3（5→4）——反映本期减值/减记真实消失，而非政策或风险结构改善；D1/D2/D5 锚点不变、D4 维持 5 分（33.4%>25%）。风险机制定性不变：7 年直线折旧对周期与技术双向脱敏，复苏年零减值恰是测试结构不对称的镜像证据。",
+    "score_breakdown": {
+      "D1": {
+        "score": 4,
+        "weight": 0.25,
+        "weighted": 1.0
+      },
+      "D2": {
+        "score": 3,
+        "weight": 0.2,
+        "weighted": 0.6
+      },
+      "D3": {
+        "score": 4,
+        "weight": 0.2,
+        "weighted": 0.8
+      },
+      "D4": {
+        "score": 5,
+        "weight": 0.2,
+        "weighted": 1.0
+      },
+      "D5": {
+        "score": 4,
+        "weight": 0.15,
+        "weighted": 0.6
+      }
+    }
+  },
+  "comparative_context": {
+    "sector_median_score": 3.7,
+    "sector": "Semiconductors / Memory (vs Internet/AI peers in batch)",
+    "same_company_prior_year": {
+      "fiscal_year": 2023,
+      "composite_score": 4.2,
+      "dimension_scores": {
+        "D1": 4,
+        "D2": 3,
+        "D3": 5,
+        "D4": 5,
+        "D5": 4
+      },
+      "comparison_conclusion": "FY2024 综合 4.00 vs FY2023 确认版 4.20（-0.20）。锚点一致性核查：①D1 维持 4——折旧政策句逐字未变（7 年生产设备），新增设备跨节点复用直接证据，错配结构未变；②D2 维持 3——本期同样无年限变更，政策中性；③D3 由 5 降至 4——唯一分数变化，反映真实事实变化：FY2023 的大额减记（存货 $1.83B+商誉 $101M+闲置 $382M）在 FY2024 全部消失（NRV $—、商誉零减值、资产减值 —、闲置仅 Q1 $165M），按锚点'直接信号+历史记录本期减值小→4'执行降档；④D4 维持 5——capex/收入 33.4% 仍 >25%，绝对开支增加且 FY2025 指引 mid-30%；⑤D5 维持 4——HBM/EUV 迭代压力兑现并持续。结论：分数变化全部由真实经营事实（周期复苏→减值消失）驱动，无政策性分数漂移；折旧风险的结构画像（7 年年限×$96B 设备基数×周期/技术双向脱敏）跨年稳定。"
+    },
+    "peer_comparison": [
+      {
+        "company": "Meta Platforms",
+        "ticker": "META",
+        "estimated_score": 4.0,
+        "note": "CONFIRMED benchmark. Servers 4-5 years, realized $2.43B facilities-consolidation impairment. MU FY2024 (4.0) 与 META 持平：MU 本期减值消失但 capex 强度（33%）远超 META（~20%），机制为制造业资产周期风险 vs 云厂商年限延长风险。"
+      },
+      {
+        "company": "Alphabet",
+        "ticker": "GOOGL",
+        "estimated_score": 4.25,
+        "note": "DRAFT (same batch). Extended server life 4->6 years in 2023. MU 连续两年无年限变更（D2=3 vs GOOGL D2=5），风险机制差异同 FY2023 对照结论。"
+      },
+      {
+        "company": "Microsoft",
+        "ticker": "MSFT",
+        "estimated_score": 4.2,
+        "note": "Extended server useful lives (4->6 years, FY2023). MU 为相反机制：无估计变更、但制造业资产基数对折旧假设的杠杆最大。"
+      },
+      {
+        "company": "NVIDIA",
+        "ticker": "NVDA",
+        "estimated_score": 3.1,
+        "note": "Fabless GPU designer, asset-light. MU FY2024 的 HBM3E 量产使其成为 NVIDIA AI 供应链一环——HBM 需求景气正是 MU 本轮复苏与再投资的核心驱动。"
+      },
+      {
+        "company": "AMD",
+        "ticker": "AMD",
+        "estimated_score": 2.4,
+        "note": "Fabless chip designer; low fixed-asset intensity. MU 高分源于 IDM 自有晶圆厂结构，而非半导体行业身份本身。"
+      }
+    ]
+  },
+  "annotation_methodology": {
+    "source_document": "Micron Technology, Inc. 2024 Annual Report on Form 10-K (fiscal year ended August 29, 2024; signed 2024-10-04; auditor PwC, report date October 4, 2024, HTML L3782)",
+    "filing_accessed": "SEC EDGAR - https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000723125",
+    "text_extraction_method": "HTML parsing with Python (regex tag-stripping, HTML entity unescape, nbsp normalization) + keyword search (useful life/lives, depreciation, impairment, obsolescence, NRV, underutilization, HBM, EUV, prospectively, change in estimate, government incentives); every candidate hit verified in visible body text with HTML line numbers; hidden ix:hidden XBRL tag matches excluded; &#160;/&#160 实体已还原核对逐字性",
+    "cross_year_anchor_check": "与 MU_FY2023_annotation.json（确认版）逐项对照：折旧政策句（7 年生产设备）逐字一致性已验证；D1/D2/D4/D5 锚点不变；D3 按锚点规则因本期减值消失由 5 降至 4，为唯一分数变化",
+    "scoring_method": "Five-dimension weighted scoring (D1 0.25 / D2 0.20 / D3 0.20 / D4 0.20 / D5 0.15), 1-5 integer scale per dimension, anchored to confirmed META 2023 benchmark (4.0), confirmed MU FY2023 (4.20) and draft GOOGL (4.25); manufacturing-asset (fab) basis applied for D1/D5",
+    "human_verification": "All quoted text excerpts and financial figures verified against original 10-K filing at cited HTML line numbers after tag-stripping",
+    "limitation": "单年 10-K 分析。Micron 不按资产类别披露折旧明细；政府补助对 PP&E/折旧的冲减（$2.34B 累计）使报表折旧率系统性低于设备真实经济消耗，本标注已单列信号（SIG-009）但未在 D4 比率中还原调整；分部 D&A 表（$7,780M）含无形资产摊销，与 PP&E 注释的折旧 $7.70B 存在 $80M 口径差（摊销 $82M 及四舍五入）。HBM 相关资本开支未单独量化披露（仅在产品/节点叙述中定性描述），已标注为披露缺口。"
+  }
+}

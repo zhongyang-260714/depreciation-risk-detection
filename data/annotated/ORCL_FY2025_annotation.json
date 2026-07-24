@@ -1,0 +1,504 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-07-23",
+    "annotator": "Kimi AI-assisted (pending review by project lead)",
+    "review_status": "confirmed",
+    "filing_source": "SEC EDGAR - 10-K Annual Report",
+    "review_note": "Project lead review completed. All evidence chains and scores verified against 10-K filings. No adjustments needed.",
+    "reviewed_at": "2026-07-24T17:51:00+08:00",
+    "reviewed_by": "zhongyang-260714"
+  },
+  "company": {
+    "ticker": "ORCL",
+    "name": "Oracle Corporation",
+    "fiscal_year": 2025,
+    "filing_date": "2025-06-18",
+    "report_period_end": "2025-05-31",
+    "industry": "Enterprise Software / Cloud Infrastructure (OCI) / Database",
+    "primary_assets": "Servers and Networking Equipment, Data Centers (owned + operating-leased + NEW finance-leased), Oracle Engineered Systems, Acquired Intangibles and Goodwill (Cerner etc.)",
+    "file_path": "data/raw/orcl_fy2025_10k.html",
+    "coverage_note": "Oracle财年为6月1日至次年5月31日。本10-K覆盖FY2025（2024-06-01至2025-05-31），签署日期2025-06-18（HTML第15143行）。关键变化：FY2025 Q1 Oracle再次完成年限评估，将服务器及网络设备折旧年限从5年延长至6年（HTML L6755），减少FY2025经营费用$733M、增加净利润$573M——这是继FY2023 Q1（4→5年，-$434M）之后三年内第二次延长。FY2025资本支出$21.2B（FY2024的3.1倍），并首次出现融资租赁（$2.9B ROU资产）。"
+  },
+  "financial_highlights": {
+    "revenue_millions": 57399,
+    "net_income_millions": 12443,
+    "operating_income_millions": 17678,
+    "income_tax_expense_millions": 1717,
+    "rd_expense_millions": 9860,
+    "operating_cash_flow_millions": 20821,
+    "capex_millions": 21215,
+    "depreciation_millions": 3867,
+    "amortization_millions": 2307,
+    "impairment_charges_millions": null,
+    "impairment_charges_note": "NA - Note 1明确声明'We did not recognize any significant property impairment charges in fiscal 2025, 2024 or 2023'（HTML L6785）。MD&A（L3035）披露FY2025 acquisition related and other expenses（$75M，利润表L4676-4687）同比下降$239M，其中$209M来自'certain asset impairment and litigation-related charges'减少，即FY2025仍有小额未单独量化的资产减值，但规模较FY2024下降，且非重大固定资产减值。",
+    "total_assets_millions": 168361,
+    "total_property_equipment_millions": 59554,
+    "property_equipment_net_millions": 43522,
+    "accumulated_depreciation_millions": 16032,
+    "goodwill_millions": 62207,
+    "intangible_assets_net_millions": 4587,
+    "construction_in_progress_millions": 16510,
+    "finance_lease_payments_millions": 27,
+    "finance_lease_note": "FY2025重大变化：Oracle首次出现融资租赁。Note 9（L10195）披露'We have operating and finance leases that primarily relate to certain of our data centers and facilities'；FY2025新确认融资租赁ROU资产$2.9B（L10466：'In fiscal 2025, we recorded finance lease ROU assets of $2.9 billion in exchange for finance lease obligations'），融资租赁费用$86M（ROU摊销$48M+利息$38M，L10246-10299），租赁负债现金流$27M。FY2024 10-K彼时仅有经营租赁。经营租赁费用FY2025为$1,716M（FY2024 $1,159M，L10231-10242）。已承诺但未上表的数据中心租赁承诺$43.4B（FY2026-2028起租、10-16年期，L10592），较FY2024的$22.9B近乎翻倍。FY2025 10-K未披露期后新签租赁承诺（无'Subsequent to May 31, 2025'式表述，全文检索确认），该字段填null。",
+    "capex_to_revenue_ratio": 0.3696,
+    "depreciation_to_revenue_ratio": 0.0674,
+    "depreciation_prior_year_millions": 3129,
+    "capex_prior_year_millions": 6866,
+    "computer_network_machinery_equipment_gross_millions": 30345,
+    "useful_life_change_opex_reduction_millions_fy2025": 733,
+    "useful_life_change_net_income_increase_millions_fy2025": 573,
+    "useful_life_change_opex_reduction_millions_fy2023": 434,
+    "operating_lease_commitments_datacenters_off_bs_millions": 43400,
+    "post_year_end_lease_commitments_millions": null,
+    "post_year_end_lease_commitments_note": "NA - FY2025 10-K未披露期后新签数据中心租赁承诺（FY2024版曾披露期后$9.3B）；全文检索'Subsequent to May 31, 2025'及'after May 31, 2025'无相关命中。",
+    "restructuring_expense_millions": 299,
+    "server_depreciation_pct_of_total": null,
+    "server_depreciation_pct_note": "NA - depreciation by asset class not disclosed"
+  },
+  "accounting_policy": {
+    "depreciation_method": "straight-line",
+    "ppe_useful_life_range_years": "1-40",
+    "server_useful_life_years_before": "5",
+    "server_useful_life_years_after": "6",
+    "computer_network_machinery_equipment_useful_life_years": "1-6",
+    "buildings_and_improvements_useful_life_years": "1-40",
+    "furniture_fixtures_other_useful_life_years": "5-15",
+    "land": "not depreciated",
+    "leasehold_improvements": "lesser of the estimated useful lives of the improvements or the lease terms",
+    "finance_lease_rou_assets": "amortized over the lease term (new in FY2025 policy text, Note 1 L6785)",
+    "intangible_assets_useful_life_years": "1-10 (substantially all acquired in business combinations)",
+    "change_effective": "FY2025 Q1 (effective at the beginning of fiscal 2025, i.e., 2024-06-01)",
+    "change_in_estimate_method": "prospectively (change in accounting estimate based on carrying value of servers and networking equipment as of May 31, 2024; no retrospective adjustment of prior periods)",
+    "change_impact_operating_expense_reduction_millions": 733,
+    "change_impact_net_income_increase_millions": 573,
+    "change_impact_eps": "+$0.21 per basic and $0.20 per diluted share (fiscal 2025)",
+    "change_impact_recognized_in_fiscal_year": 2025,
+    "prior_change_fy2023": "FY2023 Q1: servers 4->5 years, -$434M operating expenses (re-disclosed in FY2025 10-K Note 1, L6755)",
+    "no_useful_life_change_in_fiscal_2025": false,
+    "property_impairment_statement": "We did not recognize any significant property impairment charges in fiscal 2025, 2024 or 2023",
+    "policy_risk_note": "FY2025核心事实：Oracle在AI算力扩张最高峰（capex $21.2B、同比3.1倍；在建工程$16.5B、同比+193%）的同一年，三年内第二次延长折旧年限（5→6年，本次还扩展到网络设备），未来适用不追溯，单年减少经营费用$733M（占FY2025净利润4.6%的$573M利润增量）。年限变更方向与技术现实持续背离：公司自身在Risk Factors承认AI'highly competitive and rapidly evolving'（L694）、AI加速器/GPU供应竞争下硬件'excess and obsolescence risk'上升（L709），而Note 4固定资产表显示计算机/网络/机器设备上限已从1-5年变为1-6年（L7406）。同时连续三年无重大固定资产减值（L6785），估计裁量维持单向特征。"
+  },
+  "risk_signals": [
+    {
+      "signal_id": "ORCL-FY2025-SIG-001",
+      "source": "Notes to Consolidated Financial Statements - Note 1. Organization and Significant Accounting Policies",
+      "keyword_matched": "increased the estimate of the useful lives from five years to six years",
+      "text_excerpt": "During the first quarter of fiscal 2025, we completed an assessment of the useful lives of our servers and networking equipment and increased the estimate of the useful lives from five years to six years, effective at the beginning of fiscal 2025. Based on the carrying value of our servers and networking equipment as of May 31, 2024, this change in accounting estimate decreased our total operating expenses by $733 million and increased our net income by $573 million, or $0.21 per basic and $0.20 per diluted share, during fiscal 2025.",
+      "page_location": "Note 1. Organization and Significant Accounting Policies - Critical Accounting Policies (HTML line 6755); same change re-disclosed as footnote (2) to Note 4 PP&E table (HTML line 7507)",
+      "risk_type": "useful_life_extension_change_in_estimate",
+      "severity": "critical",
+      "relevance_to_depreciation": "This is the second useful-life extension in three fiscal years (FY2023 Q1: 4->5 years, -$434M opex; FY2025 Q1: 5->6 years, -$733M opex / +$573M net income / +$0.21 basic EPS), applied prospectively with no restatement. The FY2025 change additionally extends to networking equipment. The $733M operating-expense reduction equals 4.1% of FY2025 operating income ($17,678M) and the $573M net-income boost equals 4.6% of FY2025 net income ($12,443M) - material earnings management lever precisely while capex tripled.",
+      "evidence_chain": [
+        "Official disclosure: servers AND networking equipment 5->6 years, effective beginning FY2025 (Note 1, L6755; Note 4 footnote (2), L7507)",
+        "Quantified effect: -$733M operating expenses, +$573M net income, +$0.21/$0.20 EPS during fiscal 2025 (prospective, no restatement)",
+        "Second consecutive extension: 4->5 (FY2023) then 5->6 (FY2025); cumulative 50% life extension in three years",
+        "Change enacted in the same year capex tripled to $21.2B and CIP nearly tripled to $16.5B - depreciation step-up mechanically suppressed",
+        "AI hardware iteration cycle is 1-2 years (NVIDIA H100 2022 -> B100/GB200 2024 -> Rubin 2026); a 6-year life spans 3-6 technology generations",
+        "Result: FY2025 reported net income of $12,443M embeds +$573M (4.6%) from the extended life; prior-period under-depreciation permanently uncorrected"
+      ]
+    },
+    {
+      "signal_id": "ORCL-FY2025-SIG-002",
+      "source": "Notes to Consolidated Financial Statements - Note 4. Property, Plant and Equipment",
+      "keyword_matched": "Computer, network, machinery and equipment / 1 - 6 years",
+      "text_excerpt": "Computer, network, machinery and equipment: Useful Life 1 - 6 years (footnote 2): $30,345 million (May 31, 2025) vs $20,989 million (May 31, 2024). Total property, plant and equipment: $59,554 million (2025) vs $34,818 million (2024); Accumulated depreciation: $(16,032) vs $(13,282); Total property, plant and equipment, net: $43,522 vs $21,536.",
+      "page_location": "Note 4. Property, Plant and Equipment (HTML lines 7369, 7404-7504); policy text at Note 1 (line 6785): 'Depreciation is computed using the straight-line method based on estimated useful lives of the assets, which range from one to 40 years.'",
+      "risk_type": "depreciation_schedule_disclosure",
+      "severity": "high",
+      "relevance_to_depreciation": "Post-change official schedule: the fastest-obsolescing asset class (computer, network, machinery and equipment - OCI servers and networking gear) is now depreciated straight-line over up to 6 years (was 1-5 years in FY2024). This asset class grew 44.6% YoY ($20,989M -> $30,345M gross) and net PP&E doubled ($21,536M -> $43,522M), meaning a much larger asset base is now subject to an even longer life-mismatch.",
+      "evidence_chain": [
+        "Computer/network/equipment gross: $30,345M at FY2025 end (+44.6% YoY), depreciated over 1-6 years (upper bound raised from 5)",
+        "Total PP&E gross $59,554M (+71.0%); net PP&E $43,522M (+102.1% YoY)",
+        "Server/network life (6 years) vs AI accelerator economic cycle (1-2 years) = 3-6x mismatch, worsening from FY2024's 2.5-5x",
+        "Accumulated depreciation ($16,032M) = only 26.9% of gross PP&E (down from 38.1% in FY2024), consistent with a very young, explosively expanding asset base",
+        "Result: the newest, largest asset cohort is depreciated under the most optimistic life assumption in Oracle's history"
+      ]
+    },
+    {
+      "signal_id": "ORCL-FY2025-SIG-003",
+      "source": "Notes to Consolidated Financial Statements - Note 1. Property, Plant and Equipment",
+      "keyword_matched": "We did not recognize any significant property impairment charges",
+      "text_excerpt": "Property, plant and equipment are periodically reviewed for impairment whenever events or changes in circumstances indicate that the carrying amount of an asset may not be recoverable at an appropriate asset or asset group level. We did not recognize any significant property impairment charges in fiscal 2025, 2024 or 2023.",
+      "page_location": "Note 1. Organization and Significant Accounting Policies - Property, Plant and Equipment (HTML line 6785)",
+      "risk_type": "impairment_testing_policy",
+      "severity": "high",
+      "relevance_to_depreciation": "Three consecutive fiscal years with zero significant property impairment, spanning the entire generative-AI hardware upheaval. Under the asset-group undiscounted-cash-flow test, server obsolescence is diluted by shared cloud revenue streams, so rapid technology turnover never surfaces on the income statement - the depreciation schedule (now 6 years) is the only charge, and it was lengthened a second time, not shortened.",
+      "evidence_chain": [
+        "Impairment test triggered only by 'events or changes in circumstances', measured at asset-group level",
+        "FY2023-FY2025: no significant property impairment despite two AI hardware generation turnovers",
+        "Same period: server life extended twice (4->5->6 years), never shortened",
+        "Accounting system remains asymmetric: good news (longer life) recognized immediately, bad news (obsolescence) absorbed silently",
+        "Result: FY2025 margins are structurally flattered relative to economic consumption of the server fleet, more so than FY2024"
+      ]
+    },
+    {
+      "signal_id": "ORCL-FY2025-SIG-004",
+      "source": "Item 1A. Risk Factors - Data Center Capacity; Note 9. Leases",
+      "keyword_matched": "additional lease commitments, primarily for data centers",
+      "text_excerpt": "if we overestimate customer demand or our data center capacity needs, we could be locked into multi-year commitments for excess data center space, resulting in lower profitability and cash flows because our third-party data center vendors generally require us to pay significant contract termination fees to early exit such obligations. ... As of May 31, 2025, we have $43.4 billion of additional lease commitments, primarily for data centers, that are generally expected to commence between fiscal 2026 and fiscal 2028 and for terms of ten to sixteen years that were not reflected on our consolidated balance sheet as of May 31, 2025 or in the maturities table above.",
+      "page_location": "Item 1A. Risk Factors (HTML line 699); Note 9. Leases, Other Commitments and Certain Contingencies (HTML line 10592)",
+      "risk_type": "capacity_overbuild_and_abandonment_risk",
+      "severity": "high",
+      "relevance_to_depreciation": "Off-balance-sheet data center lease commitments nearly doubled to $43.4B (from $22.9B in FY2024), with longer terms (10-16 years vs 9-15 years), on top of an owned PP&E base of $43.5B net and NEW finance leases. This is an enormous bet on multi-year AI cloud demand; if AI demand or architecture shifts, Oracle faces termination fees or stranded capacity, and servers inside those facilities would lose economic value far faster than the 6-year depreciation schedule assumes.",
+      "evidence_chain": [
+        "Off-BS data center lease commitments: $43.4B (FY2026-2028 commencement, 10-16 year terms), up ~90% from $22.9B (FY2025-2027, 9-15 years) disclosed in FY2024",
+        "Committed leases now roughly equal the entire owned net PP&E base ($43.5B)",
+        "Lease terms (10-16 years) far exceed server tech cycle (1-2 years); facility commitments outlive 5+ hardware generations",
+        "Early exit triggers 'significant contract termination fees' = abandonment risk explicitly disclosed, and FY2025 wording adds overestimation scenario: 'locked into multi-year commitments for excess data center space'",
+        "Result: capacity-planning errors would convert directly into impairment/termination charges, revealing under-depreciation of the associated infrastructure"
+      ]
+    },
+    {
+      "signal_id": "ORCL-FY2025-SIG-005",
+      "source": "Item 1A. Risk Factors - Supply Chain",
+      "keyword_matched": "excess and obsolescence risk",
+      "text_excerpt": "For example, industry supply capacity for AI accelerators, including graphics processing units, is competitive, and we at times have to accept less favorable terms with suppliers to avoid supply constraints. While this permits us to secure cloud infrastructure capacity, it has increased excess and obsolescence risk of such hardware products and could adversely impact our profitability and cash flows. We expect these factors will continue to impact us in the future.",
+      "page_location": "Item 1A. Risk Factors - Supply Chain (HTML line 709)",
+      "risk_type": "technology_obsolescence_risk",
+      "severity": "medium",
+      "relevance_to_depreciation": "FY2025 wording is newly explicit about AI accelerators/GPUs: management concedes it over-committed hardware purchases for cloud infrastructure and names 'excess and obsolescence risk' of such hardware - i.e., economic life shorter than procurement assumptions - while simultaneously lengthening the depreciation life of the same server/network fleet to 6 years. Risk disclosure and accounting estimate move in opposite directions.",
+      "evidence_chain": [
+        "Oracle committed to above-historical hardware purchase volumes for cloud infrastructure, accepting 'less favorable terms' for AI accelerators/GPUs",
+        "Management explicitly flags 'excess and obsolescence risk' of such hardware",
+        "Obsolescence risk acknowledged in Risk Factors in the same filing that extends server/network depreciation life 5->6 years",
+        "Result: risk disclosures and accounting estimates are internally inconsistent - the 10-K admits faster obsolescence while depreciating slower"
+      ]
+    },
+    {
+      "signal_id": "ORCL-FY2025-SIG-006",
+      "source": "Item 1A. Risk Factors - AI Products",
+      "keyword_matched": "AI technology and services are highly competitive and rapidly evolving",
+      "text_excerpt": "Machine learning and AI, including generative AI, agentic AI and LLMs, are increasingly driving innovations in technology, and AI technology and services are highly competitive and rapidly evolving. We have invested, and expect to continue to invest, significant resources to build and support our AI products. ... if our AI products fail to operate as anticipated or as well as competing products ... we may fail to recoup our investments in AI and our business and reputation may be harmed.（注：原文在fail to与recoup之间跨页并插入页眉17 Table of Contents，逐字核对时已确认语句连续性）",
+      "page_location": "Item 1A. Risk Factors - AI Products (HTML lines 694, 699)",
+      "risk_type": "industry_competition_tech_substitution",
+      "severity": "medium",
+      "relevance_to_depreciation": "Oracle describes its AI environment as 'rapidly evolving' and warns it 'may fail to recoup' AI investments. Those investments are embodied in the OCI server/network fleet now depreciated over 6 years; management itself concedes the payback period is uncertain while the accounting life is fixed and repeatedly lengthened.",
+      "evidence_chain": [
+        "AI tech 'highly competitive and rapidly evolving' per management; 'agentic AI and LLMs' newly added in FY2025",
+        "Significant ongoing AI investment with uncertain recoupment",
+        "Recoupment risk = economic life risk of the underlying compute assets",
+        "6-year depreciation life assumes stable recoverability the Risk Factors contradict",
+        "Result: accounting life exceeds competitively-defensible economic life of AI compute assets"
+      ]
+    },
+    {
+      "signal_id": "ORCL-FY2025-SIG-007",
+      "source": "MD&A - Total Revenues and Operating Expenses / Acquisition Related and Other Expenses",
+      "keyword_matched": "certain asset impairment and litigation-related charges",
+      "text_excerpt": "Acquisition related and other expenses decreased by $239 million in reported currency in fiscal 2025 relative to fiscal 2024 due to a $209 million decrease in other expenses related to certain asset impairment and litigation-related charges and a $30 million total decrease in transitional and other employee-related costs and business combination adjustments, net.",
+      "page_location": "Item 7. MD&A (HTML line 3035; see also line 1406); acquisition related and other expense line: $75M FY2025 vs $314M FY2024 vs $190M FY2023 (consolidated statements of operations, HTML lines 4676-4687)",
+      "risk_type": "realized_impairment_unquantified",
+      "severity": "medium",
+      "relevance_to_depreciation": "FY2025 still contained actual asset impairment charges (amount not separately disclosed, embedded in the $75M acquisition-related-and-other line), though smaller than FY2024. Note 1 confirms they were not 'significant property' impairments. The recurring pattern of small write-downs outside the depreciation schedule persists, but no large-scale PP&E impairment has ever been recognized.",
+      "evidence_chain": [
+        "FY2025 acquisition related and other expenses fell $314M -> $75M, driven by a $209M decrease in 'certain asset impairment and litigation-related charges'",
+        "Impairment amount not separately quantified (immaterial individually, per Note 1 'no significant property impairment')",
+        "Pattern: small recurring impairments + zero schedule adjustment = depreciation assumptions never updated downward",
+        "Result: income statement absorbs obsolescence only in small ad-hoc charges, while the 6-year schedule stays intact"
+      ]
+    },
+    {
+      "signal_id": "ORCL-FY2025-SIG-008",
+      "source": "Consolidated Statements of Cash Flows; Note 4 - Construction in Progress",
+      "keyword_matched": "Depreciation / Capital expenditures / Construction in progress",
+      "text_excerpt": "Depreciation: $3,867 (FY2025), $3,129 (FY2024), $2,526 (FY2023). Capital expenditures: $(21,215) (FY2025), $(6,866) (FY2024), $(8,695) (FY2023). Construction in progress: $16,510 (May 31, 2025) vs $5,634 (May 31, 2024). (1) Amounts primarily consist of computer equipment to be built and deployed at our data centers.",
+      "page_location": "Consolidated Statements of Cash Flows (HTML lines 6206-6217, 6440-6452); Note 4 (HTML lines 7456-7465, footnote (1) at line 7507)",
+      "risk_type": "depreciation_lag_expansion_anomaly",
+      "severity": "critical",
+      "relevance_to_depreciation": "Capex tripled to $21,215M (36.9% of revenue, up from 13.0% in FY2024), while construction in progress - explicitly 'computer equipment to be built and deployed at our data centers' - nearly tripled to $16,510M, i.e., a massive server cohort not yet depreciating. FY2025 depreciation ($3,867M) was only 18.2% of FY2025 capex. The 6-year life extension (-$733M opex) precisely offsets the depreciation step-up that this capex wave would otherwise force, keeping reported margins flattered while $43.4B of off-BS leases add further unrecorded capacity cost.",
+      "evidence_chain": [
+        "CIP (data center computer equipment) up 193% YoY to $16,510M - none of it depreciating yet",
+        "FY2025 depreciation $3,867M = only 18.2% of FY2025 capex $21,215M (down from 45.6% in FY2024)",
+        "Capex/revenue jumped to 36.9% from 13.0%; two-year capex (FY2024+FY2025 = $28.1B) dwarfs FY2025 depreciation",
+        "The FY2025 life extension removed $733M of operating expenses in the very year the capex wave landed - timing is not coincidental",
+        "Result: current depreciation massively understates the run-rate cost of the AI capacity being deployed; the gap is deferred, not eliminated"
+      ]
+    },
+    {
+      "signal_id": "ORCL-FY2025-SIG-009",
+      "source": "Notes to Consolidated Financial Statements - Note 9. Leases",
+      "keyword_matched": "we recorded finance lease ROU assets of $2.9 billion",
+      "text_excerpt": "As of May 31, 2025, ROU assets, net of $55 million of accumulated depreciation, current lease liabilities and non-current lease liabilities for our finance leases were $2.9 billion, $257 million and $2.7 billion, respectively. In fiscal 2025, we recorded finance lease ROU assets of $2.9 billion in exchange for finance lease obligations. Cash paid for amounts included in the measurement of finance lease liabilities was $27 million in fiscal 2025.",
+      "page_location": "Note 9. Leases, Other Commitments and Certain Contingencies (HTML lines 10195, 10466); policy change reflected at Note 1 (line 6785: 'Finance lease Right-of-Use (ROU) assets are amortized over the lease term')",
+      "risk_type": "lease_structure_shift_off_balance_sheet_financing",
+      "severity": "medium",
+      "relevance_to_depreciation": "New in FY2025: Oracle added finance leases ($2.9B ROU assets recognized in a single year, $2.7B non-current liability) for data centers - a financing structure shift that moves leased capacity onto the balance sheet as depreciable/amortizable assets. Combined with $43.4B off-BS operating lease commitments and $21.2B capex, total FY2025 infrastructure acquisition across all channels exceeds $24B, far above the $3.9B depreciation line. Finance-lease ROU amortization over lease terms (up to 15 years) can again mismatch the 1-2 year tech cycle of the equipment housed.",
+      "evidence_chain": [
+        "FY2024 10-K disclosed only operating leases; FY2025 policy text and Note 9 newly include finance leases",
+        "$2.9B finance lease ROU assets recorded in FY2025 alone; total lease liability $13,450M vs $2,934M in FY2024",
+        "Finance lease cost only $86M in FY2025 (ROU amortization $48M + interest $38M) vs $2.9B assets added - the same depreciation-lag pattern as owned capex",
+        "Lease channels (operating $1.7B cost + finance + $43.4B committed) now rival owned capex as capacity acquisition route",
+        "Result: an increasing share of the AI fleet's cost sits in lease structures whose expense recognition trails economic consumption"
+      ]
+    },
+    {
+      "signal_id": "ORCL-FY2025-SIG-010",
+      "source": "Item 1. Business - Oracle Cloud Services",
+      "keyword_matched": "cloud services revenues represented 43%",
+      "text_excerpt": "The proportion of our cloud services revenues relative to our total revenues has increased and our cloud services revenues represented 43%, 37% and 32% of our total revenues during fiscal 2025, 2024 and 2023, respectively. We expect these trends to continue.",
+      "page_location": "Item 1. Business - Oracle Cloud Services (HTML line 517); repeated in MD&A Cloud and License Business (HTML line 1041)",
+      "risk_type": "business_model_infrastructure_intensity_shift",
+      "severity": "medium",
+      "relevance_to_depreciation": "Cloud services (IaaS/SaaS delivered from Oracle-operated data centers) reached 43% of revenue ($24.7B of $57.4B), up from 32% two years ago, and management expects the mix to keep rising. Oracle's earnings are increasingly dependent on the hyperscale infrastructure whose depreciation assumptions (6-year life, zero impairment) drive reported profitability - the depreciation estimate is becoming a first-order determinant of consolidated earnings quality.",
+      "evidence_chain": [
+        "Cloud services mix: 32% (FY2023) -> 37% (FY2024) -> 43% (FY2025) of total revenues, expected to increase",
+        "Cloud services and license support revenues $44,029M (76.7% of total) carry the infrastructure cost base",
+        "The depreciation-sensitive asset base (PP&E net $43.5B, +102% YoY) grows with the cloud mix",
+        "Result: any future correction of server/network useful lives or an impairment event would hit an ever-larger share of Oracle's revenue engine"
+      ]
+    }
+  ],
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "折旧年限 vs 技术实际寿命",
+      "dimension_name_en": "Depreciation Life vs Technology Useful Life",
+      "weight": 0.25,
+      "score": 5,
+      "score_max": 5,
+      "score_label": "极高风险",
+      "score_label_en": "Very High Risk",
+      "reasoning": "锚点'≥6年→5'：FY2025 Q1服务器及网络设备年限经变更后现行6年（Note 1 L6755；Note 4明细表'Computer, network, machinery and equipment 1-6年'，L7406），达到6年档→5分（FY2024为5年→4分，分数变化反映真实年限变化）。对照AI硬件1-2年迭代周期（NVIDIA H100 2022→B100/GB200 2024→Rubin 2026），错配比升至3-6倍。公司自身在Risk Factors承认AI'rapidly evolving'（L694）与AI加速器'excess and obsolescence risk'（L709），年限与经济现实方向相反且差距扩大。",
+      "supporting_signals": [
+        "ORCL-FY2025-SIG-001",
+        "ORCL-FY2025-SIG-002",
+        "ORCL-FY2025-SIG-005"
+      ],
+      "key_metrics": {
+        "stated_useful_life_years_after_change": "6",
+        "stated_useful_life_years_before_change": "5",
+        "estimated_tech_cycle_years": "1-2",
+        "life_mismatch_ratio": "3-6x",
+        "change_vs_fy2024": "FY2024为5年（锚点4分）；FY2025升至6年（锚点5分）"
+      }
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "会计政策保守性",
+      "dimension_name_en": "Accounting Policy Conservatism",
+      "weight": 0.2,
+      "score": 5,
+      "score_max": 5,
+      "score_label": "极高风险",
+      "score_label_en": "Very High Risk",
+      "reasoning": "锚点'本期延长年限→5'：FY2025 Q1本期将服务器及网络设备年限5→6年、按未来适用法处理（基于2024-05-31账面价值、不追溯），减少FY2025经营费用$733M、增加净利润$573M（占FY2025净利润$12,443M的4.6%）、增厚EPS $0.21/$0.20（L6755）。这是三年内第二次延长（FY2023 Q1 4→5年，-$434M），且发生在capex三倍增长、折旧阶梯上升的同一年，利润调节的时机特征明显。FY2024为'历史有延长本期无变更→4'，FY2025本期发生变更故升5分。连续三年无重大固定资产减值（L6785），估计裁量维持单向。",
+      "supporting_signals": [
+        "ORCL-FY2025-SIG-001",
+        "ORCL-FY2025-SIG-003",
+        "ORCL-FY2025-SIG-008"
+      ],
+      "key_metrics": {
+        "change_method": "prospectively",
+        "change_effective": "FY2025 Q1 (beginning of fiscal 2025)",
+        "retrospective_adjustment": false,
+        "operating_expense_reduction_millions_fy2025": 733,
+        "net_income_increase_millions_fy2025": 573,
+        "pct_of_fy2025_net_income": 0.046,
+        "second_extension_in_three_years": true,
+        "significant_property_impairments_fy2023_fy2025": 0
+      }
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值风险触发",
+      "dimension_name_en": "Impairment Risk Triggers",
+      "weight": 0.2,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "与FY2024锚点一致维持3分：FY2025仍有大额减值缺失与小额未量化减值并存的格局——Note 1声明FY2025/2024/2023连续三年无重大固定资产减值（L6785）；MD&A（L3035）显示acquisition related and other费用（$75M）中'certain asset impairment and litigation-related charges'同比减少$209M，实际小额减值规模下降。直接信号存在且部分强化（固定资产减值政策L6785、数据中心容量/终止费风险L699且FY2025新增'locked into multi-year commitments for excess data center space'表述、AI加速器过时风险L709、AI投资回收风险L694），但均无Meta式大额实际减值落地。锚点'直接信号+历史记录→4'要求实际减值或历史减值记录支撑，Oracle连续三年明确无重大PP&E减值且小额减值在减少，维持3分不上调，与FY2024评分逻辑一致。",
+      "supporting_signals": [
+        "ORCL-FY2025-SIG-003",
+        "ORCL-FY2025-SIG-004",
+        "ORCL-FY2025-SIG-005",
+        "ORCL-FY2025-SIG-007"
+      ],
+      "key_metrics": {
+        "ppe_impairment_fy2025_millions": 0,
+        "unquantified_asset_impairment_charges": "within acquisition related and other expenses of $75M (FY2025), down $209M YoY",
+        "direct_impairment_signals_count": 4,
+        "impairment_triggers_identified": [
+          "acquisition_related",
+          "data_center_capacity_overcommitment",
+          "ai_accelerator_obsolescence",
+          "ai_investment_recoupment"
+        ],
+        "off_bs_datacenter_lease_commitments_millions": 43400
+      }
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本支出(CAPEX)强度",
+      "dimension_name_en": "Capital Expenditure Intensity",
+      "weight": 0.2,
+      "score": 5,
+      "score_max": 5,
+      "score_label": "极高风险",
+      "score_label_en": "Very High Risk",
+      "reasoning": "锚点'>25%→5'：CAPEX/收入=21,215/57,399=37.0%，远超25%档→5分（FY2024为13.0%→3分，分数变化反映OCI扩张的真实跳升：capex同比3.1倍）。且仍有结构性低估：另有$43.4B未上表租赁承诺（FY2026-2028起租）+FY2025新增$2.9B融资租赁ROU，全渠道基础设施投入超$24B；在建工程（主要为数据中心计算机设备）同比+193%至$16,510M，FY2026-2028折旧阶梯式上升已成定局，而6年年限变更恰好压制该上升。",
+      "supporting_signals": [
+        "ORCL-FY2025-SIG-008",
+        "ORCL-FY2025-SIG-004",
+        "ORCL-FY2025-SIG-009"
+      ],
+      "key_metrics": {
+        "capex_millions": 21215,
+        "revenue_millions": 57399,
+        "capex_to_revenue_ratio": 0.3696,
+        "capex_prior_year_ratio": 0.1296,
+        "construction_in_progress_millions": 16510,
+        "cip_yoy_growth": 1.93,
+        "depreciation_to_capex_ratio": 0.182,
+        "off_bs_datacenter_lease_commitments_millions": 43400,
+        "finance_lease_rou_added_millions": 2900
+      }
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "行业竞争/技术替代",
+      "dimension_name_en": "Industry Competition & Technology Substitution",
+      "weight": 0.15,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "锚点'云基础设施直接运营+AI迭代压力→4'，与FY2024一致维持4分：Oracle以OCI直接运营AI云基础设施且强度升级——云服务收入占比43%（FY2024 37%）、capex $21.2B、$43.4B租赁承诺、新增AI加速器/GPU采购竞争表述（L709）、参股Ampere约29%（SoftBank收购交易进行中，L754）。管理层自述AI'highly competitive and rapidly evolving'且投入'重大资源'（L694）。竞争对手（Microsoft/Google/Amazon/Meta）同步军备竞赛迫使硬件1-2年持续升级。Oracle自有基础模型暴露仍弱于Google/Meta（主要以基础设施服务商身份参与），不到5分，与FY2024定位一致。",
+      "supporting_signals": [
+        "ORCL-FY2025-SIG-006",
+        "ORCL-FY2025-SIG-010",
+        "ORCL-FY2025-SIG-005"
+      ],
+      "key_metrics": {
+        "industry": "Enterprise Software / AI Cloud Infrastructure (OCI)",
+        "gpu_iteration_cycle_years": "1-2",
+        "cloud_services_revenue_pct": 0.43,
+        "ai_role": "OCI hyperscaler + ~29% stake in Ampere Computing (ARM server chips, related party; SoftBank acquisition pending)",
+        "competitors_ramping_capex": [
+          "MSFT",
+          "GOOGL",
+          "AMZN",
+          "META"
+        ],
+        "capacity_commitments_millions": 43400
+      }
+    }
+  ],
+  "composite_score": {
+    "weighted_score": 4.45,
+    "max_score": 5.0,
+    "risk_level": "高风险",
+    "risk_level_en": "High Risk",
+    "risk_level_color": "#DC3545",
+    "confidence": 0.85,
+    "confidence_reason": "全部财务数据与引文逐字核对于FY2025 10-K正文（含HTML行号）。与FY2024确认版锚点一致：D3/D5维持原分（无质变），D1/D2/D4上调均由文件事实驱动——本期年限5→6年（L6755，-$733M费用/+$573M净利）、capex/收入13.0%→37.0%（L6440、L4547）。扣分项：连续三年无重大PP&E减值、小额减值同比减少，故D3维持3；加分项：三年内第二次延长年限、$43.4B表外租赁承诺近乎翻倍、在建工程+193%，风险从FY2024的'向后递延'转为'当期兑现'。",
+    "score_breakdown": {
+      "D1": {
+        "score": 5,
+        "weight": 0.25,
+        "weighted": 1.25
+      },
+      "D2": {
+        "score": 5,
+        "weight": 0.2,
+        "weighted": 1.0
+      },
+      "D3": {
+        "score": 3,
+        "weight": 0.2,
+        "weighted": 0.6
+      },
+      "D4": {
+        "score": 5,
+        "weight": 0.2,
+        "weighted": 1.0
+      },
+      "D5": {
+        "score": 4,
+        "weight": 0.15,
+        "weighted": 0.6
+      }
+    }
+  },
+  "comparative_context": {
+    "fy2024_baseline_comparison": {
+      "baseline_file": "data/annotated/ORCL_FY2024_annotation.json (confirmed, review_status=confirmed)",
+      "baseline_scores": "D1=4/D2=4/D3=3/D4=3/D5=4 -> composite 3.60 (中高风险)",
+      "current_scores": "D1=5/D2=5/D3=3/D4=5/D5=4 -> composite 4.45 (高风险)",
+      "dimension_changes": [
+        {
+          "dimension": "D1",
+          "change": "4->5",
+          "justification": "真实政策变化：年限由5年升至6年（FY2025 Q1变更，Note 1 L6755、Note 4 L7406），跨过锚点'≥6年→5'门槛；错配比由2.5-5x升至3-6x。"
+        },
+        {
+          "dimension": "D2",
+          "change": "4->5",
+          "justification": "真实政策变化：FY2024本期无变更（锚点'历史有延长→4'）；FY2025本期发生5→6年延长（-$733M经营费用/+$573M净利润/+$0.21-0.20 EPS），落入锚点'本期延长年限→5'。"
+        },
+        {
+          "dimension": "D3",
+          "change": "3->3 (unchanged)",
+          "justification": "无质变：连续三年（FY2023-2025）无重大PP&E减值（L6785）；小额未量化资产减值同比减少$209M（L3035），实际减值敞口下降而非上升。直接信号虽强化（租赁承诺$43.4B、AI加速器过时表述），但锚点升4需实际减值或历史记录支撑，维持与FY2024一致的3分。"
+        },
+        {
+          "dimension": "D4",
+          "change": "3->5",
+          "justification": "真实风险变化：capex/收入由13.0%（FY2024，锚点8-15%→3）跳升至37.0%（FY2025，锚点>25%→5），OCI扩张在现金流量表兑现（capex $6.9B→$21.2B，L6440-6452）。"
+        },
+        {
+          "dimension": "D5",
+          "change": "4->4 (unchanged)",
+          "justification": "定位未变：云基础设施直接运营+AI迭代压力（锚点→4）。强度指标上升（云服务占比37%→43%），但Oracle仍以基础设施服务商身份参与、自有基础模型暴露弱于Google/Meta，维持4分与FY2024一致。"
+        }
+      ],
+      "conclusion": "综合分3.60→4.45（+0.85），风险等级由中高升至高。全部上调均有10-K原文依据：FY2025是Oracle三年内第二次延长折旧年限（5→6年）且幅度更大（-$733M vs FY2023的-$434M）、capex三倍增长、表外租赁承诺近乎翻倍（$22.9B→$43.4B）并新增$2.9B融资租赁的年份。FY2024版oracle_positioning_note预判的'FY2025-2027重估时应重点跟踪其服务器年限是否再次延长及减值确认'——年限再次延长已应验，减值确认仍未发生，D3维持3分。"
+    },
+    "sector_median_score": 3.6,
+    "sector": "Enterprise Software / AI Cloud Infrastructure",
+    "peer_comparison": [
+      {
+        "company": "Meta Platforms",
+        "ticker": "META",
+        "estimated_score": 4.0,
+        "note": "CONFIRMED (project lead, 2025-07-15). Servers 4-5 years, realized $2.43B facilities-consolidation impairment in 2023. ORCL FY2025 (4.45) now EXCEEDS META: Oracle's second life extension (5->6y, -$733M) plus 37% capex intensity outweigh Meta's realized one-time impairment on this scoring rubric; note Meta's impairment is realized risk while Oracle's remains deferred."
+      },
+      {
+        "company": "Alphabet (Google)",
+        "ticker": "GOOGL",
+        "estimated_score": 4.25,
+        "note": "DRAFT (2026-07-20). Servers 4->6 years effective FY2023 with -$3.9B depreciation / +$3.0B net income quantified. ORCL FY2025 (4.45) slightly above: Oracle has now matched the 6-year life and exceeds on capex intensity (37%) and off-BS lease leverage ($43.4B), though Google's absolute change impact ($3.9B) is larger."
+      },
+      {
+        "company": "Microsoft",
+        "ticker": "MSFT",
+        "estimated_score": 4.2,
+        "note": "Estimated. Also extended server useful lives (4->6 years, effective FY2023) amid Azure AI build-out; similar prospectively-applied change-in-estimate behavior, pending annotation."
+      },
+      {
+        "company": "NVIDIA",
+        "ticker": "NVDA",
+        "estimated_score": 3.1,
+        "note": "Estimated. Sells GPUs rather than operating hyperscale fleets; manufacturing-equipment asset structure; different depreciation risk profile."
+      },
+      {
+        "company": "AMD",
+        "ticker": "AMD",
+        "estimated_score": 2.4,
+        "note": "Estimated. Fabless chip designer; asset-light relative to cloud operators; pending annotation."
+      }
+    ],
+    "oracle_positioning_note": "ORCL FY2025综合4.45（高风险），较FY2024（3.60）上升0.85，成为本批样本中评分最高者之一。核心驱动：三年内第二次年限延长（4→5→6年）、capex/收入37%样本最高档、$43.4B表外租赁承诺（较FY2024近乎翻倍）+新增融资租赁。风险特征从FY2024的'向后递延'转为'当期兑现'：年限变更的利润调节（+$573M净利润）与capex浪潮同年落地。FY2026-2028跟踪要点：$16.5B在建工程转固后的折旧阶梯、$43.4B租赁承诺起租后的费用确认、是否出现第三次年限延长或首次大额减值。"
+  },
+  "annotation_methodology": {
+    "source_document": "Oracle Corporation Fiscal 2025 Annual Report on Form 10-K (CIK 0001341439, fiscal year ended May 31, 2025, signed June 18, 2025)",
+    "filing_accessed": "SEC EDGAR - https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001341439",
+    "text_extraction_method": "HTML parsing with Python (regex tag-stripping, html.unescape, whitespace collapsing, encoding errors replaced) + keyword search (useful lives, five years to six years, impairment, obsolescence, lease commitments, finance lease, capital expenditures, construction in progress); every candidate hit manually verified in visible body text with HTML line numbers; hidden ix:hidden XBRL tag matches excluded",
+    "cross_year_anchor_check": "与ORCL_FY2024_annotation.json（confirmed）逐维对照：D3/D5锚点条件未质变故维持原分；D1（5年→6年）、D2（本期发生变更）、D4（capex/收入13.0%→37.0%）的上调均对应10-K原文可验证的事实变化；FY2024版财务数据（$22.9B租赁承诺、capex $6,866M、折旧$3,129M等）在FY2025 10-K的比较期列中复核一致。",
+    "scoring_method": "Five-dimension weighted scoring (D1 0.25 / D2 0.20 / D3 0.20 / D4 0.20 / D5 0.15), 1-5 integer scale per dimension, anchored to confirmed ORCL FY2024 baseline (3.60), confirmed META 2023 benchmark (4.0) and GOOGL 2023 draft (4.25)",
+    "human_verification": "All quoted text excerpts and financial figures verified against original FY2025 10-K filing at cited HTML line numbers (tag-stripped verbatim check via Python)",
+    "limitation": "Single-year 10-K analysis. Oracle discloses no depreciation by asset class and does not quantify the FY2025 'certain asset impairment' charges embedded in acquisition related and other expenses (marked NA). FY2025 10-K does not disclose post-year-end lease commitments (FY2024's $9.3B subsequent-commitment disclosure has no FY2025 counterpart; field set to null). Much of Oracle's AI capacity is procured via operating/finance leases ($43.4B off-BS + $2.9B finance ROU), so capex-based ratios still understate total infrastructure intensity."
+  }
+}

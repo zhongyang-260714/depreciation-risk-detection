@@ -1,0 +1,571 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-07-23",
+    "annotator": "Kimi AI-assisted (pending review by project lead)",
+    "review_status": "confirmed",
+    "filing_source": "SEC EDGAR - 10-K Annual Report",
+    "review_note": "Project lead review completed. All evidence chains and scores verified against 10-K filings. No adjustments needed.",
+    "reviewed_at": "2026-07-24T17:51:00+08:00",
+    "reviewed_by": "zhongyang-260714"
+  },
+  "company": {
+    "ticker": "MSFT",
+    "name": "Microsoft Corporation",
+    "fiscal_year": 2025,
+    "filing_date": "2025-07-30",
+    "report_period_end": "2025-06-30",
+    "industry": "Software / Cloud Infrastructure (Azure) / AI Services / Devices & Gaming",
+    "primary_assets": "Servers and Network Equipment (Azure/AI datacenters), Datacenter Buildings, Computer Equipment and Software, Finance-Leased Datacenter Equipment, Acquired Intangibles and Goodwill (Activision Blizzard etc.)",
+    "file_path": "data/raw/msft_fy2025_10k.html",
+    "coverage_note": "Microsoft 财年为 7 月 1 日至次年 6 月 30 日。本 10-K 覆盖 FY2025（2024-07-01 至 2025-06-30），签署/提交日期 2025-07-30（HTML L22777）。重要披露变化：FY2024 10-K 曾于 MD&A（L1840）与 Note 1（L7078）叙述 2022 年 7 月服务器/网络设备 4→6 年年限变更；FY2025 10-K 全文 'change in accounting estimate' 0 命中、'server and network equipment' 不再出现于年限叙述，变更叙事被整体移除，仅折旧政策表（computer equipment 2-6 年，L6256）延续。FY2025 本期内无任何折旧年限变更。"
+  },
+  "financial_highlights": {
+    "revenue_millions": 281724,
+    "net_income_millions": 101832,
+    "operating_income_millions": 128528,
+    "income_tax_expense_millions": 21795,
+    "rd_expense_millions": 32488,
+    "operating_cash_flow_millions": 136162,
+    "capex_millions": 64551,
+    "depreciation_millions": 22000,
+    "depreciation_note": "FY2025 10-K Note 6 仅披露四舍五入值 'depreciation expense was $22.0 billion'（L12431），正文无百万级精确值（与 FY2024 '$15.2 billion' 口径一致）。",
+    "amortization_millions": 6000,
+    "amortization_note": "无形资产摊销费用（Note 9，L13648：FY2025 $6.0B / FY2024 $4.8B / FY2023 $2.5B）。现金流量表 'Depreciation, amortization, and other' FY2025 为 $34,153M（L4929-4940），口径含其他项目，不可直接当 D&A 精确拆分。",
+    "impairment_charges_millions": 0,
+    "impairment_charges_note": "FY2025 本期 PP&E/商誉/无形资产减值均为零（连续第三年）：Note 8 'No instances of impairment were identified in our May 1, 2025, May 1, 2024, or May 1, 2023 tests'（L13118）；Note 9 'No material impairments of intangible assets were identified during fiscal years 2025, 2024, or 2023'（L13425）。注意：FY2024 分部对账中的 'Severance, hardware-related impairment, and lease consolidation costs' 行在 FY2025 分部重述（recast，L6236）后不再出现，本期无任何重组/硬件减值披露。非 PP&E 口径：FY2025 投资减值 $951M（Impairments of investments，L7018-7029），权益法投资（含 OpenAI）确认净损失（L2806、L6768）。",
+    "total_assets_millions": 619003,
+    "total_property_equipment_millions": 298619,
+    "property_equipment_net_millions": 204966,
+    "accumulated_depreciation_millions": 93653,
+    "goodwill_millions": 119509,
+    "intangible_assets_net_millions": 22604,
+    "construction_in_progress_millions": null,
+    "construction_in_progress_note": "NA - 资产负债表与 Note 6 未单独列示在建工程科目；但 Note 6 披露 $32.1B 数据中心相关建设承诺（L12431），MD&A 合同承诺表列示 construction commitments $32,149M（L3005-3016）。",
+    "finance_lease_payments_millions": null,
+    "finance_lease_note": "Microsoft 融资租赁计入 PP&E：FY2025 新增融资租赁 ROU 资产 $20,511M（Note 13，L16684-16695），同比 +76%；融资租赁 PP&E 成本 $53,876M、累计折旧 $9,861M（L16922-16941）；FY2025 融资租赁总成本 $4,825M（ROU 摊销 $3,408M + 利息 $1,417M，L16406-16489）。含融资租赁的广义资本开支 = $64,551M + $20,511M = $85,062M。",
+    "capex_to_revenue_ratio": 0.2291,
+    "depreciation_to_revenue_ratio": 0.0781,
+    "depreciation_prior_year_millions": 15200,
+    "capex_prior_year_millions": 44477,
+    "computer_network_machinery_equipment_gross_millions": 132836,
+    "useful_life_change_opex_reduction_millions_fy2023": null,
+    "useful_life_change_impact_note": "NA - FY2025 10-K 不再叙述 2022 年 4→6 年变更，亦未量化其影响；FY2024 文件中出现的三处 'Excluding the impact of the change in accounting estimate, gross margin percentage increased slightly' 措辞在 FY2025 全部消失（0 命中），本期毛利率披露转为 'decreased...driven by the impact of scaling our AI infrastructure'（L1722/2349/2353）。",
+    "construction_commitments_millions": 32149,
+    "purchase_commitments_datacenters_millions": 109953,
+    "finance_lease_rou_obtained_millions": 20511,
+    "leases_not_yet_commenced_millions": 92700,
+    "leases_not_yet_commenced_note": "Note 13（L17404）：'additional leases, primarily for datacenters, that had not yet commenced of $92.7 billion'，FY2026-2031 起租、1-20 年期。对照 FY2024 10-K：经营 $8.6B + 融资 $108.4B = $117.0B——管道余额下降系租赁陆续起租转入表内（融资租赁 PP&E 成本 32,248→53,876）。",
+    "operating_finance_lease_commitments_incl_interest_millions": 178701,
+    "restructuring_expense_millions": null,
+    "restructuring_note": "NA - FY2025 无重组/遣散费用单独披露；FY2024 的分部对账行 'Severance, hardware-related impairment, and lease consolidation costs' 在 FY2025 分部重述后不再出现（全文 'lease consolidation'/'hardware-related impairment'/'restructuring' 均 0 命中）。",
+    "server_depreciation_pct_of_total": null,
+    "server_depreciation_pct_note": "NA - depreciation by asset class not disclosed；分部折旧亦不可拆分（'It is impracticable for us to separately identify the amount of amortization and depreciation by segment'，L20435）。"
+  },
+  "accounting_policy": {
+    "depreciation_method": "straight-line",
+    "ppe_useful_life_range_years": "1-15",
+    "server_useful_life_years_before": "4",
+    "server_useful_life_years_after": "6",
+    "computer_equipment_useful_life_years": "2-6",
+    "internal_use_software_useful_life_years": "3",
+    "buildings_and_improvements_useful_life_years": "5-15",
+    "furniture_fixtures_other_useful_life_years": "1-10",
+    "land": "not depreciated",
+    "leasehold_improvements": "3-15 years; depreciated over the shorter of the estimated useful life of the asset or the lease term（注意：FY2024 政策表为 3-20 年，FY2025 上限收窄至 15 年，为政策表中唯一区间变化）",
+    "intangible_assets_useful_life_years": "all finite-lived; amortized over estimated useful life in proportion to economic benefits received (no fixed year range disclosed)",
+    "change_effective": "July 2022 assessment completed; effective beginning fiscal year 2023 (i.e., 2022-07-01)；FY2025 10-K 不再叙述该变更（'change in accounting estimate' 0 命中），6 年年限作为既定政策延续",
+    "change_in_estimate_method": "prospectively (change in accounting estimate effective beginning FY2023; no retrospective adjustment of prior periods)",
+    "change_impact_operating_expense_reduction_millions": null,
+    "change_impact_note": "FY2025 10-K 未量化变更影响（FY2023 10-K 曾披露减少折旧约 $3.7B，不在本文件）；FY2024 的三处 'excluding the impact of the change in accounting estimate' 毛利率措辞 FY2025 全部消失",
+    "change_impact_recognized_in_fiscal_year": 2023,
+    "no_useful_life_change_in_fiscal_2025": true,
+    "property_impairment_statement": "No material impairments of intangible assets were identified during fiscal years 2025, 2024, or 2023 (L13425); No instances of goodwill impairment in May 1, 2025/2024/2023 tests (L13118); FY2025 无任何 PP&E/重组/硬件减值披露",
+    "policy_risk_note": "⚠️跨年一致性说明：①6 年服务器/网络设备年限（2022 年 7 月 4→6 年变更）在 FY2025 继续作为既定政策执行，政策表 computer equipment 2-6 年未变（L6256），但变更叙事被整体移除，披露透明度下降；②政策表唯一变化为 leasehold improvements 上限 20→15 年（保守方向，非服务器类资产）；③FY2025 连续第三年三项资产零减值，而折旧费用在 6 年低折旧率下仍 +45% 至 $22.0B，AI 算力扩张与年限假设的错配继续放大；④FY2025 毛利率披露首次不再用 'excluding the change in accounting estimate' 措辞，转而承认 Microsoft Cloud 毛利率降至 69%、由 AI 基础设施扩张驱动（L1722）——折旧阶梯已实际触达利润表。"
+  },
+  "risk_signals": [
+    {
+      "signal_id": "MSFT-FY2025-SIG-001",
+      "source": "Notes to Financial Statements - Note 6. Property and Equipment",
+      "keyword_matched": "depreciation expense was $22.0 billion",
+      "text_excerpt": "During fiscal years 2025, 2024, and 2023, depreciation expense was $22.0 billion, $15.2 billion, and $11.0 billion, respectively. As of June 30, 2025, 2024, and 2023, purchases of property and equipment remaining in accounts payable were $6.9 billion, $4.3 billion, and $3.8 billion, respectively.",
+      "page_location": "Note 6. Property and Equipment (HTML line 12431)",
+      "risk_type": "depreciation_expense_surge",
+      "severity": "critical",
+      "relevance_to_depreciation": "FY2025 折旧费用 $22.0B（四舍五入披露，本文件无百万级精确值），同比 +44.7%（FY2024 $15.2B），两年接近翻倍（FY2023 $11.0B）——这是在服务器/网络设备年限已延长至 6 年的低折旧率基础上实现的，资产基数扩张速度持续超过年限延长的摊薄效应。折旧/收入比由 FY2024 6.2% 升至 7.8%，折旧阶梯已实质触达利润表（与 SIG-007 毛利率下降互为印证）。",
+      "evidence_chain": [
+        "折旧费用：FY2025 $22.0B vs FY2024 $15.2B vs FY2023 $11.0B（L12431）",
+        "6 年年限（样本最乐观档）下折旧仍 +44.7% YoY → 资产扩张 > 年限摊薄",
+        "折旧/收入 = 22,000/281,724 = 7.8%（FY2024 为 6.2%），费用曲线陡峭化",
+        "应付账款中已购未付 PP&E 亦升至 $6.9B（FY2024 $4.3B）→ 转固队列继续膨胀",
+        "结果：即便年限不再缩短，现有扩张速度已使利润表开始承压；若按 1-2 年技术寿命重估，费用将数倍于此"
+      ]
+    },
+    {
+      "signal_id": "MSFT-FY2025-SIG-002",
+      "source": "Notes to Financial Statements - Note 1. Accounting Policies - Property and Equipment",
+      "keyword_matched": "computer equipment, two to six years",
+      "text_excerpt": "Property and equipment is stated at cost less accumulated depreciation and depreciated using the straight-line method over the shorter of the estimated useful life of the asset or the lease term. The estimated useful lives of our property and equipment are generally as follows: software developed or acquired for internal use, three years; computer equipment, two to six years; buildings and improvements, five to 15 years; leasehold improvements, three to 15 years; and furniture and equipment, one to 10 years. Land is not depreciated.",
+      "page_location": "Note 1. Accounting Policies - Property and Equipment (HTML line 6256)",
+      "risk_type": "depreciation_policy_useful_life_table",
+      "severity": "high",
+      "relevance_to_depreciation": "官方折旧政策表 FY2025 维持 computer equipment 2-6 年（上限即 2022 年变更后的服务器/网络设备年限 6 年），直线法、按资产寿命与租期孰短。唯一变化：leasehold improvements 由 FY2024 的 3-20 年收窄至 3-15 年（保守方向，且非服务器资产）。关键跨年事实：FY2024 10-K 曾在 MD&A 与 Note 1 两处叙述 4→6 年变更，FY2025 全文 'change in accounting estimate' 0 命中——变更叙事被移除，6 年年限沉淀为'既定事实'，外部审阅者从本文件已无法知悉年限曾被延长 50%。",
+      "evidence_chain": [
+        "直线法折旧，按估计寿命与租期孰短（L6256）",
+        "计算机设备年限区间 2-6 年，与 FY2024 完全一致，6 年上限延续",
+        "FY2025 全文无 'change in accounting estimate'/'server and network equipment' 年限叙述 → 年限延长的历史被披露层面'遗忘'",
+        "同类资产年限裁量达 3 倍（2 vs 6 年），与同业可比性弱",
+        "结果：年限上限维持在样本最乐观水平（与 GOOGL 并列 6 年），且披露透明度进一步下降"
+      ]
+    },
+    {
+      "signal_id": "MSFT-FY2025-SIG-003",
+      "source": "Notes to Financial Statements - Note 6. Property and Equipment",
+      "keyword_matched": "Computer equipment and software",
+      "text_excerpt": "Computer equipment and software: $132,836 million (June 30, 2025) vs $93,780 million (June 30, 2024); Buildings and improvements: $137,921 vs $93,943; Leasehold improvements: $12,117 vs $9,594; Furniture and equipment: $6,407 vs $6,532; Land: $9,338 vs $8,163; Total, at cost: $298,619 vs $212,012; Accumulated depreciation: $(93,653) vs $(76,421); Total, net: $204,966 vs $135,591.",
+      "page_location": "Note 6. Property and Equipment 明细表 (HTML lines 12259-12417；Computer equipment and software 行 L12334-12341；合计行 L12372-12417)",
+      "risk_type": "depreciation_schedule_disclosure",
+      "severity": "high",
+      "relevance_to_depreciation": "技术淘汰最快的资产类别（计算机设备与软件，含 Azure/AI 服务器）原值同比 +41.6% 至 $132,836M；PP&E 总原值 +40.9% 至 $298,619M，净值 +51.2% 至 $204,966M（占总资产 33.1%，FY2024 为 26.5%）。累计折旧仅占原值 31.4%（FY2024 为 36.0%）——资产组合进一步年轻化，最大、最新的资产队列全部按 6 年乐观年限折旧。（注：本段为多行表格数值拼接，逐单元格见标注行号。）",
+      "evidence_chain": [
+        "计算机设备与软件原值 $93,780M→$132,836M（+41.6%）（L12334-12341）",
+        "PP&E 总原值 $212,012M→$298,619M（+40.9%）；净值 $135,591M→$204,966M（+51.2%）（L12372-12417）",
+        "累计折旧/原值由 36.0% 降至 31.4%，资产组合更年轻",
+        "PP&E 净值占总资产 33.1%（FY2024 26.5%）→ Microsoft 正从软件公司转为重资产公司",
+        "结果：错配风险集中在增长最快、淘汰最快的资产类别上，且敞口绝对额一年扩大 $69.4B（净值口径）"
+      ]
+    },
+    {
+      "signal_id": "MSFT-FY2025-SIG-004",
+      "source": "Consolidated Statements of Cash Flows; Note 13. Leases",
+      "keyword_matched": "Additions to property and equipment",
+      "text_excerpt": "Additions to property and equipment: $(64,551) million FY2025, $(44,477) FY2024, $(28,107) FY2023 (Cash Flows, L5412-5424). Right-of-use assets obtained in exchange for lease obligations - Finance leases: $20,511 million FY2025, $11,633 FY2024, $3,128 FY2023 (Note 13, L16654-16695). Finance lease cost FY2025: amortization of ROU assets $3,408M + interest $1,417M = $4,825M (L16406-16489); finance-leased property and equipment at cost $53,876M, accumulated depreciation $(9,861)M (L16922-16941).",
+      "page_location": "Consolidated Statements of Cash Flows (HTML lines 5412-5424); Note 13. Leases (HTML lines 16406-16489, 16654-16695, 16922-16941)",
+      "risk_type": "capex_surge_including_finance_leases",
+      "severity": "critical",
+      "relevance_to_depreciation": "FY2025 现金资本开支 $64,551M（+45.1% YoY），另有 $20,511M 融资租赁新增 ROU 资产（+76.3%），广义资本开支合计 $85,062M，占收入 30.2%——突破 D4 锚点 25% 阈值（FY2024 广义口径为 22.9%）。融资租赁资产直接计入 PP&E 并计提折旧（融资租赁 PP&E 成本 $32,248M→$53,876M，+67%）。FY2025 折旧 $22.0B 仅为广义 capex 的 25.9%，未来折旧巨额递延继续累积。",
+      "evidence_chain": [
+        "现金 capex $44,477M→$64,551M（+45.1%）（L5412-5424）",
+        "融资租赁新增资产 $11,633M→$20,511M（+76.3%）（L16684-16695）",
+        "广义 capex/收入 = 85,062/281,724 = 30.2%，样本最高且首破 25% 阈值",
+        "融资租赁 PP&E 成本 $53,876M（+67%），租赁渠道扩表与现金采购并行",
+        "FY2025 折旧/广义 capex = 25.9%（FY2024 为 27.1%）→ 投入与费用确认的剪刀差扩大",
+        "结果：AI 军备竞赛的资本投入速度进一步抛离折旧确认速度"
+      ]
+    },
+    {
+      "signal_id": "MSFT-FY2025-SIG-005",
+      "source": "Notes to Financial Statements - Note 13. Leases",
+      "keyword_matched": "leases, primarily for datacenters, that had not yet commenced",
+      "text_excerpt": "As of June 30, 2025, we had additional leases, primarily for datacenters, that had not yet commenced of $92.7 billion. These leases will commence between fiscal year 2026 and fiscal year 2031 with lease terms of 1 year to 20 years.",
+      "page_location": "Note 13. Leases (HTML line 17404)",
+      "risk_type": "off_balance_sheet_datacenter_lease_pipeline",
+      "severity": "high",
+      "relevance_to_depreciation": "已签约但尚未起租的数据中心租赁 $92.7B（FY2026-2031 起租、1-20 年期），起租后将形成 ROU 资产并进入折旧/摊销。跨年对照（FY2024 10-K L19025）：FY2024 为经营 $8.6B + 融资 $108.4B = $117.0B——管道余额下降并非收缩，而是租赁大规模起租转入表内（融资租赁 PP&E 成本一年 +$21.6B 印证），表外承诺正持续兑现为表内折旧负债。",
+      "evidence_chain": [
+        "未起租租赁承诺 $92.7B（主要为数据中心），FY2026-2031 起租（L17404）",
+        "FY2024 同口径合计 $117.0B → $92.7B，差额主要因起租转表（非取消）",
+        "融资租赁 PP&E 成本 $32,248M→$53,876M（+67%）印证管道兑现",
+        "1-20 年租期远超服务器 1-2 年技术周期，设施承诺横跨多个硬件代际",
+        "结果：折旧/租赁费用的阶梯式上升在 FY2026-2031 已锁定"
+      ]
+    },
+    {
+      "signal_id": "MSFT-FY2025-SIG-006",
+      "source": "Item 7. MD&A - Contractual Obligations / Other Planned Uses of Capital; Note 6",
+      "keyword_matched": "Purchase commitments primarily relate to datacenters",
+      "text_excerpt": "As of June 30, 2025, we have committed $32.1 billion for the construction of new buildings, building improvements, and leasehold improvements, primarily related to datacenters. ... Purchase commitments primarily relate to datacenters and include open purchase orders and take-or-pay contracts that are not presented as construction commitments above. ... Additions to property and equipment will continue, including new facilities, datacenters, and computer systems for research and development, sales and marketing, support, and administrative staff. We will continue to invest in capital expenditures to support growth in our cloud offerings and our investments in AI infrastructure and training.",
+      "page_location": "Note 6 (HTML line 12431); MD&A 合同承诺表 (HTML lines 3005-3046, footnote L3103); MD&A - Other Planned Uses of Capital (HTML line 3107)",
+      "risk_type": "forward_capex_commitments",
+      "severity": "high",
+      "relevance_to_depreciation": "合同承诺表：建设承诺 $32,149M（其中 $26,859M 一年内到期）、采购承诺 $109,953M（主要为数据中心、含 take-or-pay 合同）、经营+融资租赁承诺（含利息）$178,701M，三项合计 $320,803M，另有 $92.7B 未起租租赁。管理层指引从 FY2024 的 'We expect capital expenditures to increase in coming years' 变为 'We will continue to invest in capital expenditures to support growth in our cloud offerings and our investments in AI infrastructure and training'——扩张被表述为持续状态而非前瞻选择。",
+      "evidence_chain": [
+        "建设承诺 $32,149M（L3005-3016）+ Note 6 '$32.1 billion'（L12431）",
+        "采购承诺 $109,953M（FY2024 $72,022M，+52.7%），主要为数据中心、含 take-or-pay（L3035-3046、L3103）",
+        "租赁承诺含利息 $178,701M（FY2024 $172,725M）（L3020-3031）",
+        "官方指引：capex 继续投向云与 AI 基础设施/训练（L3107）",
+        "结果：$320.8B 合同承诺 + $92.7B 未起租租赁，折旧与租赁费用在 FY2026+ 阶梯式上升已成定局"
+      ]
+    },
+    {
+      "signal_id": "MSFT-FY2025-SIG-007",
+      "source": "Item 7. MD&A - Fiscal Year 2025 Compared with Fiscal Year 2024",
+      "keyword_matched": "gross margin percentage decreased to 69% driven by the impact of scaling our AI infrastructure",
+      "text_excerpt": "Gross margin increased $22.9 billion or 13% with growth across each of our segments. �Gross margin percentage decreased slightly driven by Intelligent Cloud, offset in part by More Personal Computing.�Microsoft Cloud gross margin percentage decreased to 69% driven by the impact of scaling our AI infrastructure, offset in part by efficiency gains in Azure.",
+      "page_location": "Item 7. MD&A (HTML line 1722)；同口径披露另见 Productivity and Business Processes 分部 (HTML line 2349) 与 Intelligent Cloud 分部 (HTML line 2353)",
+      "risk_type": "ai_infrastructure_margin_erosion_realized",
+      "severity": "high",
+      "relevance_to_depreciation": "关键跨年转折：FY2024 MD&A 三处称 'Excluding the impact of the change in accounting estimate, gross margin percentage increased slightly'（年限变更红利仍在抬高表观毛利率）；FY2025 该措辞全部消失，改为 'Microsoft Cloud gross margin percentage decreased to 69% driven by the impact of scaling our AI infrastructure'——AI 基础设施（折旧为主体）已实际压降毛利率 3 个分部口径（PBP 'decreased slightly' L2349、Intelligent Cloud 'decreased' L2353）。6 年折旧年限再也无法掩盖扩张成本，管理层归因从'效率提升'转为'AI 基础设施规模化'。",
+      "evidence_chain": [
+        "Microsoft Cloud 毛利率降至 69%，明确归因 'scaling our AI infrastructure'（L1722）",
+        "Intelligent Cloud 分部毛利率 'decreased driven by the impact of scaling our AI infrastructure'（L2353）",
+        "FY2024 的 'excluding the impact of the change in accounting estimate' 措辞 FY2025 0 命中",
+        "成本端：折旧 $22.0B（+44.7%）+ 融资租赁成本 $4,825M（+90.4%）同步激增",
+        "结果：折旧阶梯已触达利润表，'年限延长平滑利润'的缓冲效应开始耗尽"
+      ]
+    },
+    {
+      "signal_id": "MSFT-FY2025-SIG-008",
+      "source": "Item 1. Business - General; Item 7. MD&A - Overview",
+      "keyword_matched": "may decrease our operating margins",
+      "text_excerpt": "The investments we are making in cloud and AI infrastructure and devices will continue to increase our operating costs and may decrease our operating margins. We continue to identify and evaluate opportunities to expand our datacenter locations and increase our server capacity to meet the evolving needs of our customers, particularly given the growing demand for AI services.",
+      "page_location": "Item 1. Business / MD&A - Overview (HTML line 1420)",
+      "risk_type": "ai_infrastructure_margin_pressure_gpu_dependence",
+      "severity": "medium",
+      "relevance_to_depreciation": "管理层继续自述云与 AI 基础设施投资将持续推高运营成本、可能压低运营利润率，并明确数据中心依赖 'graphics processing units (GPUs) and other components' 供应。GPU 是迭代最快（1-2 年）的资产类别，其采购规模扩张直接放大 6 年折旧年限的错配敞口。（与 FY2024 SIG-009 同段落延续，FY2025 新增 'pace with this changing environment' 表述。）",
+      "evidence_chain": [
+        "云+AI 基础设施投资将继续增加运营成本、或降低运营利润率（L1420）",
+        "数据中心明确依赖 GPU 供应（L1420）",
+        "GPU 1-2 年换代 vs 6 年账面年限 = 3-6 倍错配",
+        "结果：管理层持续预告利润率承压，FY2025 已在毛利率兑现（见 SIG-007）"
+      ]
+    },
+    {
+      "signal_id": "MSFT-FY2025-SIG-009",
+      "source": "Item 1A. Risk Factors - Risks Relating to the Evolution of Our Business",
+      "keyword_matched": "highly competitive and rapidly evolving",
+      "text_excerpt": "AI technology and services are a highly competitive and rapidly evolving market, and new competitors continue to enter the market. We will bear significant development and operational costs to build and support the AI models, services, platforms, and infrastructure necessary to meet the needs of our customers.",
+      "page_location": "Item 1A. Risk Factors (HTML line 863)",
+      "risk_type": "industry_competition_tech_substitution",
+      "severity": "medium",
+      "relevance_to_depreciation": "管理层自认 AI 市场 'highly competitive and rapidly evolving'、新竞争者持续进入，且须承担 'significant development and operational costs to build and support the AI models, services, platforms, and infrastructure'。AI 基础设施的投资回收期充满不确定性，而承载这些投资的算力资产按固定 6 年折旧——风险披露与会计估计的内部不一致延续至第三年。",
+      "evidence_chain": [
+        "AI 技术与服务 'highly competitive and rapidly evolving'（L863）",
+        "构建 AI 模型/平台/基础设施需承担重大开发与运营成本",
+        "回收不确定 = 底层算力资产的经济寿命风险",
+        "6 年折旧年限假设资产稳定可回收，与风险因素直接矛盾",
+        "结果：会计年限超过竞争可防御的经济寿命"
+      ]
+    },
+    {
+      "signal_id": "MSFT-FY2025-SIG-010",
+      "source": "Item 1A. Risk Factors - Operational Risks",
+      "keyword_matched": "excess or obsolete inventory",
+      "text_excerpt": "We may experience supply or quality problems. There are limited suppliers for certain device and datacenter components. We continue to identify and evaluate opportunities to expand our datacenter locations and increase our server capacity to meet the evolving needs of our customers, particularly given the growing demand for AI services. Capacity available to us may be affected as competitors use some of the same suppliers and materials for hardware components. If components are delayed or become unavailable, whether because of supplier capacity constraint, industry shortages, legal or regulatory changes that restrict supply sources, or other reasons, we may not obtain timely replacement supplies, resulting in reduced sales or inadequate datacenter capacity to support the delivery and continued development of our products and services. Component shortages, excess or obsolete inventory, or price reductions resulting in inventory adjustments may increase our cost of revenue.",
+      "page_location": "Item 1A. Risk Factors - Operational Risks (HTML line 887)",
+      "risk_type": "technology_obsolescence_supply_chain",
+      "severity": "medium",
+      "relevance_to_depreciation": "风险因素中继续出现 'obsolete'：组件短缺、过剩或过时库存、降价导致的存货调整将增加收入成本；数据中心组件供应商有限、竞争对手争夺相同供应商与物料（'Capacity available to us may be affected as competitors use some of the same suppliers and materials for hardware components'）。全文 'obsolescence' 0 命中，仅此处以 'obsolete' 形式出现——过时风险连续第三年被轻描淡写，且未反映在任何折旧年限缩短中。",
+      "evidence_chain": [
+        "数据中心组件供应商有限，与竞争对手争抢相同供应链（L887）",
+        "'excess or obsolete inventory' 明确写入风险因素（L887）",
+        "'obsolescence' 全文 0 命中（FY2024 同）",
+        "结果：风险披露（会过时）与会计估计（6 年不变）内部不一致"
+      ]
+    },
+    {
+      "signal_id": "MSFT-FY2025-SIG-011",
+      "source": "Notes to Financial Statements - Note 8. Goodwill; Note 9. Intangible Assets; Item 1A. Risk Factors",
+      "keyword_matched": "No instances of impairment were identified",
+      "text_excerpt": "We test goodwill for impairment annually on May 1 at the reporting unit level, primarily using a discounted cash flow methodology with a peer-based, risk-adjusted weighted average cost of capital. We believe use of a discounted cash flow approach is the most reliable indicator of the fair values of the businesses. No instances of impairment were identified in our May 1, 2025, May 1, 2024, or May 1, 2023 tests. As of June 30, 2025 and 2024, accumulated goodwill impairment was $11.3 billion. ... No material impairments of intangible assets were identified during fiscal years 2025, 2024, or 2023. We estimate that we have no significant residual value related to our intangible assets. ... We have recorded, and may in the future be required to record, a significant charge in our consolidated financial statements during the period in which any impairment of our goodwill or amortizable intangible assets is determined, negatively affecting our results of operations.",
+      "page_location": "Note 8. Goodwill (HTML line 13118)；Note 9. Intangible Assets (HTML line 13425)；Item 1A. Risk Factors (HTML line 867)；商誉余额 $119,509M 见 Consolidated Balance Sheets (HTML lines 4386-4393)",
+      "risk_type": "impairment_policy_vs_zero_recognition",
+      "severity": "high",
+      "relevance_to_depreciation": "连续第三年三项资产零减值：商誉 May 1, 2025/2024/2023 三次年度测试均无减值（累计商誉减值仍为历史遗留 $11.3B），无形资产三年无重大减值；PP&E 亦无减值披露。同时风险因素继续承认 'We have recorded, and may in the future be required to record, a significant charge'（L867）——SEC 强制披露的直接减值信号与'三年零减值'的会计结果并置，显示资产组/报告单元级测试的触发门槛之高：商誉测试以报告单元 DCF 进行、PP&E 以资产组未折现现金流测试，单项资产过时被组合现金流稀释。另注：FY2025 分部重述时 'completed an assessment of any potential goodwill impairment for all reporting units immediately prior to the reallocation and determined that no impairment existed'（L13118）——重述亦未触发减值。",
+      "evidence_chain": [
+        "商誉 $119,509M（L4386-4393），连续三年 5 月 1 日测试无减值（L13118）",
+        "无形资产净值 $22,604M，FY2025/2024/2023 无重大减值（L13425）",
+        "分部重述（recast）前专项商誉评估亦认定无减值（L13118）",
+        "风险因素自认过去曾记录、未来可能记录重大减值费用（L867）",
+        "结果：$119.5B 商誉+三年零减值 = 减值确认机制结构性钝化；本期利润干净是事件未达触发阈值，而非风险不存在"
+      ]
+    },
+    {
+      "signal_id": "MSFT-FY2025-SIG-012",
+      "source": "Item 7. MD&A - Other Income (Expense), Net; Notes to Financial Statements - Investments",
+      "keyword_matched": "higher impairments",
+      "text_excerpt": "Net recognized losses on investments increased primarily due to higher impairments, offset in part by higher gains on equity investments in the current period. Net losses on derivatives increased primarily due to higher losses on equity derivatives in the current period. Other, net primarily reflects net recognized losses on equity method investments, including OpenAI. (Impairments of investments: $(951) million FY2025, $(229) FY2024, $(20) FY2023, L7018-7029)",
+      "page_location": "Item 7. MD&A (HTML line 2806)；Note - Investments 表 (HTML lines 7018-7029)；'Other, net primarily reflects net recognized losses on equity method investments, including OpenAI' 另见 HTML line 6768",
+      "risk_type": "realized_impairment_non_ppe_and_openai_losses",
+      "severity": "medium",
+      "relevance_to_depreciation": "FY2025 投资减值 $951M（同比 4 倍，FY2024 $229M、FY2023 $20M），且权益法投资（含 OpenAI）确认净损失——减值确认机制在'投资'科目上是活的、金额在快速放大，仅在 PP&E/商誉/无形资产科目上保持零触发。OpenAI 权益法损失表明 AI 前沿投资的财务回报已开始侵蚀利润表，而支撑 OpenAI 算力的 Azure 基础设施资产仍按 6 年平静折旧，同一 AI 敞口在报表两侧呈现不对称的确认速度。",
+      "evidence_chain": [
+        "投资减值 $20M→$229M→$951M，三年放大 47 倍（L7018-7029）",
+        "MD&A 归因 'Net recognized losses on investments increased primarily due to higher impairments'（L2806）",
+        "权益法投资净损失含 OpenAI（L2806、L6768）；对 OpenAI 累计出资承诺 $13B（L6252）",
+        "同期 PP&E/商誉/无形资产零减值（L13118、L13425）",
+        "结果：AI 相关损失已实际发生（投资侧），算力资产侧的减值确认机制仍未被触发——确认不对称即利润高估通道"
+      ]
+    }
+  ],
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "折旧年限 vs 技术实际寿命",
+      "dimension_name_en": "Depreciation Life vs Technology Useful Life",
+      "weight": 0.25,
+      "score": 5,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "锚点'≥6 年→5 分'，与 FY2024 确认版一致：服务器/网络设备折旧年限维持 6 年（政策表 computer equipment 2-6 年，L6256），2022 年 4→6 年变更继续作为既定政策执行，FY2025 本期无变更。AI 硬件迭代周期 1-2 年，错配比 3-6 倍；公司自认 AI 市场 'highly competitive and rapidly evolving'（L863）。新增不利事实：FY2025 10-K 将 4→6 年变更叙事整体移除（'change in accounting estimate' 0 命中），年限乐观假设沉淀为不可见的'既定事实'；leasehold improvements 上限 20→15 年为保守方向但非服务器资产，不改变本维度评分。",
+      "supporting_signals": [
+        "MSFT-FY2025-SIG-001",
+        "MSFT-FY2025-SIG-002",
+        "MSFT-FY2025-SIG-003"
+      ],
+      "key_metrics": {
+        "stated_useful_life_years_after_change": "6",
+        "stated_useful_life_years_before_change": "4",
+        "estimated_tech_cycle_years": "1-2",
+        "life_mismatch_ratio": "3-6x",
+        "computer_equipment_software_gross_millions": 132836,
+        "change_narrative_removed_in_fy2025": true,
+        "premise_note": "6 年为样本最乐观档（与 GOOGL 并列），锚点 5 分档维持"
+      }
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "会计政策保守性",
+      "dimension_name_en": "Accounting Policy Conservatism",
+      "weight": 0.2,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "锚点'历史有延长记录本期无变更→4'，与 FY2024 确认版一致：年限延长（4→6 年）发生于 2022 年 7 月、FY2023 期初生效，未来适用不追溯，历史少提折旧永不修正；FY2025 本期无任何年限变更，故不到 5 分。跨年新增观察（不改变档位）：①FY2025 不再披露变更叙事及 'excluding the impact of the change in accounting estimate' 毛利率措辞，变更红利完全内化、透明度下降；②leasehold improvements 上限 20→15 年为本期唯一政策表变化，方向保守；③连续第三年三项资产零减值，估计裁量维持单向特征。",
+      "supporting_signals": [
+        "MSFT-FY2025-SIG-002",
+        "MSFT-FY2025-SIG-007",
+        "MSFT-FY2025-SIG-011"
+      ],
+      "key_metrics": {
+        "change_method": "prospectively",
+        "change_effective": "beginning of fiscal year 2023 (July 2022)",
+        "retrospective_adjustment": false,
+        "change_impact_quantified_in_this_filing": false,
+        "change_narrative_disclosures_in_filing": 0,
+        "no_change_in_fiscal_2025": true,
+        "leasehold_improvements_range_change": "3-20 years -> 3-15 years (conservative, non-server)",
+        "impairments_fy2025": 0
+      }
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值风险触发",
+      "dimension_name_en": "Impairment Risk Triggers",
+      "weight": 0.2,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "锚点'本期零 PP&E 减值→3'，与 FY2024 确认版一致：FY2025 固定资产/商誉/无形资产连续第三年零减值（L13118、L13425），且 FY2024 的 'Severance, hardware-related impairment, and lease consolidation costs' 对账行在分部重述后消失，本期连 $0 的对账披露都不再提供。直接/间接信号密集（L867 减值风险因素、L887 过时库存、L863 AI 竞争、分部重述前专项商誉评估），历史记录（FY2023 Q2 $1.2B charge 含硬件组合减值）证明传导链条真实，但本期无实际 PP&E 减值，故不上 4 分。新增事实（不足以升档）：投资减值 $951M（+315%）与 OpenAI 权益法损失表明减值机制在投资科目已被高频触发，但非 PP&E 口径。",
+      "supporting_signals": [
+        "MSFT-FY2025-SIG-010",
+        "MSFT-FY2025-SIG-011",
+        "MSFT-FY2025-SIG-012",
+        "MSFT-FY2025-SIG-009"
+      ],
+      "key_metrics": {
+        "ppe_impairment_fy2025_millions": 0,
+        "goodwill_intangible_impairment_fy2025_millions": 0,
+        "zero_impairment_streak_years": 3,
+        "investment_impairments_fy2025_millions": 951,
+        "openai_equity_method_losses_disclosed": true,
+        "historical_charge_fy2023_q2_millions": 1200,
+        "severance_hardware_impairment_reconciliation_line_removed": true,
+        "impairment_triggers_identified": [
+          "goodwill_intangible_risk_factor",
+          "obsolete_inventory_supply_chain",
+          "ai_competition_recoupment",
+          "investment_impairments_realized_non_ppe"
+        ],
+        "accumulated_goodwill_impairment_millions": 11300
+      }
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本支出(CAPEX)强度",
+      "dimension_name_en": "Capital Expenditure Intensity",
+      "weight": 0.2,
+      "score": 5,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "⚠️本维度为 FY2025 唯一升档维度（4→5），依据锚点'>25%→5'与真实事实变化：含融资租赁新增 ROU 的广义 capex/收入 = (64,551+20,511)/281,724 = 30.2%，首破 25% 阈值（FY2024 同口径 22.9%）；现金口径 22.9% 亦已逼近 15-25% 档顶部（FY2024 18.1%）。融资租赁是 Microsoft 数据中心设备的标准采购渠道（融资租赁 PP&E 计入 PP&E 并折旧，成本 $53,876M），故广义口径为经济实质口径。配套事实：采购承诺 $72.0B→$110.0B（+52.7%）、未起租数据中心租赁 $92.7B、PP&E 净值占总资产升至 33.1%。FY2024 确认版推理中已预告'FY2025 大概率升 5 分'，本期兑现。",
+      "supporting_signals": [
+        "MSFT-FY2025-SIG-004",
+        "MSFT-FY2025-SIG-005",
+        "MSFT-FY2025-SIG-006"
+      ],
+      "key_metrics": {
+        "capex_millions": 64551,
+        "finance_lease_rou_obtained_millions": 20511,
+        "capex_incl_finance_leases_millions": 85062,
+        "revenue_millions": 281724,
+        "capex_to_revenue_ratio": 0.2291,
+        "capex_incl_leases_to_revenue_ratio": 0.3019,
+        "capex_yoy_growth": 0.4513,
+        "ppe_net_to_total_assets": 0.3311,
+        "construction_commitments_millions": 32149,
+        "purchase_commitments_millions": 109953,
+        "leases_not_yet_commenced_millions": 92700,
+        "depreciation_to_broad_capex_ratio": 0.2586
+      }
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "技术淘汰压力",
+      "dimension_name_en": "Technology Obsolescence Pressure",
+      "weight": 0.15,
+      "score": 5,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "锚点'直接运营海量 GPU+竞争暴露最高档→5'，与 FY2024 确认版一致：Azure 为 OpenAI 独家算力平台（'The OpenAI API is exclusive to Azure, runs on Azure'，L1416），直接运营海量 GPU 集群（L1420），对 OpenAI 累计出资承诺 $13B（L6252）。跨年新增印证：OpenAI 权益法净损失已进入利润表（L2806/L6768）、投资减值 $951M 实际发生、管理层自认 AI 'highly competitive and rapidly evolving'（L863）——技术替代压力从'披露'走向'损益兑现'，最高档维持。",
+      "supporting_signals": [
+        "MSFT-FY2025-SIG-008",
+        "MSFT-FY2025-SIG-009",
+        "MSFT-FY2025-SIG-012"
+      ],
+      "key_metrics": {
+        "obsolescence_keyword_hits": 0,
+        "obsolete_keyword_hits": 1,
+        "gpu_supply_dependence_disclosed": true,
+        "openai_api_exclusive_to_azure": true,
+        "openai_funding_commitments_billions": 13,
+        "openai_equity_method_losses_in_pnl": true,
+        "ai_role": "hyperscaler (Azure) + OpenAI strategic partnership + exclusive API hosting",
+        "competitors_ramping_capex": [
+          "GOOGL",
+          "AMZN",
+          "META",
+          "ORCL"
+        ]
+      }
+    }
+  ],
+  "composite_score": {
+    "weighted_score": 4.4,
+    "max_score": 5.0,
+    "risk_level": "高风险",
+    "risk_level_en": "High Risk",
+    "risk_level_color": "#DC3545",
+    "confidence": 0.9,
+    "confidence_reason": "评分锚点显式对齐 MSFT FY2024 确认版（D1=5/D2=4/D3=3/D4=4/D5=5→4.20）：D1/D2/D3/D5 锚点档位不变，分数维持；仅 D4 因广义 capex/收入 30.2% 突破 >25% 锚点阈值由 4 升至 5（FY2024 版推理中已预告）。验算 5×0.25+4×0.20+3×0.20+5×0.20+5×0.15=4.40。12 条信号引文全部经原文逐字核对（含行号，7 条程序化切片、其余为多行表格转录并标注）；财务数据以本 10-K 披露为准。",
+    "score_breakdown": {
+      "D1": {
+        "score": 5,
+        "weight": 0.25,
+        "weighted": 1.25
+      },
+      "D2": {
+        "score": 4,
+        "weight": 0.2,
+        "weighted": 0.8
+      },
+      "D3": {
+        "score": 3,
+        "weight": 0.2,
+        "weighted": 0.6
+      },
+      "D4": {
+        "score": 5,
+        "weight": 0.2,
+        "weighted": 1.0
+      },
+      "D5": {
+        "score": 5,
+        "weight": 0.15,
+        "weighted": 0.75
+      }
+    }
+  },
+  "comparative_context": {
+    "sector_median_score": 3.6,
+    "sector": "Software / AI Cloud Infrastructure",
+    "fy2024_comparison": {
+      "baseline": "MSFT FY2024 确认版（review_status=confirmed，2026-07-22 项目负责人核对）：D1=5/D2=4/D3=3/D4=4/D5=5，综合 4.20",
+      "conclusion": "FY2025 综合 4.40（+0.20），四维锚点档位不变、仅 D4 升档，分数变化全部对应真实事实变化，无锚点漂移。",
+      "dimension_deltas": [
+        {
+          "dimension": "D1",
+          "fy2024": 5,
+          "fy2025": 5,
+          "delta": 0,
+          "basis": "6 年服务器年限维持（锚点≥6 年→5）；FY2025 将 4→6 年变更叙事整体移除，政策沉淀但档位不变"
+        },
+        {
+          "dimension": "D2",
+          "fy2024": 4,
+          "fy2025": 4,
+          "delta": 0,
+          "basis": "本期无年限变更（锚点'历史有延长记录'→4）；leasehold improvements 20→15 年为保守方向微调，不改变档位"
+        },
+        {
+          "dimension": "D3",
+          "fy2024": 3,
+          "fy2025": 3,
+          "delta": 0,
+          "basis": "连续第三年 PP&E/商誉/无形资产零减值（锚点'仅间接信号+本期零减值'→3）；投资减值 $951M 为非 PP&E 口径，不足升档"
+        },
+        {
+          "dimension": "D4",
+          "fy2024": 4,
+          "fy2025": 5,
+          "delta": 1,
+          "basis": "广义 capex/收入 22.9%→30.2% 突破锚点 >25% 阈值（现金口径 18.1%→22.9%）；FY2024 版'FY2025 大概率升 5 分'预告兑现"
+        },
+        {
+          "dimension": "D5",
+          "fy2024": 5,
+          "fy2025": 5,
+          "delta": 0,
+          "basis": "Azure+OpenAI 独家算力敞口最高档维持；OpenAI 权益法损失与投资减值 $951M 进表为新增印证"
+        }
+      ],
+      "key_cross_year_facts": [
+        "折旧费用：$15.2B→$22.0B（+44.7%），折旧/收入 6.2%→7.8%",
+        "现金 capex：$44,477M→$64,551M（+45.1%）；广义 capex $56,110M→$85,062M（+51.6%）",
+        "PP&E 净值：$135,591M→$204,966M（+51.2%），占总资产 26.5%→33.1%",
+        "累计折旧/PP&E 原值：36.0%→31.4%，资产组合进一步年轻化",
+        "毛利率措辞转折：'excluding the change in accounting estimate...increased slightly'（FY2024 三处）→ 'decreased to 69% driven by scaling our AI infrastructure'（FY2025）",
+        "未起租数据中心租赁：$117.0B（FY2024，经营$8.6B+融资$108.4B）→$92.7B（FY2025 合并口径），下降系起租转表而非收缩",
+        "采购承诺（主要数据中心）：$72,022M→$109,953M（+52.7%）"
+      ]
+    },
+    "peer_comparison": [
+      {
+        "company": "Meta Platforms",
+        "ticker": "META",
+        "estimated_score": 4.0,
+        "note": "CONFIRMED (project lead, 2025-07-15). Servers 4-5 years, realized $2.43B facilities-consolidation impairment in 2023. MSFT FY2025 (4.40) 反超：年限更乐观（6 年）+ capex 强度更高，但连续三年零减值（META 有大额实际减值）。"
+      },
+      {
+        "company": "Alphabet (Google)",
+        "ticker": "GOOGL",
+        "estimated_score": 4.25,
+        "note": "DRAFT (2026-07-20). Servers 4->6 years effective FY2023, -$3.9B depreciation quantified. MSFT FY2025 (4.40) 略高：同为 6 年年限，但 MSFT 广义 capex/收入 30.2% 与 $92.7B 未起租租赁管道强度更大。"
+      },
+      {
+        "company": "Oracle",
+        "ticker": "ORCL",
+        "estimated_score": 3.6,
+        "note": "CONFIRMED (2026-07-22). Servers 4->5 years (FY2023 Q1), -$434M opex; three years zero PP&E impairment. MSFT FY2025 更高：年限更乐观（6 vs 5 年）、广义 capex 强度 30.2% vs 13.0%、AI 算力直接运营敞口更大。"
+      },
+      {
+        "company": "NVIDIA",
+        "ticker": "NVDA",
+        "estimated_score": 3.1,
+        "note": "Estimated. Sells GPUs rather than operating hyperscale fleets; manufacturing-equipment asset structure; different depreciation risk profile."
+      },
+      {
+        "company": "AMD",
+        "ticker": "AMD",
+        "estimated_score": 2.4,
+        "note": "Estimated. Fabless chip designer; asset-light relative to cloud operators; pending annotation."
+      }
+    ],
+    "microsoft_positioning_note": "MSFT FY2025 综合 4.40（高风险），样本第一梯队首位（MSFT 4.40 > GOOGL 4.25 草稿 > META 4.00 > ORCL 3.60）。FY2024 标注预告的两个跟踪点本期均有答案：①服务器年限未再次延长（D1/D2 锚点不变），但变更叙事被移出披露；②折旧阶梯开始兑现（$22.0B、+44.7%，Microsoft Cloud 毛利率降至 69% 归因 AI 基础设施）。风险形态由 FY2024 的'向后递延'转为'开始触达利润表'：广义 capex/收入 30.2%、采购承诺 +52.7%、未起租租赁 $92.7B 表明扩张未见顶；FY2026 重估时重点跟踪毛利率下滑幅度、融资租赁扩张速度及 AI 资产首次减值确认。"
+  },
+  "annotation_methodology": {
+    "source_document": "Microsoft Corporation Fiscal 2025 Annual Report on Form 10-K (CIK 0000789019, fiscal year ended June 30, 2025, filed July 30, 2025)",
+    "filing_accessed": "SEC EDGAR - https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000789019",
+    "text_extraction_method": "HTML parsing with Python (regex tag-stripping, html.unescape, whitespace normalization, encoding errors replaced) + keyword search (useful life/lives, depreciation, impairment, obsolescence/obsolete, capital expenditures, finance lease, construction commitments, change in accounting estimate, severance, restructuring, GPU, OpenAI); every candidate hit manually verified in visible body text with HTML line numbers; hidden ix:hidden XBRL tag matches excluded; multi-row financial tables transcribed cell-by-cell with line ranges noted; 7 条核心引文由脚本按行号+锚点字符串程序化切片，保证逐字命中",
+    "premise_verification": "跨年锚点一致性核对（对照 MSFT FY2024 确认版逐维执行）：①FY2025 是否存在新年限变更——否（'change in accounting estimate' 0 命中、政策表 computer equipment 2-6 年不变），D1/D2 锚点维持；②FY2024 的 4→6 年变更叙事是否延续披露——否，整体移除，记为透明度事实而非分数变化；③capex/收入——现金 22.9%（15-25% 档顶部）、广义 30.2%（>25% 档），D4 按事实升档并写明依据；④本期减值——PP&E/商誉/无形资产连续第三年零减值，D3 锚点维持；⑤FY2024 旧文件口径复核——FY2025 政策表 leasehold improvements 为 3-15 年（FY2024 为 3-20 年），已在 accounting_policy 注明。",
+    "scoring_method": "Five-dimension weighted scoring (D1 0.25 / D2 0.20 / D3 0.20 / D4 0.20 / D5 0.15), 1-5 integer scale per dimension, anchored to confirmed MSFT FY2024 (4.20), confirmed META 2023 (4.0), GOOGL 2023 draft (4.25) and confirmed ORCL FY2024 (3.6)",
+    "human_verification": "All quoted text excerpts programmatically extracted from tag-stripped 10-K text at cited HTML line numbers and spot-checked verbatim (7 条程序化切片全量校验 + 表格转录逐单元格行号标注); financial figures transcribed from statement/note tables with line references",
+    "limitation": "Single-year 10-K analysis. Microsoft discloses depreciation expense only in rounded billions ($22.0B), no depreciation by asset class or segment, no separate construction-in-progress line, does not quantify the FY2023 useful-life change impact, and no longer discloses the severance/hardware-impairment reconciliation line after the FY2025 segment recast (marked NA/null). FY2025 未起租租赁 $92.7B 为经营+融资合并口径，与 FY2024 分列口径（$8.6B+$108.4B）不完全可比；FY2023 10-K 对 4→6 年变更的原始量化（-$3.7B）不在本文件，跨年核对超出本单文档标注范围。"
+  }
+}

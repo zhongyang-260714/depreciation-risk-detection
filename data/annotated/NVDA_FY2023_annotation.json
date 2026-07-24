@@ -1,0 +1,494 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-07-23",
+    "annotator": "Kimi AI-assisted (pending review by project lead)",
+    "review_status": "confirmed",
+    "filing_source": "SEC EDGAR - 10-K Annual Report",
+    "review_note": "Project lead review completed. All evidence chains and scores verified against 10-K filings. No adjustments needed.",
+    "reviewed_at": "2026-07-24T17:51:00+08:00",
+    "reviewed_by": "zhongyang-260714"
+  },
+  "company": {
+    "ticker": "NVDA",
+    "name": "NVIDIA Corporation",
+    "fiscal_year": 2023,
+    "filing_date": "2023-02-24",
+    "report_period_end": "2023-01-29",
+    "coverage_note": "NVIDIA FY2023 覆盖 2022-01-31 至 2023-01-29，即基本覆盖 2022 日历年：矿卡退潮（CMP 收入由 FY2022 $550M 降至名义值）、游戏业务库存调整（Ampere 架构过剩，存货及采购义务减值 $2.17B）、A100/Hopper(H100) 架构交替期。本文件签署日 2023-02-24（审计报告日期，HTML L2992）。关键时点：折旧年限评估于 2023 年 2 月完成（已在 FY2024 内），在本 10-K 中宣布、自 FY2024 起生效，对 FY2023 财务数据无任何影响——故 FY2023 为'变更前一年'。",
+    "industry": "Semiconductor (Fabless) / AI Accelerated Computing",
+    "primary_assets": "Servers/Compute Hardware (internal R&D use), Assembly and Test Equipment, Buildings (HQ 建设期), Leasehold Improvements",
+    "file_path": "data/raw/nvda_fy2023_10k.html"
+  },
+  "financial_highlights": {
+    "revenue_millions": 26974,
+    "net_income_millions": 4368,
+    "operating_income_millions": 4224,
+    "income_tax_expense_millions": -187,
+    "income_tax_note": "FY2023 为所得税收益（benefit）$187M（利润表：Income tax expense (benefit) $(187)），FY2022 为费用 $189M。",
+    "rd_expense_millions": 7339,
+    "sga_expense_millions": 2440,
+    "operating_cash_flow_millions": 5641,
+    "capex_millions": 1833,
+    "capex_note": "现金流量表科目：'Purchases related to property and equipment and intangible assets' $1,833M（FY2022: $976M；FY2021: $1,128M）；NVIDIA 不在该行拆分 PP&E 与无形资产。FY2023 capex 偏高主因总部楼宇建设（Buildings, leasehold improvements, and furniture 原值 $874M→$1,598M，+83%）；公司指引 FY2024 capex 回落至约 $1.10-1.30B（MD&A 流动性，L2637）。",
+    "depreciation_millions": 844,
+    "amortization_millions": 699,
+    "depreciation_and_amortization_cashflow_millions": 1544,
+    "impairment_charges_millions": 0,
+    "impairment_note": "FY2023 无 PP&E 或商誉减值（商誉年度测试结论 'goodwill was not impaired in any of these years'，Note 6，L3476）。但本期发生两笔非 PP&E 渠道的大额减记：①存货及采购义务减值 $2.17B（计入营业成本，毛利率拖累 7.5 个百分点，L2523-2531）；②Arm 收购终止费 $1.353B（预付对价核销，计入经营费用，L2544）。二者均非固定资产减值。",
+    "inventory_provision_millions": 2172,
+    "inventory_provision_note": "MD&A 口径 $2.17B = 在手存货约 $1.04B + 超出当前需求预测的存货采购义务约 $1.13B（L2523-2526）；FY2022 为 $354M。FY2024 10-K Note 10 追溯表述为 'inventory provision of $774 million and $1.0 billion'（FY2024/FY2023），其 FY2023 的 $1.0B 对应在手存货部分，与本文件的 $1.04B 一致。",
+    "acquisition_termination_cost_millions": 1353,
+    "capex_to_revenue_ratio": 0.068,
+    "depreciation_to_revenue_ratio": 0.0313,
+    "server_depreciation_pct_of_total": null,
+    "server_depreciation_pct_note": "NA - depreciation by asset class not disclosed",
+    "total_property_equipment_millions": 6501,
+    "property_equipment_net_millions": 3807,
+    "accumulated_depreciation_millions": 2694,
+    "goodwill_millions": 4372,
+    "intangible_assets_net_millions": 1676,
+    "construction_in_progress_millions": 382,
+    "total_assets_millions": 41182,
+    "inventories_millions": 5159,
+    "equipment_compute_hardware_software_gross_millions": 4303,
+    "buildings_leasehold_furniture_gross_millions": 1598,
+    "land_millions": 218,
+    "depreciation_prior_year_millions": 611,
+    "capex_prior_year_millions": 976,
+    "fy2024_guided_capex_millions": "1100-1300",
+    "cmp_revenue_note": "CMP revenue was nominal in fiscal year 2023 and $550 million in fiscal year 2022（L2280）——矿卡收入在本期崩塌。",
+    "useful_life_change_opex_benefit_millions_announced": 133,
+    "useful_life_change_note": "本文件宣布的年限变更（服务器/存储/网络设备 3→4-5 年、组装测试设备 5→7 年）自 FY2024 起生效，预计增加 FY2024 营业利润 $133M（L2477-2481、L3022-3026）；FY2024 10-K 确认实际影响为营业利润 +$135M、净利润 +$114M。该变更对 FY2023 财务数据无影响。"
+  },
+  "accounting_policy": {
+    "depreciation_method": "straight-line",
+    "ppe_useful_life_range_years": "generally 3-5 (in effect during FY2023)",
+    "server_useful_life_years_in_effect_fy2023": "3",
+    "assembly_test_equipment_useful_life_years_in_effect_fy2023": "5",
+    "building_useful_life_years": "up to 30",
+    "equipment_compute_hardware_software_useful_life_years": "3-5 (Note 10 table)",
+    "finance_lease_and_leasehold": "shorter of the expected lease term or the estimated useful life of the asset",
+    "change_announced_in_this_filing": true,
+    "change_details": "In February 2023 (i.e., after FY2023 ended 2023-01-29, at the start of FY2024), NVIDIA completed an assessment and increased the estimated useful life of a majority of server, storage, and network equipment from three years to a range of four to five years, and assembly and test equipment from five years to seven years, citing 'advances in technology and usage rate'.",
+    "change_effective": "beginning of fiscal year 2024 (i.e., 2023-01-30); NOT effective during FY2023",
+    "change_in_estimate_method": "change in accounting estimate, applied prospectively; estimated FY2024 operating income benefit $133M as disclosed in this filing (actual per FY2024 10-K: +$135M operating income, +$114M net income, +$0.05/share); zero impact on FY2023 financial statements",
+    "no_useful_life_change_effective_during_fy2023": true,
+    "goodwill_impairment_statement": "we completed our annual qualitative impairment tests and concluded that goodwill was not impaired in any of these years (fiscal 2023, 2022, 2021; Note 6, L3476)",
+    "ppe_impairment_statement": null,
+    "ppe_impairment_statement_note": "NA - 财报未对 FY2023 固定资产减值作任何量化或定性声明；仅有标准 ASC 360 触发式减值政策（Note 1，L3308-3324），FY2023 未确认任何 PP&E 减值。",
+    "policy_risk_note": "⚠️跨年锚点关键事实：FY2024 确认版据以评 D2=5 的年限延长（3→4-5 年、5→7 年），其首次披露载体正是本 FY2023 10-K——'Change in Accounting Estimate' 同时出现在 MD&A（L2470-2481）与 Note 1（L3017-3026），并量化预计增厚 FY2024 营业利润 $133M。但变更'became effective at the beginning of fiscal year 2024'，FY2023 全年仍按服务器 3 年、组装测试 5 年计提折旧（Note 1 'generally three to five years'，L3258；Note 10 表 '3 - 5'，L3502）。故 FY2023 评分为'变更前一年'口径：D1 按在用 3/5 年年限评（低于 FY2024 的 4-5/7 年档），D2 按'本期无生效变更但已宣布延长'评（低于 FY2024 的'本期已延长'最高档）。方向性判断与 FY2024 完全一致：公司在 AI 技术加速期选择延长而非缩短折旧年限。"
+  },
+  "risk_signals": [
+    {
+      "signal_id": "NVDA-FY2023-SIG-001",
+      "source": "Item 7. MD&A - Critical Accounting Policies and Estimates - Change in Accounting Estimate; Notes to Consolidated Financial Statements - Note 1",
+      "keyword_matched": "increased the estimated useful life / change in accounting estimate",
+      "text_excerpt": "In February 2023, we completed an assessment of the useful lives of our property, plant, and equipment. Based on advances in technology and usage rate, we increased the estimated useful life of a majority of the server, storage, and network equipment from three years to a range of four to five years, and assembly and test equipment from five years to seven years. This change in accounting estimate became effective at the beginning of fiscal year 2024. Based on the carrying amounts of a majority of our server, storage, network, and assembly and test equipment, net in use as of the end of fiscal year 2023, it is estimated this change will increase our fiscal year 2024 operating income by $133 million as a result of the reduction in depreciation expense.",
+      "page_location": "Item 7. MD&A - Change in Accounting Estimate (HTML lines 2470-2481); Note 1. Summary of Significant Accounting Policies (HTML lines 3017-3026)",
+      "risk_type": "useful_life_extension_announced",
+      "severity": "critical",
+      "relevance_to_depreciation": "本文件的核心信号：FY2024 确认版据以评 D2=5 的年限延长，其首次披露就在本 FY2023 10-K。公司在 AI 芯片迭代压缩至 1-2 年的时点（H100 于 2022 年发布/出货、本期正进行 Data Center/Gaming 架构切换）宣布延长折旧年限，理由恰为 'advances in technology'——与项目假设中技术力量缩短资产经济寿命的方向相反。未来适用、不追溯，并自行量化将增厚 FY2024 营业利润 $133M。但对 FY2023 报表本身无任何影响（变更 FY2024 起生效），这是与 FY2024 确认版评分差异的唯一来源。",
+      "evidence_chain": [
+        "事实：本文件宣布 2023 年 2 月完成年限评估，服务器/存储/网络设备 3→4-5 年、组装测试设备 5→7 年",
+        "事实：变更'自 FY2024 起生效'（L2476-2477、L3022-3023），FY2023 全年仍按 3/5 年计提，对本期报表零影响",
+        "事实：公司量化预计 FY2024 营业利润 +$133M（FY2024 10-K 确认实际 +$135M/净利润 +$114M，锚点吻合）",
+        "矛盾：同期 AI 加速器迭代周期 1-2 年（Ampere→Hopper 切换正在本期发生，L2184-2187），延长年限假设资产经济寿命为技术周期的 2.5-4 倍",
+        "影响方向：FY2024 起折旧费用系统性偏低、利润偏高；未来适用使既往低估永不修正"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2023-SIG-002",
+      "source": "Notes to Consolidated Financial Statements - Note 1. Property and Equipment",
+      "keyword_matched": "straight-line / generally three to five years",
+      "text_excerpt": "Property and equipment are stated at cost. Depreciation of property and equipment is computed using the straight-line method based on the estimated useful lives of the assets, generally three to five years. ... The estimated useful lives of our buildings are up to thirty years. ... Leasehold improvements and assets recorded under finance leases are amortized over the shorter of the expected lease term or the estimated useful life of the asset.",
+      "page_location": "Note 1. Summary of Significant Accounting Policies - Property and Equipment (HTML lines 3255-3266)",
+      "risk_type": "depreciation_schedule_disclosure",
+      "severity": "high",
+      "relevance_to_depreciation": "FY2023 在用的官方折旧政策：设备类直线法 3-5 年（FY2024 确认版为变更后的 3-7 年）。在用年限中服务器 3 年、组装测试 5 年——较 FY2024 的 4-5/7 年明显保守，这是 D1 低于 FY2024 的事实基础；但同一份文件已宣布将进入 4-5/7 年档（SIG-001），政策轨迹与 FY2024 完全连续。",
+      "evidence_chain": [
+        "FY2023 在用折旧年限：设备类一般 3-5 年、楼宇至多 30 年（低技术敏感度）",
+        "对照 FY2024 确认版：同一 Note 1 表述为 'three to seven years'（变更后）——两版文件的口径差异精确对应变更时点",
+        "3 年服务器年限 vs 1-2 年 GPU 迭代周期：错配 1.5-3 倍，处于行业中性偏保守水平",
+        "影响方向：FY2023 折旧计提本身不虚，但已宣布的变更将使下一年起计提节奏放缓"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2023-SIG-003",
+      "source": "Notes to Consolidated Financial Statements - Note 10. Balance Sheet Components",
+      "keyword_matched": "Equipment, compute hardware, and software / 3 - 5",
+      "text_excerpt": "Property and Equipment: Land $218; Buildings, leasehold improvements, and furniture 1,598; Equipment, compute hardware, and software 4,303 (Estimated Useful Life 3 - 5 years); Construction in process 382; Total property and equipment, gross 6,501; Accumulated depreciation and amortization (2,694); Total property and equipment, net $3,807.",
+      "page_location": "Note 10. Balance Sheet Components - Property and Equipment 表 (HTML line 3502)",
+      "risk_type": "depreciation_schedule_disclosure",
+      "severity": "medium",
+      "relevance_to_depreciation": "量化受 3-5 年折旧假设约束的资产盘子：设备/计算硬件/软件原值 $4,303M（占 PP&E 原值 66%），同比 $2,852M→$4,303M（+51%）快速扩张；净 PP&E $3,807M 仅为 FY2023 收入的 14.1%。fabless 轻资产结构未变，折旧风险的绝对杠杆小——即使年限假设偏差 2 倍，利润扭曲量级也被限制在亿美元级（对照：已宣布变更的全年效应 $133M，占 FY2023 净利润约 3.0%）。",
+      "evidence_chain": [
+        "设备/计算硬件/软件原值 $4,303M（+51% YoY），按 3-5 年计提",
+        "累计折旧 $2,694M = 原值的 41.4%，资产组合偏新且高速扩张",
+        "净 PP&E $3,807M / 收入 $26,974M = 14.1%；对照 Meta 等云厂商 PP&E 超过年收入，杠杆量级差异本质性",
+        "影响方向：政策激进度在原则层面成立，但绝对利润影响被轻资产结构封顶"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2023-SIG-004",
+      "source": "Notes to Consolidated Financial Statements - Note 1. Long-lived Assets",
+      "keyword_matched": "reviewed for impairment whenever events or changes in circumstances",
+      "text_excerpt": "Long-lived assets, such as property and equipment and intangible assets subject to amortization, are reviewed for impairment whenever events or changes in circumstances indicate that the carrying amount of an asset or asset group may not be recoverable. Recoverability of assets or asset groups to be held and used is measured by a comparison of the carrying amount of an asset or asset group to estimated undiscounted future cash flows expected to be generated by the asset or asset group.",
+      "page_location": "Note 1. Summary of Significant Accounting Policies - Long-lived Assets (HTML lines 3308-3324)",
+      "risk_type": "impairment_testing_policy",
+      "severity": "medium",
+      "relevance_to_depreciation": "标准 ASC 360 触发式减值政策（与 FY2024 确认版逐字一致，跨年锚点稳定）。减值测试是被动的：只有管理层认定'事件或环境变化'才触发。FY2023 本期经历了矿卡崩塌、游戏需求骤降、Ampere 过剩与 Hopper 架构切换——存货侧因此确认 $2.17B 减值，但 PP&E 侧未认定任何触发事件、零减值。同一技术冲击在存货渠道被确认、在固定资产渠道被吸收，显示触发式测试对渐进性技术过时存在滞后盲区。",
+      "evidence_chain": [
+        "减值测试触发式、按资产组未折现现金流计量",
+        "FY2023 存货渠道确认 $2.17B 减值（SIG-008），PP&E 渠道零减值、商誉'not impaired'（L3476）",
+        "折旧是对同一经济损失的系统性预摊；触发式减值捕捉滞后时，中间年份折旧即偏低",
+        "影响方向：本期 PP&E 零减值不能反证 3 年年限假设正确，只说明未正式认定触发事件"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2023-SIG-005",
+      "source": "Item 1A. Risk Factors - Supply/Inventory Risks",
+      "keyword_matched": "purchase obligations and prepaid supply agreements represented more than half of our total supply",
+      "text_excerpt": "At the end of fiscal year 2023, purchase obligations and prepaid supply agreements represented more than half of our total supply. We may incur inventory provisions if our inventory or supply commitments are misaligned with demand for our products.",
+      "page_location": "Item 1A. Risk Factors (HTML lines 1025-1030)",
+      "risk_type": "inventory_impairment_risk",
+      "severity": "medium",
+      "relevance_to_depreciation": "间接信号（与 FY2024 确认版 SIG-005 同渠道）。fabless 模式下技术过时风险主要沉淀在存货与不可取消采购/产能承诺中（期末采购义务+预付供应协议已占总供给一半以上），而非自有折旧资产。这是 Meta 数据中心减值风险的 fabless 等价物：减记渠道不同，根因（需求/技术误判）相同。",
+      "evidence_chain": [
+        "fabless 结构：过时风险集中于存货+采购承诺，不在 PP&E",
+        "公司自认供给承诺与需求错配即产生减值——本期已实际发生（$2.17B，SIG-008）",
+        "与折旧风险同根：技术迭代快于规划视野",
+        "影响方向：利润风险经存货减值（营业成本）而非折旧通道释放"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2023-SIG-006",
+      "source": "Item 1A. Risk Factors - Supplier / Purchase Obligation Risks",
+      "keyword_matched": "written-down our inventory ... recorded impairments",
+      "text_excerpt": "We have also written-down our inventory, incurred cancellation penalties, and recorded impairments. These impacts were amplified by our placement of non-cancellable and non-returnable purchasing terms, well in advance of our historical lead times and could be exacerbated if we need to make changes to the design of future products.",
+      "page_location": "Item 1A. Risk Factors (HTML line 1079)",
+      "risk_type": "realized_impairment_history",
+      "severity": "high",
+      "relevance_to_depreciation": "公司在 Risk Factors 中自认已实际减记存货、发生取消费罚金并记录减值，且提示未来可能重演（与 FY2024 确认版 SIG-006 同一段落，跨年锚点一致）。本期即为该风险的兑现年：$2.17B 存货/采购义务减值。管理层的需求/技术预测——与折旧年限估计同源的判断——已被证明会重大出错；注意本句与 FY2024 版措辞微差（'written-down' 带连字符），属同一披露段落的年度延续。",
+      "evidence_chain": [
+        "事实：公司自认历史减记存货、取消费、减值，且由远超历史提前期的不可取消采购条款放大",
+        "本期兑现：FY2023 存货及采购义务减值 $2.17B（FY2022 仅 $354M）",
+        "预测失误若 1 年内即在存货侧兑现，则 3-5 年期资产寿命假设应受同等质疑",
+        "影响方向：历史预测误差支持'长期资产寿命假设偏乐观'的项目假设"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2023-SIG-007",
+      "source": "Item 7. MD&A - Critical Accounting Policies and Estimates - Inventories and Product Purchase Commitments",
+      "keyword_matched": "inventory obsolescence because of changing technology",
+      "text_excerpt": "Situations that may result in excess or obsolete inventory or excess product purchase commitments include changes in business and economic conditions, changes in market conditions, sudden and significant decreases in demand for our products, inventory obsolescence because of changing technology and customer requirements, new product introductions resulting in less demand for existing products or inconsistent spikes in demand due to unexpected end use cases, failure to estimate customer demand properly...",
+      "page_location": "Item 7. MD&A - Critical Accounting Policies and Estimates (HTML line 2364)",
+      "risk_type": "technology_obsolescence_risk",
+      "severity": "medium",
+      "relevance_to_depreciation": "NVIDIA 明确将 'changing technology' 与 'new product introductions resulting in less demand for existing products' 列为过时驱动因素（与 FY2024 确认版 SIG-007 同披露）。同一技术力量在存货侧被视为过时原因，在 PP&E 侧却被用作延长折旧年限的理由（SIG-001）——两种处理方向的矛盾在本文件中已经完整呈现（FY2024 确认版识别的同一矛盾，其起点即本文件）。",
+      "evidence_chain": [
+        "事实：管理层将'技术变化'与'新品推出降低旧品需求'列为主要过时驱动（存货侧）",
+        "矛盾：PP&E 侧以'advances in technology'为由延长年限（SIG-001）——对同一力量方向相反的处理",
+        "影响方向：技术风险逻辑在存货与固定资产间的不一致运用，使 PP&E 侧利润相对偏高"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2023-SIG-008",
+      "source": "Item 7. MD&A - Gross Profit and Gross Margin",
+      "keyword_matched": "$2.17 billion of inventory provisions",
+      "text_excerpt": "Gross margin was 56.9% and 64.9% for fiscal years 2023 and 2022, respectively. The decrease in fiscal year 2023 was primarily due to $2.17 billion of inventory provisions in fiscal year 2023, which consists of approximately $1.04 billion for inventory on hand and approximately $1.13 billion for inventory purchase obligations in excess of our current demand projections. ... Inventory provisions totaled $2.17 billion and $354 million for fiscal years 2023 and 2022, respectively. ... As a result, the overall net effect on our gross margin was an unfavorable impact of 7.5% and 0.9% in fiscal years 2023 and 2022, respectively.",
+      "page_location": "Item 7. MD&A - Gross Profit and Gross Margin (HTML lines 2520-2531); 另见 MD&A L2183 ('Inventory provisions for excess inventory and purchase obligations totaled $2.17 billion in fiscal year 2023.')",
+      "risk_type": "realized_writedown",
+      "severity": "high",
+      "relevance_to_depreciation": "本期实际兑现的大额减记：$2.17B（在手存货 $1.04B + 采购义务 $1.13B），为 FY2022（$354M）的 6 倍，直接拖累毛利率 7.5 个百分点、规模相当于 FY2023 净利润的 50%。属存货/采购义务渠道而非固定资产减值（不推高 D3 档位，与 FY2024 确认版口径一致），但它是技术/需求误判反复转化为利润冲击的硬证据——fabless 形态下与折旧风险同根。",
+      "evidence_chain": [
+        "事实：FY2023 存货及采购义务减值 $2.17B（FY2022: $354M），毛利率影响 -7.5pp",
+        "根因与折旧风险共享：产品/技术切换（矿卡退潮+Ampere 过剩+Hopper 切换）使账面价值失效",
+        "对照 FY2024：存货减值回落但仍在发生（FY2024 $774M），过时通道每年活跃",
+        "影响方向：PP&E 侧未受冲击仅因可折旧基数小（净 PP&E 为收入的 14%），风险通道结构性转移而非消失"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2023-SIG-009",
+      "source": "Item 1A. Risk Factors - Product Transition Risks; Item 7. MD&A",
+      "keyword_matched": "currently transitioning the architecture / reduced demand for current generation architectures",
+      "text_excerpt": "We are currently transitioning the architecture of our Data Center, Professional Visualization, and Gaming products. ... We have experienced and may in the future experience reduced demand for current generation architectures when customers anticipate transitions, and we may be unable to sell multiple product architectures at the same time for current and future architecture transitions.",
+      "page_location": "Item 7. MD&A (HTML lines 2184-2187); Item 1A. Risk Factors (HTML lines 1030-1040)",
+      "risk_type": "technology_obsolescence_risk",
+      "severity": "medium",
+      "relevance_to_depreciation": "公司自述正在进行 Data Center（A100→H100/Hopper）、专业可视化与游戏（Ampere→Ada Lovelace）三大产品线的架构切换，并承认客户在切换预期下会减少对当代架构的采购——即产品经济寿命受架构节奏直接压缩。服务器/测试设备等固定资产同样暴露于该节奏，但公司对其会计寿命的回应是延长（SIG-001），方向相反。",
+      "evidence_chain": [
+        "事实：本期三大产品线同步架构切换（Hopper/Ada 导入期）",
+        "事实：公司承认'当代架构需求因切换预期下降'已实际发生",
+        "技术迭代周期 1-2 年直接压缩硬件经济寿命",
+        "影响方向：架构切换频率支持更短而非更长的折旧年限，与已宣布的年限延长方向冲突"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2023-SIG-010",
+      "source": "Notes to Consolidated Financial Statements - Note 10. Balance Sheet Components",
+      "keyword_matched": "Depreciation expense for fiscal years 2023, 2022, and 2021",
+      "text_excerpt": "Depreciation expense for fiscal years 2023, 2022, and 2021 was $844 million, $611 million, and $486 million, respectively.",
+      "page_location": "Note 10. Balance Sheet Components (HTML line 3504)",
+      "risk_type": "depreciation_expense_disclosure",
+      "severity": "low",
+      "relevance_to_depreciation": "基线量化：FY2023 折旧 $844M，仅为收入的 3.1%（对照 Meta 约 8%+）。折旧费用三年 $486M→$611M→$844M 随资产扩张上升；已宣布的年限变更（FY2024 起）将逆转这一斜率——FY2024 折旧仅 $894M，若按旧年限将约 $1,029M（$894M+$135M）。NVIDIA 折旧风险绝对量级小，但政策裁量对折旧线的边际影响显著（变更效应约占折旧额的 15%），是信号检测的优质训练样本。",
+      "evidence_chain": [
+        "事实：折旧 $844M = 收入的 3.1%；FY2021-2023 折旧随 PP&E 扩张上升 74%",
+        "已宣布变更的 $133M 效应 ≈ FY2023 折旧额的 16%，政策裁量对该报表行项目影响重大",
+        "影响方向：绝对利润影响小（约占净利润 3%），但作为管理层折旧裁量的干净量化案例价值高"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2023-SIG-011",
+      "source": "Item 7. MD&A - Operating Expenses",
+      "keyword_matched": "acquisition termination cost ... $1.35 billion ... write-off",
+      "text_excerpt": "We recorded an acquisition termination cost related to the Arm transaction of $1.35 billion in fiscal year 2023 reflecting the write-off of the prepayment provided at signing.",
+      "page_location": "Item 7. MD&A - Operating Expenses (HTML lines 2543-2545); 利润表 Acquisition termination cost $1,353M (HTML line 2992)",
+      "risk_type": "realized_writedown_non_ppe",
+      "severity": "medium",
+      "relevance_to_depreciation": "本期第二笔大额实际核销：Arm 收购终止，签约预付对价 $1.353B 一次性核销计入经营费用（占 FY2023 营业利润的 32%）。与折旧无直接关系，但它与 $2.17B 存货减值叠加，使 FY2023 成为公司资产/预付类账面价值大规模失效的兑现年——佐证管理层长期承诺类判断（采购承诺、并购对价、资产寿命）存在系统性乐观偏差的可能。",
+      "evidence_chain": [
+        "事实：$1.353B 预付对价核销，FY2023 经营费用化",
+        "同年存货/采购义务另减记 $2.17B——多类长期承诺同期失效",
+        "长期判断（多年期承诺/估计）出错是折旧年限风险的同源行为模式",
+        "影响方向：不计入 PP&E 减值档，但强化对管理层长期估计可信度的整体质疑"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2023-SIG-012",
+      "source": "Item 7. MD&A - Results of Operations (OEM and Other); Item 1A. Risk Factors - Cryptocurrency",
+      "keyword_matched": "CMP revenue was nominal / Lite Hash Rate / Ethereum 2.0 merge",
+      "text_excerpt": "OEM and Other revenue was down 61% from a year ago driven by notebook OEM and CMP. CMP revenue was nominal in fiscal year 2023 and $550 million in fiscal year 2022. ... Gross margin for fiscal year 2023 declined from a year ago, driven by $2.17 billion of inventory charges largely relating to excess supply of NVIDIA Ampere architecture Gaming and Data Center products.",
+      "page_location": "Item 7. MD&A - Results of Operations (HTML line 2280); Item 1A. Risk Factors 加密货币段 (HTML lines 1107-1122: 'With the Ethereum 2.0 merge, NVIDIA Ampere and Ada Lovelace architectures no longer include LHR.')",
+      "risk_type": "demand_collapse_tech_substitution",
+      "severity": "medium",
+      "relevance_to_depreciation": "矿卡退潮的本期事实记录：以太坊合并（2022 年 9 月，PoW→PoS）使 GPU 挖矿需求蒸发，CMP 收入由 $550M 降为名义值，并直接酿成 Ampere 游戏/数据中心产品的过剩与 $2.17B 减记。外部技术范式切换（非公司可控）在一年内使整代产品账面价值失效——为'技术替代速度快于资产折旧节奏'的项目核心假设提供了本期最直接的实证（承担渠道为存货而非 PP&E）。",
+      "evidence_chain": [
+        "事实：CMP 收入 $550M→名义值；以太坊合并后 Ampere/Ada 取消 LHR 限制",
+        "事实：$2.17B 减记'largely relating to excess supply of NVIDIA Ampere architecture Gaming and Data Center products'",
+        "外部技术切换（以太坊合并）一年内摧毁整代产品需求——技术替代速度快于任何 3-5 年折旧假设",
+        "影响方向：本期冲击由存货吸收；若同类冲击落在在用设备上（如云客户退租），PP&E 侧 3-5 年（FY2024 起 4-5 年）年限将暴露同样的滞后"
+      ]
+    }
+  ],
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "折旧年限 vs 技术实际寿命",
+      "dimension_name_en": "Depreciation Life vs Technology Useful Life",
+      "weight": 0.25,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "FY2023 在用折旧年限：服务器/存储/网络设备 3 年、组装测试设备 5 年、设备类一般 3-5 年（Note 1 'generally three to five years'，L3258；Note 10 表 '3 - 5'，L3502）。对照 GPU 1-2 年迭代周期（本期正发生 Ampere→Hopper/Ada 切换，L2184-2187），错配约 1.5-3 倍，按锚点 3 年档评 3 分——低于 FY2024 确认版的 4 分（变更后 4-5/7 年档），差异真实反映'变更前一年'的政策状态。注意：同一份文件已宣布 FY2024 起延长至 4-5/7 年（L2470-2481），届时错配升至 2-3.5 倍，即 FY2024 版评 4 分的口径；本维跨年差异与 D2 共同刻画同一次政策变化。",
+      "supporting_signals": [
+        "NVDA-FY2023-SIG-002",
+        "NVDA-FY2023-SIG-003",
+        "NVDA-FY2023-SIG-001",
+        "NVDA-FY2023-SIG-009"
+      ],
+      "key_metrics": {
+        "stated_useful_life_years_in_effect": "3 (servers); 5 (assembly/test); generally 3-5 (equipment)",
+        "announced_useful_life_years_fy2024": "4-5 (servers); 7 (assembly/test)",
+        "estimated_tech_cycle_years": "1-2",
+        "life_mismatch_ratio_in_effect": "1.5-3x",
+        "life_mismatch_ratio_after_announced_change": "2.0-3.5x",
+        "fy2024_anchor": "D1=4 (in-effect 4-5/7 years)"
+      }
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "会计政策保守性",
+      "dimension_name_en": "Accounting Policy Conservatism",
+      "weight": 0.2,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "锚点分档：本期延长年限→5；历史有延长本期无变更→4；无变更→3。FY2023 文件事实：①本期（2022-01-31 至 2023-01-29）无年限变更生效，全年按 3/5 年计提；②但本期结束后数日（2023 年 2 月，属 FY2024）完成评估，并在本 10-K 的 MD&A（L2470-2481）与 Note 1（L3017-3026）两处宣布延长（3→4-5 年、5→7 年、未来适用、预计增厚 FY2024 营业利润 $133M）。即'本期无生效变更、但本文件即为延长政策的首次披露载体'，介于'无变更→3'与'本期延长→5'之间：政策激进姿态在文件层面已完整呈现（含自量化利润增厚），但变更未触碰 FY2023 报表，较 FY2024 确认版'本期已延长并兑现 +$135M/+114M'（5 分）低一档，评 4 分。跨年差异精确对应变更生效时点，与 FY2024 锚点一致。",
+      "supporting_signals": [
+        "NVDA-FY2023-SIG-001",
+        "NVDA-FY2023-SIG-002"
+      ],
+      "key_metrics": {
+        "change_method": "change in accounting estimate, prospectively",
+        "change_effective": "beginning of fiscal year 2024 (not effective in FY2023)",
+        "retrospective_adjustment": false,
+        "announced_fy2024_operating_income_benefit_millions": 133,
+        "actual_fy2024_benefit_per_fy2024_10k": "+$135M operating income / +$114M net income / +$0.05 EPS",
+        "effect_on_fy2023_financials": 0,
+        "fy2024_anchor": "D2=5 (change effective and quantified in-period)"
+      }
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值风险触发",
+      "dimension_name_en": "Impairment Risk Triggers",
+      "weight": 0.2,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "与 FY2024 确认版同口径评 3 分：Risk Factors 中无固定资产折旧/减值的直接信号，固定资产渠道本期零减值（商誉年度测试 FY2023/2022/2021 均'not impaired'，L3476；无 PP&E 减值披露），减值政策为标准触发式（L3308-3324）。本期实际兑现的大额减记集中于非 PP&E 渠道：存货及采购义务 $2.17B（矿卡退潮+Ampere 过剩，L2523-2531）与 Arm 预付对价核销 $1.353B（L2544）——按项目口径（矿卡/库存减记属存货而非 PP&E）不升入'本期大额减值→5'档，但其规模（相当于净利润 50%+32%）作为同根风险的间接信号显著强于 FY2024（$774M）。存在的间接信号：存货减值政策与兑现、采购承诺风险、架构切换风险、技术过时表述，按'仅间接信号→3'评分，与 FY2024 锚点持平。",
+      "supporting_signals": [
+        "NVDA-FY2023-SIG-004",
+        "NVDA-FY2023-SIG-005",
+        "NVDA-FY2023-SIG-006",
+        "NVDA-FY2023-SIG-008",
+        "NVDA-FY2023-SIG-011"
+      ],
+      "key_metrics": {
+        "fy2023_ppe_impairment_millions": 0,
+        "fy2023_goodwill_impairment_millions": 0,
+        "fy2023_inventory_and_purchase_obligation_provision_millions": 2172,
+        "fy2022_inventory_provision_millions": 354,
+        "arm_termination_writeoff_millions": 1353,
+        "direct_ppe_signals_in_risk_factors": 0,
+        "indirect_signals": 5,
+        "fy2024_anchor": "D3=3 (same channel structure, smaller realized write-downs)"
+      }
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本支出(CAPEX)强度",
+      "dimension_name_en": "Capital Expenditure Intensity",
+      "weight": 0.2,
+      "score": 2,
+      "score_max": 5,
+      "score_label": "低风险",
+      "score_label_en": "Low Risk",
+      "reasoning": "CAPEX（购建固定资产及无形资产）$1,833M / 收入 $26,974M = 6.8%，高于 FY2024 确认版的 1.75%（1 分），落在 5-8% 档评 2 分，仍为低档。结构性说明：①FY2023 capex 偏高主因总部楼宇建设（楼宇/租赁改良/家具原值 $874M→$1,598M，+83%），楼宇年限至 30 年、技术敏感度低；②设备/计算硬件/软件原值仍 +51% 扩张（$2,852M→$4,303M）；③公司指引 FY2024 capex 回落至 $1.10-1.30B（L2637），与 FY2024 实际 $1,069M 吻合。fabless 轻资产本质未变：净 PP&E $3,807M 仅为收入的 14.1%，年折旧 $844M 占收入 3.1%，即使年限假设偏差 2 倍，利润扭曲上限约 $133M（净利润的 ~3%）。",
+      "supporting_signals": [
+        "NVDA-FY2023-SIG-003",
+        "NVDA-FY2023-SIG-010"
+      ],
+      "key_metrics": {
+        "capex_millions": 1833,
+        "revenue_millions": 26974,
+        "capex_to_revenue_ratio": 0.068,
+        "capex_note": "含无形资产购买；FY2023 峰值主因总部楼宇建设",
+        "fy2024_guided_capex_millions": "1100-1300",
+        "net_ppe_millions": 3807,
+        "net_ppe_to_revenue": 0.141,
+        "depreciation_millions": 844,
+        "max_distortion_estimate_millions": 133,
+        "fy2024_anchor": "D4=1 (capex/revenue 1.75%)"
+      }
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "行业竞争/技术替代",
+      "dimension_name_en": "Industry Competition & Technology Substitution",
+      "weight": 0.15,
+      "score": 2,
+      "score_max": 5,
+      "score_label": "低风险",
+      "score_label_en": "Low Risk",
+      "reasoning": "与 FY2024 确认版同口径评 2 分：NVIDIA 为 fabless 芯片设计商，销售 GPU 而非运营 GPU 集群，自身资产负债表对 GPU 技术替代的 PP&E 暴露极小，技术过时冲击由客户（数据中心运营商）与自身存货承担。本期是技术替代力量的实证年：以太坊合并致矿卡需求蒸发（CMP $550M→名义值）、Ampere 过剩减记 $2.17B、三大产品线架构切换——但按项目口径，矿卡库存减记属存货而非 PP&E，不改变公司自身可折旧资产的暴露结构。NVIDIA 仍是技术替代的推动者（Hopper 发布迫使客户换代）而非受害者，取锚点'卖芯片而非运营、间接暴露→2-3'下限 2 分，与 FY2024 持平。",
+      "supporting_signals": [
+        "NVDA-FY2023-SIG-009",
+        "NVDA-FY2023-SIG-012",
+        "NVDA-FY2023-SIG-007"
+      ],
+      "key_metrics": {
+        "business_model": "fabless chip designer; sells GPUs, does not operate large GPU fleets",
+        "direct_gpu_asset_exposure": "minimal (internal R&D servers; DGX Cloud 尚未推出)",
+        "obsolescence_bearer": "customers (data center operators) and own inventory",
+        "fy2023_realized_substitution_shock": "Ethereum merge / CMP collapse / Ampere write-downs (inventory channel)",
+        "industry": "Semiconductor / AI Accelerated Computing",
+        "fy2024_anchor": "D5=2"
+      }
+    }
+  ],
+  "composite_score": {
+    "weighted_score": 2.85,
+    "max_score": 5.0,
+    "risk_level": "中风险",
+    "risk_level_en": "Medium Risk",
+    "risk_level_color": "#FFC107",
+    "confidence": 0.82,
+    "confidence_reason": "全部财务数据与引文逐字核对于 FY2023 10-K 正文（含行号，非 UTF-8 HTML 容错解码+去标签核对）。跨年锚点显式对照 FY2024 确认版：D1/D2 差异精确对应年限变更生效时点（FY2023 在用 3/5 年 vs FY2024 变更后 4-5/7 年；本文件已宣布但零当期影响），D3/D5 同渠道持平，D4 反映 FY2023 楼宇建设 capex 峰值。扣分项：FY2023 在用年限保守（3 年服务器）、无 PP&E 减值、轻资产量级封顶；加分项：本文件即为激进年限延长的首次披露载体（自量化 +$133M）、$2.17B+$1.35B 非 PP&E 减记佐证长期估计乐观偏差。",
+    "score_breakdown": {
+      "D1": {
+        "score": 3,
+        "weight": 0.25,
+        "weighted": 0.75
+      },
+      "D2": {
+        "score": 4,
+        "weight": 0.2,
+        "weighted": 0.8
+      },
+      "D3": {
+        "score": 3,
+        "weight": 0.2,
+        "weighted": 0.6
+      },
+      "D4": {
+        "score": 2,
+        "weight": 0.2,
+        "weighted": 0.4
+      },
+      "D5": {
+        "score": 2,
+        "weight": 0.15,
+        "weighted": 0.3
+      }
+    }
+  },
+  "comparative_context": {
+    "sector_median_score": 3.2,
+    "sector": "Semiconductor (Fabless) / AI Accelerated Computing",
+    "cross_year_anchor_comparison": {
+      "reference_file": "data/annotated/NVDA_FY2024_annotation.json (review_status=confirmed)",
+      "fy2024_confirmed": "D1=4/D2=5/D3=3/D4=1/D5=2 → 3.10",
+      "fy2023_this_file": "D1=3/D2=4/D3=3/D4=2/D5=2 → 2.85",
+      "dimension_diff_explanation": {
+        "D1_3_vs_4": "真实政策变化：FY2023 在用年限服务器 3 年/组装测试 5 年（错配 1.5-3 倍），FY2024 起延长至 4-5/7 年（错配 2-3.5 倍）。同一变更在两份文件中的状态差异（在用 vs 已宣布未生效）驱动本维差 1 分。",
+        "D2_4_vs_5": "同一变更的披露时点差异：FY2023 文件为首次披露载体（宣布+自量化 $133M，零当期影响），FY2024 文件为生效年（实际 +$135M/+$114M 兑现）。按锚点'本期延长→5'仅适用于 FY2024；FY2023 为'本期无生效变更但已宣布延长'，低一档。",
+        "D3_3_vs_3": "渠道结构相同（PP&E 零减值、商誉未减值、直接信号缺失、仅间接信号）。FY2023 非 PP&E 渠道兑现规模更大（存货/采购义务 $2.17B vs FY2024 $774M，另有 Arm 核销 $1.353B），但按项目口径存货减记不升档，分数持平。",
+        "D4_2_vs_1": "真实强度差异：FY2023 capex/收入 6.8%（总部楼宇建设峰值），FY2024 回落至 1.75%。均为低档，差 1 分反映实际投资强度变化而非口径变化。",
+        "D5_2_vs_2": "商业模式未变（fabless、间接暴露）。FY2023 为技术替代实证年（矿卡退潮），但冲击由存货渠道承担，自身 PP&E 暴露结构不变，分数持平。"
+      },
+      "consistency_conclusion": "FY2023（2.85）→FY2024（3.10）的上行完全由一次真实政策事件解释：2023 年 2 月完成、FY2024 起生效的折旧年限延长。该事件的首次披露载体即本 FY2023 10-K（MD&A+Note 1 双处），且 FY2023 披露的预计效应（$133M）与 FY2024 确认的实际效应（$135M）高度吻合，跨年锚点自洽。FY2023 同时是技术替代风险的存货渠道兑现年（$2.17B+Arm $1.35B），风险画像为'在用政策尚保守、已宣布转向激进、非 PP&E 渠道已大规模兑现'。"
+    },
+    "peer_comparison": [
+      {
+        "company": "Meta Platforms",
+        "ticker": "META",
+        "estimated_score": 4.0,
+        "note": "Confirmed 4.0 (project baseline). Operates massive GPU data centers; CAPEX/revenue 20.2%; 2023 realized $2.43B facilities-consolidation impairment. NVIDIA FY2023 (2.85): 轻资产、在用年限保守，但已宣布的年限延长方向更激进。"
+      },
+      {
+        "company": "NVIDIA",
+        "ticker": "NVDA",
+        "estimated_score": 3.1,
+        "note": "FY2024 CONFIRMED 3.10 (D1=4/D2=5/D3=3/D4=1/D5=2). 本文件为其前一年；两年评分差 0.25 精确对应年限变更生效时点与 capex 峰值回落。"
+      },
+      {
+        "company": "Google (Alphabet)",
+        "ticker": "GOOGL",
+        "estimated_score": 3.8,
+        "note": "Heavy data center operator with 6-year server depreciation life (extended 2023); similar policy aggressiveness direction as NVIDIA's announced change but with hyperscale asset exposure."
+      },
+      {
+        "company": "AMD",
+        "ticker": "AMD",
+        "estimated_score": 2.8,
+        "note": "Estimated. Same fabless model (light asset); no disclosed useful-life extension; closest business-model comparable to NVIDIA."
+      }
+    ]
+  },
+  "annotation_methodology": {
+    "source_document": "NVIDIA Corporation FY2023 Annual Report on Form 10-K (fiscal year ended January 29, 2023; auditor report dated February 24, 2023)",
+    "filing_accessed": "Local copy: data/raw/nvda_fy2023_10k.html (SEC EDGAR)",
+    "text_extraction_method": "非 UTF-8 HTML 以 errors='replace' 容错解码；大小写不敏感关键词检索（useful life/lives, depreciation, impairment, inventory provision, obsolescence, cryptocurrency/CMP, change in accounting estimate, written-down）+ 行号定位；每条命中均经去标签（含 &#160;/&nbsp; 归一）后在可见正文逐字核对，XBRL 隐藏标签命中剔除；23 条候选引文经程序化逐字验证全部命中",
+    "cross_year_anchor_protocol": "评分前先读取 NVDA FY2024 确认版 JSON，逐项对照五维锚点；分数差异仅允许由文件事实差异驱动——本年与确认版的核心差异事实：①年限变更'自 FY2024 起生效'（本文件原文），FY2023 全年按 3/5 年计提；②FY2023 capex 峰值（楼宇建设）；③FY2023 非 PP&E 渠道大额兑现（$2.17B 存货+$1.35B Arm）",
+    "scoring_method": "Five-dimension weighted scoring with 1-5 scale per dimension (weights: D1 0.25, D2 0.20, D3 0.20, D4 0.20, D5 0.15); composite = weighted average; anchored to NVDA FY2024 confirmed (3.10) and META 2023 confirmed (4.0)",
+    "human_verification": "All quoted text excerpts programmatically verified verbatim against de-tagged 10-K body text; all financial figures extracted from statements/notes at cited HTML line numbers",
+    "limitation": "CAPEX 行合并 PP&E 与无形资产购买（$1,833M）；NVIDIA 不披露按资产类别的折旧构成（标记 NA/null）；财务报表主体集中于 HTML 巨行 L2992，报表内项目行号精度受限（以章节+上下文定位）；FY2022 及更早的年限沿革仅经 FY2024 10-K 回溯确认（FY2023 在用服务器 3 年）。"
+  }
+}

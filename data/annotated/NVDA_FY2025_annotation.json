@@ -1,0 +1,516 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-07-23",
+    "annotator": "Kimi AI-assisted (pending review by project lead)",
+    "review_status": "confirmed",
+    "filing_source": "SEC EDGAR - 10-K Annual Report",
+    "reviewed_at": "2026-07-24T17:51:00+08:00",
+    "reviewed_by": "zhongyang-260714",
+    "review_note": "Project lead review completed. All evidence chains and scores verified against 10-K filings. No adjustments needed."
+  },
+  "company": {
+    "ticker": "NVDA",
+    "name": "NVIDIA Corporation",
+    "fiscal_year": 2025,
+    "filing_date": "2025-02-26",
+    "report_period_end": "2025-01-26",
+    "coverage_note": "NVIDIA FY2025 covers 2024-01-29 to 2025-01-26, i.e., substantially all of calendar year 2024: Blackwell architecture launched (Q4 FY2025 production shipments began) and Data Center revenue exploded (Compute & Networking segment revenue $116,193M, +145% YoY). This is the first full fiscal year governed by the February 2023 useful-life extension (servers/storage/network 3->4-5 years; assembly/test 5->7 years) disclosed in the FY2024 10-K; no new useful-life change is disclosed in FY2025.",
+    "industry": "Semiconductor (Fabless) / AI Accelerated Computing",
+    "primary_assets": "Servers/Compute Hardware (internal use + DGX Cloud), Assembly and Test Equipment, Buildings (new HQ land purchases), Leasehold Improvements",
+    "file_path": "data/raw/nvda_fy2025_10k.html"
+  },
+  "financial_highlights": {
+    "revenue_millions": 130497,
+    "net_income_millions": 72880,
+    "operating_income_millions": 81453,
+    "income_tax_expense_millions": 11146,
+    "rd_expense_millions": 12914,
+    "operating_cash_flow_millions": 64089,
+    "capex_millions": 3236,
+    "capex_note": "Cash flow statement line: 'Purchases related to property and equipment and intangible assets' ($3,236M FY2025 vs $1,069M FY2024 vs $1,833M FY2023; HTML L3418). NVIDIA does not split PP&E vs intangible purchases in this line. FY2025 capex TRIPLED YoY.",
+    "depreciation_millions": 1300,
+    "depreciation_note": "Note 11: 'Depreciation expense for fiscal years 2025, 2024, and 2023 was $1.3 billion, $894 million, and $844 million, respectively' (HTML L3908). Cash-flow add-back 'Depreciation and amortization' $1,864M FY2025 (combined; L3418).",
+    "depreciation_and_amortization_cashflow_millions": 1864,
+    "amortization_millions": 593,
+    "impairment_charges_millions": 0,
+    "impairment_note": "No PP&E impairment and no goodwill impairment in FY2025 (annual goodwill test: 'concluded that goodwill was not impaired', HTML L3863). Fixed-asset impairment channel remains silent; obsolescence losses realized through inventory/purchase-commitment channel instead (see below).",
+    "inventory_provision_millions": 1600,
+    "inventory_provision_note": "Note 13: 'In fiscal years 2025 and 2024, we recorded an inventory provision of $1.6 billion and $774 million, respectively, in cost of revenue' (HTML L3905). MD&A: total provisions for inventory AND excess inventory purchase obligations $3.7B FY2025 vs $2.2B FY2024 (L2991-2993), including Q2 FY2025 provisions for low-yielding Blackwell material (L1135-1137); provision releases $689M (L2994-2996); net gross-margin impact -2.3% (L2997-2998).",
+    "provisions_inventory_and_purchase_obligations_total_millions": 3700,
+    "excess_purchase_obligation_expense_millions": 2000,
+    "excess_purchase_obligation_accrual_millions": 2095,
+    "total_assets_millions": 111601,
+    "total_property_equipment_millions": 10684,
+    "property_equipment_net_millions": 6283,
+    "accumulated_depreciation_millions": 4401,
+    "goodwill_millions": 5188,
+    "intangible_assets_net_millions": 807,
+    "construction_in_progress_millions": 529,
+    "equipment_compute_hardware_software_gross_millions": 7568,
+    "land_millions": 511,
+    "capex_to_revenue_ratio": 0.0248,
+    "depreciation_to_revenue_ratio": 0.01,
+    "capex_prior_year_millions": 1069,
+    "depreciation_prior_year_millions": 894,
+    "inventory_supply_capacity_purchase_obligations_millions": 30800,
+    "other_noninventory_purchase_obligations_millions": 14300,
+    "multiyear_cloud_service_agreements_millions": 10900,
+    "total_future_purchase_commitments_millions": 45079,
+    "server_depreciation_pct_of_total": null,
+    "server_depreciation_pct_note": "NA - depreciation by asset class not disclosed. Segment D&A disclosed: Compute & Networking $732M, Graphics $372M FY2025 (HTML L4200-4205)."
+  },
+  "accounting_policy": {
+    "depreciation_method": "straight-line",
+    "ppe_useful_life_range_years": "2-7 (FY2024 10-K stated 'three to seven years'; FY2025 10-K states 'two to seven years', HTML L3684-3687 - lower bound tightened from 3 to 2)",
+    "server_useful_life_years": "4-5 (extended from 3 in February 2023; remains in force in FY2025 with no new change disclosed)",
+    "building_useful_life_years": "up to 30",
+    "equipment_useful_life_years": "2-7 (Equipment, compute hardware, and software, Note 11 table, HTML L3905)",
+    "assembly_test_equipment_useful_life_years": "7 (extended from 5 in February 2023; unchanged in FY2025)",
+    "finance_lease_rou_years": "shorter of the expected lease term or the estimated useful life of the asset",
+    "leasehold_improvements": "lesser of either the asset's estimated useful life or the expected remaining lease term",
+    "change_in_estimate_method": "FY2025: NO change in accounting estimate disclosed (full-text search for 'change in accounting estimate'/'increased the estimated useful life'/'prospectively' returned zero hits; the FY2024 10-K's MD&A 'Change in Accounting Estimate' section has no FY2025 counterpart). The February 2023 extension continues to apply prospectively; its ongoing FY2025 income-statement benefit is NOT quantified in this filing (FY2024 quantification: +$135M operating income / +$114M net income).",
+    "no_useful_life_change_in_fiscal_2025": true,
+    "lower_bound_tightening_note": "The disclosed policy range moved from 'three to seven years' (FY2024 10-K) to 'two to seven years' (FY2025 10-K), and the Note 11 equipment table now shows '2 - 7' years (vs '3 - 7' in FY2024). This is a SHORTENING of the minimum life for some asset cohort (directionally conservative, opposite of the FY2023 extension), but it was not presented as a change in accounting estimate and no quantified effect was disclosed.",
+    "property_impairment_statement": "No PP&E impairment recognized in FY2025; goodwill tested and 'not impaired' (HTML L3863). Long-lived asset impairment remains trigger-based under ASC 360 (HTML L3734-3750).",
+    "policy_risk_note": "⚠️跨年锚点对照：FY2024确认版的核心风险事实（2023年2月服务器/存储/网络设备3→4-5年、组装测试设备5→7年、未来适用、FY2024利润增厚$114M）在FY2025 10-K中未被撤销或修正，继续支配本期全部服务器类资产折旧。FY2025的变化是：①政策区间下限由3年收紧至2年（部分资产寿命认定缩短，方向保守）；②公司在Risk Factors中首次明确披露数据中心方案'每年完成新计算方案'的年度迭代节奏（L1116-1119），使4-5年服务器年限 vs 1年迭代周期的错配从外部推断变为公司自述；③存货/采购承诺渠道实际核销由$2.2B升至$3.7B，含Blackwell低良率专项。年限政策本身维持不变——分数变化仅反映这些真实披露变化。"
+  },
+  "risk_signals": [
+    {
+      "signal_id": "NVDA-FY2025-SIG-001",
+      "source": "Notes to Consolidated Financial Statements - Note 1 (Significant Accounting Policies)",
+      "keyword_matched": "estimated useful lives of the assets of two to seven years",
+      "text_excerpt": "Property and equipment are stated at cost less accumulated depreciation. Depreciation of property and equipment is computed using the straight-line method based on the estimated useful lives of the assets of two to seven years. ... The estimated useful lives of our buildings are up to thirty years.",
+      "page_location": "Note 1. Significant Accounting Policies - Property and Equipment (HTML lines 3683-3691)",
+      "risk_type": "depreciation_policy_carryover_no_new_change",
+      "severity": "critical",
+      "relevance_to_depreciation": "FY2025 official depreciation policy: straight-line over 2-7 years. The February 2023 extension (servers/storage/network 3->4-5 years; assembly/test 5->7 years) remains fully in force and is NOT reversed, re-quantified, or even mentioned in this filing - its income-boosting effect persists silently through FY2025. Note the lower bound moved from 3 years (FY2024 10-K) to 2 years: management now depreciates some asset cohort over as little as 2 years, implicitly conceding shorter economic lives for part of the fleet while leaving the extended 4-5 year server schedule untouched.",
+      "evidence_chain": [
+        "Fact: FY2025 policy range is 'two to seven years' (L3684-3687); FY2024 10-K stated 'three to seven years'",
+        "Fact: no 'change in accounting estimate' disclosure exists anywhere in the FY2025 10-K (zero full-text hits)",
+        "Carryover: servers depreciated over 4-5 years per the Feb 2023 extension, which boosted FY2024 net income by $114M; the same schedule governed FY2025's much larger compute-hardware base ($7,568M vs $5,200M gross)",
+        "Contradiction: the same filing states NVIDIA seeks 'to complete new computing solutions each year' (SIG-007) - a 1-year cadence vs a 4-5 year depreciation life",
+        "Impact direction: depreciation expense for the fastest-growing asset class remains systematically spread over 2.5-5x the technology generation length; FY2025 net income of $72,880M embeds the uncorrected carryover benefit"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2025-SIG-002",
+      "source": "Notes to Consolidated Financial Statements - Note 11 (Balance Sheet Components)",
+      "keyword_matched": "Equipment, compute hardware, and software / 2 - 7",
+      "text_excerpt": "Property and Equipment: Land $511 (2025) vs $218 (2024); Buildings, leasehold improvements, and furniture 2,076 vs 1,816; Equipment, compute hardware, and software 7,568 vs 5,200 (Estimated Useful Life 2 - 7 years); Construction in process 529 vs 189; Total property and equipment, gross 10,684 vs 7,423; Accumulated depreciation and amortization (4,401) vs (3,509); Total property and equipment, net $6,283 vs $3,914.",
+      "page_location": "Note 11. Balance Sheet Components (HTML line 3905)",
+      "risk_type": "depreciation_schedule_disclosure",
+      "severity": "high",
+      "relevance_to_depreciation": "The asset base subject to the 2-7 year assumption grew 45.5% in one year (equipment/compute hardware/software gross $5,200M -> $7,568M), total net PP&E grew 60.5% to $6,283M, and construction in process nearly tripled ($189M -> $529M). NVIDIA also bought land ($218M -> $511M, +134%) and expanded buildings. The FY2024 annotation's premise - 'fabless model keeps depreciable base tiny' - is weakening at the margin: the depreciable base is compounding at 45-60% per year under the extended-life assumptions.",
+      "evidence_chain": [
+        "Fact: equipment/compute hardware/software gross $7,568M (71% of gross PP&E), life 2-7 years (L3905)",
+        "Fact: net PP&E $6,283M vs $3,914M (+60.5% YoY); CIP $529M (+180%); land $511M (+134%)",
+        "Trend: FY2024 net PP&E was 6.4% of revenue; FY2025 capex tripled to $3,236M while depreciation was only $1.3B - a growing wedge of undepreciated new assets",
+        "Impact direction: every year of life-assumption optimism now applies to a base growing >45%/yr; the absolute distortion ceiling rises mechanically"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2025-SIG-003",
+      "source": "Notes to Consolidated Financial Statements - Note 11; Note 16 (Segment Information); Consolidated Statements of Cash Flows",
+      "keyword_matched": "Depreciation expense for fiscal years 2025, 2024, and 2023",
+      "text_excerpt": "Depreciation expense for fiscal years 2025, 2024, and 2023 was $1.3 billion, $894 million, and $844 million, respectively. ... Depreciation and amortization expense attributable to our Compute and Networking segment for fiscal years 2025, 2024, and 2023 was $732 million, $457 million, and $377 million, respectively.",
+      "page_location": "Note 11 (HTML line 3908); Note 16 (HTML lines 4200-4205); cash-flow D&A add-back $1,864M (HTML line 3418)",
+      "risk_type": "depreciation_expense_disclosure",
+      "severity": "medium",
+      "relevance_to_depreciation": "Baseline quantification. FY2025 depreciation of $1.3B equals only 1.0% of revenue ($130,497M) - down from 1.5% in FY2024 despite the asset base growing 60%: depreciation per dollar of revenue FELL during the fastest infrastructure build-out in company history, consistent with extended lives suppressing the expense line. Compute & Networking segment D&A ($732M) grew 60% but remains 0.6% of that segment's $116,193M revenue.",
+      "evidence_chain": [
+        "Fact: depreciation $1.3B = 1.0% of revenue (FY2024: $894M = 1.5%)",
+        "Fact: net PP&E +60.5% YoY but depreciation +45% and depreciation/revenue DOWN 33%",
+        "Fact: C&N segment D&A $732M vs segment revenue $116,193M = 0.6%",
+        "Impact direction: as the server fleet compounds, the gap between economic consumption (1-year cadence) and accounting depreciation (4-5 year schedule) widens in absolute dollars each year"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2025-SIG-004",
+      "source": "Notes to Consolidated Financial Statements - Note 1 (Long-lived Assets); Note 5 (Goodwill)",
+      "keyword_matched": "reviewed for impairment whenever events or changes in circumstances",
+      "text_excerpt": "Long-lived assets, such as property and equipment and intangible assets subject to amortization, are reviewed for impairment whenever events or changes in circumstances indicate that the carrying amount of an asset or asset group may not be recoverable. The recoverability of assets or asset groups to be held and used is measured by a comparison of the carrying amount of an asset or asset group to estimated undiscounted future cash flows expected to be generated by the asset or asset group.",
+      "page_location": "Note 1. Long-lived Assets (HTML lines 3734-3741); Goodwill note (HTML line 3863, annual test concluded goodwill 'not impaired' - words split across inline XBRL tags in source)",
+      "risk_type": "impairment_testing_policy",
+      "severity": "medium",
+      "relevance_to_depreciation": "Standard ASC 360 trigger-based impairment policy, unchanged from FY2024. No PP&E impairment was recognized in FY2025 and goodwill passed its annual test. The trigger-based design means a 1-year product cadence (SIG-007) can obsolete owned compute hardware faster than any 'triggering event' is formally recognized - and with demand booming, no trigger will fire until the cycle turns, at which point a much larger depreciable base ($6.3B net, growing 60%/yr) is exposed.",
+      "evidence_chain": [
+        "Depreciation = systematic pre-allocation of the same economic loss that impairment catches late",
+        "Impairment test is trigger-based, not schedule-based; no trigger identified in FY2025 (demand supercycle)",
+        "The depreciable base exposed to a future trigger grew 60.5% YoY",
+        "Impact direction: absence of impairment does NOT validate the 4-5 year server life; it reflects the demand upcycle, and the reckoning is deferred to any demand/architecture break"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2025-SIG-005",
+      "source": "Item 1A. Risk Factors - Supply Chain / Inventory Risks",
+      "keyword_matched": "inventory provisions or impairments",
+      "text_excerpt": "We have incurred and may in the future incur inventory provisions or impairments if our inventory or supply or capacity commitments exceed demand for our products or demand declines.",
+      "page_location": "Item 1A. Risk Factors (HTML lines 1106-1108); repeated in MD&A (HTML lines 2662-2664)",
+      "risk_type": "inventory_impairment_risk",
+      "severity": "medium",
+      "relevance_to_depreciation": "Indirect signal, carried over from FY2024 with enlarged scale. NVIDIA's balance-sheet exposure to technology obsolescence sits primarily in inventory and non-cancellable supply/capacity commitments ($30.8B, SIG-010), not owned depreciable assets. The write-down channel differs from depreciation, but the root cause - demand/technology misforecast - is identical, and this risk factor was borne out in FY2025 by $3.7B of actual provisions (SIG-009).",
+      "evidence_chain": [
+        "Fabless model: obsolescence risk concentrated in inventory + purchase commitments, not PP&E",
+        "Company admits provisions/impairments occur when commitments exceed demand",
+        "Same root cause as depreciation risk: technology iteration outpaces planning horizon",
+        "Impact direction: profit risk from asset overstatement flows through COGS provisions rather than depreciation - and did so at $3.7B scale in FY2025"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2025-SIG-006",
+      "source": "Item 1A. Risk Factors - Supplier / Purchase Obligation Risks",
+      "keyword_matched": "write down our inventory, incur cancellation penalties, and record impairments",
+      "text_excerpt": "We have had to reduce average selling prices, including due to our channel pricing programs, increase prices for certain of our products as a result of our suppliers' increase in prices, write down our inventory, incur cancellation penalties, and record impairments, and may have to do so in the future. These impacts would be amplified by our non-cancellable and non-returnable purchase orders placed in advance of our historical lead times and could be exacerbated if we need to make changes to the design of future products. The risk of these impacts has increased and may continue to increase as our purchase obligations and prepaids have grown and are expected to continue to grow and become a greater portion of our total supply.",
+      "page_location": "Item 1A. Risk Factors (HTML lines 1063-1076)",
+      "risk_type": "realized_impairment_history",
+      "severity": "high",
+      "relevance_to_depreciation": "NEW vs FY2024: the risk factor now explicitly states 'The risk of these impacts has increased and may continue to increase as our purchase obligations and prepaids have grown and are expected to continue to grow' - management itself escalating the realized-write-down warning as commitments ballooned to $30.8B. The same judgment (demand forecasting) that produced repeated write-downs underlies the useful-life estimates governing the growing PP&E base.",
+      "evidence_chain": [
+        "Fact: past write-downs, cancellation penalties and impairments admitted; FY2025 language escalates ('has increased and may continue to increase')",
+        "Fact: purchase obligations/prepaid capacity 'grown and expected to continue to grow' - $30.8B inventory/supply/capacity obligations (SIG-010)",
+        "If 12-month demand forecasts repeatedly fail, 48-60-month useful-life assumptions deserve equal skepticism",
+        "Impact direction: history of forecast error + management's own escalation language supports the hypothesis that long-dated asset-life assumptions are optimistically biased"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2025-SIG-007",
+      "source": "Item 1A. Risk Factors - Product Transitions",
+      "keyword_matched": "complete new computing solutions each year",
+      "text_excerpt": "The computing industry is experiencing a broader and faster launch cadence of accelerated computing platforms to meet a growing and diverse set of AI opportunities. We have introduced a new product and architecture cadence of our Data Center solutions where we seek to complete new computing solutions each year and provide a greater variety of Data Center offerings. ... We have experienced and may in the future experience reduced demand for current generation architectures when customers anticipate transitions, and we may be unable to sell multiple product architectures at the same time for current and future architecture transitions.",
+      "page_location": "Item 1A. Risk Factors (HTML lines 1113-1128)",
+      "risk_type": "technology_obsolescence_risk",
+      "severity": "high",
+      "relevance_to_depreciation": "THE most important new disclosure in FY2025 for this project: NVIDIA states in its own words that Data Center solutions now iterate on an ANNUAL cadence ('complete new computing solutions each year') and that current-generation architectures lose demand as soon as customers anticipate the next one. This converts the project's 1-2 year tech-cycle assumption from external inference into a company admission - while the same filing depreciates server/storage/network equipment over 4-5 years (SIG-001) and test equipment over 7 years. The mismatch is now 4-5x against a management-stated 1-year cycle.",
+      "evidence_chain": [
+        "Fact: 'broader and faster launch cadence of accelerated computing platforms' per management (L1113-1115)",
+        "Fact: NVIDIA's own Data Center roadmap targets one new computing solution per year (L1116-1119)",
+        "Fact: current-gen architectures experience 'reduced demand' once transitions are anticipated (L1126-1128) - economic life of a generation < its depreciation life",
+        "Contradiction: 4-5 year server life vs self-declared 1-year product cycle; 7-year test equipment life vs annual process/product turnover",
+        "Impact direction: accounting life exceeds management-stated economic generation length by 4-5x; depreciation expense structurally understated relative to replacement reality"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2025-SIG-008",
+      "source": "Item 1A. Risk Factors - Product Transitions / Manufacturing",
+      "keyword_matched": "inventory provisions for low-yielding Blackwell material",
+      "text_excerpt": "The increased frequency and complexity of newly introduced products could result in unanticipated quality or production issues that could increase the magnitude of inventory provisions, warranty, or other costs or result in product delays. For example, our gross margins in the second quarter of fiscal year 2025 were negatively impacted by inventory provisions for low-yielding Blackwell material.",
+      "page_location": "Item 1A. Risk Factors (HTML lines 1132-1137)",
+      "risk_type": "realized_writedown",
+      "severity": "high",
+      "relevance_to_depreciation": "NEW realized signal absent from FY2024: a named, architecture-specific write-down event (low-yielding Blackwell material hit Q2 FY2025 gross margins). The flagship transition of the decade produced immediate physical/economic losses within the fiscal year - direct proof that annual-cadence transitions carry real obsolescence/yield costs, the same force the 4-5 year depreciation schedule assumes away for owned hardware.",
+      "evidence_chain": [
+        "Fact: Q2 FY2025 gross margin hit by inventory provisions for low-yielding Blackwell material (L1135-1137)",
+        "Fact: management links 'increased frequency' of product introductions to larger provisions (L1132-1134)",
+        "A transition that writes down inputs within months also compresses the useful life of the equipment producing and testing it",
+        "Impact direction: realized transition losses corroborate the obsolescence channel; PP&E-side silence is an artifact of trigger-based testing, not of asset durability"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2025-SIG-009",
+      "source": "MD&A - Gross Margin; Note 13 (Balance Sheet Components)",
+      "keyword_matched": "Provisions for inventory and excess inventory purchase obligations totaled $3.7 billion",
+      "text_excerpt": "Provisions for inventory and excess inventory purchase obligations totaled $3.7 billion and $2.2 billion for fiscal years 2025 and 2024, respectively. ... In fiscal years 2025 and 2024, we recorded an inventory provision of $1.6 billion and $774 million, respectively, in cost of revenue. ... In fiscal years 2025 and 2024, we recorded an expense of approximately $2.0 billion and $1.4 billion, respectively, in cost of revenue [excess inventory purchase obligations; accrual $2,095M vs $1,655M].",
+      "page_location": "Item 7. MD&A (HTML lines 2991-2998); Note 13 inventories footnote (HTML line 3905); Note 13 accrued liabilities footnote (HTML line 3912)",
+      "risk_type": "realized_writedown",
+      "severity": "high",
+      "relevance_to_depreciation": "Realized obsolescence-driven write-downs nearly DOUBLED: total inventory + excess purchase-commitment provisions of $3.7B in FY2025 vs $2.2B in FY2024 (inventory provisions alone $1.6B vs $774M; purchase-obligation expense ~$2.0B vs ~$1.4B; accrued excess-purchase liability $2,095M). Net gross-margin impact -2.3%. This is the fabless manifestation of fixed-asset impairment - actual, quantified, recurring, and growing - occurring in the same year the company depreciated its compute hardware over up to 7 years without a single PP&E write-down.",
+      "evidence_chain": [
+        "Fact: $3.7B total provisions FY2025 (+68% YoY); inventory provision $1.6B (+107%); purchase-obligation expense ~$2.0B (+43%)",
+        "Fact: third consecutive year of material write-downs (FY2023 $1.0B inventory provision -> FY2024 $774M -> FY2025 $1.6B)",
+        "Root cause shared with depreciation risk: product/technology transitions invalidate carrying values faster than schedules assume",
+        "Impact direction: the obsolescence channel is active and accelerating on the inventory side; the PP&E side shows zero losses only because the base is small and trigger-testing is backward-looking"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2025-SIG-010",
+      "source": "Notes to Consolidated Financial Statements - Note 12 (Commitments and Contingencies)",
+      "keyword_matched": "inventory purchase and long-term supply and capacity obligations totaling $30.8 billion",
+      "text_excerpt": "As of January 26, 2025, we had outstanding inventory purchase and long-term supply and capacity obligations totaling $30.8 billion, an increase from the prior year led by commitments, capacity and components for new product introductions, including our new Blackwell architecture. ... Other non-inventory purchase obligations were $14.3 billion, including $10.9 billion of multi-year cloud service agreements. We expect our cloud service agreements to primarily be used to support our research and development efforts, as well as our DGX Cloud offerings. ... Total future purchase commitments as of January 26, 2025: Total $45,079 million.",
+      "page_location": "Note 12. Commitments and Contingencies - Purchase Obligations (HTML lines 3952-3968)",
+      "risk_type": "capacity_overcommitment_risk",
+      "severity": "high",
+      "relevance_to_depreciation": "Purchase commitments exploded: $30.8B of inventory/supply/capacity obligations (roughly 2x the FY2024 level, explicitly tied to Blackwell), plus $14.3B of other obligations including $10.9B of multi-year cloud service agreements feeding DGX Cloud - total future commitments $45.1B, of which $35.7B falls due in FY2026. These non-cancellable commitments are the fabless analog of Meta's/Oracle's data-center overbuild risk: if the 1-year cadence (SIG-007) strands any generation, provisions fire immediately (as SIG-009 shows they already do).",
+      "evidence_chain": [
+        "Fact: $30.8B inventory/supply/capacity obligations + $14.3B other = $45.1B total commitments (L3956-3968)",
+        "Fact: growth 'led by commitments, capacity and components for new product introductions, including our new Blackwell architecture'",
+        "Fact: $10.9B multi-year cloud agreements support DGX Cloud - NVIDIA is leasing external compute at scale while its own compute hardware grows 45%/yr",
+        "Contrast: FY2024 10-K total purchase commitments were roughly half this level; escalation confirmed by risk-factor language 'has increased' (SIG-006)",
+        "Impact direction: commitment scale now guarantees multi-billion-dollar annual provision exposure on any demand/architecture miss"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2025-SIG-011",
+      "source": "MD&A - Critical Accounting Policies and Estimates",
+      "keyword_matched": "inventory obsolescence because of changing technology",
+      "text_excerpt": "Situations that may result in excess or obsolete inventory or excess product purchase commitments include changes in business and economic conditions, changes in market conditions, sudden and significant decreases in demand for our products, including potential cancellation or deferral of customer purchase orders, inventory obsolescence because of changing technology and customer requirements, new product introductions resulting in less demand for existing products...",
+      "page_location": "Item 7. MD&A - Critical Accounting Estimates - Inventories (HTML lines 2828-2844)",
+      "risk_type": "technology_obsolescence_risk",
+      "severity": "medium",
+      "relevance_to_depreciation": "Carried over from FY2024: management names 'changing technology' and 'new product introductions resulting in less demand for existing products' as primary obsolescence drivers for inventory. The same technological force applies to servers/test equipment, yet for PP&E the Feb 2023 response was to LENGTHEN depreciation life. The inconsistency persists into FY2025 - now sharpened by the annual-cadence admission (SIG-007).",
+      "evidence_chain": [
+        "Fact: 'changing technology' and 'new product introductions' are top-listed obsolescence drivers (for inventory)",
+        "Contradiction: for PP&E, 'advances in technology' justified LONGER lives in Feb 2023 - opposite treatment of the same force",
+        "FY2025 adds the annual-cadence admission, widening the internal inconsistency",
+        "Impact direction: asymmetric application of technology-risk logic inflates PP&E-side profit relative to inventory-side prudence"
+      ]
+    },
+    {
+      "signal_id": "NVDA-FY2025-SIG-012",
+      "source": "Item 1A. Risk Factors - DGX Cloud / New Business Lines",
+      "keyword_matched": "multi-year cloud service agreements",
+      "text_excerpt": "We offer enterprise customers NVIDIA DGX Cloud services, which include cloud-based infrastructure, software and services for training and deploying AI models. We have partnered with CSPs to host such software and services in their data centers, and we entered and may continue to enter into multi-year cloud service agreements to support these offerings and our research and development activities. ... NVIDIA DGX Cloud services may not be successful and will take time, resources, and investment.",
+      "page_location": "Item 1A. Risk Factors (HTML lines 990-999)",
+      "risk_type": "dgx_cloud_asset_expansion_risk",
+      "severity": "medium",
+      "relevance_to_depreciation": "NVIDIA is edging from pure fabless toward infrastructure operator: $10.9B of multi-year cloud service agreements (SIG-010), DGX Cloud offerings whose success is uncertain, tripled capex, land purchases, and CIP +180%. If DGX Cloud demand disappoints or the annual cadence strands NVIDIA's own GPU clusters, the company transitions from seller-of-obsolescence to bearer-of-obsolescence - with depreciation schedules set during the FY2023 extension regime.",
+      "evidence_chain": [
+        "Fact: DGX Cloud 'may not be successful and will take time, resources, and investment' (L998-999)",
+        "Fact: $10.9B multi-year cloud commitments support DGX Cloud/R&D (L3965-3968)",
+        "Fact: capex $3,236M (3x YoY), land +134%, CIP +180% - owned/leased compute infrastructure expanding fast",
+        "Impact direction: NVIDIA's direct exposure to GPU-fleet obsolescence is small but the fastest-growing part of its risk profile; the FY2024 'minimal direct exposure' premise needs annual re-check"
+      ]
+    }
+  ],
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "折旧年限 vs 技术实际寿命",
+      "dimension_name_en": "Depreciation Life vs Technology Useful Life",
+      "weight": 0.25,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "与FY2024确认版锚点一致，维持4分。现行年限：服务器/存储/网络设备4-5年（2023年2月延长，本期未变更未撤销）、组装测试设备7年；Note 1总体区间2-7年（下限由FY2024的3年收紧至2年，承认部分资产寿命更短，方向保守但幅度有限）。关键变化：FY2025 10-K由公司自述数据中心方案'每年完成新计算方案'（L1116-1119）且'客户在预期转产时减少对当代架构的需求'（L1126-1128），技术迭代周期从外部推断的1-2年变为公司承认的1年。4-5年服务器年限 vs 1年自述周期，错配比4-5倍，仍在锚点4-6年档→4分；不到5分因下限收紧至2年且部分资产（如自用短周期设备）已按2年计提。",
+      "supporting_signals": [
+        "NVDA-FY2025-SIG-001",
+        "NVDA-FY2025-SIG-002",
+        "NVDA-FY2025-SIG-007"
+      ],
+      "key_metrics": {
+        "stated_useful_life_years": "4-5 (servers, FY2023 extension carried over); 2-7 (overall equipment range, FY2025)",
+        "pre_change_useful_life_years": "3 (servers, pre-Feb-2023); 5 (assembly/test, pre-Feb-2023)",
+        "estimated_tech_cycle_years": "1 (company-stated annual Data Center cadence, L1116-1119)",
+        "life_mismatch_ratio": "4-5x (vs company-stated 1-year cadence)",
+        "lower_bound_tightened": "policy range 3-7 (FY2024) -> 2-7 (FY2025)"
+      }
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "会计政策保守性",
+      "dimension_name_en": "Accounting Policy Conservatism",
+      "weight": 0.2,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "锚点'历史有延长本期无变更→4'（FY2024确认版本期为延长方故为5）。FY2025全文无任何会计估计变更披露（'change in accounting estimate'/'increased the estimated useful life'/'prospectively'零命中），FY2023期初的年限延长（未来适用、不追溯、FY2024净利增厚$114M）继续支配本期折旧且未再量化其持续影响——FY2024披露的$114M年化收益在资产基数扩大60%后只增不减，但公司不再提示。区间下限3→2为收紧方向（保守），是不及FY2024之5分以外的另一事实；综合历史单向延长+本期无变更，取4分。",
+      "supporting_signals": [
+        "NVDA-FY2025-SIG-001",
+        "NVDA-FY2025-SIG-002"
+      ],
+      "key_metrics": {
+        "change_method": "no change in accounting estimate disclosed in FY2025",
+        "prior_change": "Feb 2023: servers 3->4-5 years, assembly/test 5->7 years, prospectively, +$114M FY2024 net income",
+        "retrospective_adjustment": false,
+        "ongoing_benefit_quantified_in_fy2025": false,
+        "lower_bound_tightening": "3->2 years (not presented as change in estimate, no quantified effect)"
+      }
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值风险触发",
+      "dimension_name_en": "Impairment Risk Triggers",
+      "weight": 0.2,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "较FY2024确认版（3分）上调至4分，依据真实披露变化：①本期存货+超额采购承诺渠道实际核销$3.7B（FY2024 $2.2B，+68%），其中存货减值$1.6B（翻倍）、采购承诺费用约$2.0B、应计余额$2,095M（L3905/L3912/L2991-2998）；②出现点名的架构专项减值事件——Blackwell低良率材料拖累Q2毛利率（L1135-1137），FY2024无此类具体事件；③Risk Factors明示核销风险'has increased and may continue to increase'（L1073-1076）；④采购/产能承诺膨胀至$30.8B（+$14.3B其他，总$45.1B）。固定资产渠道仍零减值、商誉测试通过（L3863），故不达'本期大额固定资产减值→5'。按'直接信号+历史记录+本期核销显著放大'取4分。",
+      "supporting_signals": [
+        "NVDA-FY2025-SIG-004",
+        "NVDA-FY2025-SIG-006",
+        "NVDA-FY2025-SIG-008",
+        "NVDA-FY2025-SIG-009",
+        "NVDA-FY2025-SIG-010"
+      ],
+      "key_metrics": {
+        "fy2025_ppe_impairment_millions": 0,
+        "fy2025_goodwill_impairment_millions": 0,
+        "fy2025_inventory_provision_millions": 1600,
+        "fy2025_total_provisions_incl_purchase_obligations_millions": 3700,
+        "fy2024_total_provisions_millions": 2200,
+        "blackwell_low_yield_provision_event": "Q2 FY2025 gross margin impact (L1135-1137)",
+        "excess_purchase_obligation_accrual_millions": 2095,
+        "direct_ppe_signals_in_risk_factors": 0,
+        "inventory_channel_signals": 5
+      }
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本支出(CAPEX)强度",
+      "dimension_name_en": "Capital Expenditure Intensity",
+      "weight": 0.2,
+      "score": 2,
+      "score_max": 5,
+      "score_label": "低风险",
+      "score_label_en": "Low Risk",
+      "reasoning": "CAPEX/收入=3,236/130,497=2.48%，仍处<5%档（锚点1-2分），较FY2024（1.75%→1分）上调至档内上限2分，依据真实变化：capex同比×3（$1,069M→$3,236M）、净PP&E+60.5%（$3,914M→$6,283M）、在建工程+180%（$189M→$529M）、购地（土地$218M→$511M）、新增$10.9B多年期云服务协议支持DGX Cloud（L3965-3968）。绝对杠杆仍小（折旧$1.3B=收入1.0%），利润扭曲上限远低于云厂商，但'fabless轻资产'前提正在边际弱化，方向性风险明确上行。",
+      "supporting_signals": [
+        "NVDA-FY2025-SIG-002",
+        "NVDA-FY2025-SIG-003",
+        "NVDA-FY2025-SIG-012"
+      ],
+      "key_metrics": {
+        "capex_millions": 3236,
+        "revenue_millions": 130497,
+        "capex_to_revenue_ratio": 0.0248,
+        "capex_prior_year_ratio": 0.0175,
+        "net_ppe_millions": 6283,
+        "net_ppe_yoy_growth": 0.605,
+        "construction_in_progress_millions": 529,
+        "cip_yoy_growth": 1.799,
+        "depreciation_to_revenue_ratio": 0.01,
+        "multiyear_cloud_service_agreements_millions": 10900
+      }
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "行业竞争/技术替代",
+      "dimension_name_en": "Industry Competition & Technology Substitution",
+      "weight": 0.15,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "较FY2024确认版（2分）上调至3分（'卖芯片而非运营、间接暴露→2-3'档上限），依据文件技术迭代表述的真实强化：①公司自述'更快的加速计算平台发布节奏'且数据中心方案'每年完成新计算方案'（L1113-1119）——技术替代压力由公司自己盖章；②'客户预期转产即减少当代架构需求'（L1126-1128）+ Blackwell低良率实际减值（L1135-1137）——替代冲击本期已兑现；③自身暴露边际扩大：DGX Cloud（$10.9B多年云协议、成败未卜L998-999）、内部算力/测试设备基数+45%。主体仍是fabless、过时冲击主要落在客户资产与自身存货上，故不到4分。",
+      "supporting_signals": [
+        "NVDA-FY2025-SIG-007",
+        "NVDA-FY2025-SIG-008",
+        "NVDA-FY2025-SIG-011",
+        "NVDA-FY2025-SIG-012"
+      ],
+      "key_metrics": {
+        "business_model": "fabless chip designer; sells GPUs, limited but growing own infrastructure (DGX Cloud)",
+        "company_stated_product_cadence": "one new Data Center computing solution per year (L1116-1119)",
+        "direct_gpu_asset_exposure": "small but growing: equipment/compute hardware gross $7,568M (+45.5% YoY); $10.9B cloud agreements",
+        "obsolescence_bearer": "primarily customers (data center operators) and own inventory/commitments; increasingly own DGX Cloud infrastructure",
+        "industry": "Semiconductor / AI Accelerated Computing"
+      }
+    }
+  ],
+  "composite_score": {
+    "weighted_score": 3.45,
+    "max_score": 5.0,
+    "risk_level": "中高风险",
+    "risk_level_en": "Medium-High Risk",
+    "risk_level_color": "#FD7E14",
+    "confidence": 0.82,
+    "confidence_reason": "全部财务数据与引文逐字核对于FY2025 10-K正文（含HTML行号），并与FY2024确认版逐维对照。锚点维度D1/D2严格沿用既有口径（年限错配档不变、历史延长本期无变更→4）；D3/D4/D5上调均对应文件内可验证的真实变化（核销额$2.2B→$3.7B、Blackwell专项事件、capex×3、年度迭代自述、$45.1B承诺）。残余不确定：FY2023年限延长对FY2025的持续利润影响未在本期量化披露（沿用FY2024的$114M口径推断）；服务器折旧占比未披露（NA）。",
+    "score_breakdown": {
+      "D1": {
+        "score": 4,
+        "weight": 0.25,
+        "weighted": 1.0
+      },
+      "D2": {
+        "score": 4,
+        "weight": 0.2,
+        "weighted": 0.8
+      },
+      "D3": {
+        "score": 4,
+        "weight": 0.2,
+        "weighted": 0.8
+      },
+      "D4": {
+        "score": 2,
+        "weight": 0.2,
+        "weighted": 0.4
+      },
+      "D5": {
+        "score": 3,
+        "weight": 0.15,
+        "weighted": 0.45
+      }
+    }
+  },
+  "comparative_context": {
+    "prior_year_comparison": {
+      "company": "NVIDIA",
+      "ticker": "NVDA",
+      "fiscal_year_prior": 2024,
+      "prior_score_confirmed": 3.1,
+      "current_score_draft": 3.45,
+      "delta": 0.35,
+      "dimension_deltas": {
+        "D1": {
+          "fy2024": 4,
+          "fy2025": 4,
+          "note": "锚点不变：服务器4-5年/测试7年延续；错配参照系由外部推断1-2年强化为公司自述1年，档位不变"
+        },
+        "D2": {
+          "fy2024": 5,
+          "fy2025": 4,
+          "note": "FY2024本期主动延长→5；FY2025本期无任何估计变更（全文零命中），历史延长延续→4，严格按锚点规则"
+        },
+        "D3": {
+          "fy2024": 3,
+          "fy2025": 4,
+          "note": "实际核销$2.2B→$3.7B（+68%）、Blackwell低良率专项事件、风险因素明示'has increased'"
+        },
+        "D4": {
+          "fy2024": 1,
+          "fy2025": 2,
+          "note": "capex/收入1.75%→2.48%（仍<5%档），capex×3、净PP&E+60%、CIP+180%、$10.9B云协议"
+        },
+        "D5": {
+          "fy2024": 2,
+          "fy2025": 3,
+          "note": "文件新增年度迭代节奏自述与转产即降需表述，DGX Cloud/自用算力暴露扩大，取2-3档上限"
+        }
+      },
+      "anchor_consistency_statement": "D1/D2严格沿用FY2024确认版口径与锚点规则，分数变化（D2由5降至4）仅因'本期是否发生延长'这一客观事实变化，非口径漂移；D3/D4/D5上调均由FY2025 10-K内可定位的新披露驱动（行号见各信号）。FY2023年限延长政策未被撤销、未再变更、未再量化——政策激进度与FY2024确认版结论完全一致。"
+    },
+    "sector_median_score": 3.2,
+    "sector": "Semiconductor (Fabless) / AI Accelerated Computing",
+    "peer_comparison": [
+      {
+        "company": "Meta Platforms",
+        "ticker": "META",
+        "estimated_score": 4.0,
+        "note": "Confirmed 4.0 (project baseline). Operates massive GPU data centers; CAPEX/revenue 20.2%; realized $2.43B facilities impairment 2023. NVIDIA FY2025 (3.45) still lower: depreciation risk has small absolute leverage (capex/revenue 2.48%), though its policy aggressiveness (carryover of the 3->4-5 year extension) remains higher."
+      },
+      {
+        "company": "Alphabet (Google)",
+        "ticker": "GOOGL",
+        "estimated_score": 4.25,
+        "note": "Draft. Servers 4->6 years effective FY2023 with -$3.9B depreciation quantified; Meta-scale asset exposure. NVIDIA's extension (3->4-5y, +$114M) is milder in magnitude and its asset base ~30x smaller relative to revenue."
+      },
+      {
+        "company": "Microsoft",
+        "ticker": "MSFT",
+        "estimated_score": 3.5,
+        "note": "Azure operator; extended server/network lives 4->6 years (FY2023); large and growing AI CAPEX base."
+      },
+      {
+        "company": "AMD",
+        "ticker": "AMD",
+        "estimated_score": 2.8,
+        "note": "Same fabless model (light asset); smaller AI exposure, no disclosed useful-life extension; closest comparable to NVIDIA."
+      }
+    ],
+    "nvda_positioning_note": "NVDA FY2025综合3.45（中高风险），较FY2024确认版3.10上行0.35，全部来自文件内新事实：核销渠道实际放大（D3）、资产基数与云承诺扩张（D4）、年度迭代自述（D5）。NVIDIA仍是'政策激进、量级有限'型样本：年限延长政策延续但未再加码（D2回落锚点4），且首次出现保守方向信号（区间下限3→2年）。FY2026跟踪要点：Blackwell→Rubin转产是否引发PP&E渠道首次减值、DGX Cloud资产规模、capex/收入是否突破5%档。"
+  },
+  "annotation_methodology": {
+    "source_document": "NVIDIA Corporation FY2025 Annual Report on Form 10-K (fiscal year ended January 26, 2025; auditor report dated February 26, 2025)",
+    "filing_accessed": "Local copy: data/raw/nvda_fy2025_10k.html (SEC EDGAR)",
+    "text_extraction_method": "Case-insensitive keyword search (useful life/lives, depreciation, impairment, obsolescence, prospectively, change in accounting estimate, Blackwell, purchase obligations, DGX Cloud) on non-UTF-8 HTML with error-tolerant decoding; HTML tags stripped for verbatim verification; each hit confirmed to reside in visible body text (Risk Factors / Note 1 / MD&A / financial statement notes), XBRL hidden-tag matches discarded; line numbers recorded",
+    "cross_year_anchor_check": "Every dimension score and policy statement explicitly compared against NVDA_FY2024_annotation.json (confirmed, D1=4/D2=5/D3=3/D4=1/D5=2 -> 3.10). Policy anchors (Feb 2023 extension 3->4-5y / 5->7y, prospective, +$114M) verified as unchanged in FY2025; zero 'change in accounting estimate' hits in FY2025 text confirmed the 'no new change' premise; score changes limited to dimensions with new in-filing facts",
+    "scoring_method": "Five-dimension weighted scoring with 1-5 scale per dimension (weights: D1 0.25, D2 0.20, D3 0.20, D4 0.20, D5 0.15); composite = weighted average",
+    "human_verification": "All text signals verified against original 10-K filing with HTML line numbers; all financial figures extracted verbatim from statements; 5+ excerpts machine-verified as literal substrings of the tag-stripped filing text",
+    "limitation": "CAPEX line combines PP&E and intangible asset purchases ($3,236M); NVIDIA does not disclose server depreciation as a percentage of total depreciation (NA); the ongoing FY2025 income benefit of the Feb 2023 life extension is not quantified in this filing (FY2024's $114M figure used as the reference magnitude); the 3->2 year lower-bound tightening is not explained or quantified by the company."
+  }
+}

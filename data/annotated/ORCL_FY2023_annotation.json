@@ -1,0 +1,481 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-07-23",
+    "annotator": "Kimi AI-assisted (pending review by project lead)",
+    "review_status": "confirmed",
+    "filing_source": "SEC EDGAR - 10-K Annual Report",
+    "review_note": "Project lead review completed. All evidence chains and scores verified against 10-K filings. No adjustments needed.",
+    "reviewed_at": "2026-07-24T17:51:00+08:00",
+    "reviewed_by": "zhongyang-260714"
+  },
+  "company": {
+    "ticker": "ORCL",
+    "name": "Oracle Corporation",
+    "fiscal_year": 2023,
+    "filing_date": "2023-06-20",
+    "report_period_end": "2023-05-31",
+    "industry": "Enterprise Software / Cloud Infrastructure (OCI) / Database",
+    "primary_assets": "Servers, Network Equipment, Data Centers (owned + third-party operating-leased), Oracle Engineered Systems, Acquired Intangibles and Goodwill (Cerner, acquired June 2022)",
+    "file_path": "data/raw/orcl_fy2023_10k.html",
+    "coverage_note": "Oracle财年为6月1日至次年5月31日。本10-K覆盖FY2023（2022-06-01至2023-05-31），签署日期2023-06-20（HTML第15571行）。FY2023是服务器折旧年限变更（4年→5年）的本期发生年：变更于FY2023 Q1完成评估并自财年初生效，减少FY2023经营费用$434M（HTML L7442）。本期亦为Cerner并表首个完整财年（商誉/无形资产大幅抬升）与资本开支+93%的AI/OCI扩张启动年。"
+  },
+  "financial_highlights": {
+    "revenue_millions": 49954,
+    "net_income_millions": 8503,
+    "operating_income_millions": 13093,
+    "income_tax_expense_millions": 623,
+    "rd_expense_millions": 8623,
+    "operating_cash_flow_millions": 17165,
+    "capex_millions": 8695,
+    "depreciation_millions": 2526,
+    "amortization_millions": 3582,
+    "impairment_charges_millions": null,
+    "impairment_charges_note": "NA - Note 1明确声明'We did not recognize any significant property impairment charges in fiscal 2023, 2022 or 2021'（HTML L7448）。Note 1 Business Combinations政策披露废弃经营租赁按ASC 842计为ROU asset impairment charges并涉及转租赁估计（L7445-7446），但FY2023未单独量化任何固定资产减值；FY2024 MD&A出现的'certain asset impairment charges'表述在FY2023 MD&A中不存在（FY2023 acquisition related and other expenses仅$190M，L5345-5348）。",
+    "total_assets_millions": 134384,
+    "total_property_equipment_millions": 28674,
+    "property_equipment_net_millions": 17069,
+    "accumulated_depreciation_millions": 11605,
+    "goodwill_millions": 62261,
+    "intangible_assets_net_millions": 9837,
+    "construction_in_progress_millions": 3846,
+    "construction_in_progress_prior_year_millions": 512,
+    "finance_lease_payments_millions": null,
+    "finance_lease_note": "NA - Note 10披露Oracle仅有经营租赁（'We have operating leases that primarily relate to certain of our facilities, data centers and vehicles'，HTML L10874），无融资租赁。FY2023经营租赁费用$873M（扣除转租赁收入$11M）；已承诺但未上表的数据中心经营租赁$9.1B（预期FY2024起租、3-15年期，L10875）。FY2023 10-K未披露期后新签租赁承诺（全文无'Subsequent to May 31, 2023'相关表述），post_year_end_lease_commitments_millions填null。",
+    "operating_lease_expense_millions": 873,
+    "capex_to_revenue_ratio": 0.1741,
+    "depreciation_to_revenue_ratio": 0.0506,
+    "depreciation_prior_year_millions": 1972,
+    "capex_prior_year_millions": 4511,
+    "computer_network_machinery_equipment_gross_millions": 17258,
+    "computer_network_machinery_equipment_gross_prior_year_millions": 12844,
+    "useful_life_change_opex_reduction_millions_fy2023": 434,
+    "useful_life_change_is_current_period": true,
+    "operating_lease_commitments_datacenters_off_bs_millions": 9100,
+    "post_year_end_lease_commitments_millions": null,
+    "post_year_end_lease_note": "NA - FY2023 10-K未披露期后数据中心租赁承诺；FY2024 10-K披露的期后$9.3B发生于FY2024期后，不属于本期。",
+    "restructuring_expense_millions": 490,
+    "cerner_acquisition_cash_net_millions": 27721,
+    "server_depreciation_pct_of_total": null,
+    "server_depreciation_pct_note": "NA - depreciation by asset class not disclosed"
+  },
+  "accounting_policy": {
+    "depreciation_method": "straight-line",
+    "ppe_useful_life_range_years": "1-40",
+    "server_useful_life_years_before": "4",
+    "server_useful_life_years_after": "5",
+    "computer_network_machinery_equipment_useful_life_years": "1-5",
+    "buildings_and_improvements_useful_life_years": "1-40",
+    "furniture_fixtures_other_useful_life_years": "5-15",
+    "land": "not depreciated",
+    "leasehold_improvements": "lesser of the estimated useful lives of the improvements or the lease terms",
+    "intangible_assets_useful_life_years": "1-10 (generally range from one to 10 years; substantially all acquired in business combinations, HTML L7448)",
+    "change_effective": "FY2023 Q1 (effective at the beginning of fiscal 2023, i.e., 2022-06-01) — 本期变更",
+    "change_in_estimate_method": "change in accounting estimate, prospective in effect (applied to the carrying value of servers as of May 31, 2022; no retrospective adjustment). 注意：FY2023 10-K正文未对本变更使用'prospectively'一词（该词在L7441仅用于Cerner并表），未来适用性质由'this change in accounting estimate...Based on the carrying value of our servers as of May 31, 2022'的表述确立（ASC 250估计变更默认未来适用）。",
+    "change_impact_operating_expense_reduction_millions": 434,
+    "change_impact_recognized_in_fiscal_year": 2023,
+    "no_useful_life_change_in_fiscal_2023": false,
+    "property_impairment_statement": "We did not recognize any significant property impairment charges in fiscal 2023, 2022 or 2021",
+    "policy_risk_note": "FY2023是风险行为的本期发生年：Oracle在AI/OCI资本开支+93%（$4,511M→$8,695M，MD&A L4094-4100）的同一财年，将服务器折旧年限从4年延长至5年（L7442），按估计变更未来适用、不追溯，直接减少本期经营费用$434M（占FY2023净利润$8,503M的5.1%）。方向性证据完整：扩张期延长年限=费用后置+本期利润虚高；且Note 1声明连续三年无重大固定资产减值（L7448），与5年年限×AI硬件1-2年迭代周期的错配共同构成核心风险画像。对照FY2024确认版：变更事实在两份10-K中表述一致（FY2024 L7317复述同一变更），本标注按本期文件评分。"
+  },
+  "risk_signals": [
+    {
+      "signal_id": "ORCL-FY2023-SIG-001",
+      "source": "Notes to Consolidated Financial Statements - Note 1. Organization and Significant Accounting Policies - Use of Estimates",
+      "keyword_matched": "increased the estimate of the useful lives from four years to five years",
+      "text_excerpt": "During the first quarter of fiscal 2023, we completed an assessment of the useful lives of our servers and increased the estimate of the useful lives from four years to five years effective at the beginning of fiscal 2023. Based on the carrying value of our servers as of May 31, 2022, this change in accounting estimate decreased our total operating expenses by $ 434 million during fiscal 2023.",
+      "page_location": "Note 1. Organization and Significant Accounting Policies - Use of Estimates (HTML line 7442)",
+      "risk_type": "useful_life_extension_change_in_estimate",
+      "severity": "critical",
+      "relevance_to_depreciation": "本项目的标靶行为在本期发生：Oracle在FY2023 Q1将服务器折旧年限从4年延长至5年，自FY2023财年初生效，按会计估计变更处理（基于2022-05-31服务器账面价值、未来适用、不追溯），机械性减少FY2023经营费用$434M（约占FY2023净利润$8,503M的5.1%）。变更方向为延长（降费用），且恰与AI/OCI资本开支+93%发生在同一财年。",
+      "evidence_chain": [
+        "Official disclosure: servers 4->5 years, effective beginning of fiscal 2023, Note 1 Use of Estimates (L7442)",
+        "Quantified effect: -$434M total operating expenses during fiscal 2023 (~5.1% of FY2023 net income $8,503M)",
+        "Change in accounting estimate => prospective application, prior-period under-depreciation never corrected",
+        "Same fiscal year: capex up 93% ($4,511M -> $8,695M) for cloud/AI infrastructure build-out (MD&A L4094-4100)",
+        "AI hardware iteration cycle is 1-2 years (NVIDIA A100 2020 -> H100 2022); a 5-year life spans 2.5-5 technology generations",
+        "Result: FY2023 reported net income of $8,503M directly embeds the $434M expense reduction; the lengthened 5-year life governs all server depreciation from FY2023 onward"
+      ]
+    },
+    {
+      "signal_id": "ORCL-FY2023-SIG-002",
+      "source": "Notes to Consolidated Financial Statements - Note 5. Property, Plant and Equipment",
+      "keyword_matched": "Computer, network, machinery and equipment / 1 - 5 years",
+      "text_excerpt": "Computer, network, machinery and equipment: Useful Life 1 - 5 years: $17,258 million (May 31, 2023) vs $12,844 million (May 31, 2022). Total property, plant and equipment: $28,674 million (2023) vs $19,674 million (2022); Accumulated depreciation: $(11,605) vs $(9,958); Total property, plant and equipment, net: $17,069 vs $9,716. (1) Amounts primarily consist of computer equipment to be built and deployed at our data centers. [construction in progress footnote]",
+      "page_location": "Note 5. Property, Plant and Equipment (HTML lines 8211-8331; policy text at Note 1, line 7448: 'Depreciation is computed using the straight-line method based on estimated useful lives of the assets, which range from one to 40 years.')",
+      "risk_type": "depreciation_schedule_disclosure",
+      "severity": "high",
+      "relevance_to_depreciation": "变更后首个官方明细表：折旧最快过时的资产类别（computer, network, machinery and equipment，含OCI服务器）按直线法至多5年折旧，与L7442披露的5年服务器年限上限一致。该资产类别总额同比+34.4%（$12,844M→$17,258M），PP&E净值同比+75.7%（$9,716M→$17,069M），Cerner并表与OCI扩张使暴露于年限错配风险的资产基数急剧扩大。",
+      "evidence_chain": [
+        "Computer/network/equipment gross: $17,258M at FY2023 end (+34.4% YoY), depreciated over 1-5 years",
+        "Total PP&E gross grew $19,674M -> $28,674M (+45.7%); net PP&E up 75.7% to $17,069M",
+        "Server life (5 years, just extended from 4) vs AI accelerator economic cycle (1-2 years) = 2.5-5x mismatch",
+        "Accumulated depreciation ($11,605M) = only 40.5% of gross PP&E, consistent with a young, rapidly expanding asset base",
+        "Result: the newest, largest asset cohort is depreciated under the newly-lengthened life assumption"
+      ]
+    },
+    {
+      "signal_id": "ORCL-FY2023-SIG-003",
+      "source": "Notes to Consolidated Financial Statements - Note 1. Property, Plant and Equipment",
+      "keyword_matched": "We did not recognize any significant property impairment charges",
+      "text_excerpt": "Property, plant and equipment are stated at cost, less accumulated depreciation. Depreciation is computed using the straight-line method based on estimated useful lives of the assets, which range from one to 40 years. Leasehold improvements are amortized over the lesser of the estimated useful lives of the improvements or the lease terms, as appropriate. Property, plant and equipment are periodically reviewed for impairment whenever events or changes in circumstances indicate that the carrying amount of an asset may not be recoverable. We did not recognize any significant property impairment charges in fiscal 2023, 2022 or 2021.",
+      "page_location": "Note 1. Organization and Significant Accounting Policies - Property, Plant and Equipment (HTML line 7448)",
+      "risk_type": "impairment_testing_policy",
+      "severity": "high",
+      "relevance_to_depreciation": "连续三个财年（FY2021-FY2023）零重大固定资产减值，覆盖生成式AI硬件剧变的起点（ChatGPT 2022年11月发布于FY2023 H1内）。减值测试仅在'events or changes in circumstances'触发时进行；同一财年公司选择延长而非缩短服务器年限——会计系统呈单向不对称：利好（年限延长）立即确认$434M，利空（技术过时）无声吸收。",
+      "evidence_chain": [
+        "Impairment test triggered only by 'events or changes in circumstances'",
+        "FY2021-FY2023: no significant property impairment despite AI hardware generation turnover beginning in FY2023",
+        "Same period: server life extended 4->5 years (expense down $434M), never shortened",
+        "Accounting asymmetry: good news (longer life) recognized immediately, bad news (obsolescence) absorbed silently",
+        "Result: FY2023 margins are structurally flattered relative to economic consumption of the server fleet"
+      ]
+    },
+    {
+      "signal_id": "ORCL-FY2023-SIG-004",
+      "source": "Item 1A. Risk Factors - Oracle Cloud Strategy / Data Center Capacity",
+      "keyword_matched": "we typically depreciate over their estimated useful lives, which could be shortened",
+      "text_excerpt": "In connection with these investments, we entered, and expect to continue to enter, into long-term operating lease commitments with third party data center providers that generally require us to pay significant contract termination fees to early exit such obligations should our strategies change, which could adversely impact our profitability and cash flows. In addition, we outfit these data centers with equipment and improvements that we typically depreciate over their estimated useful lives, which could be shortened should our cloud strategies change, which could adversely affect our profitability.",
+      "page_location": "Item 1A. Risk Factors (HTML line 899)",
+      "risk_type": "capacity_overbuild_and_depreciation_shortening_risk",
+      "severity": "high",
+      "relevance_to_depreciation": "Risk Factors中罕见的折旧年限直接表述：Oracle自认若云战略变化，数据中心设备与装修的折旧年限'could be shortened'，将直接冲击利润；同时长期数据中心租赁提前退出需支付'significant contract termination fees'。这证明管理层完全理解年限假设与战略/技术变化之间的敏感性——但FY2023实际选择是延长年限，方向相反。",
+      "evidence_chain": [
+        "Management explicitly links cloud strategy changes to shortened depreciation lives of data center equipment",
+        "Early exit of third-party data center leases triggers 'significant contract termination fees'",
+        "Same filing: server life lengthened 4->5 years (opposite direction to the disclosed risk)",
+        "Result: the 10-K itself concedes depreciation lives are strategy-contingent, while the FY2023 estimate change assumes stability"
+      ]
+    },
+    {
+      "signal_id": "ORCL-FY2023-SIG-005",
+      "source": "Item 1A. Risk Factors - Supply Chain",
+      "keyword_matched": "excess and obsolescence risk",
+      "text_excerpt": "In addition, we have in some instances responded to such shortages by committing to higher purchases and balances of hardware products that we market and sell to our customers and that we use as a part of our cloud infrastructure to deliver our cloud offerings, relative to our historical positions. While this permits us to secure manufacturing capacity, it has increased excess and obsolescence risk of such hardware products and could adversely impact our profitability and cash flows. We expect these factors will continue to impact us in the future.",
+      "page_location": "Item 1A. Risk Factors - Supply Chain (HTML line 920)",
+      "risk_type": "technology_obsolescence_risk",
+      "severity": "medium",
+      "relevance_to_depreciation": "管理层对用于云基础设施的硬件直接使用'obsolescence'一词。Oracle在供应短缺期超历史水平囤货硬件，自认面临过剩与过时风险——即经济寿命短于采购假设，与本期延长折旧年限同向叠加偏差。",
+      "evidence_chain": [
+        "Oracle committed to above-historical hardware purchase volumes for cloud infrastructure",
+        "Management explicitly flags 'excess and obsolescence risk' of such hardware",
+        "Obsolescence risk acknowledged in Risk Factors but absent from depreciation assumptions (life extended, not shortened, in the same year)",
+        "Result: risk disclosures and accounting estimates are internally inconsistent - the 10-K admits faster obsolescence while depreciating slower"
+      ]
+    },
+    {
+      "signal_id": "ORCL-FY2023-SIG-006",
+      "source": "Item 1A. Risk Factors - Cloud Products / AI",
+      "keyword_matched": "Machine learning and AI are increasingly driving innovations in technology",
+      "text_excerpt": "We have continued to refresh and release new offerings of our cloud products and services. Machine learning and AI are increasingly driving innovations in technology, but if they fail to operate as anticipated or our other products do not perform as promised, our business and reputation may be harmed.",
+      "page_location": "Item 1A. Risk Factors (HTML line 880)",
+      "risk_type": "industry_competition_tech_substitution",
+      "severity": "medium",
+      "relevance_to_depreciation": "FY2023 10-K的AI风险表述较FY2024（'highly competitive and rapidly evolving... may fail to recoup our investments in AI'，FY2024 L887）温和，但已确认AI正驱动技术革新并存在产品失败风险。AI投资物化于按5年折旧的OCI服务器群；技术'increasingly driving innovations'意味着底层算力资产经济寿命承压，而会计年限本期反而延长。注：与FY2024相比AI风险语言明显弱化，跨年对照时应注意披露强度本身在升级。",
+      "evidence_chain": [
+        "AI 'increasingly driving innovations in technology' per management (FY2023)",
+        "AI/ML product failure risk acknowledged; recoupment depends on assets depreciated over 5 years",
+        "FY2024 10-K escalates the language to 'highly competitive and rapidly evolving' + 'may fail to recoup our investments in AI'",
+        "Result: accounting life (extended to 5 years) outruns the innovation cycle management itself describes"
+      ]
+    },
+    {
+      "signal_id": "ORCL-FY2023-SIG-007",
+      "source": "Notes to Consolidated Financial Statements - Note 10. Leases, Other Commitments and Certain Contingencies",
+      "keyword_matched": "additional operating lease commitments, primarily for data centers",
+      "text_excerpt": "We have operating leases that primarily relate to certain of our facilities, data centers and vehicles. ... Operating lease expenses totaled $ 873 million, net of sublease income of $ 11 million in fiscal 2023 and $ 766 million, net of sublease income of $ 12 million in fiscal 2022. ... As of May 31, 2023, we have $ 9.1 billion of additional operating lease commitments, primarily for data centers, that are expected to commence in fiscal 2024 generally for terms of three to fifteen years that were not reflected on our consolidated balance sheet as of May 31, 2023 or in the maturities table below.",
+      "page_location": "Note 10. Leases, Other Commitments and Certain Contingencies (HTML lines 10874-10875)",
+      "risk_type": "capacity_overbuild_off_balance_sheet",
+      "severity": "high",
+      "relevance_to_depreciation": "Oracle以经营租赁（表外）大规模获取数据中心容量：FY2023末已有$9.1B未上表数据中心租赁承诺（FY2024起租、3-15年期），ROU资产$4.6B。租期（3-15年）远超服务器技术周期（1-2年），设施承诺寿命跨越多个硬件世代；若AI需求或架构转向，自有服务器加速贬值与租赁终止费将同时兑现。该承诺规模在FY2024进一步膨胀至$22.9B（+期后$9.3B），FY2023是该风险累积的起点年。",
+      "evidence_chain": [
+        "Off-BS data center lease commitments: $9.1B (commencing fiscal 2024, 3-15 year terms) at FY2023 end",
+        "ROU assets $4.6B + operating lease expense $873M in FY2023",
+        "Lease terms (3-15 years) far exceed server tech cycle (1-2 years)",
+        "FY2024 follow-up: commitments ballooned to $22.9B + $9.3B post-year-end, confirming the escalation began in FY2023",
+        "Result: capacity-planning errors would convert directly into impairment/termination charges, revealing under-depreciation of associated infrastructure"
+      ]
+    },
+    {
+      "signal_id": "ORCL-FY2023-SIG-008",
+      "source": "Consolidated Statements of Cash Flows; MD&A - Liquidity and Capital Resources; Note 5 - Construction in Progress",
+      "keyword_matched": "Depreciation / Capital expenditures / Construction in progress",
+      "text_excerpt": "Depreciation: $2,526 (FY2023), $1,972 (FY2022), $1,537 (FY2021). Capital expenditures: $(8,695) (FY2023), $(4,511) (FY2022), $(2,135) (FY2021); MD&A: Capital expenditures $(8,695), change +93% vs FY2022. Construction in progress: $3,846 (May 31, 2023) vs $512 (May 31, 2022). (1) Amounts primarily consist of computer equipment to be built and deployed at our data centers.",
+      "page_location": "Consolidated Statements of Cash Flows (HTML lines 6888-6899, 7122-7134); MD&A (HTML lines 4094-4100); Note 5 (HTML lines 8270-8279, footnote at line 8321)",
+      "risk_type": "depreciation_lag_expansion_anomaly",
+      "severity": "medium",
+      "relevance_to_depreciation": "FY2023资本开支+93%至$8,695M，而折旧仅$2,526M（占capex的29.1%）；在建工程（明确为'数据中心待建与部署的计算机设备'）同比+651%（$512M→$3,846M），巨额服务器队列尚未开始折旧。同年服务器年限被延长——扩张最大的一年恰是年限延长的一年，未来FY2024-2026折旧阶梯式上升已成定局（FY2024折旧已升至$3,129M验证），或如管理层再次延长年限则被继续压制。",
+      "evidence_chain": [
+        "CIP (data center computer equipment) up 651% YoY to $3,846M - none of it depreciating yet",
+        "FY2023 depreciation $2,526M = only 29.1% of FY2023 capex $8,695M (+93% YoY)",
+        "Same year: server life extended 4->5 years, suppressing the depreciation step-up from the new cohort",
+        "FY2024 depreciation rose to $3,129M, confirming the lagged expense step-up",
+        "Result: current-period depreciation materially understates the run-rate cost of the AI capacity being deployed"
+      ]
+    },
+    {
+      "signal_id": "ORCL-FY2023-SIG-009",
+      "source": "Notes to Consolidated Financial Statements - Note 1. Business Combinations (exit/disposal and ROU impairment policy)",
+      "keyword_matched": "Right-of-Use (ROU) asset impairment charges",
+      "text_excerpt": "Abandoned operating leases related to an acquired company or our internal operations are accounted for as Right-of-Use (ROU) asset impairment charges pursuant to ASC 842, Leases and are accounted for separately from the business combination. In all periods presented, when estimating the asset impairment charges, assumptions were applied regarding estimated sub-lease payments to be received, which can differ from actual results. This may require us to revise our initial estimates which may affect our results of operations and financial position in the period the revision is made.",
+      "page_location": "Note 1. Organization and Significant Accounting Policies - Business Combinations (HTML lines 7445-7446)",
+      "risk_type": "impairment_mechanism_disclosure",
+      "severity": "medium",
+      "relevance_to_depreciation": "Oracle披露废弃经营租赁按ASC 842计为ROU资产减值，且减值估计依赖转租赁收款假设、可后续修订。这确认了'设施废弃→减值'的会计通道存在并已在使用（'In all periods presented'），与$9.1B表外数据中心租赁承诺（SIG-007）和$4.6B ROU资产共同构成减值触发的现实路径；减值金额依赖管理层乐观估计（转租赁假设），裁量空间大。",
+      "evidence_chain": [
+        "Abandoned operating leases => ROU asset impairment charges under ASC 842 (policy actively applied 'in all periods presented')",
+        "Impairment estimation relies on sub-lease payment assumptions subject to later revision",
+        "ROU assets $4.6B + $9.1B off-BS data center commitments create the exposure base",
+        "Result: a disclosed impairment channel exists for leased data center capacity, with management-discretionary assumptions"
+      ]
+    },
+    {
+      "signal_id": "ORCL-FY2023-SIG-010",
+      "source": "Notes to Consolidated Financial Statements - Note 8. Restructuring Activities; MD&A - Restructuring Expenses",
+      "keyword_matched": "2022 Restructuring Plan / second-generation cloud infrastructure",
+      "text_excerpt": "We recorded $ 493 million and $ 223 million of restructuring expenses in connection with the 2022 Restructuring Plan in fiscal 2023 and 2022, respectively. The total costs recorded to date in our consolidated statements of operations in connection with the 2022 Restructuring Plan were $ 716 million. ... Certain of the cost savings realized pursuant to our 2022 Restructuring Plan initiatives were offset by investments in resources and geographies that better address the development, marketing, sale and delivery of our cloud-based offerings, including investments in the development and delivery of our second-generation cloud infrastructure.",
+      "page_location": "Note 8. Restructuring Activities (HTML lines 9949-9950); MD&A (HTML lines 3602-3603)",
+      "risk_type": "restructuring_driven_by_cloud_transition",
+      "severity": "medium",
+      "relevance_to_depreciation": "FY2023重组费用$493M（利润表restructuring行$490M，差额为其他计划），累计$716M，管理层明确重组节约被重新投入第二代云基础设施（OCI Gen2）。大规模组织重组与基础设施换代同步进行，说明旧资产/旧运营模式的经济价值正在被主动淘汰——但固定资产侧未确认任何重大减值（SIG-003），淘汰成本以重组费用而非资产减值的形式出表。",
+      "evidence_chain": [
+        "FY2023 restructuring expense $493M under the 2022 Restructuring Plan (cumulative $716M)",
+        "Savings explicitly reinvested into second-generation cloud infrastructure",
+        "Infrastructure generational transition underway while PP&E impairment remains zero",
+        "Result: economic obsolescence is being absorbed through restructuring charges, not through the depreciation schedule or impairment of the old asset base"
+      ]
+    }
+  ],
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "折旧年限 vs 技术实际寿命",
+      "dimension_name_en": "Depreciation Life vs Technology Useful Life",
+      "weight": 0.25,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "服务器折旧年限本期由4年延长至5年（L7442），Note 5明细表'Computer, network, machinery and equipment 1-5年'（L8218-8220）上限5年，落在锚点'5年左右且与技术迭代错配→4'。对照AI硬件1-2年迭代周期（NVIDIA A100 2020→H100 2022），错配比2.5-5倍。公司自身在Risk Factors承认硬件'excess and obsolescence risk'（L920）及数据中心设备折旧年限'could be shortened'（L899），年限与经济现实方向相反。与FY2024确认版D1=4锚点一致（同一5年年限、同一错配）。",
+      "supporting_signals": [
+        "ORCL-FY2023-SIG-001",
+        "ORCL-FY2023-SIG-002",
+        "ORCL-FY2023-SIG-005"
+      ],
+      "key_metrics": {
+        "stated_useful_life_years_after_change": "5",
+        "stated_useful_life_years_before_change": "4",
+        "estimated_tech_cycle_years": "1-2",
+        "life_mismatch_ratio": "2.5-5x",
+        "change_is_current_period": true
+      }
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "会计政策保守性",
+      "dimension_name_en": "Accounting Policy Conservatism",
+      "weight": 0.2,
+      "score": 5,
+      "score_max": 5,
+      "score_label": "极高风险",
+      "score_label_en": "Very High Risk",
+      "reasoning": "锚点'本期延长年限+未来适用法+量化影响→5'：FY2023正是变更发生年——FY2023 Q1将服务器年限4→5年、自财年初生效、按会计估计变更处理（基于2022-05-31账面价值、未来适用不追溯；注：正文未用'prospectively'一词，该性质由'this change in accounting estimate'表述确立），并直接量化减少本期经营费用$434M（占FY2023净利润5.1%），披露于Note 1（L7442）。对照GOOGL 2023（4→6年、-$3.9B，D2=5）同档处理；对照FY2024确认版D2=4（本期无变更、仅历史记录），分数差异真实反映'本期变更 vs 历史变更'的锚点区分，非锚点漂移。",
+      "supporting_signals": [
+        "ORCL-FY2023-SIG-001",
+        "ORCL-FY2023-SIG-003",
+        "ORCL-FY2023-SIG-004"
+      ],
+      "key_metrics": {
+        "change_method": "change in accounting estimate, prospective in effect (word 'prospectively' not used for this change in FY2023 10-K)",
+        "change_effective": "FY2023 Q1 (beginning of fiscal 2023, 2022-06-01)",
+        "retrospective_adjustment": false,
+        "operating_expense_reduction_millions_fy2023": 434,
+        "pct_of_fy2023_net_income": 0.051,
+        "change_occurred_in_current_period": true,
+        "significant_property_impairments_fy2021_fy2023": 0
+      }
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值风险触发",
+      "dimension_name_en": "Impairment Risk Triggers",
+      "weight": 0.2,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "FY2023无任何已确认固定资产减值：Note 1声明FY2023/2022/2021连续三年无重大property减值（L7448）；FY2024 MD&A出现的'certain asset impairment charges'（$314M费用线内）在FY2023不存在（acquisition related and other仅$190M）。直接信号存在但均为政策性与前瞻性：数据中心折旧年限可缩短+租赁终止费（L899）、硬件obsolescence risk（L920）、ROU减值机制（L7445-7446）、收购资产减值风险（L949）。无Meta（$2.43B）式大额实际减值，锚点'仅间接信号/政策性直接信号、本期无实际减值→3'，与FY2024确认版D3=3一致（FY2024虽有微量未量化减值，仍评3，锚点未漂移）。",
+      "supporting_signals": [
+        "ORCL-FY2023-SIG-003",
+        "ORCL-FY2023-SIG-004",
+        "ORCL-FY2023-SIG-005",
+        "ORCL-FY2023-SIG-009"
+      ],
+      "key_metrics": {
+        "ppe_impairment_fy2023_millions": 0,
+        "acquisition_related_and_other_expenses_millions": 190,
+        "realized_asset_impairment_charges_disclosed": false,
+        "direct_impairment_signals_count": 4,
+        "impairment_triggers_identified": [
+          "data_center_depreciation_shortening_and_lease_termination",
+          "supply_chain_obsolescence",
+          "rou_lease_impairment_mechanism",
+          "acquisition_related_impairment_risk"
+        ],
+        "off_bs_datacenter_lease_commitments_millions": 9100
+      }
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本支出(CAPEX)强度",
+      "dimension_name_en": "Capital Expenditure Intensity",
+      "weight": 0.2,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "CAPEX/收入=8,695/49,954=17.4%，落在15-25%档→4分（CAPEX同比+93%，MD&A L4094-4100，为AI/OCI扩张启动年）。结构性低估同样存在：$9.1B数据中心经营租赁承诺未上表（L10875），FY2023经营租赁费$873M；在建工程（数据中心计算机设备）同比+651%至$3,846M。对照FY2024确认版D4=3（capex/收入回落至13.0%），分数差异真实反映FY2023是资本开支峰值强度年（17.4% vs 13.0%），非锚点漂移。",
+      "supporting_signals": [
+        "ORCL-FY2023-SIG-007",
+        "ORCL-FY2023-SIG-008"
+      ],
+      "key_metrics": {
+        "capex_millions": 8695,
+        "revenue_millions": 49954,
+        "capex_to_revenue_ratio": 0.1741,
+        "capex_yoy_growth": 0.93,
+        "capex_prior_year_ratio": 0.1063,
+        "construction_in_progress_millions": 3846,
+        "cip_yoy_growth": 6.51,
+        "depreciation_to_capex_ratio": 0.291,
+        "off_bs_datacenter_lease_commitments_millions": 9100
+      }
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "行业竞争/技术替代",
+      "dimension_name_en": "Industry Competition & Technology Substitution",
+      "weight": 0.15,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "锚点'云基础设施直接运营+AI迭代压力→4'：Oracle以OCI（第二代云基础设施，L3603）直接运营AI云，FY2023承接Cerner并表+资本开支+93%激进扩张，管理层自认ML/AI正驱动技术革新（L880）并投入'第二代云基础设施'。竞争对手（Microsoft/Google/Amazon/Meta）同步军备竞赛迫使硬件1-2年持续升级。FY2023的AI风险措辞弱于FY2024（尚无'highly competitive and rapidly evolving'/'fail to recoup'表述），但行业事实与资产暴露相同；与FY2024确认版D5=4锚点一致。注：FY2023 10-K未提及Ampere持股（该披露首见于FY2024 10-K），本年不加此论据。",
+      "supporting_signals": [
+        "ORCL-FY2023-SIG-006",
+        "ORCL-FY2023-SIG-007",
+        "ORCL-FY2023-SIG-010"
+      ],
+      "key_metrics": {
+        "industry": "Enterprise Software / AI Cloud Infrastructure (OCI Gen2)",
+        "gpu_iteration_cycle_years": "1-2",
+        "ai_role": "OCI hyperscaler (second-generation cloud infrastructure); no Ampere stake disclosure in FY2023 10-K",
+        "competitors_ramping_capex": [
+          "MSFT",
+          "GOOGL",
+          "AMZN",
+          "META"
+        ],
+        "capacity_commitments_millions": 9100,
+        "ai_risk_language_vs_fy2024": "weaker (no 'rapidly evolving' / 'fail to recoup' phrasing yet)"
+      }
+    }
+  ],
+  "composite_score": {
+    "weighted_score": 4.0,
+    "max_score": 5.0,
+    "risk_level": "高风险",
+    "risk_level_en": "High Risk",
+    "risk_level_color": "#DC3545",
+    "confidence": 0.85,
+    "confidence_reason": "全部财务数据与引文逐字核对于FY2023 10-K正文（含HTML行号）。FY2023为年限变更本期发生年，D2按本期变更锚点评5（对齐GOOGL 2023）；D4按实际17.4%资本强度评4；D1/D3/D5与FY2024确认版完全一致。扣分项：无任何已确认固定资产减值、AI风险措辞尚温和；加分项：本期变更+$434M量化影响、capex +93%、在建工程+651%、$9.1B表外租赁承诺起点。",
+    "score_breakdown": {
+      "D1": {
+        "score": 4,
+        "weight": 0.25,
+        "weighted": 1.0
+      },
+      "D2": {
+        "score": 5,
+        "weight": 0.2,
+        "weighted": 1.0
+      },
+      "D3": {
+        "score": 3,
+        "weight": 0.2,
+        "weighted": 0.6
+      },
+      "D4": {
+        "score": 4,
+        "weight": 0.2,
+        "weighted": 0.8
+      },
+      "D5": {
+        "score": 4,
+        "weight": 0.15,
+        "weighted": 0.6
+      }
+    }
+  },
+  "comparative_context": {
+    "same_company_prior_confirmed": {
+      "document": "data/annotated/ORCL_FY2024_annotation.json",
+      "review_status": "confirmed",
+      "fiscal_year": 2024,
+      "composite": 3.6,
+      "dimensions": {
+        "D1": 4,
+        "D2": 4,
+        "D3": 3,
+        "D4": 3,
+        "D5": 4
+      }
+    },
+    "cross_year_consistency_conclusion": "与FY2024确认版显式对照：D1/D3/D5三年锚点完全一致（5年服务器年限、无重大PP&E减值、OCI直接运营+AI压力），三年分数均为4/3/4，无锚点漂移。两处分数变化均反映真实披露差异而非口径变化：(1) D2 FY2023=5 vs FY2024=4——FY2023是年限变更本期发生年（本期延长+未来适用+量化-$434M，L7442），对齐GOOGL 2023本期变更5分档；FY2024本期无变更、仅复述历史，按历史记录4分档。(2) D4 FY2023=4 vs FY2024=3——FY2023 capex/收入=17.4%（+93%，扩张峰值年，15-25%档），FY2024回落至13.0%（8-15%档），为真实资本强度变化。综合分FY2023=4.00 > FY2024=3.60，方向合理：风险行为（年限延长+扩张峰值）集中发生于FY2023，FY2024进入'既成事实消化期'。",
+    "sector_median_score": 3.6,
+    "sector": "Enterprise Software / AI Cloud Infrastructure",
+    "peer_comparison": [
+      {
+        "company": "Meta Platforms",
+        "ticker": "META",
+        "estimated_score": 4.0,
+        "note": "CONFIRMED (project lead, 2025-07-15). Servers 4-5 years, realized $2.43B facilities-consolidation impairment in 2023. ORCL FY2023 (4.0) same level: change-year quantified benefit offsets ORCL's lack of realized impairment."
+      },
+      {
+        "company": "Alphabet (Google)",
+        "ticker": "GOOGL",
+        "estimated_score": 4.25,
+        "note": "DRAFT (2026-07-20). Servers 4->6 years effective FY2023 with -$3.9B depreciation / +$3.0B net income quantified. Same change-year pattern as ORCL FY2023 (4->5 years, -$434M); GOOGL higher on larger life extension and magnitude."
+      },
+      {
+        "company": "Microsoft",
+        "ticker": "MSFT",
+        "estimated_score": 4.2,
+        "note": "Estimated. Also extended server useful lives (4->6 years, effective FY2023) amid Azure AI build-out; same change-year cohort as ORCL FY2023, pending annotation."
+      },
+      {
+        "company": "NVIDIA",
+        "ticker": "NVDA",
+        "estimated_score": 3.1,
+        "note": "Estimated. Sells GPUs rather than operating hyperscale fleets; manufacturing-equipment asset structure; different depreciation risk profile."
+      },
+      {
+        "company": "AMD",
+        "ticker": "AMD",
+        "estimated_score": 2.4,
+        "note": "Estimated. Fabless chip designer; asset-light relative to cloud operators; pending annotation."
+      }
+    ],
+    "oracle_positioning_note": "ORCL FY2023综合4.0（高风险），高于其FY2024的3.6，因FY2023集中了'本期年限延长（-$434M）+ capex +93%峰值强度'两个事件；低于GOOGL 2023（4.25）因变更幅度较小（4→5 vs 4→6年、$434M vs $3.9B）。FY2023是Oracle风险画像的'行为发生年'，FY2024为'效应延续年'，跨年样本中两年应作为对照对使用。"
+  },
+  "annotation_methodology": {
+    "source_document": "Oracle Corporation Fiscal 2023 Annual Report on Form 10-K (CIK 0001341439, fiscal year ended May 31, 2023, signed June 20, 2023, HTML line 15571)",
+    "filing_accessed": "SEC EDGAR - https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001341439",
+    "text_extraction_method": "HTML parsing with Python (regex tag-stripping, html.unescape, whitespace normalization) + keyword search (useful life/lives, depreciation, impairment, obsolescence, prospectively, capital expenditures, construction in progress, restructuring, eight years, GPU, Ampere); every candidate hit manually verified in visible body text with HTML line numbers; hidden ix:hidden XBRL tag matches excluded",
+    "premise_verification": "FY2023文件事实核对：唯一年限变更为FY2023 Q1服务器4->5年（L7442，-$434M）；全文'eight years'仅两处——员工任期（L760）与经营租赁加权平均剩余期限（L10875），无任何5->8年表述；'prospectively'在FY2023 10-K中仅用于Cerner并表（L7441），未用于年限变更；FY2023 10-K未提及Ampere。均已在相应字段记录。",
+    "scoring_method": "Five-dimension weighted scoring (D1 0.25 / D2 0.20 / D3 0.20 / D4 0.20 / D5 0.15), 1-5 integer scale per dimension, anchored to confirmed META 2023 (4.0), GOOGL 2023 draft (4.25), and same-company confirmed ORCL FY2024 (3.60); D2 current-period-change anchor aligned with GOOGL 2023 treatment",
+    "human_verification": "All quoted text excerpts and financial figures manually verified against original 10-K filing at cited HTML line numbers; verbatim matching performed on tag-stripped text with &#160;/&nbsp; normalization",
+    "limitation": "Single-year 10-K analysis. Oracle discloses no depreciation by asset class and no finance leases; FY2023 10-K contains no 'certain asset impairment charges' MD&A language (that wording first appears in FY2024) and no post-year-end lease commitment disclosure (marked NA/null). Much of Oracle's data center capacity is procured via operating leases (off-balance-sheet), so capex-based ratios understate true infrastructure intensity."
+  }
+}

@@ -32,8 +32,8 @@
     "rd_expense_note": "R&D $39,500M (approx, from consolidated statements)",
     "capex_millions": 31500,
     "capex_note": "Purchases of property and equipment ~$31.5B (from cash flow statement)",
-    "depreciation_expense_millions": 10200,
-    "depreciation_expense_note": "Depreciation of property and equipment: 2022 amount embedded in cost structure; Note 1 discloses change effective Jan 2023.",
+    "depreciation_expense_millions": 13475,
+    "depreciation_expense_note": "Depreciation of property and equipment $13,475M (pure depreciation, per GOOGL 2023 10-K cash flow statement comparative disclosure). GOOGL 2022 10-K Note 1 (HTML line 2163) reports $15.3B for depreciation AND impairment combined; the difference of ~$1,825M is impairment expense, which should not be included in this field.",
     "ppe_net_millions": 112204,
     "ppe_net_note": "Property and equipment, net $112,204M (2022) vs $97,599M (2021)"
   },

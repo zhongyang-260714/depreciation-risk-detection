@@ -24,8 +24,8 @@
   "financial_highlights": {
     "revenue_millions": 97690,
     "revenue_note": "Total revenues $97,690M, +1% YoY (automotive -8%, energy +67%)",
-    "net_income_millions": 71000,
-    "net_income_note": "Net income $71,000M (includes one-time tax benefit; ex-benefit ~$15-20B)",
+    "net_income_millions": 7153,
+    "net_income_note": "Net income $7,153M (Consolidated Statements of Comprehensive Income, raw text line 3805).",
     "operating_income_millions": 8500,
     "operating_income_note": "Income from operations ~$8,500M (approx, from trend)",
     "rd_expense_millions": 4500,

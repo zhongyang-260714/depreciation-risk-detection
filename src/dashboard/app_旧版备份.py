@@ -72,7 +72,7 @@ def main():
             placeholder="粘贴公司年报中风险因素章节..."
         )
         
-        analyze_btn = st.button("🚀 开始分析", type="primary", use_container_width=True)
+        analyze_btn = st.button("🚀 开始分析", type="primary", width="stretch")
     
     # 主内容区
     if analyze_btn:

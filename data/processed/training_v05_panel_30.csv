@@ -13,7 +13,7 @@ INTC,Intel Corporation,2023,2023-12-30,Semiconductors / IDM (Integrated Device M
 INTC,Intel Corporation,2024,2024-12-28,Semiconductors / IDM (Integrated Device Manufacturing) / Foundry,4,4,5,5,5,4.55,High Risk,0.92,23944,53101,9951,107919,INTC_FY2024_annotation.json
 META,"Meta Platforms, Inc.",2022,2022-12-31,Internet / AI / Social Media / Metaverse (Reality Labs),4,5,5,5,4,4.6,High Risk,0.9,32040,116609,8500,,META_2022_annotation.json
 META,"Meta Platforms, Inc.",2023,2023-12-31,Internet / AI / Social Media,4,4,4,4,4,4.0,High Risk,0.85,27266,134902,11178,,META_2023_annotation.json
-META,"Meta Platforms, Inc.",2024,2024-12-31,Internet / AI / Social Media,5,5,3,5,5,4.65,Extremely High Risk,0.9,37263,164501,15290,121346,META_2024_annotation.json
+META,"Meta Platforms, Inc.",2024,2024-12-31,Internet / AI / Social Media,5,5,3,5,5,4.60,Extremely High Risk,0.9,37263,164501,15290,121346,META_2024_annotation.json
 MSFT,Microsoft Corporation,2023,2023-06-30,Software / Cloud Infrastructure (Azure) / AI Services / Devices & Gaming,5,5,4,3,5,4.4,High Risk,0.9,28107,211915,11000,,MSFT_FY2023_annotation.json
 MSFT,Microsoft Corporation,2024,2024-06-30,Software / Cloud Infrastructure (Azure) / AI Services / Devices & Gaming,5,4,3,4,5,4.2,High Risk,0.9,44477,245122,15200,,MSFT_FY2024_annotation.json
 MSFT,Microsoft Corporation,2025,2025-06-30,Software / Cloud Infrastructure (Azure) / AI Services / Devices & Gaming,5,4,3,5,5,4.4,High Risk,0.9,64551,281724,22000,,MSFT_FY2025_annotation.json

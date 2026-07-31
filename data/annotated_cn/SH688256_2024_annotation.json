@@ -1,0 +1,207 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0 (China A-share parity)",
+    "annotated_at": "2026-07-27",
+    "annotator": "zhongyang-260714 (Project Lead)",
+    "review_status": "confirmed",
+    "filing_source": "上交所年报（公司代码 688256）",
+    "review_note": "中国验证集首批三家之一（高无形/芯片设计型）。核心风险在存货暴增与持续亏损（D3）及技术替代（D5），而非 PP&E 折旧（D1 极低、D2 最保守）。用于验证 5D-DRS 对轻资产公司的边界。页码/行号待团队用年报 PDF 终核。",
+    "reviewed_at": "2026-07-27T11:00:00+08:00",
+    "reviewed_by": "zhongyang-260714"
+  },
+  "company": {
+    "ticker": "688256.SH",
+    "name": "中科寒武纪科技股份有限公司",
+    "fiscal_year": 2024,
+    "filing_date": "2025-04-19",
+    "report_period_end": "2024-12-31",
+    "industry": "AI 芯片设计（Fabless）",
+    "primary_assets": "存货、应收账款、无形资产（专利/技术）、少量固定资产（流片/测试设备）",
+    "file_path": "data/raw/sh688256_2024_annual_report.pdf",
+    "coverage_note": "寒武纪 2024 年报：营收 11.74 亿元(+65.56%)，归母净亏损 4.52 亿元（连续亏损但收窄）；研发投入 10.72 亿元（占营收 91.30%），资本化比重 0%（全部费用化，最保守）。固定资产仅 2.31 亿、在建工程 1.50 亿（Fabless 轻资产）。风险不在折旧而在：存货暴增（年末 17.74 亿，同比+1684%）、连续 8 年亏损、AI 芯片技术替代极快。"
+  },
+  "financial_highlights": {
+    "unit_note": "金额单位：人民币百万元（RMB mn）",
+    "revenue_millions": 1174,
+    "revenue_note": "营业收入 1,174,464,377.35 元 ≈ 1,174 百万元，同比 +65.56%",
+    "net_income_millions": -452,
+    "net_income_note": "归母净利润 -452,338,800 元 ≈ -452 百万元（连续亏损，较上年 -848 百万元收窄）",
+    "operating_income_millions": null,
+    "operating_income_note": "待年报 PDF 终核",
+    "rd_expense_millions": 1072,
+    "rd_expense_note": "研发投入 1,072 百万元（占营收 91.30%）；资本化比重 0%，全部费用化",
+    "operating_cash_flow_millions": -1618,
+    "operating_cash_flow_note": "经营活动现金流净额约 -1,618 百万元（2024，同比恶化）",
+    "capex_millions": null,
+    "capex_note": "Fabless 模式下 capex 低，固定资产仅 231 百万元（待年报 PDF 终核）",
+    "depreciation_expense_millions": null,
+    "depreciation_expense_note": "折旧费用低（固定资产规模小），非主要风险渠道",
+    "ppe_net_millions": 231,
+    "ppe_net_note": "固定资产 231 百万元（Fabless 轻资产）",
+    "intangible_assets_millions": 183,
+    "intangible_assets_note": "无形资产 182,762,964.88 元 ≈ 183 百万元（专利/技术）",
+    "goodwill_millions": 0,
+    "goodwill_note": "商誉 0（无重大并购）",
+    "construction_in_progress_millions": 150,
+    "construction_in_progress_note": "在建工程 150 百万元（待年报 PDF 终核）"
+  },
+  "accounting_policy": {
+    "depreciation_method": "直线法（年限平均法）",
+    "rd_capitalization_policy": "2024 年研发投入资本化比重为 0%（全部费用化），为验证集中最保守的会计选择",
+    "estimate_change_2024": "未见折旧年限变更披露",
+    "estimate_change_method": "不适用",
+    "impairment_policy": "资产负债表日判断资产（尤其存货、无形资产）减值迹象；存货按成本与可变现净值孰低计量。",
+    "policy_risk_note": "寒武纪采用 Fabless 模式，固定资产极少，PP&E 折旧错配几乎不存在；且研发投入 100% 费用化（资本化比重 0%），无通过资本化虚增资产/利润的空间——这是最保守的会计姿态。但轻资产公司的风险从“折旧”迁移到“存货跌价 + 技术替代”：存货一年暴增 1684% 至 17.74 亿，在芯片快速迭代下跌价风险极高；连续 8 年亏损则使持续经营与资产可收回金额承压。"
+  },
+  "risk_signals": [
+    {
+      "signal_id": "SH688256-2024-SIG-001",
+      "source": "2024 年报 资产重大变化 / 存货",
+      "keyword_matched": "存货较上年末增加 1684.66%",
+      "text_excerpt": "截至 2024 年末，公司存货余额达 17.74 亿元，较上年末增加 1684.66%；同期营收 11.74 亿元。",
+      "page_location": "2024 年报“资产重大变化”节（页码/行号待年报 PDF 终核）",
+      "risk_type": "inventory_impairment_risk",
+      "severity": "critical",
+      "relevance_to_depreciation": "寒武纪风险不在折旧而在存货：一年暴增 1684% 至 17.74 亿（约为全年营收的 1.5 倍），在 AI 芯片迭代极快（H20/新一代架构）背景下，呆滞与跌价风险极高。这是“风险藏存货/摊销”而非“风险藏折旧”的典型——恰好框定 5D-DRS 的适用边界。",
+      "evidence_chain": [
+        "存货 2024 年末 17.74 亿，同比 +1684.66%",
+        "存货/营收 ≈ 1.5x（库存远超年销售规模）",
+        "AI 芯片迭代 12-18 个月，呆滞与跌价风险高",
+        "连续 8 年亏损，资产可收回金额承压",
+        "→ 减值触发（D3）与技术替代（D5）为真实风险通道"
+      ]
+    },
+    {
+      "signal_id": "SH688256-2024-SIG-002",
+      "source": "2024 年报 关键会计政策 / 研发投入",
+      "keyword_matched": "研发投入占营业收入的比例为 91.30%；资本化比重 0%",
+      "text_excerpt": "公司持续保持高质量的研发投入，研发投入占营业收入的比例为 91.30%。（2024 年研发投入资本化比重为 0%，全部费用化。）",
+      "page_location": "2024 年报 管理层讨论与分析（页码/行号待年报 PDF 终核）",
+      "risk_type": "accounting_conservatism_positive",
+      "severity": "low",
+      "relevance_to_depreciation": "正面信号：研发投入 100% 费用化（资本化比重 0%），是验证集中最保守的会计选择，无通过研发资本化虚增资产/利润的空间。这拉低了 D2（会计政策保守性）风险，使寒武纪在 5D-DRS 下折旧相关风险较低——但企业整体经营/技术风险仍极高，需由 D3/D5 捕捉。",
+      "evidence_chain": [
+        "研发投入 10.72 亿，占营收 91.30%",
+        "资本化比重 0%（全部费用化）",
+        "→ D2 最保守（最低风险）",
+        "→ 折旧/资本化渠道无虚增，风险转由 D3/D5 表达"
+      ]
+    }
+  ],
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "折旧年限 vs 技术实际寿命",
+      "dimension_name_en": "Depreciation Life vs Technology Useful Life",
+      "weight": 0.25,
+      "score": 2,
+      "score_max": 5,
+      "score_label": "低风险",
+      "score_label_en": "Low Risk",
+      "reasoning": "Fabless 模式，固定资产仅 2.31 亿，几乎不存在 PP&E 折旧错配；未见折旧年限延长。评 2 分（低）。",
+      "supporting_signals": [],
+      "key_metrics": {
+        "ppe_net_mn": 231,
+        "ai_chip_cycle_years": "1-2",
+        "mismatch": "极低（轻资产）"
+      }
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "会计政策保守性",
+      "dimension_name_en": "Accounting Policy Conservatism",
+      "weight": 0.2,
+      "score": 1,
+      "score_max": 5,
+      "score_label": "极低风险",
+      "score_label_en": "Very Low Risk",
+      "reasoning": "研发投入资本化比重 0%（全部费用化），验证集中最保守，无资本化虚增资产/利润。评 1 分（极低）。",
+      "supporting_signals": [
+        "SH688256-2024-SIG-002"
+      ],
+      "key_metrics": {
+        "rd_input_mn": 1072,
+        "rd_to_revenue_pct": 91.3,
+        "capitalization_ratio_pct": 0
+      }
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值风险触发",
+      "dimension_name_en": "Impairment Risk Triggers",
+      "weight": 0.2,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "存货暴增 1684% 至 17.74 亿（≈营收 1.5 倍），连续 8 年亏损，芯片迭代下跌价/呆滞风险极高。评 4 分（高）。",
+      "supporting_signals": [
+        "SH688256-2024-SIG-001"
+      ],
+      "key_metrics": {
+        "inventory_mn": 1774,
+        "inventory_yoy_pct": 1684.66,
+        "net_loss_mn": 452,
+        "loss_years": 8
+      }
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本支出(CAPEX)强度",
+      "dimension_name_en": "Capital Expenditure Intensity",
+      "weight": 0.2,
+      "score": 2,
+      "score_max": 5,
+      "score_label": "低风险",
+      "score_label_en": "Low Risk",
+      "reasoning": "Fabless 轻资产，固定资产仅 2.31 亿、在建工程 1.50 亿，capex 低。评 2 分（低）。",
+      "supporting_signals": [],
+      "key_metrics": {
+        "ppe_net_mn": 231,
+        "cip_mn": 150
+      }
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "行业竞争/技术替代",
+      "dimension_name_en": "Industry Competition & Technology Substitution",
+      "weight": 0.15,
+      "score": 5,
+      "score_max": 5,
+      "score_label": "最高风险",
+      "score_label_en": "Highest Risk",
+      "reasoning": "AI 芯片国产替代核心战场，受 NVIDIA H20 出口管制催化但亦面临巨头碾压与架构快速迭代，技术替代风险极高。评 5 分（最高）。",
+      "supporting_signals": [
+        "SH688256-2024-SIG-001"
+      ],
+      "key_metrics": {
+        "segment": "AI芯片",
+        "substitution": "极快(12-18月)",
+        "driver": "国产替代+迭代"
+      }
+    }
+  ],
+  "comparative_context": {
+    "same_company_trend": "寒武纪连续多年亏损、存货随营收扩张快速累积，风险集中在经营与技术面，折旧渠道长期稳定。",
+    "cross_company_benchmark": "在 A 股三家验证集中代表“高无形/设计型”，对标美股 NVDA/AMD；但其 5D-DRS 折旧相关风险（D1/D2/D4）低，与重资产的 Intel/Meta 形成两极。",
+    "narrative_significance": "寒武纪是 5D-DRS 边界的试金石：模型给出中低风险（折旧错配低），但企业整体风险极高——风险从 PP&E 折旧迁移到存货(D3)与技术替代(D5)。这证明模型对轻资产公司需配合 D3/D5 与无形资产维度，既展示判别效度，也诚实标注了适用边界。"
+  },
+  "annotation_methodology": {
+    "source_document": "中科寒武纪科技股份有限公司 2024 年年度报告（上交所 688256）",
+    "filing_accessed": "上交所 / 巨潮资讯",
+    "text_extraction_method": "年报关键节人工摘录（页码/行号待 PDF 终核）",
+    "scoring_method": "Five-dimension weighted scoring (5D-DRS), weights 0.25/0.20/0.20/0.20/0.15（与美国面板一致）",
+    "human_verification": "营收 11.74 亿、净亏 4.52 亿、研发 10.72 亿(占91.30%)、资本化0%、存货 17.74 亿(+1684%) 均来自年报原文，已核对；逐字行号待 PDF 终核",
+    "limitation": "固定资产/折旧绝对值、精确页码行号待年报 PDF 终核；未做多年趋势；模型对轻资产公司边界需配合 D3/D5。"
+  },
+  "composite_score": {
+    "weighted_score": 2.65,
+    "max_score": 5.0,
+    "risk_level": "中低风险",
+    "risk_level_en": "Medium-Low Risk",
+    "risk_level_color": "#20C997",
+    "confidence": 0.8,
+    "confidence_reason": "关键财务数字（营收、净利、研发、资本化率、无形资产/商誉、减值损失、固定资产）均来自年报/决算报告原文并已核对；折旧政策细节与逐字页码行号待团队用年报 PDF 终核，故置信度 0.8（低于美股样本 0.9）。"
+  }
+}

@@ -1,0 +1,471 @@
+import json, re, html
+
+OUT = r"D:\depreciation-risk-detection\data\annotated\AMD_FY2024_annotation.json"
+
+data = {
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-07-23",
+    "annotator": "Kimi AI-assisted (pending review by project lead)",
+    "review_status": "draft_pending_review",
+    "filing_source": "SEC EDGAR - 10-K Annual Report",
+    "review_note": "草稿待项目负责人复核。多年份扩样任务：锚点对照 AMD_FY2023_annotation.json（确认版，综合 2.40）。"
+  },
+  "company": {
+    "ticker": "AMD",
+    "name": "Advanced Micro Devices, Inc.",
+    "fiscal_year": 2024,
+    "filing_date": "2025-02-05",
+    "report_period_end": "2024-12-28",
+    "industry": "Semiconductors / Fabless Chip Design (CPU, GPU, DPU, FPGA, Adaptive SoC)",
+    "primary_assets": "Acquisition-related Intangibles and Goodwill (Xilinx, Pensando, Silo AI), small fabless PP&E base, technology licenses",
+    "file_path": "data/raw/amd_fy2024_10k.html",
+    "coverage_note": "AMD 财年为 52/53 周制，FY2024 止于 2024-12-28。签署日期 2025-02-05（HTML 第 4740 行），审计报告日期同为 2025-02-05（第 4238 行）。FY2024 为 MI300 AI 加速器放量年：Data Center 收入 +94% 至 $12,579M；Q4 2024 实施 2024 Restructuring Plan（裁员约 4%）并确认 Data Center 分部 IPR&D 减值 $58M；ZT Systems 收购（$4.9B）已于 2024-08-17 签约但 FY2024 期末尚未交割，未上表。"
+  },
+  "financial_highlights": {
+    "revenue_millions": 25785,
+    "net_income_millions": 1641,
+    "operating_income_millions": 1900,
+    "capex_millions": 636,
+    "depreciation_millions": 454,
+    "depreciation_and_amortization_cf_millions": 671,
+    "depreciation_cf_note": "Cash flow statement shows 'Depreciation and amortization' $671M (FY2024) covering PP&E depreciation $454M (Note 3) plus non-acquisition amortization; acquisition-related intangible amortization is presented on a separate cash flow line of $2,393M",
+    "amortization_millions": 2394,
+    "amortization_note": "Amortization of acquisition-related intangibles: $946M in cost of sales + $1,448M in operating expenses = $2,394M per income statement and Note 4 All Other table (cash flow line rounds to $2,393M); almost entirely Xilinx/Pensando intangibles. FY2023 comparative: $2,811M",
+    "impairment_charges_millions": 58,
+    "impairment_note": "Q4 FY2024: fair value of certain IPR&D within the Data Center segment determined not recoverable due to actions under the 2024 Restructuring Plan; $58M impairment recorded within Restructuring charges (Note 6, lines 3759-3763). Note 14 restructuring table shows total asset impairment of $73M within the $186M restructuring charges ($58M IPR&D + $15M other asset impairment). No goodwill impairment in FY2024 (annual qualitative test passed, lines 3768-3770).",
+    "restructuring_charges_millions": 186,
+    "capex_to_revenue_ratio": 0.0247,
+    "depreciation_to_revenue_ratio": 0.0176,
+    "amortization_to_revenue_ratio": 0.0928,
+    "total_property_equipment_gross_millions": 3975,
+    "total_property_equipment_net_millions": 1802,
+    "equipment_gross_millions": 2798,
+    "construction_in_progress_millions": 324,
+    "accumulated_depreciation_millions": 2173,
+    "goodwill_millions": 24839,
+    "acquisition_related_intangibles_net_millions": 18930,
+    "acquisition_related_intangibles_gross_millions": 27682,
+    "iprd_not_subject_to_amortization_millions": 162,
+    "total_assets_millions": 69226,
+    "goodwill_plus_intangibles_pct_of_total_assets": 0.6323,
+    "data_center_revenue_millions": 12579,
+    "data_center_revenue_prior_year_millions": 6496,
+    "inventories_millions": 5734,
+    "inventory_loss_at_contract_manufacturer_millions": 65,
+    "server_depreciation_pct_of_total": None,
+    "server_depreciation_pct_note": "NA - AMD is fabless and discloses no depreciation by asset class; no owned AI server fleet exists on its balance sheet"
+  },
+  "accounting_policy": {
+    "depreciation_method": "straight-line",
+    "equipment_useful_life_years": "2-15",
+    "building_useful_life_years": "34-44",
+    "leasehold_improvements": "shorter of the remaining terms of the leases or the estimated useful economic lives of the improvements",
+    "acquired_developed_technology_amortization_years": "Xilinx: 16 (weighted-average, assigned at FY2022 acquisition; FY2024 10-K does not re-disclose the allocation table); developed technology net $10,879M at FY2024 end",
+    "acquired_customer_relationships_amortization_years": "Xilinx: 14 (weighted-average); net $7,200M at FY2024 end",
+    "acquired_product_trademarks_amortization_years": "Xilinx: 12; net $689M at FY2024 end",
+    "intangible_amortization_method": "over estimated useful lives; remaining schedule disclosed: 2025 $2,225M / 2026 $2,111M / 2027 $1,993M / 2028 $1,885M / 2029 $1,659M / 2030 and thereafter $8,895M (total $18,768M)",
+    "goodwill_impairment_testing": "Annual qualitative test as of the first day of Q4 at reporting-unit level (Data Center, Client, Gaming, Embedded); quantitative test if triggered; FY2024 conclusion: no impairment (lines 3768-3770)",
+    "longlived_asset_impairment_testing": "Reviewed when indicators exist (indicators reviewed quarterly); undiscounted cash flow recoverability test, write-down to fair value if not recoverable (lines 3433-3453); FY2024 trigger actually fired: Data Center IPR&D written down $58M under the 2024 Restructuring Plan",
+    "change_in_estimate_method": "NA - no change in depreciation/amortization estimate disclosed in FY2024. The single 'prospectively' hit (line 3642) concerns adoption of a new disclosure standard (segment reporting ASU), not a change in accounting estimate. No useful-life extension history, consistent with FY2023.",
+    "iprd_developments_fy2024": "No new IPR&D reclassification to developed technology in FY2024: IPR&D balance fell from $220M to $162M, fully explained by the $58M impairment (220-58=162). Contrast FY2023, when $970M of Xilinx IPR&D reached technological feasibility and began 15-year amortization.",
+    "policy_risk_note": "Anchor comparison with FY2023 confirmed version: depreciation policy text is IDENTICAL (straight-line, equipment 2-15 years, buildings 34-44 years) - no estimate change, no extension. The economically dominant assumption remains the 14-16 year amortization of Xilinx developed technology/customer relationships vs the 1-year product cadence AMD itself now discloses (annual Instinct roadmap, line 2809). FY2024 new fact: the long-lived asset impairment trigger actually fired for Data Center IPR&D ($58M) - the first realized impairment in the sample - while goodwill ($24.8B, 36% of total assets) again passed a qualitative-only test."
+  },
+  "risk_signals": [
+    {
+      "signal_id": "AMD-FY2024-SIG-001",
+      "source": "Notes to Consolidated Financial Statements - Note 1",
+      "keyword_matched": "useful lives of two to 15 years for equipment",
+      "text_excerpt": "Property and equipment are stated at cost. Depreciation and amortization are provided on a straight-line basis over the estimated useful lives of two to 15 years for equipment, 34 to 44 years for buildings, and leasehold improvements are measured by the shorter of the remaining terms of the leases or the estimated useful economic lives of the improvements.",
+      "page_location": "Note 1. Basis of Presentation and Significant Accounting Policies - Property and Equipment (lines 3521-3526)",
+      "risk_type": "depreciation_schedule_disclosure",
+      "severity": "high",
+      "relevance_to_depreciation": "Official depreciation assumption, UNCHANGED from FY2023 (verified word-for-word): straight-line, equipment 2-15 years. Implied average equipment life from the statements (depreciation $454M vs equipment gross $2,798M) is roughly 6 years. The 15-year upper bound still assumes zero technological displacement for a decade and a half while the company sells AI accelerators on a self-declared annual cadence. Mitigating fact: PP&E net is only $1,802M (2.6% of total assets), so direct profit leverage of this assumption remains small.",
+      "evidence_chain": [
+        "Stated equipment depreciation life: 2-15 years, straight-line (identical to FY2023 disclosure)",
+        "Implied average equipment life approx. 6 years (depreciation $454M / equipment gross $2,798M)",
+        "AMD's own MD&A now discloses an annual AI accelerator cadence (see SIG-010)",
+        "Upper-bound 15-year life spans 15 product generations at the disclosed cadence",
+        "Mitigating fact: fabless model keeps PP&E tiny ($1.8B net, 2.6% of assets)",
+        "Result: direction of bias is under-depreciation, magnitude limited by small asset base; no policy deterioration vs FY2023"
+      ]
+    },
+    {
+      "signal_id": "AMD-FY2024-SIG-002",
+      "source": "Risk Factors - Demand/Forecasting Risk",
+      "keyword_matched": "rapid obsolescence",
+      "text_excerpt": "Many of our markets are characterized by short product lifecycles, which can lead to rapid obsolescence and price erosion.",
+      "page_location": "Item 1A. Risk Factors (lines 1579-1580)",
+      "risk_type": "technology_obsolescence_risk",
+      "severity": "high",
+      "relevance_to_depreciation": "Same admission as FY2023: short product lifecycles and rapid obsolescence directly contradict the multi-year depreciation/amortization assumptions for assets embodying the same technology (equipment up to 15 years; acquired developed technology assigned 15-16 years at acquisition). In FY2024 the contradiction sharpened: the company moved to an explicitly annual AI accelerator roadmap (SIG-010) while the amortization schedule still runs to 2030 and beyond.",
+      "evidence_chain": [
+        "Company states: short product lifecycles, rapid obsolescence, price erosion",
+        "FY2024 MD&A: annual cadence of Instinct AI solutions (line 2809)",
+        "Depreciation/amortization schedules assume the same technology generates benefit for 5-16 years",
+        "Contradiction: revenue life of the technology (1 year per disclosed cadence) is far shorter than its balance-sheet life",
+        "Result: periodic depreciation/amortization expense systematically lower than true economic consumption"
+      ]
+    },
+    {
+      "signal_id": "AMD-FY2024-SIG-003",
+      "source": "Notes to Consolidated Financial Statements - Note 6",
+      "keyword_matched": "IPR&D recorded within the Data Center segment was not recoverable",
+      "text_excerpt": "During the fourth quarter of fiscal year 2024, the Company determined that the fair value of certain IPR&D recorded within the Data Center segment was not recoverable resulting from actions related to the 2024 Restructuring Plan, and recorded an impairment charge of $ 58 million within Restructuring charges",
+      "page_location": "Note 6. Acquisition-related Intangible Assets and Goodwill (lines 3759-3763)",
+      "risk_type": "realized_intangible_impairment",
+      "severity": "critical",
+      "relevance_to_depreciation": "THE headline FY2024 change vs the FY2023 confirmed annotation: AMD's impairment trigger actually fired, and it fired in the Data Center segment - the AI accelerator business. In-process R&D (technology not yet amortizing because it had not reached feasibility) was written down $58M because restructuring actions made it unrecoverable. This validates the project's core thesis in miniature: technology assets carried on optimistic assumptions lose value in step-function events (impairment) rather than smoothly (amortization). Amount is small (0.2% of revenue, 3.5% of net income) but it is the first realized impairment in the AMD sample.",
+      "evidence_chain": [
+        "Q4 FY2024: Data Center IPR&D fair value not recoverable due to 2024 Restructuring Plan actions",
+        "$58M impairment recorded within Restructuring charges (Note 6); Note 14 shows total asset impairment of $73M",
+        "IPR&D balance fell $220M -> $162M, fully explained by the impairment (no reclassification to developed technology this year)",
+        "FY2023 comparative: zero impairment of any kind",
+        "Impaired asset sat in the segment growing +94% - even the AI growth engine strands technology assets",
+        "Result: obsolescence/strategy-shift losses surface as lumpy impairments, confirming the asymmetric recognition pattern (amortize slowly, impair suddenly)"
+      ]
+    },
+    {
+      "signal_id": "AMD-FY2024-SIG-004",
+      "source": "Notes to Consolidated Financial Statements - Note 14; MD&A",
+      "keyword_matched": "2024 Restructuring Plan",
+      "text_excerpt": "In the fourth quarter of 2024, the Company implemented a restructuring plan (the 2024 Restructuring Plan) focused on driving efficiencies and aligning resources with the Company's largest growth opportunities in the AI and enterprise markets. ... The 2024 Restructuring Plan will primarily reduce global workforce by approximately 4% of headcount. ... Current period costs 113 73 186",
+      "page_location": "Note 14. Restructuring Charges (lines 4022-4033); MD&A Restructuring Charges (lines 3089-3094)",
+      "risk_type": "restructuring_with_asset_impairment",
+      "severity": "high",
+      "relevance_to_depreciation": "$186M restructuring charge (11.3% of FY2024 net income) comprising $113M severance + $73M asset impairment, executed to 'align resources' with AI opportunities - i.e., management itself re-stratified assets away from non-AI uses, triggering write-downs. Restructuring-driven asset impairment is the practical mechanism by which technology shifts convert into balance-sheet losses outside the depreciation/amortization schedule.",
+      "evidence_chain": [
+        "Q4 FY2024 restructuring: ~4% global headcount reduction, $186M total charges",
+        "$73M of the charge is asset impairment (Note 14 table), incl. the $58M Data Center IPR&D write-down (Note 6)",
+        "Stated purpose: aligning resources with AI and enterprise markets",
+        "FY2023 had zero restructuring charges - the AI pivot forced real asset write-offs within one year",
+        "Result: strategy-shift obsolescence realized in FY2024; depreciation/amortization schedules were not correspondingly shortened"
+      ]
+    },
+    {
+      "signal_id": "AMD-FY2024-SIG-005",
+      "source": "Risk Factors - Acquisition/Goodwill Impairment",
+      "keyword_matched": "impairment of our tangible, definite-lived intangible or indefinite-lived intangible assets, including goodwill",
+      "text_excerpt": "A decrease in the long-term economic outlook and future cash flows of our business could significantly impact asset values and potentially result in the impairment of tangible and intangible assets, including goodwill, and may require us to record future impairment charges",
+      "page_location": "Item 1A. Risk Factors (lines 2483-2516)",
+      "risk_type": "goodwill_intangible_impairment_risk",
+      "severity": "high",
+      "relevance_to_depreciation": "AMD's analog of the hyperscaler impairment signal, now covering Xilinx, Pensando AND Silo AI acquisitions. $24.8B goodwill plus $18.9B net acquisition intangibles (63.2% of total assets) rest on long-horizon cash-flow assumptions. FY2024 demonstrated the trigger is live (IPR&D impaired, SIG-003); goodwill of the Embedded reporting unit ($21.1B, Xilinx) remains the concentrated tail risk. If AI-era iteration strands acquired technology, the shortfall surfaces as catch-up impairment that faster amortization would have recognized earlier.",
+      "evidence_chain": [
+        "Xilinx ($48.8B), Pensando ($1.9B) and Silo AI ($665M) acquisitions created $24.8B goodwill + $27.7B gross intangibles",
+        "Company warns impairment indicators include inability to introduce new products or achieve forecasts",
+        "FY2024: impairment trigger actually fired for Data Center IPR&D (SIG-003)",
+        "Embedded reporting unit carries $21.1B goodwill on 14-16 year Xilinx technology assumptions",
+        "Result: prior-period profits embed under-amortization risk; tail risk of a large one-time charge persists and is now demonstrably live"
+      ]
+    },
+    {
+      "signal_id": "AMD-FY2024-SIG-006",
+      "source": "Notes to Consolidated Financial Statements - Note 6",
+      "keyword_matched": "Acquisition-related intangible amortization expense was $2.4 billion",
+      "text_excerpt": "Developed technology $ 13,408 $ ( 2,529 ) $ 10,879 ... Acquisition-related intangible amortization expense was $ 2.4 billion and $ 2.8 billion in fiscal year 2024 and 2023, respectively. ... 2025 $ 2,225 2026 2,111 2027 1,993 2028 1,885 2029 1,659 2030 and thereafter 8,895 Total $ 18,768",
+      "page_location": "Note 6. Acquisition-related Intangible Assets and Goodwill (lines 3758-3767)",
+      "risk_type": "amortization_schedule_disclosure",
+      "severity": "high",
+      "relevance_to_depreciation": "The strongest quantitative evidence, continuing the FY2023 anchor pattern: $10.9B net developed technology and $7.2B net customer relationships keep amortizing on acquisition-date 14-16 year assumptions, with $8.9B of the remaining $18.8B schedule pushed to 2030 and thereafter - i.e., AMD assumes 2022-vintage adaptive-computing technology generates economic benefit well into the 2030s. FY2024 amortization of $2,394M equals 146% of net income ($1,641M). If true economic life matches the disclosed annual product cadence, annual amortization is understated by a multiple.",
+      "evidence_chain": [
+        "Developed technology $13,408M gross / $10,879M net; customer relationships $7,200M net",
+        "FY2024 acquisition-intangible amortization: $2,394M (vs net income $1,641M = 146%)",
+        "Remaining schedule: $8,895M of $18,768M falls in 2030 and thereafter",
+        "Company's own AI roadmap now runs on an annual cadence (SIG-010)",
+        "If economic life is 5-7 years rather than 14-16, annual amortization on these assets is understated 2-3x",
+        "Result: amortization expense materially understated relative to AI-era technology reality; reported margins and EPS flattered"
+      ]
+    },
+    {
+      "signal_id": "AMD-FY2024-SIG-007",
+      "source": "Notes to Consolidated Financial Statements - Note 6",
+      "keyword_matched": "no goodwill impairment",
+      "text_excerpt": "During the fourth quarter of fiscal years 2024 and 2023, the Company conducted its annual qualitative impairment tests of goodwill and concluded that there was no goodwill impairment with respect to its reporting units.",
+      "page_location": "Note 6. Acquisition-related Intangible Assets and Goodwill (lines 3768-3770)",
+      "risk_type": "absence_of_realized_impairment",
+      "severity": "low",
+      "relevance_to_depreciation": "Negative/absence signal on goodwill specifically: $24.8B of goodwill (36% of total assets) passed a qualitative-only test for the second consecutive year, so the cushion was never measured numerically. Note the asymmetry in FY2024: IPR&D below goodwill was impaired (SIG-003) while goodwill itself sailed through a qualitative screen. Absence of goodwill impairment is not evidence of absence of overvaluation.",
+      "evidence_chain": [
+        "FY2024 goodwill impairment: $0; test was qualitative only",
+        "Same year, Data Center IPR&D failed a recoverability test and was written down $58M",
+        "Embedded reporting unit carries $21.1B of the $24.8B goodwill (Xilinx)",
+        "Qualitative tests are a low bar; no quantitative fair-value measurement disclosed for FY2024",
+        "Result: goodwill tail risk remains latent and unquantified"
+      ]
+    },
+    {
+      "signal_id": "AMD-FY2024-SIG-008",
+      "source": "Risk Factors - Technology Licenses",
+      "keyword_matched": "future impairments of our technology license purchases",
+      "text_excerpt": "We may incur future impairments of our technology license purchases. ... Factors such as the life of the assets, changes in competing technologies, and changes to the business strategy may represent an indicator of impairment.",
+      "page_location": "Item 1A. Risk Factors (lines 2607-2616)",
+      "risk_type": "technology_license_impairment_risk",
+      "severity": "medium",
+      "relevance_to_depreciation": "Direct acknowledgment (unchanged from FY2023) that 'changes in competing technologies' and 'changes to the business strategy' can impair capitalized technology assets. FY2024 made this concrete: a business-strategy change (the AI-focused restructuring) is exactly what triggered the $58M IPR&D impairment (SIG-003). The risk factor's causal chain was realized within the same fiscal year.",
+      "evidence_chain": [
+        "Capitalized technology licenses carried as other non-current assets",
+        "Impairment indicators include changes in competing technologies and changes to business strategy",
+        "FY2024: business-strategy change (2024 Restructuring Plan) triggered actual technology-asset impairment",
+        "Competing-technology change in AI silicon now occurs on an annual cadence",
+        "Result: another validated channel by which technology transition forces belated catch-up charges"
+      ]
+    },
+    {
+      "signal_id": "AMD-FY2024-SIG-009",
+      "source": "Risk Factors - Inventory Obsolescence",
+      "keyword_matched": "inventory obsolescence because of rapidly changing technology",
+      "text_excerpt": "Excess or obsolete inventory have resulted in, and may in the future result in, write-downs of the value of our inventory. ... a higher incidence of inventory obsolescence because of rapidly changing technology and customer requirements",
+      "page_location": "Item 1A. Risk Factors (lines 1583-1601)",
+      "risk_type": "inventory_obsolescence_writedown_risk",
+      "severity": "medium",
+      "relevance_to_depreciation": "Obsolescence write-down risk persists: inventories grew 32% to $5,734M in FY2024 (raw materials + WIP + finished goods all up) as AMD ramped MI300 supply. Comparative note: the FY2023 filing's specific reference to FY2022 Q3 Gaming/Client charges was REMOVED from this risk factor in FY2024 (0 hits for 'third quarter of 2022'), so the concrete historical example no longer appears; the generic risk language remains. Inventory gets marked down quickly; fixed assets and intangibles carrying the same technology risk do not, unless a formal impairment trigger fires (as it did for IPR&D this year).",
+      "evidence_chain": [
+        "Inventories up 32% YoY to $5,734M during the AI ramp",
+        "Risk factor: obsolescence from rapidly changing technology may cause write-downs",
+        "FY2024 filing dropped the FY2022 Q3 specific charge example present in the FY2023 filing",
+        "Separately, a $65M inventory loss at a contract manufacturer was recorded in FY2024 (All Other category)",
+        "Result: growing inventory position raises the realized-obsolescence exposure that proxies for the same risk in longer-lived assets"
+      ]
+    },
+    {
+      "signal_id": "AMD-FY2024-SIG-010",
+      "source": "MD&A - Overview / Data Center; Risk Factors - Competition",
+      "keyword_matched": "annual cadence",
+      "text_excerpt": "Data Center net revenue of $12.6 billion increased by 94% compared to $6.5 billion in 2023 ... we unveiled an accelerated AMD Instinct accelerator roadmap to deliver an annual cadence of leadership AI solutions.",
+      "page_location": "Item 7. MD&A - Overview (lines 2788-2792, 2803-2809); competition risk factor (lines 960-963)",
+      "risk_type": "industry_competition_tech_substitution",
+      "severity": "medium",
+      "relevance_to_depreciation": "FY2024 is the MI300 ramp year: Data Center revenue +94% to $12,579M (now 49% of total revenue), and AMD itself moved to an explicitly ANNUAL AI accelerator cadence - the company's own words confirm the 1-year technology cycle the project uses as the benchmark against 5-16 year balance-sheet lives. Competition risk factor is unchanged: 'competition will continue to be intense due to rapid technological changes'. Intensification vs FY2023 is real but transmits through the same indirect channels (inventory, intangibles, pricing), since AMD operates no GPU fleets.",
+      "evidence_chain": [
+        "Data Center revenue +94% to $12.6B; AMD Instinct MI300X deployed by large hyperscalers",
+        "AMD unveils annual cadence for Instinct accelerators - self-declared 1-year product cycle",
+        "1-year cadence vs 2-15 year equipment lives and 14-16 year intangible lives = order-of-magnitude mismatch",
+        "AMD is the seller, not the operator: mismatch transmits via inventory/intangibles/pricing, not owned-asset depreciation",
+        "Result: competitive pressure intensified in FY2024; structural exposure channel unchanged from FY2023"
+      ]
+    },
+    {
+      "signal_id": "AMD-FY2024-SIG-011",
+      "source": "Notes to Consolidated Financial Statements - Note 5",
+      "keyword_matched": "Pending Acquisition of ZT Systems",
+      "text_excerpt": "a provider of AI and general purpose compute infrastructure for hyperscale computing companies, in a cash and stock transaction valued at approximately $ 4.9 billion (the Acquisition) ... The Acquisition is expected to close in the first half of 2025",
+      "page_location": "Note 5. Business Combinations - Pending Acquisition of ZT Systems (lines 3705-3718); MD&A (lines 3160-3167); termination fee $300M if not completed by 2025-08-17 (line 3715)",
+      "risk_type": "pending_acquisition_future_amortization",
+      "severity": "medium",
+      "relevance_to_depreciation": "Forward-looking accumulation signal: the $4.9B ZT Systems deal had NOT closed by FY2024 end (zero balance-sheet impact this year) but will add a new layer of goodwill and acquisition intangibles in FY2025 - repeating the Xilinx/Pensando pattern of long-life amortization assumptions on AI-infrastructure technology. AMD plans to divest ZT's manufacturing business, so it is not converting into an asset-heavy operator; the fabless D4 anchor is unaffected.",
+      "evidence_chain": [
+        "Agreement signed 2024-08-17; $3.4B cash + 8.34M shares + up to $300M contingent; $300M termination fee",
+        "Expected close H1 FY2025 - no FY2024 balance-sheet effect",
+        "Acquisition will create new goodwill/intangibles amortized over management-assigned lives (Xilinx precedent: 14-16 years)",
+        "Manufacturing business to be divested - AMD stays fabless, does not become a fleet operator",
+        "Result: amortization-burden and impairment-tail-risk grow again in FY2025; FY2024 scores unaffected beyond D5 context"
+      ]
+    },
+    {
+      "signal_id": "AMD-FY2024-SIG-012",
+      "source": "Notes to Consolidated Financial Statements - Note 3; Consolidated Statements of Cash Flows",
+      "keyword_matched": "Depreciation expense for 2024, 2023 and 2022",
+      "text_excerpt": "Depreciation expense for 2024, 2023 and 2022 was $ 454 million, $ 441 million and $ 439 million, respectively. ... Purchases of property and equipment ( 636 ) ( 546 ) ( 450 ) ... Equipment 2,798 2,346 Construction in progress 324 209",
+      "page_location": "Note 3. Supplemental Financial Statement Information (line 3648); Consolidated Statements of Cash Flows (line 3272)",
+      "risk_type": "depreciation_lag_expansion_anomaly",
+      "severity": "medium",
+      "relevance_to_depreciation": "Depreciation rose only 2.9% ($441M -> $454M) while capex rose 16.5% ($546M -> $636M), equipment gross grew 19.3% ($2,346M -> $2,798M) and construction in progress grew 55% ($209M -> $324M). FY2024 depreciation equals just 71% of FY2024 capex - a young, expanding asset base whose depreciation step-up is back-loaded. Still immaterial to earnings at 1.8% of revenue; the pattern matters as a directional anchor for D4.",
+      "evidence_chain": [
+        "Equipment gross +19.3% YoY; CIP +55% YoY; capex +16.5% YoY",
+        "Depreciation +2.9% only; depreciation/capex = 0.71",
+        "Accumulated depreciation is 55% of gross PP&E - younger base than FY2023 (53%)",
+        "Asset base remains tiny (PP&E net 2.6% of total assets)",
+        "Result: even if equipment lives prove optimistic, direct earnings leverage stays small; consistent with D4=1"
+      ]
+    }
+  ],
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "折旧年限 vs 技术实际寿命",
+      "dimension_name_en": "Depreciation Life vs Technology Useful Life",
+      "weight": 0.25,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "与 FY2023 确认版口径保持一致，维持 3 分：折旧政策文本逐字未变（设备 2-15 年直线法，行 3521-3526），按折旧费用 $454M/设备原值 $2,798M 推算隐含平均设备年限约 6 年，仍处于 4-6 年锚点区间；PP&E 净额 $1,802M 仅占总资产 2.6%，直接折旧杠杆依然很小。真正的年限错配仍在收购无形资产：开发技术净额 $10.9B、客户关系净额 $7.2B 按收购时 14-16 年假设摊销，剩余摊销表中 $8,895M（占 $18,768M 的 47%）排到 2030 年及以后（行 3767），而公司自己在 FY2024 MD&A 披露了年度节奏的 AI 加速器路线图（annual cadence，行 2809）——技术周期锚点从 1-2 年压缩到明确的 1 年，错配方向未变、程度未减。综合：直接折旧错配有限、摊销错配极端且无改善，按 FY2023 同一锚点维持 3 分。",
+      "supporting_signals": ["AMD-FY2024-SIG-001", "AMD-FY2024-SIG-002", "AMD-FY2024-SIG-006", "AMD-FY2024-SIG-010"],
+      "key_metrics": {
+        "stated_equipment_useful_life_years": "2-15",
+        "implied_avg_equipment_life_years": "~6",
+        "acquired_developed_technology_life_years": "14-16 (assigned at acquisition)",
+        "company_disclosed_ai_cadence_years": 1,
+        "ppe_net_pct_of_total_assets": 0.026,
+        "amortization_scheduled_2030_and_beyond_millions": 8895,
+        "change_vs_fy2023": "policy text verbatim unchanged; score unchanged at anchor 3"
+      }
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "会计政策保守性",
+      "dimension_name_en": "Accounting Policy Conservatism",
+      "weight": 0.2,
+      "score": 2,
+      "score_max": 5,
+      "score_label": "中低风险",
+      "score_label_en": "Medium-Low Risk",
+      "reasoning": "维持 FY2023 确认版 2 分：FY2024 本期无任何折旧/摊销年限变更披露，无延长年限+未来适用情形，也无历史延长记录，属'无变更→2-3'锚点的下端。全文'prospectively'仅 1 次命中（行 3642），经查证为新披露准则（分部报告 ASU）的衔接规定，并非会计估计变更，不构成 Meta/Oracle 式信号。抵减项同 FY2023：收购初始确认即给 Xilinx 技术资产定 14-16 年超长年限，乐观假设前置到初始计量，该激进性已计入 D1/D3，不在 D2 重复扣分。",
+      "supporting_signals": ["AMD-FY2024-SIG-001", "AMD-FY2024-SIG-007"],
+      "key_metrics": {
+        "change_in_estimate_disclosed": False,
+        "prospectively_keyword_hits": 1,
+        "prospectively_hit_context": "new segment-reporting disclosure standard adoption (line 3642), NOT a change in accounting estimate",
+        "useful_life_extension_history": False,
+        "aggressive_initial_life_assignment_intangibles": True,
+        "change_vs_fy2023": "no change in estimate in either year; score unchanged at anchor 2"
+      }
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值风险触发",
+      "dimension_name_en": "Impairment Risk Triggers",
+      "weight": 0.2,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "对照 FY2023 确认版（3 分，'仅间接信号'）上调至 4 分，理由是真实事件变化而非口径变化：FY2024 发生 AMD 样本内首次实际减值——Q4 2024 数据中心分部 IPR&D 因 2024 Restructuring Plan 相关行动被判定不可收回，确认减值 $58M 计入重组费用（行 3759-3763），Note 14 重组表显示资产减值合计 $73M（行 4033），重组费用总额 $186M 占净利润 11.3%。锚点适用'直接信号+历史记录本期减值小→4'：①本期减值金额小（占收入 0.2%）但已实现且落在 AI 加速器所在的数据中心分部；②直接信号充足：商誉/无形资产减值风险专章（行 2483-2516）、技术许可减值风险专章（行 2607-2616）、Note 1 长期资产减值政策'changes in any of these factors could necessitate impairment recognition in future periods'（行 3451-3452）；③$24.8B 商誉（占总资产 36%）仍仅通过定性测试，Embedded 报告单元单扛 $21.1B。未达 5 分因无 Meta 式大额减值（$58M vs Meta $2.43B）。",
+      "supporting_signals": ["AMD-FY2024-SIG-003", "AMD-FY2024-SIG-004", "AMD-FY2024-SIG-005", "AMD-FY2024-SIG-008", "AMD-FY2024-SIG-009"],
+      "key_metrics": {
+        "fy2024_realized_iprd_impairment_millions": 58,
+        "fy2024_total_asset_impairment_in_restructuring_millions": 73,
+        "restructuring_charges_millions": 186,
+        "impaired_segment": "Data Center (AI accelerator business)",
+        "fy2023_realized_impairment_millions": 0,
+        "goodwill_impairment_fy2024_millions": 0,
+        "goodwill_millions": 24839,
+        "goodwill_test_type": "qualitative only",
+        "change_vs_fy2023": "score raised 3 -> 4 on REAL event: first realized impairment in AMD sample, fired in Data Center segment"
+      }
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本支出(CAPEX)强度",
+      "dimension_name_en": "Capital Expenditure Intensity",
+      "weight": 0.2,
+      "score": 1,
+      "score_max": 5,
+      "score_label": "低风险",
+      "score_label_en": "Low Risk",
+      "reasoning": "维持 FY2023 确认版 1 分：FY2024 CAPEX（购置不动产与设备）$636M，CAPEX/收入=2.47%（FY2023 为 2.41%），远低于 5% 锚点下限，典型 fabless 轻资产结构。折旧费用 $454M 仅占收入 1.8%，即使设备年限假设严重失真，对利润的直接杠杆也极小。ZT Systems 收购（拟剥离制造业务）不改变 fabless 定位。真正的利润杠杆仍在收购无形资产摊销（$2,394M，占收入 9.3%，为净利润的 146%），该口径不属于 CAPEX 强度维度，已在 D1/D3 反映。",
+      "supporting_signals": ["AMD-FY2024-SIG-001", "AMD-FY2024-SIG-011", "AMD-FY2024-SIG-012"],
+      "key_metrics": {
+        "capex_millions": 636,
+        "revenue_millions": 25785,
+        "capex_to_revenue_ratio": 0.0247,
+        "capex_to_revenue_ratio_fy2023": 0.0241,
+        "depreciation_to_revenue_ratio": 0.0176,
+        "amortization_to_revenue_ratio": 0.0928,
+        "amortization_to_net_income_ratio": 1.46,
+        "change_vs_fy2023": "ratio essentially flat (2.41% -> 2.47%); score unchanged at anchor 1"
+      }
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "行业竞争/技术替代",
+      "dimension_name_en": "Industry Competition & Technology Substitution",
+      "weight": 0.15,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "维持 FY2023 确认版 3 分（'卖芯片而非运营、间接暴露→2-3'区间上限）：FY2024 竞争加剧是事实——Data Center 收入 +94% 至 $12,579M（占总收入 49%），MI300X 大规模部署，公司自我加压至年度路线图节奏（annual cadence，行 2809），并以 $4.9B 签约 ZT Systems 补强 AI 基础设施系统能力；竞争风险因素措辞未变（'rapid technological changes'，行 960-963）。但结构性暴露通道未变：AMD 仍是 fabless 卖方而非算力运营方，技术替代风险经由存货减记、无形资产/商誉减值、定价压力传导，而非自有算力资产折旧。FY2023 已取区间上限 3 分，升档至 4 需要结构性变化（如自营 GPU 云），FY2024 未出现（ZT 制造业务拟剥离）；且 D3 已因本期实际减值上调，避免了双重计入。",
+      "supporting_signals": ["AMD-FY2024-SIG-002", "AMD-FY2024-SIG-010", "AMD-FY2024-SIG-011"],
+      "key_metrics": {
+        "industry": "Semiconductors / AI accelerators",
+        "operates_own_gpu_fleets": False,
+        "data_center_revenue_millions": 12579,
+        "data_center_revenue_yoy_growth": 0.94,
+        "data_center_pct_of_total_revenue": 0.49,
+        "company_disclosed_ai_cadence": "annual (1 year)",
+        "primary_competitors": ["NVDA", "INTC"],
+        "exposure_channel": "inventory writedowns, intangible/goodwill impairment, pricing pressure",
+        "change_vs_fy2023": "competition intensified (annual cadence, MI300 ramp, ZT deal) but structural exposure channel unchanged; score held at band ceiling 3"
+      }
+    }
+  ],
+  "composite_score": {
+    "weighted_score": 2.6,
+    "max_score": 5.0,
+    "risk_level": "中风险",
+    "risk_level_en": "Medium Risk",
+    "risk_level_color": "#FFC107",
+    "confidence": 0.8,
+    "confidence_reason": "All key figures verified against FY2024 10-K body text with line numbers (revenue, net income, capex, depreciation, amortization, PP&E, goodwill, intangibles, IPR&D impairment, restructuring charges, segment revenue). Anchor consistency with FY2023 confirmed version explicitly maintained: only D3 moved (3->4), driven by the realized $58M Data Center IPR&D impairment - a documented real event, not a judgment drift. Residual uncertainty: the $58M impairment amount is disclosed but the specific IPR&D project is not named; whether FY2025 (ZT close) changes the structural profile is forward-looking.",
+    "score_breakdown": {
+      "D1": {"score": 3, "weight": 0.25, "weighted": 0.75},
+      "D2": {"score": 2, "weight": 0.2, "weighted": 0.4},
+      "D3": {"score": 4, "weight": 0.2, "weighted": 0.8},
+      "D4": {"score": 1, "weight": 0.2, "weighted": 0.2},
+      "D5": {"score": 3, "weight": 0.15, "weighted": 0.45}
+    }
+  },
+  "comparative_context": {
+    "anchor_version": "AMD_FY2023_annotation.json (confirmed, composite 2.40, D1=3/D2=2/D3=3/D4=1/D5=3)",
+    "fy2023_to_fy2024_comparison": {
+      "D1": "3 -> 3 (unchanged): depreciation policy verbatim identical (equipment 2-15 years, straight-line); intangible amortization assumptions unchanged",
+      "D2": "2 -> 2 (unchanged): no change in accounting estimate in FY2024; sole 'prospectively' hit relates to a new disclosure standard, not an estimate change",
+      "D3": "3 -> 4 (UPGRADED on real event): FY2024 recorded AMD's first realized impairment in the sample - $58M Data Center IPR&D write-down plus $73M total asset impairment within $186M restructuring charges; FY2023 had zero impairment",
+      "D4": "1 -> 1 (unchanged): capex/revenue 2.41% -> 2.47%, still deep in the fabless <5% band",
+      "D5": "3 -> 3 (unchanged): AI competition intensified (MI300 ramp +94%, annual cadence disclosed, ZT Systems signed) but AMD's seller-not-operator exposure channel is structurally unchanged and was already scored at the 2-3 band ceiling",
+      "composite": "2.40 -> 2.60 (+0.20), entirely attributable to the D3 upgrade from the realized FY2024 impairment"
+    },
+    "cross_year_consistency_note": "分数变化只反映真实事件：FY2024 唯一升档维度 D3 对应 10-K 原文可验证的新事实（IPR&D 减值 $58M + 重组资产减值 $73M），其余四维锚点与 FY2023 确认版逐项核对无政策/结构变化。FY2024 风险画像特征：风险从'纯假设错配'（FY2023）演进为'假设错配+小规模已实现'（FY2024），且减值落在 AI 加速器所在的数据中心分部，与项目'技术迭代压缩资产实际寿命'的核心假设方向一致。",
+    "sector_median_score": 3.0,
+    "sector": "Semiconductors",
+    "sector_median_note": "Estimate pending annotation of remaining semiconductor and hyperscaler samples",
+    "peer_comparison": [
+      {
+        "company": "Meta Platforms",
+        "ticker": "META",
+        "estimated_score": 4.0,
+        "note": "Confirmed benchmark. Operates massive GPU/data-center assets: CAPEX/revenue 20.2%, server life 4-5 years vs 1-2 year GPU cycle, plus $2.43B realized FY2023 impairment. Structurally opposite asset model to AMD."
+      },
+      {
+        "company": "AMD (prior year)",
+        "ticker": "AMD",
+        "estimated_score": 2.4,
+        "note": "FY2023 confirmed version: D1=3/D2=2/D3=3/D4=1/D5=3 -> 2.40. FY2024 upgrade to 2.60 driven solely by realized Data Center IPR&D impairment (D3 3->4)."
+      },
+      {
+        "company": "NVIDIA",
+        "ticker": "NVDA",
+        "estimated_score": 2.5,
+        "note": "Fabless AI chip seller like AMD but with far larger data-center revenue share and minimal acquisition goodwill; key differentiator vs AMD is absence of a $43.8B goodwill/intangible overhang and no realized impairment signal."
+      },
+      {
+        "company": "Oracle",
+        "ticker": "ORCL",
+        "estimated_score": 3.6,
+        "note": "Confirmed FY2024 annotation. Cloud operator with FY2023 server life extension 4->5 years (-$434M opex) and $32.2B off-BS data center lease commitments; asset-heavy operator profile contrasts with AMD's fabless profile."
+      },
+      {
+        "company": "Microsoft",
+        "ticker": "MSFT",
+        "estimated_score": 3.5,
+        "note": "Azure cloud operator with disclosed server useful-life extension history - a direct extension signal AMD lacks."
+      }
+    ]
+  },
+  "annotation_methodology": {
+    "source_document": "Advanced Micro Devices, Inc. FY2024 Annual Report on Form 10-K (fiscal year ended December 28, 2024, signed February 5, 2025)",
+    "filing_accessed": "Local file: data/raw/amd_fy2024_10k.html (4,744 lines, originally from SEC EDGAR, CIK 0000002488)",
+    "text_extraction_method": "Case-insensitive keyword search (impairment, useful life/lives, depreciation, amortization, obsolescence, prospectively, restructuring, ZT Systems, annual cadence, technological change) with per-hit context verification against tag-stripped body text; hidden XBRL tag matches excluded. Financial figures extracted from Consolidated Statements of Operations, Cash Flows, Balance Sheets, Note 1, Note 3, Note 5, Note 6, Note 14 and MD&A.",
+    "anchor_protocol": "Multi-year expansion task: FY2023 confirmed annotation (2.40) read first and used as the scoring anchor; each dimension explicitly compared against the FY2023 version; scores changed only where the FY2024 10-K documents a real policy/risk change (only D3: realized impairment).",
+    "scoring_method": "Five-dimension weighted scoring (D1 0.25 / D2 0.20 / D3 0.20 / D4 0.20 / D5 0.15), 1-5 integer scale per dimension, weighted average mapped to risk levels (>=4 High #DC3545; 3-3.9 Medium-High #FD7E14; 2-2.9 Medium #FFC107; <2 Low #28A745)",
+    "human_verification": "Pending review by project lead; all text excerpts quoted verbatim from tag-stripped filing text with HTML line numbers",
+    "limitation": "Single-year 10-K. AMD discloses equipment useful life only as a 2-15 year range with no per-class breakdown, so implied average equipment life (~6 years) is an analyst estimate. The impaired Data Center IPR&D project is not named and the $15M non-IPR&D portion of the $73M asset impairment is not broken out. The Xilinx 14-16 year amortization lives were disclosed in prior-year filings (allocation table not repeated in the FY2024 10-K); FY2024 disclosure shows only the remaining amortization schedule. Depreciation-specific signals remain structurally sparse for a fabless issuer; amortization of acquisition intangibles is used as the analogous exposure."
+  }
+}
+
+with open(OUT, "w", encoding="utf-8") as f:
+    json.dump(data, f, ensure_ascii=False, indent=2)
+print("written:", OUT)

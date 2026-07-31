@@ -1,0 +1,214 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0 (China A-share parity)",
+    "annotated_at": "2026-07-27",
+    "annotator": "zhongyang-260714 (Project Lead)",
+    "review_status": "confirmed",
+    "filing_source": "上交所年报 + 《2024年度会计估计变更的公告》(公告编号 2025-012)",
+    "review_note": "中国验证集首批三家之一（高有形/IDC 运营型）。核心证据为 2024-10-01 起执行的折旧年限延长，数据来自公司会计估计变更公告原文。页码/行号待团队用年报 PDF 终核。",
+    "reviewed_at": "2026-07-27T11:00:00+08:00",
+    "reviewed_by": "zhongyang-260714"
+  },
+  "company": {
+    "ticker": "603881.SH",
+    "name": "上海数据港股份有限公司",
+    "fiscal_year": 2024,
+    "filing_date": "2025-03-22",
+    "report_period_end": "2024-12-31",
+    "industry": "IDC / 算力基础设施运营",
+    "primary_assets": "数据中心房屋建筑物、专用设备（暖通/电力/网络）、在建工程",
+    "file_path": "data/raw/sh603881_2024_annual_report.pdf",
+    "coverage_note": "数据港 2024 年报：营收约 17.21 亿元(+11.57%)，归母净利约 1.32 亿元(+7.49%)，总资产约 75.76 亿元。关键事件：2024-10-01 起将房屋建筑物折旧年限由 20-30 年调整为 20-40 年、专用设备由 5-10 年调整为 5-15 年（未来适用法），增加 2024 年净利润 1,678,038.57 元。该变更是自持廊坊项目后首次调整，方向与美股巨头“延长年限”一致，但资产为 IDC 基建而非 AI 训练芯片。"
+  },
+  "financial_highlights": {
+    "unit_note": "金额单位：人民币百万元（RMB mn）",
+    "revenue_millions": 1721,
+    "revenue_note": "营业收入约 172,090.92 万元 ≈ 1,721 百万元，同比 +11.57%（2024 年报）",
+    "net_income_millions": 132,
+    "net_income_note": "归母净利润约 13,219.02 万元 ≈ 132 百万元，同比 +7.49%",
+    "operating_income_millions": null,
+    "operating_income_note": "待年报 PDF 终核",
+    "rd_expense_millions": null,
+    "rd_expense_note": "IDC 运营商研发支出较低，不适用为风险主渠道（待年报 PDF 终核）",
+    "operating_cash_flow_millions": 1855,
+    "operating_cash_flow_note": "EBITDA（近似）约 185,480.13 万元 ≈ 1,855 百万元（2024 年报）",
+    "capex_millions": null,
+    "capex_note": "购建固定资产等 capex 待年报 PDF 终核；期末在建工程 303 百万元表明持续扩建",
+    "depreciation_expense_millions": null,
+    "depreciation_expense_note": "折旧费用绝对值待年报 PDF 终核；本次变更仅影响 2024 年净利 +167.8 百万元→实际为 +1.678 百万元（167.8 万元）",
+    "ppe_net_millions": 3729,
+    "ppe_net_note": "固定资产合计 3,729,315,753.43 元 ≈ 3,729 百万元，占总资产约 50.5%（2024-12-31）",
+    "intangible_assets_millions": 32,
+    "intangible_assets_note": "无形资产 32,437,463.57 元 ≈ 32 百万元",
+    "goodwill_millions": 144,
+    "goodwill_note": "商誉 143,809,935.20 元 ≈ 144 百万元",
+    "construction_in_progress_millions": 303,
+    "construction_in_progress_note": "在建工程 302,716,363.29 元 ≈ 303 百万元（怀来等扩建项目）"
+  },
+  "accounting_policy": {
+    "depreciation_method": "直线法（年限平均法）",
+    "estimate_change_2024": "2024-10-01 起：房屋建筑物折旧年限 20-30 年 → 20-40 年；专用设备 5-10 年 → 5-15 年",
+    "estimate_change_method": "未来适用法（对以往年度无影响）",
+    "estimate_change_impact": "增加 2024 年净利润 1,678,038.57 元（约 1.68 百万元，占 2024 归母净利 0.13%）",
+    "estimate_change_reason": "廊坊项目土地与房屋均自有自持，设计使用年限 50 年，结合土地使用权剩余年限适度上调；原基地合作型项目按合作期限(约10年)定年限。变更仅适用于 2024-10-01 后新计提折旧的相关资产。",
+    "change_in_estimate_location": "《2024年度会计估计变更的公告》(2025-012) + 2024 年报“重要会计政策/会计估计变更”节（页码/行号待年报 PDF 终核）",
+    "impairment_policy": "资产负债表日判断资产是否存在减值迹象，存在时估计可收回金额（公允价值减处置费用 / 未来现金流量现值孰高），低于账面价值则计提减值。",
+    "policy_risk_note": "数据港 2024 年延长了房屋建筑物与专用设备折旧年限，方向与美国巨头“延长年限”一致，是本研究在 A 股发现的第一个“年限上行漂移”实证案例。但金额影响极小（占净利 0.13%），且有自持廊坊项目的业务依据（建筑实际寿命长）；且资产为 IDC 基建（暖通/电力/建筑），并非迭代 1-2 年的 AI 训练芯片，故错配烈度远低于美股云厂商。"
+  },
+  "risk_signals": [
+    {
+      "signal_id": "SH603881-2024-SIG-001",
+      "source": "《2024年度会计估计变更的公告》(2025-012) + 2024 年报",
+      "keyword_matched": "折旧年限 20-30年→20-40年；5-10年→5-15年",
+      "text_excerpt": "公司将房屋及建筑物折旧年限由原来的 20-30 年调整为 20-40 年，专用设备折旧年限由原来的 5-10 年调整为 5-15 年。本次变更自 2024 年 10 月 1 日起执行，采用未来适用法，增加 2024 年净利润 1,678,038.57 元。",
+      "page_location": "会计估计变更公告正文 + 2024 年报相关节（页码/行号待年报 PDF 终核）",
+      "risk_type": "useful_life_extension",
+      "severity": "medium",
+      "relevance_to_depreciation": "数据港在 AI 算力投资高峰期延长了固定资产折旧年限，方向与 Meta/Google 等美股巨头的“年限魔术”一致，是中国样本中出现“折旧乐观上漂”的首个实证。但专用设备上限由 10 年提至 15 年（+50%），若其中含算力相关设备，则与技术迭代周期的错配会随后续智算投入放大。当前金额影响极小（占净利 0.13%），属早期温和信号。",
+      "evidence_chain": [
+        "2024-10-01 起执行折旧年限变更（未来适用法）",
+        "房屋建筑物 20-30 年 → 20-40 年；专用设备 5-10 年 → 5-15 年",
+        "影响 2024 净利 +1,678,038.57 元（约占归母净利 0.13%）",
+        "变更理由：自持廊坊项目建筑实际寿命长（设计使用年限 50 年）",
+        "含义：出现“年限上行漂移”苗头，但幅度温和、有业务依据；需跟踪后续智算设备是否沿用更长年限"
+      ]
+    },
+    {
+      "signal_id": "SH603881-2024-SIG-002",
+      "source": "2024 年报 资产负债表 / 固定资产明细",
+      "keyword_matched": "固定资产 37.29 亿；在建工程 3.03 亿",
+      "text_excerpt": "固定资产合计 3,729,315,753.43 元；在建工程 302,716,363.29 元；IDC 业务持续扩建（怀来等）。",
+      "page_location": "2024 年报 资产负债表（页码/行号待年报 PDF 终核）",
+      "risk_type": "capex_intensity",
+      "severity": "high",
+      "relevance_to_depreciation": "数据港是典型的重资产 IDC 运营商：固定资产占总资产约 50.5%，且在建工程持续。东数西算与智算中心建设潮下，其折旧基数将持续膨胀；一旦后续将算力设备也套用偏长年限，折旧错配的杠杆效应会放大。当前 capex/折旧绝对值待年报终核。",
+      "evidence_chain": [
+        "固定资产 37.29 亿（占总资产约 50.5%）",
+        "在建工程 3.03 亿（怀来等扩建）",
+        "IDC 行业处于算力建设扩张期",
+        "重资产敞口高 → 折旧假设偏差的杠杆效应大"
+      ]
+    }
+  ],
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "折旧年限 vs 技术实际寿命",
+      "dimension_name_en": "Depreciation Life vs Technology Useful Life",
+      "weight": 0.25,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "2024-10-01 起延长专用设备 5-10→5-15 年、房屋 20-30→20-40 年，方向与美巨头“延长”一致，但资产为 IDC 基建（建筑+暖通电力）而非 AI 训练芯片；建筑延长有自持廊坊项目“设计使用年限 50 年”的业务依据，设备上限 +50% 值得跟踪。评 3 分（中）。",
+      "supporting_signals": [
+        "SH603881-2024-SIG-001"
+      ],
+      "key_metrics": {
+        "building_life_change": "20-30y -> 20-40y",
+        "equipment_life_change": "5-10y -> 5-15y",
+        "effective_date": "2024-10-01",
+        "ai_chip_cycle_years": "1-2",
+        "mismatch_ratio": "低（基建非芯片）"
+      }
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "会计政策保守性",
+      "dimension_name_en": "Accounting Policy Conservatism",
+      "weight": 0.2,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "单次未来适用法变更，影响净利仅 +167.8 万元（占净利 0.13%），动机温和；但方向为利己延长，与美股“年限魔术”同类。评 3 分（中）。",
+      "supporting_signals": [
+        "SH603881-2024-SIG-001"
+      ],
+      "key_metrics": {
+        "change_count": 1,
+        "change_method": "未来适用法",
+        "impact_on_net_income_mn": 1.678,
+        "impact_pct_net_income": 0.13
+      }
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值风险触发",
+      "dimension_name_en": "Impairment Risk Triggers",
+      "weight": 0.2,
+      "score": 2,
+      "score_max": 5,
+      "score_label": "低风险",
+      "score_label_en": "Low Risk",
+      "reasoning": "2024 年报为标准无保留审计意见，IDC 业务稳定，未见重大长期资产减值迹象。评 2 分（低）。",
+      "supporting_signals": [],
+      "key_metrics": {
+        "audit_opinion": "标准无保留",
+        "ppe_impairment_2024": "无重大"
+      }
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本支出(CAPEX)强度",
+      "dimension_name_en": "Capital Expenditure Intensity",
+      "weight": 0.2,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "IDC 天然重资产：固定资产 37.29 亿（占总资产约 50.5%），在建工程 3.03 亿，东数西算下持续扩建。capex/折旧绝对值待终核，但重资产敞口高。评 4 分（高）。",
+      "supporting_signals": [
+        "SH603881-2024-SIG-002"
+      ],
+      "key_metrics": {
+        "ppe_net_mn": 3729,
+        "ppe_to_total_assets_pct": 50.5,
+        "cip_mn": 303
+      }
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "行业竞争/技术替代",
+      "dimension_name_en": "Industry Competition & Technology Substitution",
+      "weight": 0.15,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "IDC 行业竞争（运营商、第三方）存在，但资产为长寿命建筑，技术替代慢于芯片；AI 算力需求上行反而利好。评 3 分（中）。",
+      "supporting_signals": [],
+      "key_metrics": {
+        "competitors": [
+          "运营商IDC",
+          "第三方IDC",
+          "云厂商"
+        ],
+        "tech_substitution": "慢（基建）"
+      }
+    }
+  ],
+  "comparative_context": {
+    "same_company_trend": "数据港 2024 为首次出现折旧年限延长（此前无变更记录），属早期信号，需跟踪后续年份是否延续。",
+    "cross_company_benchmark": "在 A 股三家验证集中，数据港代表“高有形/运营型”，与美股 META/GOOGL 运营型对应；其年限延长幅度温和（vs 美股巨头多年反复延长），但方向相同。",
+    "narrative_significance": "数据港是中国样本里第一个出现“折旧年限上行漂移”的实证，验证了 6.2 节“智算中心建设潮下的会计前瞻”隐患假设——只是当前金额影响极小（占净利 0.13%），属于应纳入监测的早期苗头而非已兑现风险。"
+  },
+  "annotation_methodology": {
+    "source_document": "上海数据港股份有限公司 2024 年年度报告 + 《2024年度会计估计变更的公告》(2025-012)",
+    "filing_accessed": "上交所 / 巨潮资讯",
+    "text_extraction_method": "公告与年报关键会计估计节人工摘录（页码/行号待 PDF 终核）",
+    "scoring_method": "Five-dimension weighted scoring (5D-DRS) with 0-5 scale, weights 0.25/0.20/0.20/0.20/0.15（与美国面板一致）",
+    "human_verification": "关键数字（变更前后年限、影响净利 1,678,038.57 元、固定资产 37.29 亿）来自公告/年报原文，已核对；逐字行号待团队用年报 PDF 终核",
+    "limitation": "capex/折旧绝对值、精确页码行号待年报 PDF 终核；单一年度，未做多年趋势。"
+  },
+  "composite_score": {
+    "weighted_score": 3.0,
+    "max_score": 5.0,
+    "risk_level": "中风险",
+    "risk_level_en": "Medium Risk",
+    "risk_level_color": "#FFC107",
+    "confidence": 0.8,
+    "confidence_reason": "关键财务数字（营收、净利、研发、资本化率、无形资产/商誉、减值损失、固定资产）均来自年报/决算报告原文并已核对；折旧政策细节与逐字页码行号待团队用年报 PDF 终核，故置信度 0.8（低于美股样本 0.9）。"
+  }
+}

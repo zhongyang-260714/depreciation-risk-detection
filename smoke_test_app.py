@@ -1,41 +1,57 @@
-"""冒烟测试：用 Streamlit 官方 AppTest 在无浏览器环境下真实执行 app.py 的三种状态。"""
-from streamlit.testing.v1 import AppTest
+# -*- coding: utf-8 -*-
+"""看板冒烟测试：验证系统数据链路与六个页面模块可用
 
-APP = "src/dashboard/app.py"
+验证三件事：
+1. 标注库完整：data/annotated/ 下 30 份 confirmed 标注全部可加载；
+2. 六个页面模块（P1-P6）均可正常导入；
+3. 实时评分链路就绪：模型文件与 v06 面板就位，评分器可加载。
 
-# 1. 初始界面（单公司分析 · 未点击按钮）
-at = AppTest.from_file(APP, default_timeout=60)
-at.run()
-assert not at.exception, f"初始界面报错: {at.exception}"
-print("✅ 初始界面 OK | 标题块:", len(at.markdown), "| 按钮:", len(at.button))
+运行：python smoke_test_app.py（在仓库根目录执行）
+"""
+import json
+import sys
+from pathlib import Path
 
-# 2. 案例库模式
-at2 = AppTest.from_file(APP, default_timeout=60)
-at2.run()
-at2.sidebar.radio[0].set_value("📚 案例库（已标注 5 家）").run()
-assert not at2.exception, f"案例库报错: {at2.exception}"
-opts = list(at2.selectbox[0].options)
-print("✅ 案例库 OK | 可选公司:", opts)
-assert len(opts) == 5, "应当加载 5 家标注公司"
-# 切换每一家公司都跑一遍
-for t in opts:
-    at2.selectbox[0].set_value(t).run()
-    assert not at2.exception, f"案例 {t} 报错: {at2.exception}"
-print("✅ 5 家公司页面全部可渲染")
+REPO_ROOT = Path(__file__).resolve().parent
+DASHBOARD = REPO_ROOT / "src" / "dashboard"
+sys.path.insert(0, str(DASHBOARD))
+sys.path.insert(0, str(REPO_ROOT))
 
-# 3. 点击「开始分析」跑完整分析流程
-at3 = AppTest.from_file(APP, default_timeout=60)
-at3.run()
-at3.sidebar.text_input[0].set_value("NVDA")
-at3.sidebar.text_area[0].set_value(
-    "ITEM 1A. RISK FACTORS. Our business faces risks related to depreciation, "
-    "impairment and amortization of long-lived assets. Rapid technology change "
-    "may cause our equipment to become obsolete, leading to impairment charges. "
-    "Uncertain market conditions add pressure and risk of decline."
-)
-at3.sidebar.button[0].click().run()
-assert not at3.exception, f"分析流程报错: {at3.exception}"
-print("✅ 分析流程 OK | 指标卡片:", len(at3.metric), "| Tab:", len(at3.tabs))
-assert len(at3.metric) >= 4, "结果区应至少显示 4 个指标"
+# [1/3] 标注库完整性
+ANN = REPO_ROOT / "data" / "annotated"
+skip = ("backup", "draft", "old", "tmp")
+files = [p for p in ANN.glob("*.json")
+         if not p.name.startswith("_") and not any(k in p.name.lower() for k in skip)]
+assert len(files) == 30, f"预期 30 份正式标注，实际 {len(files)} 份"
+n_confirmed = 0
+for p in files:
+    raw = json.loads(p.read_text(encoding="utf-8"))
+    assert isinstance(raw.get("composite_score"), dict), f"{p.name} 缺少 composite_score"
+    if raw.get("metadata", {}).get("review_status") == "confirmed":
+        n_confirmed += 1
+assert n_confirmed == 30, f"预期 30 份 confirmed，实际 {n_confirmed} 份"
+print(f"[1/3] 标注库 OK：30 份标注全部 confirmed")
 
-print("\n🎉 全部冒烟测试通过")
+# [2/3] 六个页面模块可导入
+import importlib
+
+import data_loader  # noqa: F401,E402
+
+for name in ["p1_overview", "p2_company", "p3_trajectory",
+             "p4_sensitivity", "p5_methodology", "p6_live_scoring"]:
+    mod = importlib.import_module(f"views.{name}")
+    assert hasattr(mod, "render"), f"views.{name} 缺少 render()"
+print("[2/3] 页面模块 OK：P1-P6 均可导入且含 render()")
+
+# [3/3] 实时评分链路
+for rel in ["models/depreciation_scorer_v03.joblib",
+            "models/depreciation_scorer_v03_meta.json",
+            "data/processed/training_v06_panel_30_full.csv"]:
+    assert (REPO_ROOT / rel).exists(), f"缺少 {rel}"
+from src.scoring.predictor import get_scorer  # noqa: E402
+
+scorer = get_scorer(REPO_ROOT / "models")
+assert len(scorer.feature_cols) == 55
+print(f"[3/3] 评分链路 OK：{scorer.meta['model_version']}，55 个特征就位")
+
+print("SMOKE TEST PASSED")

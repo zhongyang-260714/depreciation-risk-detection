@@ -41,6 +41,10 @@ AI 算力资产的技术迭代周期仅 1–2 年，美国科技巨头却普遍�
 | P4 · 权重敏感性 | 拖动权重滑块实时重算综合分，识别评分"杠杆点" |
 | P5 · 方法论 | 三重错配、5D-DRS 评分体系、数据来源与标注流程 |
 | P6 · 实时评分演示 | XGBoost 模型**实时推理**：输入指标 → 综合评分 + 风险等级 + SHAP 单项贡献解释；支持样本公司预填与自定义指标两种模式，缺失指标自动处理 |
+| **P7 · 智能标注** | **DeepSeek AI 驱动**：输入公司代码 + 财年 → 自动下载 10-K → 关键词定位 → AI 草拟证据链与五维评分 → 程序逐字验真 → 综合算分；AI 草稿与人工 confirmed 标注并排对照，人工确认后入库 |
+
+同源 FastAPI 接口：`POST /predict` / `POST /batch_predict`，与 P6 调用同一评分器实例。
+P7 的 AI 标注引擎独立运行，支持本地 10-K HTML 上传模式。
 
 同源 FastAPI 接口：`POST /predict` / `POST /batch_predict`，与 P6 调用同一评分器实例。
 
@@ -53,6 +57,11 @@ AI 算力资产的技术迭代周期仅 1–2 年，美国科技巨头却普遍�
 pip install -r requirements.txt
 
 # 2. 启动智能识别系统（浏览器访问 http://localhost:8501）
+streamlit run src/dashboard/app.py
+#    支持 URL 直达页面：?page=p1 ... ?page=p7
+
+# 3.（可选）启动实时评分 API
+uvicorn src.api.main:app --port 8000
 streamlit run src/dashboard/app.py
 #    支持 URL 直达页面：?page=p1 ... ?page=p6
 
@@ -77,6 +86,20 @@ python train_scorer.py          # 30×85 面板 → 55 特征 → 序列化至 m
 ```
 depreciation-risk-detection/
 ├── src/
+│   ├── dashboard/          # Streamlit 看板
+│   │   ├── app.py          #   入口（七页导航）
+│   │   ├── data_loader.py  #   数据加载（动态读取，禁止硬编码）
+│   │   ├── ui_common.py    #   公共 UI 组件
+│   │   └── views/          #   p1_overview … p7_ai_annotation
+│   ├── ai_annotation/      # DeepSeek 智能标注引擎（P7 后台）
+│   │   ├── deepseek_client.py   #   DeepSeek API 封装
+│   │   ├── text_locator.py      #   关键词矩阵定位 + XBRL 噪声排除
+│   │   ├── verifier.py          #   程序逐字验真（防 AI 编造）
+│   │   ├── scorer_calculator.py #   五维加权算分
+│   │   ├── edgar_fetcher.py     #   SEC EDGAR 10-K 下载
+│   │   └── prompts.py           #   Prompt 模板集中管理
+│   ├── scoring/            # 评分引擎（predictor.py：评分 + SHAP 单项贡献）
+│   └── api/                # FastAPI 实时评分接口（main.py）
 │   ├── dashboard/          # Streamlit 看板
 │   │   ├── app.py          #   入口（六页导航）
 │   │   ├── data_loader.py  #   数据加载（动态读取，禁止硬编码）

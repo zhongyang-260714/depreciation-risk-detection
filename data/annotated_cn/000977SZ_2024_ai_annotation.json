@@ -1,0 +1,137 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-08-20T16:36:51.903782",
+    "annotator": "DeepSeek AI + Program Verification (Batch)",
+    "review_status": "confirmed",
+    "filing_source": "巨潮资讯网 (Manual Download)",
+    "ai_annotation": true
+  },
+  "company": {
+    "ticker": "000977SZ",
+    "name": "浪潮信息",
+    "fiscal_year": 2024
+  },
+  "composite_score": {
+    "weighted_score": 3.1,
+    "max_score": 5.0,
+    "risk_level": "中高风险",
+    "risk_level_en": "Medium-High Risk",
+    "score_breakdown": "4.0×0.25=1.00+4.0×0.20=0.80+3.0×0.20=0.60+2.0×0.20=0.40[est]+2.0×0.15=0.30=3.10 (注：D4为证据不足，按保守估计2分计算)",
+    "estimated_dimensions": [
+      "D4"
+    ]
+  },
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "年限错配",
+      "score": 4,
+      "weight": 0.25,
+      "insufficient_evidence": false,
+      "reasoning": "机器设备折旧年限为3-10年，公司已将最低年限缩短至3年，但最高年限仍为10年。对于技术更新快的行业，10年可能过长，但公司主动缩短最低年限，整体风险中等。",
+      "supporting_signals": [
+        "SIG-001",
+        "SIG-003"
+      ],
+      "rule_applied": true,
+      "rule_reason": "Extracted useful life = 5.0 years (asset_type=unknown, baseline=1.5y, mismatch_ratio = 3.3x)"
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "政策保守性",
+      "score": 4,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "公司主动缩短机器设备折旧年限，采用未来适用法，体现了会计政策的谨慎性，属于积极信号。",
+      "supporting_signals": [
+        "SIG-001"
+      ],
+      "rule_note": "Verified: useful life extension from 3.0y to 5.0y (ratio=1.7x), effective FY2024 → capped at 4",
+      "rule_applied": true,
+      "rule_reason": "Detected useful life extension from 3.0y to 5.0y (ratio=1.7x)"
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值触发",
+      "score": 3,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "公司确认了大额资产减值损失（5.1亿元），主要来自存货跌价，表明存在减值迹象，但未涉及固定资产减值，风险中等。",
+      "supporting_signals": [
+        "SIG-002"
+      ]
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本强度",
+      "score": 2.0,
+      "weight": 0.2,
+      "insufficient_evidence": true,
+      "reasoning": "候选段落未提供资本开支或研发强度数据，无法评估。",
+      "supporting_signals": [],
+      "score_was_null": true
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "技术替代",
+      "score": 2,
+      "weight": 0.15,
+      "insufficient_evidence": false,
+      "reasoning": "公司属于信息技术行业，技术更新快，但候选段落未提供具体技术替代压力证据，仅从行业属性推断风险较低。",
+      "supporting_signals": []
+    }
+  ],
+  "risk_signals": [
+    {
+      "signal_id": "SIG-001",
+      "risk_type": "折旧年限缩短",
+      "severity": "high",
+      "text_excerpt": "为适应公司业务发展的需要，有效覆盖新增固定资产折旧年限，更加客观真实的反映公司的财务状况和经营成果，在遵循会计核算谨慎性原则的基础上，公司将机器设备最低折旧年限由5年改为3年。",
+      "page_location": "年报附注41，第110页",
+      "accounting_meaning": "公司主动缩短机器设备的最低折旧年限，属于会计估计变更，采用未来适用法处理，影响当期及未来期间的折旧费用。",
+      "evidence_chain": [
+        "公司于2024年12月6日通过董事会决议，将机器设备最低折旧年限由5年改为3年，自2024年10月1日起执行。",
+        "机器设备折旧年限缩短，导致折旧费用增加，减少当期利润，但体现了更谨慎的会计处理。",
+        "该变更采用未来适用法，不追溯调整，因此对以前年度利润无影响，但会降低未来期间的利润。"
+      ],
+      "keyword_matched": "会计估计变更"
+    },
+    {
+      "signal_id": "SIG-002",
+      "risk_type": "资产减值损失",
+      "severity": "medium",
+      "text_excerpt": "资产减值损失（损失以“-”号填列） -510,007,783.66 -449,765,802.79",
+      "page_location": "合并利润表，第69页",
+      "accounting_meaning": "公司确认了大额资产减值损失，主要来自存货跌价损失，表明存货存在减值迹象。",
+      "evidence_chain": [
+        "2024年资产减值损失为5.1亿元，较上年4.5亿元有所增加。",
+        "根据附注52，资产减值损失全部为存货跌价损失及合同履约成本减值损失。",
+        "大额存货减值可能反映产品更新换代快或市场需求变化，对利润产生负面影响。"
+      ],
+      "keyword_matched": "资产减值"
+    },
+    {
+      "signal_id": "SIG-003",
+      "risk_type": "固定资产折旧政策",
+      "severity": "medium",
+      "text_excerpt": "机器设备 年限平均法 3-10 3% 9.70%-32.33%",
+      "page_location": "附注24，第101页",
+      "accounting_meaning": "机器设备折旧年限为3-10年，但公司已将最低年限调整为3年，与行业技术寿命相比可能仍然较长。",
+      "evidence_chain": [
+        "机器设备折旧年限范围3-10年，但公司已缩短最低年限至3年，最高年限仍为10年。",
+        "对于技术更新快的行业，10年的折旧年限可能过长，存在折旧年限与资产实际寿命错配的风险。",
+        "但公司已主动缩短最低年限，显示一定谨慎性。"
+      ],
+      "keyword_matched": "折旧年限"
+    }
+  ],
+  "accounting_policy": {
+    "depreciation_method": "平均年限法",
+    "useful_life_range": "房屋建筑物20-40年，机器设备3-10年，电子设备5-10年，运输设备3-5年，其他设备4-8年",
+    "rd_capitalization_rate": "未披露具体资本化率，但研发支出资本化条件明确",
+    "impairment_policy": "对长期资产存在减值迹象时进行减值测试，商誉和使用寿命不确定的无形资产每年末进行减值测试"
+  },
+  "summary": "公司主动缩短机器设备折旧年限，体现会计政策谨慎性，但折旧年限上限仍较长，存在一定错配风险。同时，公司确认了大额存货减值损失，反映存货管理压力。整体会计政策较为稳健，但需关注资产减值对利润的影响。"
+}

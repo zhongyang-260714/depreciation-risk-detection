@@ -1,0 +1,95 @@
+{
+  "version": "v0.3",
+  "sample": "30 rows = 10 companies x 3 fiscal years",
+  "features": {
+    "total_candidates": 69,
+    "final_numeric": 55,
+    "empty_dropped": 14
+  },
+  "naive_baseline": {
+    "mae": 0.709,
+    "rmse": 0.819
+  },
+  "loo": {
+    "mae": 0.278,
+    "rmse": 0.34,
+    "relative_improvement": 60.7
+  },
+  "logo": {
+    "mae": 0.42,
+    "rmse": 0.483,
+    "relative_improvement": 40.8
+  },
+  "top10_features": [
+    {
+      "rank": 1,
+      "feature": "capex_to_revenue",
+      "mean_abs_shap": 0.39754343032836914,
+      "direction": 1.0,
+      "category": "政策/比率/事件类"
+    },
+    {
+      "rank": 2,
+      "feature": "ppe_net",
+      "mean_abs_shap": 0.15103517472743988,
+      "direction": 1.0,
+      "category": "规模类"
+    },
+    {
+      "rank": 3,
+      "feature": "depreciation",
+      "mean_abs_shap": 0.07234073430299759,
+      "direction": 1.0,
+      "category": "规模类"
+    },
+    {
+      "rank": 4,
+      "feature": "ppe_turnover",
+      "mean_abs_shap": 0.05254949629306793,
+      "direction": -1.0,
+      "category": "政策/比率/事件类"
+    },
+    {
+      "rank": 5,
+      "feature": "total_assets",
+      "mean_abs_shap": 0.041441868990659714,
+      "direction": -1.0,
+      "category": "规模类"
+    },
+    {
+      "rank": 6,
+      "feature": "rd_expense",
+      "mean_abs_shap": 0.041147954761981964,
+      "direction": 1.0,
+      "category": "规模类"
+    },
+    {
+      "rank": 7,
+      "feature": "rd_intensity",
+      "mean_abs_shap": 0.03366665914654732,
+      "direction": 1.0,
+      "category": "政策/比率/事件类"
+    },
+    {
+      "rank": 8,
+      "feature": "asset_turnover",
+      "mean_abs_shap": 0.030449023470282555,
+      "direction": 1.0,
+      "category": "政策/比率/事件类"
+    },
+    {
+      "rank": 9,
+      "feature": "life_extended_current_period",
+      "mean_abs_shap": 0.027046266943216324,
+      "direction": 1.0,
+      "category": "政策/比率/事件类"
+    },
+    {
+      "rank": 10,
+      "feature": "server_life_min_years",
+      "mean_abs_shap": 0.023358291015028954,
+      "direction": -1.0,
+      "category": "规模类"
+    }
+  ]
+}

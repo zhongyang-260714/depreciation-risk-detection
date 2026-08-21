@@ -111,7 +111,7 @@ def _render_dimensions(case: dict):
         yaxis=dict(autorange="reversed"),
         showlegend=False,
     )
-    st.plotly_chart(fig, width="stretch", key="p2_contrib_chart")
+    st.plotly_chart(fig, use_container_width=True, key="p2_contrib_chart")
 
 
 def _render_verification(case: dict):

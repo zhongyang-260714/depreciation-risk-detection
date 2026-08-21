@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-08-20T16:51:52.857025",
+    "annotator": "DeepSeek AI + Program Verification (Single Company)",
+    "review_status": "confirmed",
+    "filing_source": "巨潮资讯网 (Manual Download)",
+    "ai_annotation": true
+  },
+  "company": {
+    "ticker": "601138SH",
+    "name": "工业富联",
+    "fiscal_year": 2023
+  },
+  "composite_score": {
+    "weighted_score": 2.65,
+    "max_score": 5.0,
+    "risk_level": "中风险",
+    "risk_level_en": "Medium Risk",
+    "score_breakdown": "3.0×0.25=0.75+4.0×0.20=0.80+2.0×0.20=0.40+2.0×0.20=0.40[est]+2.0×0.15=0.30=2.65 (注：D4为证据不足，按保守估计2分计算)",
+    "estimated_dimensions": [
+      "D4"
+    ]
+  },
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "年限错配",
+      "score": 3,
+      "weight": 0.25,
+      "insufficient_evidence": false,
+      "reasoning": "机器设备折旧年限3-12年，范围较宽，上限12年可能超过技术寿命，但未明确具体设备类型，无法精确判断。",
+      "supporting_signals": [
+        "SIG-001"
+      ]
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "政策保守性",
+      "score": 4,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "公司明确无会计估计变更，折旧政策稳定，未发现延长折旧年限的迹象。",
+      "supporting_signals": [
+        "SIG-002"
+      ]
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值触发",
+      "score": 2,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "本期资产减值损失5.43亿元，较上期下降，但仍有较大金额，主要来自存货跌价，固定资产减值未提及。",
+      "supporting_signals": [
+        "SIG-003"
+      ]
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本强度",
+      "score": 2.0,
+      "weight": 0.2,
+      "insufficient_evidence": true,
+      "reasoning": "候选段落未提供资本开支或研发投入数据，无法评估。",
+      "supporting_signals": [],
+      "score_was_null": true
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "技术替代",
+      "score": 2,
+      "weight": 0.15,
+      "insufficient_evidence": false,
+      "reasoning": "行业为Technology，但候选段落未提及具体技术替代风险，仅从行业属性推断有一定暴露。",
+      "supporting_signals": []
+    }
+  ],
+  "risk_signals": [
+    {
+      "signal_id": "SIG-001",
+      "risk_type": "折旧年限延长",
+      "severity": "high",
+      "text_excerpt": "机器设备 年限平均法 3-12年 1元 8.3%至33.3%",
+      "page_location": "年报附注五、21，第151页",
+      "accounting_meaning": "机器设备折旧年限范围较宽，上限12年，可能超过技术寿命，存在折旧年限延长风险。",
+      "evidence_chain": [
+        "公司披露机器设备折旧年限为3-12年，残值率1元。",
+        "技术更新较快，机器设备技术寿命通常短于12年，尤其电子设备。",
+        "延长折旧年限会减少当期折旧费用，增加利润。"
+      ],
+      "keyword_matched": "折旧年限"
+    },
+    {
+      "signal_id": "SIG-002",
+      "risk_type": "会计估计变更",
+      "severity": "low",
+      "text_excerpt": "40. 重要会计政策和会计估计的变更 (1). 重要会计政策变更 □适用 √不适用 (2). 重要会计估计变更 □适用 √不适用",
+      "page_location": "年报附注五、40，第161页",
+      "accounting_meaning": "公司明确表示本期无会计估计变更，折旧政策保持稳定。",
+      "evidence_chain": [
+        "公司披露无重要会计估计变更。",
+        "无延长折旧年限的迹象。",
+        "会计政策保守性较好。"
+      ],
+      "keyword_matched": "会计估计变更"
+    },
+    {
+      "signal_id": "SIG-003",
+      "risk_type": "资产减值",
+      "severity": "medium",
+      "text_excerpt": "资产减值损失（损失以“-”号填列） 七、72 -543,186 -1,068,668",
+      "page_location": "利润表，第126页",
+      "accounting_meaning": "本期资产减值损失为5.43亿元，较上期10.69亿元下降，但仍有较大金额，主要来自存货跌价。",
+      "evidence_chain": [
+        "本期资产减值损失5.43亿元，上期10.69亿元。",
+        "附注72显示主要为存货跌价损失。",
+        "减值金额较大，但较上期下降，风险中等。"
+      ],
+      "keyword_matched": "资产减值"
+    },
+    {
+      "signal_id": "SIG-004",
+      "risk_type": "固定资产折旧",
+      "severity": "low",
+      "text_excerpt": "固定资产折旧、油气资产折耗、生产性生物资产折旧 4,449,463 3,220,238",
+      "page_location": "现金流量表补充资料，第226页",
+      "accounting_meaning": "本期固定资产折旧44.49亿元，较上期32.20亿元增加，表明资本开支增加或折旧政策变化。",
+      "evidence_chain": [
+        "本期折旧额44.49亿元，上期32.20亿元。",
+        "折旧增加可能源于新增固定资产。",
+        "需关注资本开支强度。"
+      ],
+      "keyword_matched": "固定资产折旧"
+    }
+  ],
+  "accounting_policy": {
+    "depreciation_method": "年限平均法",
+    "useful_life_range": "房屋及建筑物20-30年，附属设施6-11年，机器设备3-12年，运输工具5-6年，办公及电子设备4-6年，其他设备5-6年",
+    "rd_capitalization_rate": "未披露",
+    "impairment_policy": "固定资产、在建工程、使用权资产、无形资产等存在减值迹象时进行减值测试，商誉每年测试。"
+  },
+  "summary": "公司折旧政策稳定，无会计估计变更，但机器设备折旧年限上限12年可能偏长，存在一定年限错配风险。资产减值损失较大但较上期下降，风险中等。资本开支和研发数据缺失，无法全面评估。"
+}

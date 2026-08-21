@@ -1,0 +1,217 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0 (China A-share parity)",
+    "annotated_at": "2026-08-19",
+    "annotator": "Kimi AI-assisted (project lead pending review)",
+    "review_status": "pending_review",
+    "filing_source": "上交所年报 - 中科曙光2024年年度报告",
+    "review_note": "基于新浪财经年报全文摘要+公开信息交叉验证。关键发现：无折旧年限变更，但存在无形资产减值（大数据智能引擎6.0系统减值约2072万元）。",
+    "reviewed_at": null,
+    "reviewed_by": null
+  },
+  "company": {
+    "ticker": "603019.SH",
+    "name": "曙光信息产业股份有限公司",
+    "fiscal_year": 2024,
+    "filing_date": "2025-03-05",
+    "report_period_end": "2024-12-31",
+    "industry": "高性能计算/服务器/国产算力基础设施",
+    "primary_assets": "生产设备（服务器/超算制造）、房屋建筑物、无形资产（软件/知识产权）",
+    "file_path": "data/raw/cn/603019_2024_annual_report.pdf",
+    "coverage_note": "中科曙光2024年报：营收131.48亿元(-8.40%)，归母净利润19.11亿元(+4.10%)。关键特征：无固定资产折旧年限变更，折旧政策稳定；但无形资产减值1.37亿元，其中大数据智能引擎6.0系统减值约2072万元。背靠中科院计算所，国产算力全产业链布局。"
+  },
+  "financial_highlights": {
+    "unit_note": "金额单位：人民币百万元（RMB mn）",
+    "revenue_millions": 13148,
+    "revenue_note": "营业收入131.48亿元，同比-8.40%",
+    "net_income_millions": 1911,
+    "net_income_note": "归母净利润19.11亿元，同比+4.10%",
+    "rd_expense_millions": 1292,
+    "rd_expense_note": "研发费用12.92亿元，占营收9.83%",
+    "operating_cash_flow_millions": 2722,
+    "operating_cash_flow_note": "经营活动现金流净额27.22亿元，同比-22.45%",
+    "total_assets_millions": null,
+    "total_assets_note": "总资产待精确提取",
+    "ppe_net_millions": null,
+    "ppe_net_note": "固定资产净值待精确提取",
+    "impairment_loss_millions": 137,
+    "impairment_loss_note": "资产减值损失1.37亿元；信用减值损失0.97亿元",
+    "intangible_impairment_note": "大数据智能引擎6.0系统减值20,722,705.41元"
+  },
+  "accounting_policy": {
+    "depreciation_method": "直线法（年限平均法）",
+    "estimate_change_2024": "无重要会计估计变更",
+    "estimate_change_method": "N/A",
+    "estimate_change_impact": "N/A",
+    "estimate_change_reason": "N/A",
+    "change_in_estimate_location": "年报'重要会计政策和会计估计的变更'节：'重要会计估计变更 □适用 √不适用'",
+    "impairment_policy": "资产负债表日判断资产是否存在减值迹象，存在时估计可收回金额（公允价值减处置费用/未来现金流量现值孰高），低于账面价值则计提减值。",
+    "policy_risk_note": "中科曙光2024年无固定资产折旧年限变更，折旧政策稳定（房屋20-30年、生产设备5-10年、电子类3-5年）。但无形资产减值显著：大数据智能引擎6.0系统减值约2072万元，显示研发投入的资本化资产存在技术过时风险。"
+  },
+  "risk_signals": [
+    {
+      "signal_id": "SH603019-2024-SIG-001",
+      "source": "2024年年报 - 无形资产减值测试",
+      "keyword_matched": "大数据智能引擎6.0系统 / 减值 20,722,705.41元",
+      "text_excerpt": "大数据智能引擎6.0系统：账面价值85,222,705.41元，可收回金额64,500,000.00元，减值金额20,722,705.41元。预测期8年，收入增长率8%-11%，折现率13.75%。",
+      "page_location": "年报无形资产减值测试附注（页码待精确标注）",
+      "risk_type": "intangible_asset_impairment",
+      "severity": "high",
+      "relevance_to_depreciation": "大数据智能引擎6.0系统减值2072万元，占该系统账面价值的24.3%。虽然减值的是无形资产而非固定资产，但它揭示了同一根因——技术迭代速度快于预期。中科曙光作为国产算力基础设施厂商，其软件/平台类资产的技术过时风险与硬件折旧风险同源。",
+      "evidence_chain": [
+        "大数据智能引擎6.0系统减值20,722,705.41元",
+        "减值比例=24.3%（85.22M→64.50M）",
+        "预测参数：收入增长率8%-11%，折现率13.75%",
+        "含义：管理层对软件资产未来现金流的预测过于乐观，实际实现不及预期",
+        "同源风险：若软件资产会过时，则支撑该软件的硬件设备也应考虑更短寿命"
+      ]
+    },
+    {
+      "signal_id": "SH603019-2024-SIG-002",
+      "source": "2024年年报 - 固定资产折旧政策",
+      "keyword_matched": "生产设备 5-10年；电子类设备 3-5年",
+      "text_excerpt": "固定资产折旧采用年限平均法分类计提。房屋及建筑物20-30年、生产设备5-10年、运输设备4-5年、电子类设备3-5年、办公设备及其他3-5年，残值率均为5%。",
+      "page_location": "年报固定资产会计政策附注（页码待精确标注）",
+      "risk_type": "depreciation_schedule_disclosure",
+      "severity": "medium",
+      "relevance_to_depreciation": "生产设备5-10年、电子类设备3-5年，对服务器/超算制造设备而言，5-10年偏长（技术迭代2-3年），但3-5年相对合理。无变更记录说明政策稳定，但未随AI算力爆发期主动缩短年限。",
+      "evidence_chain": [
+        "生产设备折旧年限5-10年（技术迭代周期2-3年）",
+        "电子类设备3-5年（相对合理）",
+        "2024年无年限变更",
+        "政策稳定但可能偏保守（未主动缩短以反映技术加速）"
+      ]
+    },
+    {
+      "signal_id": "SH603019-2024-SIG-003",
+      "source": "2024年年报 - 利润表 / 资产减值",
+      "keyword_matched": "资产减值损失 1.37亿 / 信用减值损失 0.97亿",
+      "text_excerpt": "资产减值损失（损失以'－'号填列）-136,916,156.85元；信用减值损失-96,929,618.90元。",
+      "page_location": "年报合并利润表（页码待精确标注）",
+      "risk_type": "realized_impairment",
+      "severity": "high",
+      "relevance_to_depreciation": "2024年资产减值损失1.37亿元+信用减值损失0.97亿元=2.34亿元，占归母净利润的12.2%。减值已实际发生，说明管理层对资产可收回金额的估计存在偏差历史。",
+      "evidence_chain": [
+        "资产减值损失1.37亿元",
+        "信用减值损失0.97亿元",
+        "合计2.34亿元，占归母净利润12.2%",
+        "历史减值记录支持'估计偏乐观'的判断"
+      ]
+    }
+  ],
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "折旧年限 vs 技术实际寿命",
+      "dimension_name_en": "Depreciation Life vs Technology Useful Life",
+      "weight": 0.25,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "生产设备5-10年、电子类3-5年。超算/服务器制造设备技术周期2-3年，5-10年上限偏长，但下限5年（生产设备）和3年（电子类）相对合理。无变更记录。评3分（中）。",
+      "supporting_signals": [
+        "SH603019-2024-SIG-002"
+      ],
+      "key_metrics": {
+        "production_equipment_life": "5-10y",
+        "electronics_life": "3-5y",
+        "tech_cycle_years": "2-3 (HPC/server)",
+        "building_life": "20-30y"
+      }
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "会计政策保守性",
+      "dimension_name_en": "Accounting Policy Conservatism",
+      "weight": 0.2,
+      "score": 2,
+      "score_max": 5,
+      "score_label": "低风险",
+      "score_label_en": "Low Risk",
+      "reasoning": "2024年无折旧年限变更，政策稳定。评2分（低）。",
+      "supporting_signals": [],
+      "key_metrics": {
+        "change_count": 0,
+        "policy_stability": "稳定"
+      }
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值风险触发",
+      "dimension_name_en": "Impairment Risk Triggers",
+      "weight": 0.2,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "2024年资产减值1.37亿+信用减值0.97亿=2.34亿，占净利12.2%。大数据智能引擎6.0系统减值2072万元（减值比例24.3%）。减值已实际发生，支持'估计偏乐观'判断。评4分（高）。",
+      "supporting_signals": [
+        "SH603019-2024-SIG-001",
+        "SH603019-2024-SIG-003"
+      ],
+      "key_metrics": {
+        "asset_impairment_mn": 137,
+        "credit_impairment_mn": 97,
+        "total_impairment_mn": 234,
+        "impairment_to_net_income_pct": 12.2,
+        "intangible_impairment_mn": 20.7
+      }
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本支出(CAPEX)强度",
+      "dimension_name_en": "Capital Expenditure Intensity",
+      "weight": 0.2,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "研发费用12.92亿元（占营收9.83%），研发投入强度高。固定资产和capex明细待精确提取。评3分（中，待确认）。",
+      "supporting_signals": [],
+      "key_metrics": {
+        "rd_expense_mn": 1292,
+        "rd_to_revenue_pct": 9.83
+      }
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "行业竞争/技术替代",
+      "dimension_name_en": "Industry Competition & Technology Substitution",
+      "weight": 0.15,
+      "score": 3,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "国产算力基础设施竞争激烈（vs 华为鲲鹏、海光信息等），AI芯片迭代快。但中科曙光背靠中科院，技术储备深厚，且覆盖'芯-端-云-算'全产业链。评3分（中）。",
+      "supporting_signals": [],
+      "key_metrics": {
+        "industry": "国产高性能计算 / AI infrastructure",
+        "tech_substitution": "快（AI chip 1-2y）",
+        "moat": "中科院背景 + 全产业链"
+      }
+    }
+  ],
+  "comparative_context": {
+    "same_company_trend": "2024年无折旧年限变更，但无形资产减值显著（大数据智能引擎6.0减值2072万）。需跟踪2025年是否有固定资产减值或年限调整。",
+    "cross_company_benchmark": "中科曙光代表'国产算力基础设施制造型'，与浪潮信息同属服务器制造但技术路线不同（自主可控vs ODM）。其无形资产减值信号揭示了软件/平台资产的技术过时风险，与固定资产折旧风险同源。",
+    "narrative_significance": "中科曙光的案例补充了A股样本中的'减值触发'维度——即使折旧年限未变更，无形资产减值也能揭示同一根因（技术迭代快于预期）。"
+  },
+  "annotation_methodology": {
+    "source_document": "曙光信息产业股份有限公司 2024 年年度报告（上交所）",
+    "filing_accessed": "新浪财经年报全文摘要",
+    "text_extraction_method": "新浪财经年报全文摘要人工摘录 + 公开信息交叉验证",
+    "scoring_method": "Five-dimension weighted scoring (5D-DRS) with 0-5 scale, weights 0.25/0.20/0.20/0.20/0.15",
+    "human_verification": "关键财务数字（营收131.48亿、净利19.11亿、减值1.37亿、研发12.92亿）来自年报原文或权威财经媒体交叉验证。折旧政策引文来自新浪财经年报摘要。",
+    "limitation": "总资产、固定资产净值、capex明细等待年报PDF精确提取；本次标注基于新浪财经摘要+公开信息，置信度0.70。"
+  },
+  "composite_score": {
+    "weighted_score": 3.05,
+    "max_score": 5.0,
+    "risk_level": "中风险",
+    "risk_level_en": "Medium Risk",
+    "risk_level_color": "#FFC107",
+    "confidence": 0.7,
+    "confidence_reason": "关键财务数字已交叉验证，但总资产、固定资产净值等核心指标待年报PDF精确提取；减值信息来自年报摘要原文。"
+  }
+}

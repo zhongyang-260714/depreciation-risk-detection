@@ -1,0 +1,116 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-08-20T16:29:21.564479",
+    "annotator": "DeepSeek AI + Program Verification (Batch All Years)",
+    "review_status": "confirmed",
+    "filing_source": "巨潮资讯网 (Manual Download)",
+    "ai_annotation": true
+  },
+  "company": {
+    "ticker": "603881SH",
+    "name": "数据港",
+    "fiscal_year": 2024
+  },
+  "composite_score": {
+    "weighted_score": 2.9,
+    "max_score": 5.0,
+    "risk_level": "中风险",
+    "risk_level_en": "Medium Risk",
+    "score_breakdown": "4.0×0.25=1.00+4.0×0.20=0.80+2.0×0.20=0.40+2.0×0.20=0.40[est]+2.0×0.15=0.30=2.90 (注：D4为证据不足，按保守估计2分计算)",
+    "estimated_dimensions": [
+      "D4"
+    ]
+  },
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "年限错配",
+      "score": 4,
+      "weight": 0.25,
+      "insufficient_evidence": false,
+      "reasoning": "公司延长了专用设备折旧年限至5-15年，但数据中心专用设备（如柴油发电机组、配电柜等）技术寿命通常较短，延长年限可能造成错配。根据子表B（晶圆厂/半导体设备）基准3.5年，但此处为数据中心设备，技术更新快，5-15年上限过高，存在高估风险。",
+      "supporting_signals": [
+        "SIG-001",
+        "SIG-002"
+      ]
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "政策保守性",
+      "score": 4,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "公司主动延长折旧年限，属于不保守的会计政策变更，且采用未来适用法，仅影响未来期间，可能平滑利润。",
+      "supporting_signals": [
+        "SIG-001"
+      ]
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值触发",
+      "score": 2,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "候选段落中未提及大额减值或减值迹象，仅涉及折旧年限变更，无减值相关信号。",
+      "supporting_signals": []
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本强度",
+      "score": 2.0,
+      "weight": 0.2,
+      "insufficient_evidence": true,
+      "reasoning": "候选段落未提供资本开支或研发强度数据，无法评估。",
+      "supporting_signals": [],
+      "score_was_null": true
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "技术替代",
+      "score": 2,
+      "weight": 0.15,
+      "insufficient_evidence": false,
+      "reasoning": "公司属于IDC行业，技术更新较快，但候选段落未提及具体技术替代压力，仅从行业属性推断有一定暴露。",
+      "supporting_signals": []
+    }
+  ],
+  "risk_signals": [
+    {
+      "signal_id": "SIG-001",
+      "risk_type": "折旧年限延长",
+      "severity": "high",
+      "text_excerpt": "将房屋及建筑物折旧年限由原来的20-30年调整为20-40年，专用设备折旧年限由原来的5-10年调整为5-15年。本次变更是对2024年10月1日以后新计提折旧的房屋及建筑物和专用设备产生影响，对公司原有房屋及建筑物及专用设备的折旧年限没有影响。本次会计估计变更事项自2024年10月1日起执行。",
+      "page_location": "年报附注五、第64页",
+      "accounting_meaning": "公司延长了固定资产的折旧年限，属于会计估计变更，采用未来适用法，仅影响未来期间的折旧费用，从而增加未来期间的利润。",
+      "evidence_chain": [
+        "公司明确将房屋及建筑物折旧年限由20-30年调整为20-40年，专用设备由5-10年调整为5-15年。",
+        "根据CAS，折旧年限应反映资产的实际使用寿命，但公司延长年限可能基于主观判断，且与行业技术更新速度可能不符。",
+        "延长折旧年限将降低每年折旧费用，从而增加净利润，本次变更对2024年净利润影响为1,678,038.57元（减少成本），未来影响金额取决于新资产投入。"
+      ],
+      "keyword_matched": "折旧年限"
+    },
+    {
+      "signal_id": "SIG-002",
+      "risk_type": "折旧年限延长",
+      "severity": "medium",
+      "text_excerpt": "部分专用设备（包括柴油发电机组、中低压配电柜、干式变压器、交流列头柜、直流屏、冷水机组等设备）根据设备的主要供应商提供的设备说明以及在现行的运行及保养环境下该类资产的预计可使用年限能达到15年，且公司现有的部分柴油发电机组，中低压配电柜自投入使用以来已经超过10年，在公司的保养下，其仍保持着良好状态。因此，公司拟适度调整上述新购建机器设备的折旧年限。",
+      "page_location": "年报附注五、第64页",
+      "accounting_meaning": "公司基于设备供应商说明和自身维护经验，延长了专用设备的折旧年限，但供应商说明可能偏向乐观，且技术更新可能导致设备实际寿命短于预期。",
+      "evidence_chain": [
+        "公司声称专用设备可使用年限可达15年，但未提供独立技术评估。",
+        "数据中心设备技术更新快，实际使用寿命可能短于15年，延长折旧年限可能高估资产寿命。",
+        "延长折旧年限将减少折旧费用，增加利润，但可能掩盖资产实际损耗。"
+      ],
+      "keyword_matched": "折旧年限"
+    }
+  ],
+  "accounting_policy": {
+    "depreciation_method": "年限平均法",
+    "useful_life_range": "房屋及建筑物20-40年，专用设备5-15年，通用设备5年，运输设备5年",
+    "rd_capitalization_rate": "未提及",
+    "impairment_policy": "资产减值准备按单项资产为基础计算，商誉和使用寿命不确定的无形资产每年进行减值测试。"
+  },
+  "summary": "公司2024年发生会计估计变更，延长了房屋及建筑物和专用设备的折旧年限，采用未来适用法，可能减少未来折旧费用，增加利润。该变更存在高估资产寿命的风险，尤其在技术更新较快的IDC行业。其他维度证据不足，需进一步分析。"
+}

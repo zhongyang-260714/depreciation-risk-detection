@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-08-20T16:46:36.256364",
+    "annotator": "DeepSeek AI + Program Verification (Single Company)",
+    "review_status": "confirmed",
+    "filing_source": "巨潮资讯网 (Manual Download)",
+    "ai_annotation": true
+  },
+  "company": {
+    "ticker": "300738SZ",
+    "name": "奥飞数据",
+    "fiscal_year": 2024
+  },
+  "composite_score": {
+    "weighted_score": 2.9,
+    "max_score": 5.0,
+    "risk_level": "中风险",
+    "risk_level_en": "Medium Risk",
+    "score_breakdown": "4.0×0.25=1.00+4.0×0.20=0.80+2.0×0.20=0.40+2.0×0.20=0.40[est]+2.0×0.15=0.30=2.90 (注：D4为证据不足，按保守估计2分计算)",
+    "estimated_dimensions": [
+      "D4"
+    ]
+  },
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "年限错配",
+      "score": 4,
+      "weight": 0.25,
+      "insufficient_evidence": false,
+      "reasoning": "机器设备折旧年限上限18年，远超技术寿命（如服务器1.5年），存在明显错配，但未明确具体资产类型，保守给4分。",
+      "supporting_signals": [
+        "SIG-001"
+      ]
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "政策保守性",
+      "score": 4,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "报告期无会计估计变更，折旧政策未调整，但折旧年限范围较宽，存在潜在延长空间，保守性一般。",
+      "supporting_signals": []
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值触发",
+      "score": 2,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "公司计提了大额信用减值和商誉减值，减值迹象明显，但并非固定资产减值，且金额相对利润占比高，风险较高。",
+      "supporting_signals": [
+        "SIG-002",
+        "SIG-003",
+        "SIG-004"
+      ]
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本强度",
+      "score": 2.0,
+      "weight": 0.2,
+      "insufficient_evidence": true,
+      "reasoning": "候选段落未提供资本开支或研发强度数据，无法评估。",
+      "supporting_signals": [],
+      "score_was_null": true
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "技术替代",
+      "score": 2,
+      "weight": 0.15,
+      "insufficient_evidence": false,
+      "reasoning": "公司属于科技行业，面临技术更新压力，但候选段落未明确提及技术替代风险，仅从行业推断，风险中等偏低。",
+      "supporting_signals": []
+    }
+  ],
+  "risk_signals": [
+    {
+      "signal_id": "SIG-001",
+      "risk_type": "折旧年限延长",
+      "severity": "high",
+      "text_excerpt": "机器设备 年限平均法 3-18 5 5.28-31.33",
+      "page_location": "年报附注五、24，第138页",
+      "accounting_meaning": "机器设备折旧年限范围较宽，上限18年，可能超过技术寿命，存在折旧年限延长风险。",
+      "evidence_chain": [
+        "机器设备折旧年限为3-18年，跨度大，上限18年较长。",
+        "公司属于科技行业，机器设备可能包括服务器等，技术更新快，18年远超技术寿命。",
+        "延长折旧年限会减少当期折旧费用，增加利润。"
+      ],
+      "keyword_matched": "折旧年限"
+    },
+    {
+      "signal_id": "SIG-002",
+      "risk_type": "资产减值",
+      "severity": "high",
+      "text_excerpt": "本年信用减值损失及资产减值准备合计8,099.15万元，是公司归母净利润及扣非归母净利润同比下滑的另一原因。",
+      "page_location": "年报经营情况讨论与分析，第XX页",
+      "accounting_meaning": "公司计提了大额减值准备，包括信用减值和资产减值，对利润产生重大负面影响。",
+      "evidence_chain": [
+        "公司计提信用减值损失及资产减值准备合计8,099.15万元。",
+        "减值迹象包括数据中心升级改造和客户信用风险。",
+        "大额减值表明资产可收回金额低于账面价值，利润下滑。"
+      ],
+      "keyword_matched": "资产减值"
+    },
+    {
+      "signal_id": "SIG-003",
+      "risk_type": "商誉减值",
+      "severity": "medium",
+      "text_excerpt": "资产减值 -23,221,309.40 -18.44% 主要系报告期内计提商誉减值所致。",
+      "page_location": "年报非主营业务情况，第XX页",
+      "accounting_meaning": "公司计提了商誉减值，金额较大，占利润总额比例高，表明商誉存在减值风险。",
+      "evidence_chain": [
+        "资产减值损失为-23,221,309.40元，主要系商誉减值。",
+        "商誉减值占利润总额的18.44%，影响显著。",
+        "商誉减值通常意味着被收购资产组业绩不达预期。"
+      ],
+      "keyword_matched": "资产减值"
+    },
+    {
+      "signal_id": "SIG-004",
+      "risk_type": "信用减值损失",
+      "severity": "medium",
+      "text_excerpt": "信用减值损失 -57,770,160.49 -45.87% 主要系报告期对应收款项、其他应收款、长期应收款计提的坏账准备。",
+      "page_location": "年报非主营业务情况，第XX页",
+      "accounting_meaning": "公司计提了大额信用减值损失，反映应收账款回收风险。",
+      "evidence_chain": [
+        "信用减值损失为-57,770,160.49元，占利润总额的45.87%。",
+        "主要对应收款项等计提坏账准备。",
+        "大额信用减值表明客户信用风险上升，利润下滑。"
+      ],
+      "keyword_matched": "资产减值"
+    }
+  ],
+  "accounting_policy": {
+    "depreciation_method": "年限平均法",
+    "useful_life_range": "房屋建筑及构造物20-40年，机器设备3-18年，分布式光伏发电设备20-30年，运输设备4-5年，电子设备及其他3-5年",
+    "rd_capitalization_rate": "未披露",
+    "impairment_policy": "对子公司、联营企业和合营企业的长期股权投资、采用成本模式进行后续计量的投资性房地产、固定资产、在建工程、使用权资产、无形资产、商誉的资产减值，按可收回金额与账面价值孰低原则计提。"
+  },
+  "summary": "公司折旧年限范围较宽，机器设备上限18年可能超过技术寿命，存在折旧年限延长风险。同时，公司计提了大额信用减值和商誉减值，对利润影响显著，资产质量存在隐忧。整体会计政策稳健性一般，需关注未来折旧和减值风险。"
+}

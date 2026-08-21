@@ -26,19 +26,28 @@ st.set_page_config(
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+DASHBOARD_DIR = Path(__file__).resolve().parent
+SRC_DIR = DASHBOARD_DIR.parent
+REPO_ROOT = SRC_DIR.parent
+
+sys.path.insert(0, str(REPO_ROOT))
+sys.path.insert(0, str(SRC_DIR))
+sys.path.insert(0, str(DASHBOARD_DIR))
 
 import ui_common as ui
 from data_loader import load_all
 
+# 直接导入所有页面模块（避免 importlib 动态导入的 sys.path 问题）
+from views import p1_overview, p2_company, p3_trajectory, p4_sensitivity, p5_methodology, p6_live_scoring, p7_ai_annotation
+
 PAGES = {
-    "P1 · 总览热力图": "views.p1_overview",
-    "P2 · 公司画像": "views.p2_company",
-    "P3 · 跨年轨迹": "views.p3_trajectory",
-    "P4 · 权重敏感性": "views.p4_sensitivity",
-    "P5 · 方法论": "views.p5_methodology",
-    "P6 · 实时评分演示": "views.p6_live_scoring",
-    "P7 · 智能标注": "views.p7_ai_annotation",
+    "P1 · 总览热力图": p1_overview,
+    "P2 · 公司画像": p2_company,
+    "P3 · 跨年轨迹": p3_trajectory,
+    "P4 · 权重敏感性": p4_sensitivity,
+    "P5 · 方法论": p5_methodology,
+    "P6 · 实时评分演示": p6_live_scoring,
+    "P7 · 智能标注": p7_ai_annotation,
 }
 
 # 支持 URL 直达某页，如 ?page=p2（答辩演示/截图用）
@@ -69,16 +78,14 @@ def main():
         "📊 科创企业资产折旧风险识别系统",
         "AI-Driven Depreciation Risk Detection —— AI 泡沫 × 资产折旧错配的系统性风险识别",
         [
-            ("2026 "揭榜挂帅"擂台赛", ""),
+            ('2026 "揭榜挂帅"擂台赛', ''),
             ("XH-202626", ""),
             (f"标注 {len(data['cases'])} 份", "gray"),
             (f"草稿待审 {n_draft} 份", "amber" if n_draft else "gray"),
         ],
     )
 
-    import importlib
-
-    module = importlib.import_module(PAGES[choice])
+    module = PAGES[choice]
     module.render(data)
 
     ui.footer()

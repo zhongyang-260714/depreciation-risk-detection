@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-08-20T16:14:07.077931",
+    "annotator": "DeepSeek AI + Program Verification (Batch)",
+    "review_status": "confirmed",
+    "filing_source": "巨潮资讯网 (Manual Download)",
+    "ai_annotation": true
+  },
+  "company": {
+    "ticker": "300383SZ",
+    "name": "光环新网",
+    "fiscal_year": 2024
+  },
+  "composite_score": {
+    "weighted_score": 2.9,
+    "max_score": 5.0,
+    "risk_level": "中风险",
+    "risk_level_en": "Medium Risk",
+    "score_breakdown": "4.0×0.25=1.00+3.0×0.20=0.60+3.0×0.20=0.60+2.0×0.20=0.40[est]+2.0×0.15=0.30=2.90 (注：D4为证据不足，按保守估计2分计算)",
+    "estimated_dimensions": [
+      "D4"
+    ]
+  },
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "年限错配",
+      "score": 4,
+      "weight": 0.25,
+      "insufficient_evidence": false,
+      "reasoning": "电子设备折旧年限为3-10年，平均约6.5年，远高于技术基准1.5年，存在显著错配。",
+      "supporting_signals": [
+        "SIG-001"
+      ]
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "政策保守性",
+      "score": 3,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "未发现会计估计变更，但折旧年限设定较长，保守性一般。",
+      "supporting_signals": []
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值触发",
+      "score": 3,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "存在商誉减值风险，且本期确认了资产减值损失和信用减值损失，但金额相对较小。",
+      "supporting_signals": [
+        "SIG-002",
+        "SIG-003",
+        "SIG-004"
+      ]
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本强度",
+      "score": 2.0,
+      "weight": 0.2,
+      "insufficient_evidence": true,
+      "reasoning": "候选段落未提供资本开支或研发强度数据，无法评估。",
+      "supporting_signals": [],
+      "score_was_null": true
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "技术替代",
+      "score": 2,
+      "weight": 0.15,
+      "insufficient_evidence": false,
+      "reasoning": "数据中心行业竞争加剧，但未出现极端技术替代压力。",
+      "supporting_signals": []
+    }
+  ],
+  "risk_signals": [
+    {
+      "signal_id": "SIG-001",
+      "risk_type": "折旧年限过长",
+      "severity": "high",
+      "text_excerpt": "电子设备 年限平均法 3-10年 0-5% 9.5%-32.33%",
+      "page_location": "年报附注21，第158页",
+      "accounting_meaning": "电子设备（包括服务器等）折旧年限为3-10年，而技术基准为1.5年，存在年限错配风险。",
+      "evidence_chain": [
+        "公司电子设备折旧年限为3-10年，平均约6.5年。",
+        "技术基准为1.5年，实际技术寿命可能更短。",
+        "折旧年限过长导致前期折旧费用偏低，利润虚增。"
+      ],
+      "keyword_matched": "折旧年限"
+    },
+    {
+      "signal_id": "SIG-002",
+      "risk_type": "商誉减值风险",
+      "severity": "high",
+      "text_excerpt": "公司因2016年发行股份购买资产收购中金云网形成了19.52亿元商誉，2022年12月31日计提商誉减值准备90,729.89万元，目前中金云网的商誉账面价值为104,504.34万元。",
+      "page_location": "年报风险提示，第4页",
+      "accounting_meaning": "商誉账面价值仍较高，存在未来继续计提减值的风险，影响利润。",
+      "evidence_chain": [
+        "商誉账面价值10.45亿元，占净资产比例较高。",
+        "行业竞争加剧，电力扩容受限，技术改造成本上升。",
+        "若业绩下滑，可能继续计提商誉减值，导致利润下降。"
+      ],
+      "keyword_matched": "商誉减值"
+    },
+    {
+      "signal_id": "SIG-003",
+      "risk_type": "资产减值损失",
+      "severity": "medium",
+      "text_excerpt": "资产减值损失（损失以“-”号填列）-2,637,728.84",
+      "page_location": "合并利润表，第129页",
+      "accounting_meaning": "本期确认了资产减值损失，包括存货跌价和在建工程减值，金额较小。",
+      "evidence_chain": [
+        "资产减值损失为263.77万元，占利润总额比例低。",
+        "主要构成为存货跌价损失和在建工程减值损失。",
+        "减值金额较小，对利润影响有限。"
+      ],
+      "keyword_matched": "资产减值"
+    },
+    {
+      "signal_id": "SIG-004",
+      "risk_type": "信用减值损失",
+      "severity": "medium",
+      "text_excerpt": "信用减值损失（损失以“-”号填列）-55,646,318.60",
+      "page_location": "合并利润表，第129页",
+      "accounting_meaning": "应收账款坏账损失较大，反映客户信用风险。",
+      "evidence_chain": [
+        "信用减值损失5564.63万元，占利润总额比例11.92%。",
+        "应收账款账面值22.86亿元，占总资产11.66%，较上年增加4.68%。",
+        "客户可能拖延付款，存在回收风险。"
+      ],
+      "keyword_matched": "信用减值"
+    }
+  ],
+  "accounting_policy": {
+    "depreciation_method": "年限平均法",
+    "useful_life_range": "房屋建筑物40年，构筑物5-20年，电子设备3-10年，运输设备10年，办公设备3-10年",
+    "rd_capitalization_rate": "未披露",
+    "impairment_policy": "长期资产减值采用可收回金额与账面价值孰低原则，商誉每年减值测试。"
+  },
+  "summary": "公司固定资产折旧年限较长，尤其是电子设备，存在利润虚增风险；商誉减值风险较高，但本期减值金额较小；信用减值损失较大，需关注应收账款回收。总体会计估计风险中等偏高。"
+}

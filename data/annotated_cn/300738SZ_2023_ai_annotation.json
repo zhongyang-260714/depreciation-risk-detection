@@ -1,0 +1,133 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-08-20T16:45:37.723072",
+    "annotator": "DeepSeek AI + Program Verification (Single Company)",
+    "review_status": "confirmed",
+    "filing_source": "巨潮资讯网 (Manual Download)",
+    "ai_annotation": true
+  },
+  "company": {
+    "ticker": "300738SZ",
+    "name": "奥飞数据",
+    "fiscal_year": 2023
+  },
+  "composite_score": {
+    "weighted_score": 3.15,
+    "max_score": 5.0,
+    "risk_level": "中高风险",
+    "risk_level_en": "Medium-High Risk",
+    "score_breakdown": "5.0×0.25=1.25+4.0×0.20=0.80+2.0×0.20=0.40+2.0×0.20=0.40[est]+2.0×0.15=0.30=3.15 (注：D4为证据不足，按保守估计2分计算)",
+    "estimated_dimensions": [
+      "D4"
+    ]
+  },
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "年限错配",
+      "score": 5,
+      "weight": 0.25,
+      "insufficient_evidence": false,
+      "reasoning": "机器设备折旧年限为3-10年，中位数为6.5年，但技术基准为3.5年，存在错配；房屋建筑物延长至30-50年，但房屋不计入D1；电子设备3-5年，接近基准。综合评分为3分。",
+      "supporting_signals": [
+        "SIG-002"
+      ],
+      "rule_applied": true,
+      "rule_reason": "Extracted useful life = 30.0 years (asset_type=unknown, baseline=1.5y, mismatch_ratio = 20.0x)"
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "政策保守性",
+      "score": 4,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "公司主动延长房屋建筑物折旧年限，属于激进会计政策，但仅涉及房屋，不涉及主要设备；且采用未来适用法，不追溯调整，增加当期利润。因此评分较高（风险高）。",
+      "supporting_signals": [
+        "SIG-001"
+      ]
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值触发",
+      "score": 2,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "公司本期资产减值损失为零，但存在递延所得税资产中的资产减值准备，表明历史上有减值，但本期未计提；无重大减值迹象，但可能低估风险。评分2分（风险较低）。",
+      "supporting_signals": [
+        "SIG-003"
+      ]
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本强度",
+      "score": 2.0,
+      "weight": 0.2,
+      "insufficient_evidence": true,
+      "reasoning": "候选段落未提供资本开支或研发投入的具体数据，无法评估资本强度。",
+      "supporting_signals": [],
+      "score_was_null": true
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "技术替代",
+      "score": 2,
+      "weight": 0.15,
+      "insufficient_evidence": false,
+      "reasoning": "公司属于IDC行业，技术更新较快，但候选段落未提及具体技术替代风险；行业竞争激烈，但无直接证据。评分2分（风险较低）。",
+      "supporting_signals": []
+    }
+  ],
+  "risk_signals": [
+    {
+      "signal_id": "SIG-001",
+      "risk_type": "折旧年限延长",
+      "severity": "high",
+      "text_excerpt": "变更前，公司房屋建筑及构造物折旧年限为20年、预计净残值率为5%。变更后，钢结构和钢筋混凝土结构的房屋建筑及构造物折旧年限为30年-50年、预计净残值率为5%；其他结构的房屋建筑及构造物折旧年限为20年、预计净残值率为5%。",
+      "page_location": "年报附注六、1，第59页",
+      "accounting_meaning": "公司通过会计估计变更，将部分房屋建筑物的折旧年限从20年延长至30-50年，采用未来适用法，从2023年1月1日起执行，这将减少当期折旧费用，增加当期利润。",
+      "evidence_chain": [
+        "公司变更了房屋建筑物的折旧年限，从20年延长至30-50年。",
+        "根据CAS，折旧年限应反映资产的实际使用寿命，但延长年限可能偏离实际损耗，尤其在技术更新快的行业。",
+        "延长折旧年限将降低当期折旧费用，从而增加利润，可能掩盖资产实际价值的下降。"
+      ],
+      "keyword_matched": "折旧年限"
+    },
+    {
+      "signal_id": "SIG-002",
+      "risk_type": "折旧年限范围过宽",
+      "severity": "medium",
+      "text_excerpt": "机器设备 年限平均法 3-10 5 9.50-31.33",
+      "page_location": "年报附注五、24，第124页",
+      "accounting_meaning": "机器设备折旧年限为3-10年，范围较宽，可能允许管理层根据资产使用情况灵活选择，但若实际技术寿命较短，则可能延长折旧年限，减少当期费用。",
+      "evidence_chain": [
+        "机器设备折旧年限为3-10年，跨度较大。",
+        "对于技术更新较快的设备，如服务器等，技术寿命可能短于10年，但公司可能选择较长年限。",
+        "较长的折旧年限会降低折旧费用，提高利润。"
+      ],
+      "keyword_matched": "折旧年限"
+    },
+    {
+      "signal_id": "SIG-003",
+      "risk_type": "资产减值损失为零",
+      "severity": "low",
+      "text_excerpt": "72、资产减值损失 单位：元 项目 本期发生额 上期发生额 其他说明：",
+      "page_location": "年报附注七、72，第189页",
+      "accounting_meaning": "公司本期资产减值损失为零，表明未计提任何资产减值准备，但可能存在减值迹象未被充分识别。",
+      "evidence_chain": [
+        "资产减值损失项目下无金额，说明本期未计提减值。",
+        "公司存在大量固定资产和商誉，但未计提减值，可能表明管理层对资产可收回金额的估计乐观。",
+        "若资产实际价值下降，未计提减值将高估资产和利润。"
+      ],
+      "keyword_matched": "资产减值"
+    }
+  ],
+  "accounting_policy": {
+    "depreciation_method": "年限平均法（直线法）",
+    "useful_life_range": "房屋建筑及构造物20-50年，机器设备3-10年，电子设备3-5年，运输设备5年，分布式光伏发电设备20-30年",
+    "rd_capitalization_rate": "未披露",
+    "impairment_policy": "对固定资产、无形资产等长期资产，于资产负债表日判断是否存在减值迹象，存在减值迹象时进行减值测试；商誉每年进行减值测试。"
+  },
+  "summary": "公司存在会计估计变更，延长房屋建筑物折旧年限，可能增加利润；机器设备折旧年限范围较宽，存在利用年限选择调节利润的空间；本期未计提资产减值损失，但历史有减值准备，需关注资产质量。总体风险中等偏高。"
+}

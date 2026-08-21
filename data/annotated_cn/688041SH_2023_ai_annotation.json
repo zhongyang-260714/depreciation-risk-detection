@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-08-20T16:50:00.453702",
+    "annotator": "DeepSeek AI + Program Verification (Single Company)",
+    "review_status": "confirmed",
+    "filing_source": "巨潮资讯网 (Manual Download)",
+    "ai_annotation": true
+  },
+  "company": {
+    "ticker": "688041SH",
+    "name": "海光信息",
+    "fiscal_year": 2023
+  },
+  "composite_score": {
+    "weighted_score": 3.4,
+    "max_score": 5.0,
+    "risk_level": "中高风险",
+    "risk_level_en": "Medium-High Risk",
+    "score_breakdown": "3.0×0.25=0.75+4.0×0.20=0.80+2.0×0.20=0.40+5.0×0.20=1.00+3.0×0.15=0.45=3.40"
+  },
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "年限错配",
+      "score": 3,
+      "weight": 0.25,
+      "insufficient_evidence": false,
+      "reasoning": "机器设备折旧年限5-10年，平均7.5年，高于技术基准3.5年，存在错配风险，但未超过10年，故给3分。",
+      "supporting_signals": [
+        "SIG-001"
+      ]
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "政策保守性",
+      "score": 4,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "未发现会计估计变更，折旧政策稳定，但研发资本化率较高，整体保守性中等偏上。",
+      "supporting_signals": [
+        "SIG-002"
+      ]
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值触发",
+      "score": 2,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "公司披露了无形资产减值风险，但未实际计提大额减值，减值迹象不明显，故给2分。",
+      "supporting_signals": [
+        "SIG-003"
+      ]
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本强度",
+      "score": 5,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "研发投入占营业收入比重46.74%，远高于25%的高强度标准，资本开支/研发强度极高。",
+      "supporting_signals": [
+        "SIG-002"
+      ]
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "技术替代",
+      "score": 3,
+      "weight": 0.15,
+      "insufficient_evidence": false,
+      "reasoning": "公司属于高端处理器行业，技术更新快，存在技术替代风险，但未达到极端程度，故给3分。",
+      "supporting_signals": [
+        "SIG-003"
+      ]
+    }
+  ],
+  "risk_signals": [
+    {
+      "signal_id": "SIG-001",
+      "risk_type": "折旧年限延长",
+      "severity": "medium",
+      "text_excerpt": "机器设备 年限平均法 5-10 5% 19.00-9.50%",
+      "page_location": "年报附注五、21，第127页",
+      "accounting_meaning": "机器设备折旧年限为5-10年，平均7.5年，高于行业常见水平，可能延长折旧年限以降低当期费用。",
+      "evidence_chain": [
+        "公司机器设备折旧年限为5-10年，平均7.5年",
+        "行业常见机器设备折旧年限为5-10年，但技术更新快的行业可能更短",
+        "延长折旧年限会减少当期折旧费用，增加利润"
+      ],
+      "keyword_matched": "折旧年限"
+    },
+    {
+      "signal_id": "SIG-002",
+      "risk_type": "研发资本化比例较高",
+      "severity": "high",
+      "text_excerpt": "研发支出资本化的金额为84,091.27万元，资本化比例为29.93%",
+      "page_location": "年报第三节经营情况讨论与分析，第26页",
+      "accounting_meaning": "研发资本化比例接近30%，属于较高水平，可能通过资本化减少当期费用，增加利润。",
+      "evidence_chain": [
+        "研发投入总额280,977.56万元，资本化金额84,091.27万元，资本化率29.93%",
+        "资本化率高于行业平均水平（通常10-20%）",
+        "高资本化率减少研发费用，增加无形资产，提升当期利润"
+      ],
+      "keyword_matched": "研发支出资本化"
+    },
+    {
+      "signal_id": "SIG-003",
+      "risk_type": "无形资产减值风险",
+      "severity": "medium",
+      "text_excerpt": "如出现外部市场发生重大变化、现有技术被其他新技术替代等情况，可能导致公司面临自研无形资产减值较大的风险。",
+      "page_location": "年报第三节经营情况讨论与分析，第26页",
+      "accounting_meaning": "公司自认无形资产存在减值风险，但未计提减值，可能隐藏未来减值风险。",
+      "evidence_chain": [
+        "公司披露自研无形资产减值风险",
+        "无形资产账面价值较大，且摊销年限较长（通用技术10年，专用技术3年）",
+        "若技术替代发生，可能需计提大额减值，影响未来利润"
+      ],
+      "keyword_matched": "资产减值"
+    },
+    {
+      "signal_id": "SIG-004",
+      "risk_type": "无形资产摊销年限较长",
+      "severity": "medium",
+      "text_excerpt": "通用技术摊销年限为10年，专用技术摊销年限为3年",
+      "page_location": "年报附注五、26，第129页",
+      "accounting_meaning": "通用技术摊销年限10年，可能超过技术实际寿命，导致摊销费用偏低，利润虚高。",
+      "evidence_chain": [
+        "通用技术摊销年限10年，专用技术3年",
+        "技术更新换代快，通用技术可能5年内过时",
+        "摊销年限过长，减少当期摊销费用，增加利润"
+      ],
+      "keyword_matched": "使用寿命"
+    }
+  ],
+  "accounting_policy": {
+    "depreciation_method": "年限平均法",
+    "useful_life_range": "房屋及建筑物20-30年，机器设备5-10年，电子设备3-5年，办公设备3-5年",
+    "rd_capitalization_rate": "29.93%",
+    "impairment_policy": "长期资产减值测试，无形资产组采用收益法测算可收回金额"
+  },
+  "summary": "公司折旧年限偏长，研发资本化率较高，存在利润操纵风险；无形资产减值风险需关注。整体会计政策偏激进，需警惕未来减值风险。"
+}

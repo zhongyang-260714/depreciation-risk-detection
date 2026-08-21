@@ -1,142 +1,155 @@
-"""Prompt 模板集中管理
+"""Prompt 模板集中管理 v3-enhanced
 
-所有 DeepSeek 调用使用的 Prompt 统一放在这里，便于迭代调优。
+增强版：增加详细评分锚点和跨年对比指导，帮助AI更准确地评分。
 """
 
-ANNOTATION_PROMPT = """You are a forensic accounting analyst specializing in SEC 10-K depreciation risk assessment. Your task is to analyze candidate paragraphs from a company's 10-K filing and produce structured risk annotations.
+COMPANY_PROFILES = {
+    "META": {"d1_guardrail": "Server depreciation life PRIMARY focus. 2022:4y→2023:5y→2024:5.5y (SECOND extension)", "typical": "4.00-4.60", "d2_note": "Repeated extensions (2022+2024) = highest conservatism risk"},
+    "MSFT": {"d1_guardrail": "Server depreciation life PRIMARY focus. 2022:4y→6y (one-time, still in force)", "typical": "4.20-4.40", "d2_note": "FY2025 removed change narrative - opacity risk"},
+    "GOOGL": {"d1_guardrail": "Server depreciation life PRIMARY focus. 2022:4y→6y (one-time)", "typical": "4.20-4.25", "d2_note": "Similar to MSFT but quantified $3.9B impact"},
+    "ORCL": {"d1_guardrail": "Server depreciation PRIMARY. 2023 Q1:4→5y, 2025 Q1:5→6y (SECOND extension)", "typical": "3.60-4.45", "d2_note": "Two extensions in 3 years, timing with 3x capex surge"},
+    "INTC": {"d1_guardrail": "Wafer fab baseline 3.5y (NOT 1.5y server baseline).", "typical": "3.90-4.55", "d2_note": "IDM manufacturing, not cloud"},
+    "MU": {"d1_guardrail": "Memory fab baseline ~3.5y. Production equipment 7y fixed.", "typical": "4.00-4.20", "d2_note": "No life changes but inventory/goodwill volatility high"},
+    "NVDA": {"d1_guardrail": "FIXED ASSET minimal. Watch INVENTORY. D4 MUST be 1-2.", "typical": "2.85-3.45", "d2_note": "Fabless, but FY2023 extended server 3→4-5y, test 5→7y"},
+    "AMD": {"d1_guardrail": "Amortization of intangibles does NOT count toward D1. D1=PP&E only.", "typical": "2.40-2.60", "d2_note": "Fabless, asset-light"},
+    "CRM": {"d1_guardrail": "Very low fixed asset base.", "typical": "2.10", "d2_note": "SaaS model"},
+    "TSLA": {"d1_guardrail": "Auto equipment ~5-7y baseline AND AI hardware ~1.5-2y.", "typical": "3.20-3.75", "d2_note": "Dual asset structure"},
+}
 
-## Company Information
-- Ticker: {ticker}
-- Fiscal Year: {fiscal_year}
-- Industry: {industry}
+D1_RUBRIC = """D1 Scoring by Asset Type (ONLY PP&E counts):
 
-## Input Candidate Paragraphs
-Each paragraph below was identified by a keyword matrix scan as potentially containing depreciation/impairment risk signals.
+[A] Servers/Network/Datacenter: baseline 1.5y
+  5: >=6y | 4: 4-6y | 3: 3-4y | 2: 2-3y | 1: <=2y
+[B] Wafer Fab/Manufacturing: baseline 3.5y
+  5: >=10y | 4: 7-10y | 3: 5-7y | 2: 3.5-5y | 1: <=3.5y
+[C] General Equipment/Software: baseline 2-4y
+  5: >=7y | 4: 5-7y | 3: 3-5y | 2: 2-3y | 1: <=2y
 
+RULES: Use NEW extended life. For RANGE, use UPPER BOUND.
+"""
+
+D2_RUBRIC = """D2 Accounting Policy Conservatism (w=0.20):
+
+Scoring:
+  5: Extended life THIS YEAR + prospectively applied
+  4: Historical extension, no change THIS YEAR
+  3: No extension ever / neutral policy
+  2: Retrospective adjustment used
+  1: Shortened useful life
+
+BONUS: Extended TWICE in 3 years → D2=5 regardless of current year.
+"""
+
+D3_RUBRIC = """D3 Impairment Risk Triggers (w=0.20):
+
+Scoring:
+  5: PP&E impairment >=$100M THIS YEAR
+  4: Historical impairment + multiple direct signals / >$1B inventory write-down
+  3: Indirect signals only / zero impairment 3+ years
+  2: Sparse signals
+  1: No signals
+
+NOTE: For fabless (NVDA, AMD), inventory provisions ARE primary obsolescence channel.
+"""
+
+D4_RUBRIC = """D4 CAPEX Intensity (w=0.20):
+
+Calculate: CAPEX / Total Revenue * 100%
+
+Scoring:
+  5: >=25% | 4: 15-25% | 3: 8-15% | 2: 3-8% | 1: <3%
+
+NOTE: Fabless companies naturally LOW. Include finance leases.
+"""
+
+D5_RUBRIC = """D5 Technology Substitution/Competition (w=0.15):
+
+Scoring:
+  5: Operates GPU/AI infra + annual tech cycle
+  4: Cloud/AI infra OR manufacturing node pressure
+  3: Fabless but high tech iteration
+  2: Sells chips only
+  1: Software/services minimal hardware
+
+KEY SIGNALS: "rapidly evolving technology", "excess and obsolescence risk"
+"""
+
+SCORING_RUBRIC = f"""{D1_RUBRIC}
+
+{D2_RUBRIC}
+
+{D3_RUBRIC}
+
+{D4_RUBRIC}
+
+{D5_RUBRIC}
+"""
+
+CRITICAL_RULES = """RULES:
+1. NO invented text. Every excerpt must be verbatim from the input.
+2. NO hallucinated numbers. Mark missing as "not_disclosed".
+3. Skip paragraphs with no real risk signal.
+4. Evidence chain: FACT->CONTRADICTION->PROFIT_IMPACT.
+5. Conservative scoring. When ambiguous, use LOWER score.
+6. D1: select correct asset-type. Buildings/land/intangibles/amortization EXCLUDED.
+7. Insufficient evidence: score=null, insufficient_evidence=true.
+8. Output valid JSON ONLY. No markdown.
+9. FINANCIAL DATA: Extract specific numbers (revenue, capex, depreciation, impairment) with dollar amounts.
+10. YEAR-OVER-YEAR: If data shows trends (e.g., depreciation $5.3B→$7.3B→$11.3B), note the acceleration.
+11. CROSS-CHECK: D1 and D2 should be consistent. If D1=5 (very long life), D2 should be >=4.
+"""
+
+OUTPUT_SCHEMA = """OUTPUT JSON:
+{
+  "accounting_policy": {"depreciation_method":null,"server_useful_life_years":null,"change_in_estimate_method":null,"policy_risk_note":null},
+  "risk_signals": [{"signal_id":"TICKER-FY-SIG-001","source":"","keyword_matched":"","text_excerpt":"VERBATIM","page_location":"","risk_type":"","severity":"high","evidence_chain":["","",""],"accounting_meaning":""}],
+  "dimension_scores": [{"dimension_id":"D1","dimension_name":"Depreciation Life vs Technology Useful Life","weight":0.25,"score":1,"score_max":5,"score_label":"High Risk","reasoning":"","supporting_signals":[""],"insufficient_evidence":false}],
+  "summary": ""
+}"""
+
+ANNOTATION_PROMPT = """You are a forensic accounting analyst. Analyze candidate paragraphs from a 10-K filing and produce structured risk annotations.
+
+Company: {ticker} | FY: {fiscal_year} | Industry: {industry}
+
+Profile: {company_profile}
+
+{scoring_rubric}
+
+{critical_rules}
+
+{output_schema}
+
+Candidates to analyze:
 {candidates_text}
 
-## Your Task
-For each candidate paragraph that contains genuine depreciation/impairment risk signals:
-1. Extract a 4-column evidence chain:
-   ① text_excerpt: the verbatim excerpt from the paragraph
-   ② page_location: the source section and line reference
-   ③ accounting_meaning: what this disclosure means under accounting standards (US GAAP)
-   ④ risk_inference_chain: a logical chain from fact → contradiction with depreciation assumption → profit impact direction
+Generate JSON now."""
 
-2. Score each of the 5 dimensions (D1-D5) on a 1-5 scale based strictly on the evidence found in the paragraphs.
 
-## Scoring Rubric (MUST follow exactly)
-
-D1: Depreciation Life vs Technology Useful Life (weight 0.25)
-- 5: Accounting life ≥6 years vs 1-2 year tech cycle (severe mismatch)
-- 4: Accounting life 4-6 years vs 1-2 year tech cycle (significant mismatch)
-- 3: Accounting life 3-4 years vs 1-2 year tech cycle (moderate mismatch)
-- 2: Accounting life 2-3 years (mild mismatch)
-- 1: ≤2 years or actively accelerated depreciation (little/no mismatch)
-
-D2: Accounting Policy Conservatism (weight 0.20)
-- 5: Extended useful life in current period + prospectively applied (no retrospective adjustment)
-- 4: Historical record of extending useful life
-- 3: Prospectively applied but no extension in current period
-- 2: Retrospective adjustment or shortened life
-- 1: Actively shortened useful life (conservative)
-
-D3: Impairment Risk Triggers (weight 0.20)
-- 5: Large actual impairment in current period + multiple direct signals
-- 4: Actual impairment or ≥3 direct signals
-- 3: Only indirect signals
-- 2: Sparse indirect signals
-- 1: Almost no impairment signals
-
-D4: CAPEX Intensity (weight 0.20)
-- 5: CAPEX/Revenue ≥25% (extremely high asset exposure)
-- 4: CAPEX/Revenue 15-25%
-- 3: CAPEX/Revenue 8-15%
-- 2: CAPEX/Revenue 3-8%
-- 1: CAPEX/Revenue <3% (very low exposure)
-
-D5: Industry Competition & Technology Substitution (weight 0.15)
-- 5: Major GPU/cloud operator directly operating massive GPU clusters
-- 4: Significant GPU/data center operations
-- 3: Partial exposure or follower
-- 2: Indirect exposure (sells chips)
-- 1: No meaningful AI infrastructure exposure
-
-## CRITICAL RULES
-1. You MUST NOT invent text. Every excerpt must be verbatim from the input paragraphs.
-2. You MUST NOT hallucinate numbers. If a number is not in the text, mark it as "not_disclosed".
-3. If a paragraph contains no real risk signal, explicitly skip it (do not generate a signal for it).
-4. The evidence chain must follow: FACT → CONTRADICTION_WITH_DEPRECIATION_ASSUMPTION → PROFIT_IMPACT_DIRECTION.
-5. Be conservative in scoring. When evidence is ambiguous, assign a lower score rather than higher.
-6. You MUST output valid JSON only. No markdown, no explanations outside JSON.
-
-## Output Schema (strict JSON)
-{{
-  "accounting_policy": {{
-    "depreciation_method": "string or null",
-    "server_useful_life_years": "string or null",
-    "change_in_estimate_method": "string or null",
-    "policy_risk_note": "string or null"
-  }},
-  "risk_signals": [
-    {{
-      "signal_id": "string (format: TICKER-FY-SIG-001)",
-      "source": "string",
-      "keyword_matched": "string",
-      "text_excerpt": "VERBATIM excerpt from the paragraph",
-      "page_location": "string with line number if available",
-      "risk_type": "string category",
-      "severity": "critical|high|medium|low",
-      "relevance_to_depreciation": "string explaining why this matters for depreciation risk",
-      "evidence_chain": ["step 1", "step 2", "step 3", "step 4"],
-      "accounting_meaning": "string"
-    }}
-  ],
-  "dimension_scores": [
-    {{
-      "dimension_id": "D1",
-      "dimension_name": "折旧年限 vs 技术实际寿命",
-      "dimension_name_en": "Depreciation Life vs Technology Useful Life",
-      "weight": 0.25,
-      "score": 1,
-      "score_max": 5,
-      "score_label": "高风险",
-      "score_label_en": "High Risk",
-      "reasoning": "string",
-      "supporting_signals": ["TICKER-FY-SIG-001"],
-      "key_metrics": {{}}
-    }}
-  ],
-  "summary": "Brief summary of the overall depreciation risk assessment"
-}}
-
-Generate the JSON now."""
+def _format_company_profile(ticker: str) -> str:
+    p = COMPANY_PROFILES.get(ticker.upper())
+    if not p:
+        return "General tech company."
+    return f"D1: {p['d1_guardrail']} | D2: {p['d2_note']} | Typical: {p['typical']}"
 
 
 def build_annotation_prompt(candidates: list[dict], company: dict) -> str:
-    """构建完整的标注 Prompt。
-
-    Args:
-        candidates: 候选段落列表，每项至少含 text_excerpt, keyword_matched, source_section, line_number
-        company: 公司元信息，含 ticker, fiscal_year, industry
-    """
-    # 格式化候选段落
-    candidate_blocks = []
+    """构建增强版标注 Prompt。"""
+    blocks = []
     for i, c in enumerate(candidates, 1):
-        block = (
-            f"--- Candidate {i} ---\n"
-            f"Keyword Matched: {c.get('keyword_matched', 'N/A')}\n"
-            f"Source Section: {c.get('source_section', 'N/A')}\n"
-            f"Line Number: {c.get('line_number', 'N/A')}\n"
-            f"Text Excerpt:\n{c.get('text_excerpt', '')}\n"
+        excerpt = c.get('text_excerpt', '')
+        # 截断过长文本，保留前1000字符（增加以包含更多表格数据）
+        if len(excerpt) > 1000:
+            excerpt = excerpt[:1000] + "...[truncated]"
+        blocks.append(
+            f"[{i}] {c.get('keyword_matched','')} | {c.get('source_section','')} | tier={c.get('keyword_tier','')}:\n{excerpt}\n"
         )
-        candidate_blocks.append(block)
-
-    candidates_text = "\n".join(candidate_blocks)
-
     return ANNOTATION_PROMPT.format(
         ticker=company.get("ticker", "UNKNOWN"),
         fiscal_year=company.get("fiscal_year", "UNKNOWN"),
         industry=company.get("industry", "Technology"),
-        candidates_text=candidates_text,
+        company_profile=_format_company_profile(company.get("ticker", "")),
+        scoring_rubric=SCORING_RUBRIC,
+        critical_rules=CRITICAL_RULES,
+        output_schema=OUTPUT_SCHEMA,
+        candidates_text="\n".join(blocks),
     )

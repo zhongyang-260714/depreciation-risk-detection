@@ -139,7 +139,7 @@ def _render_scoring_system(cases: list[dict]):
             for d in dims
         ]
     )
-    st.dataframe(df, width="stretch", hide_index=True)
+    st.dataframe(df, use_container_width=True, hide_index=True)
 
     total_weight = sum(d.get("weight", 0) for d in dims)
     weight_str = " + ".join(
@@ -187,7 +187,7 @@ def _render_level_table(panel: pd.DataFrame):
     grp["分数下限"] = grp["分数下限"].round(2)
     grp["分数上限"] = grp["分数上限"].round(2)
 
-    st.dataframe(grp, width="stretch", hide_index=True)
+    st.dataframe(grp, use_container_width=True, hide_index=True)
     st.caption(
         "分数区间与数量由训练面板按 risk_level 分组实时统计，"
         "等级阈值的通用说明：综合分越高，折旧激进程度与报表失真风险越高。"
@@ -250,7 +250,7 @@ def _render_annotation_table(cases: list[dict]):
             }
         )
     df = pd.DataFrame(rows)
-    st.dataframe(df, width="stretch", hide_index=True)
+    st.dataframe(df, use_container_width=True, hide_index=True)
 
 
 def _render_draft_notice(cases: list[dict]):

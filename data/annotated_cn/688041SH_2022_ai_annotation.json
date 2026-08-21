@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-08-20T16:49:21.986780",
+    "annotator": "DeepSeek AI + Program Verification (Single Company)",
+    "review_status": "confirmed",
+    "filing_source": "巨潮资讯网 (Manual Download)",
+    "ai_annotation": true
+  },
+  "company": {
+    "ticker": "688041SH",
+    "name": "海光信息",
+    "fiscal_year": 2022
+  },
+  "composite_score": {
+    "weighted_score": 3.45,
+    "max_score": 5.0,
+    "risk_level": "中高风险",
+    "risk_level_en": "Medium-High Risk",
+    "score_breakdown": "4.0×0.25=1.00+2.0×0.20=0.40+3.0×0.20=0.60+5.0×0.20=1.00+3.0×0.15=0.45=3.45"
+  },
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "年限错配",
+      "score": 4,
+      "weight": 0.25,
+      "insufficient_evidence": false,
+      "reasoning": "机器设备折旧年限为5-10年，对于半导体行业，技术寿命通常为3.5-5年，存在明显错配，但未超过10年，故给4分。",
+      "supporting_signals": [
+        "SIG-001"
+      ]
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "政策保守性",
+      "score": 2,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "公司未发生会计估计变更，但折旧年限偏长，且研发资本化率较高，政策不够保守。",
+      "supporting_signals": [
+        "SIG-002"
+      ]
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值触发",
+      "score": 3,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "公司披露了无形资产减值风险，但未计提减值，存在潜在减值压力。",
+      "supporting_signals": [
+        "SIG-004"
+      ]
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本强度",
+      "score": 5,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "研发投入占营业收入比例40.33%，资本化比例31.61%，资本强度极高。",
+      "supporting_signals": [
+        "SIG-002"
+      ]
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "技术替代",
+      "score": 3,
+      "weight": 0.15,
+      "insufficient_evidence": false,
+      "reasoning": "公司属于高端处理器行业，技术迭代快，存在技术替代风险，但未达到极端程度。",
+      "supporting_signals": [
+        "SIG-004"
+      ]
+    }
+  ],
+  "risk_signals": [
+    {
+      "signal_id": "SIG-001",
+      "risk_type": "折旧年限过长",
+      "severity": "high",
+      "text_excerpt": "机器设备 年限平均法 5 -10 5% 19.00 -9.50%",
+      "page_location": "年报附注五、23，第121页",
+      "accounting_meaning": "公司对机器设备采用5-10年的折旧年限，但公司属于半导体行业，其机器设备主要为晶圆制造设备，技术更新快，行业通常折旧年限为5-7年，甚至更短。较长的折旧年限可能低估当期折旧费用，高估利润。",
+      "evidence_chain": [
+        "公司属于集成电路设计行业，但可能拥有晶圆制造相关设备，折旧年限为5-10年。",
+        "半导体设备技术迭代快，行业平均折旧年限通常为5-7年，10年上限明显偏长。",
+        "较长的折旧年限导致每年折旧费用较低，从而虚增利润和资产净值。"
+      ],
+      "keyword_matched": "折旧年限"
+    },
+    {
+      "signal_id": "SIG-002",
+      "risk_type": "研发支出资本化比例高",
+      "severity": "high",
+      "text_excerpt": "报告期内，公司研发支出资本化的金额为 65,350.87 万元，资本化比例为 31.61%",
+      "page_location": "第三节经营情况讨论与分析，第24页",
+      "accounting_meaning": "公司研发支出资本化比例较高，可能将本应费用化的研发支出资本化，从而减少当期费用，增加利润，但未来面临无形资产减值风险。",
+      "evidence_chain": [
+        "公司研发投入占营业收入比例40.33%，资本化比例31.61%，高于行业平均水平。",
+        "高资本化率可能表明公司利用会计政策调节利润，将研发支出递延至未来。",
+        "公司自身也提示了无形资产减值风险，说明资本化形成的无形资产存在较大不确定性。"
+      ],
+      "keyword_matched": "研发支出资本化"
+    },
+    {
+      "signal_id": "SIG-003",
+      "risk_type": "无形资产摊销年限过长",
+      "severity": "medium",
+      "text_excerpt": "“通用技术”摊销年限为10年，主要应用于单一特定代际或某一阶段产品设计及研发活动的“专用技术”摊销年限为3年。",
+      "page_location": "年报附注五、28，第123页",
+      "accounting_meaning": "通用技术摊销年限为10年，对于技术迭代快的处理器行业，可能过长，导致摊销费用偏低，利润虚高。",
+      "evidence_chain": [
+        "公司是高端处理器设计企业，技术更新快，通用技术摊销10年可能超过其经济寿命。",
+        "较长的摊销年限使得每年摊销费用较低，有利于提升当期利润。",
+        "公司自研无形资产金额较大，摊销政策对利润影响显著。"
+      ],
+      "keyword_matched": "摊销年限"
+    },
+    {
+      "signal_id": "SIG-004",
+      "risk_type": "资产减值风险",
+      "severity": "medium",
+      "text_excerpt": "如出现外部市场发生重大变化、现有技术被其他新技术替代等情况，可能导致公司面临相关无形资产减值较大的风险。",
+      "page_location": "第三节经营情况讨论与分析，第24页",
+      "accounting_meaning": "公司承认无形资产存在减值风险，但未计提减值，可能隐藏未来减值风险。",
+      "evidence_chain": [
+        "公司自研无形资产金额较大，且技术迭代快。",
+        "公司提示了技术替代风险，但未计提减值准备。",
+        "若未来技术被替代，将面临大额减值，影响利润。"
+      ],
+      "keyword_matched": "资产减值"
+    }
+  ],
+  "accounting_policy": {
+    "depreciation_method": "年限平均法",
+    "useful_life_range": "房屋建筑物20-30年，机器设备5-10年，电子设备3-5年，办公设备3-5年",
+    "rd_capitalization_rate": "31.61%",
+    "impairment_policy": "对固定资产、无形资产等长期资产，于资产负债表日存在减值迹象时进行减值测试，可收回金额低于账面价值的差额计提减值准备。"
+  },
+  "summary": "公司折旧年限偏长，研发资本化率较高，存在利润操纵风险。无形资产摊销年限较长，未来可能面临减值风险。整体会计政策不够保守，需关注资产质量和利润真实性。"
+}

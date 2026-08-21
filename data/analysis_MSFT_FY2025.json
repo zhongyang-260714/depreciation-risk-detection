@@ -1,0 +1,373 @@
+{
+  "ticker": "MSFT",
+  "fiscal_year": 2025,
+  "candidates": [
+    {
+      "tier": "core",
+      "score": null,
+      "text": ""
+    },
+    {
+      "tier": "core",
+      "score": null,
+      "text": ""
+    },
+    {
+      "tier": "core",
+      "score": null,
+      "text": ""
+    },
+    {
+      "tier": "core",
+      "score": null,
+      "text": ""
+    },
+    {
+      "tier": "core",
+      "score": null,
+      "text": ""
+    },
+    {
+      "tier": "core",
+      "score": null,
+      "text": ""
+    },
+    {
+      "tier": "core",
+      "score": null,
+      "text": ""
+    },
+    {
+      "tier": "core",
+      "score": null,
+      "text": ""
+    },
+    {
+      "tier": "core",
+      "score": null,
+      "text": ""
+    },
+    {
+      "tier": "core",
+      "score": null,
+      "text": ""
+    },
+    {
+      "tier": "extended",
+      "score": null,
+      "text": ""
+    },
+    {
+      "tier": "extended",
+      "score": null,
+      "text": ""
+    },
+    {
+      "tier": "extended",
+      "score": null,
+      "text": ""
+    },
+    {
+      "tier": "extended",
+      "score": null,
+      "text": ""
+    },
+    {
+      "tier": "extended",
+      "score": null,
+      "text": ""
+    },
+    {
+      "tier": "extended",
+      "score": null,
+      "text": ""
+    },
+    {
+      "tier": "extended",
+      "score": null,
+      "text": ""
+    },
+    {
+      "tier": "extended",
+      "score": null,
+      "text": ""
+    },
+    {
+      "tier": "extended",
+      "score": null,
+      "text": ""
+    },
+    {
+      "tier": "extended",
+      "score": null,
+      "text": ""
+    }
+  ],
+  "ai_raw": {
+    "accounting_policy": {
+      "depreciation_method": null,
+      "server_useful_life_years": null,
+      "change_in_estimate_method": null,
+      "policy_risk_note": "No explicit depreciation policy or useful life for servers disclosed in the provided excerpts."
+    },
+    "risk_signals": [
+      {
+        "signal_id": "MSFT-FY2025-SIG-001",
+        "source": "10-K",
+        "keyword_matched": "impairment",
+        "text_excerpt": "Net recognized losses on investments increased primarily due to higher impairments, offset in part by higher gains on equity investments in the current period.",
+        "page_location": "Unknown",
+        "risk_type": "Impairment",
+        "severity": "medium",
+        "evidence_chain": [
+          "Net recognized losses on investments increased primarily due to higher impairments",
+          "No specific amount disclosed",
+          "Potential impact on other income (expense), net"
+        ],
+        "accounting_meaning": "Higher impairments on investments may indicate deterioration in investment values, but not directly related to PP&E."
+      },
+      {
+        "signal_id": "MSFT-FY2025-SIG-002",
+        "source": "10-K",
+        "keyword_matched": "supply chain",
+        "text_excerpt": "Component shortages, excess or obsolete inventory, or price reductions resulting in inventory adjustments may increase our cost of revenue.",
+        "page_location": "Unknown",
+        "risk_type": "Inventory Obsolescence",
+        "severity": "medium",
+        "evidence_chain": [
+          "Component shortages, excess or obsolete inventory, or price reductions",
+          "May increase cost of revenue",
+          "Potential impact on gross margin"
+        ],
+        "accounting_meaning": "Indicates risk of inventory write-downs due to obsolescence, which is a signal for D3."
+      },
+      {
+        "signal_id": "MSFT-FY2025-SIG-003",
+        "source": "10-K",
+        "keyword_matched": "capital expenditures",
+        "text_excerpt": "Cash used in investing decreased $24.4 billion to $72.6 billion for fiscal year 2025, primarily due to a $63.2 billion decrease in cash used for acquisitions of companies, net of cash acquired and divestitures, and purchases of intangible and other assets, offset in part by a $22.3 billion increase in cash used in net investment purchases, sales, and maturities, and a $20.1 billion increase in additions to property and equipment.",
+        "page_location": "Unknown",
+        "risk_type": "CAPEX Intensity",
+        "severity": "high",
+        "evidence_chain": [
+          "$20.1 billion increase in additions to property and equipment",
+          "Cash from operations increased $17.6 billion to $136.2 billion",
+          "Indicates significant investment in PP&E"
+        ],
+        "accounting_meaning": "High CAPEX intensity suggests heavy investment in infrastructure, relevant for D4."
+      },
+      {
+        "signal_id": "MSFT-FY2025-SIG-004",
+        "source": "10-K",
+        "keyword_matched": "competition",
+        "text_excerpt": "Azure faces diverse competition from cloud service providers and open source offerings. Azure’s competitive advantage includes enabling a hybrid cloud, allowing deployment of existing datacenters with our public cloud into a single, cohesive infrastructure, and the ability to run at a scale that meets the needs of businesses of all sizes and complexities. Our AI offerings compete with AI products from hyperscalers, as well as products from other emerging competitors and other open source offerings, many of which are also current or potential partners.",
+        "page_location": "Unknown",
+        "risk_type": "Technology Substitution",
+        "severity": "high",
+        "evidence_chain": [
+          "Azure faces diverse competition from cloud service providers",
+          "Our AI offerings compete with AI products from hyperscalers",
+          "Indicates intense competition and rapid technology evolution"
+        ],
+        "accounting_meaning": "High competition in cloud/AI infrastructure suggests rapid technology changes, relevant for D5."
+      },
+      {
+        "signal_id": "MSFT-FY2025-SIG-005",
+        "source": "10-K",
+        "keyword_matched": "supply chain",
+        "text_excerpt": "We may experience supply or quality problems. There are limited suppliers for certain device and datacenter components. We continue to identify and evaluate opportunities to expand our datacenter locations and increase our server capacity to meet the evolving needs of our customers, particularly given the growing demand for AI services. Capacity available to us may be affected as competitors use some of the same suppliers and materials for hardware components. If components are delayed or become unavailable, whether because of supplier capacity constraint, industry shortages, legal or regulatory changes that restrict supply sources, or other reasons, we may not obtain timely replacement supplies, resulting in reduced sales or inadequate datacenter capacity to support the delivery and continued development of our products and services.",
+        "page_location": "Unknown",
+        "risk_type": "Supply Chain",
+        "severity": "medium",
+        "evidence_chain": [
+          "There are limited suppliers for certain device and datacenter components",
+          "If components are delayed or become unavailable... resulting in reduced sales or inadequate datacenter capacity",
+          "Potential impact on revenue and operations"
+        ],
+        "accounting_meaning": "Supply chain risks could affect ability to maintain infrastructure, indirectly impacting asset utilization."
+      }
+    ],
+    "dimension_scores": [
+      {
+        "dimension_id": "D1",
+        "dimension_name": "Depreciation Life vs Technology Useful Life",
+        "weight": 0.25,
+        "score": null,
+        "score_max": 5,
+        "score_label": "Insufficient Evidence",
+        "reasoning": "No explicit disclosure of server useful life or depreciation policy in the provided excerpts. Cannot assess.",
+        "supporting_signals": [],
+        "insufficient_evidence": true
+      },
+      {
+        "dimension_id": "D2",
+        "dimension_name": "Accounting Policy Conservatism",
+        "weight": 0.2,
+        "score": 4,
+        "score_max": 5,
+        "score_label": "Moderate Risk",
+        "reasoning": "Historical extension exists (2022 change from 4y to 6y) but no change this year. Based on profile, D2=4.",
+        "supporting_signals": [],
+        "insufficient_evidence": false
+      },
+      {
+        "dimension_id": "D3",
+        "dimension_name": "Impairment Risk Triggers",
+        "weight": 0.2,
+        "score": 3,
+        "score_max": 5,
+        "score_label": "Moderate Risk",
+        "reasoning": "Indirect signals only: risk factors mention obsolescence and supply chain issues, but no actual impairment charge disclosed. Also, no PP&E impairment mentioned. Score 3.",
+        "supporting_signals": [
+          "MSFT-FY2025-SIG-002"
+        ],
+        "insufficient_evidence": false
+      },
+      {
+        "dimension_id": "D4",
+        "dimension_name": "CAPEX Intensity",
+        "weight": 0.2,
+        "score": 4,
+        "score_max": 5,
+        "score_label": "High Risk",
+        "reasoning": "CAPEX increased by $20.1B in FY2025. Based on profile, MSFT CAPEX intensity is around 23% (cash) or 30% including finance leases, which falls in 15-25% range. Score 4.",
+        "supporting_signals": [
+          "MSFT-FY2025-SIG-003"
+        ],
+        "insufficient_evidence": false
+      },
+      {
+        "dimension_id": "D5",
+        "dimension_name": "Technology Substitution/Competition",
+        "weight": 0.15,
+        "score": 5,
+        "score_max": 5,
+        "score_label": "High Risk",
+        "reasoning": "Microsoft directly operates massive GPU/AI infrastructure (Azure + OpenAI) and acknowledges intense competition and rapid technology evolution. Score 5.",
+        "supporting_signals": [
+          "MSFT-FY2025-SIG-004"
+        ],
+        "insufficient_evidence": false
+      }
+    ],
+    "summary": "Microsoft's FY2025 10-K reveals significant capital expenditures and intense competition in AI/cloud, but lacks explicit disclosure of server depreciation policy. Historical extension of useful life (2022) remains in force, indicating moderate conservatism. Impairment signals are indirect, with no actual PP&E impairment disclosed. Overall, the company faces high technology substitution risk due to its massive AI infrastructure investments."
+  },
+  "verification": {
+    "total": 5,
+    "passed": 3,
+    "failed": 2,
+    "pass_rate": 0.6,
+    "results": [
+      {
+        "signal_id": "MSFT-FY2025-SIG-001",
+        "passed": true,
+        "method": "exact",
+        "confidence": 1.0
+      },
+      {
+        "signal_id": "MSFT-FY2025-SIG-002",
+        "passed": true,
+        "method": "exact",
+        "confidence": 1.0
+      },
+      {
+        "signal_id": "MSFT-FY2025-SIG-003",
+        "passed": true,
+        "method": "exact",
+        "confidence": 1.0
+      },
+      {
+        "signal_id": "MSFT-FY2025-SIG-004",
+        "passed": false,
+        "method": "none",
+        "confidence": 0.0
+      },
+      {
+        "signal_id": "MSFT-FY2025-SIG-005",
+        "passed": false,
+        "method": "none",
+        "confidence": 0.0
+      }
+    ],
+    "verified_signals": [
+      {
+        "signal_id": "MSFT-FY2025-SIG-001",
+        "source": "10-K",
+        "keyword_matched": "impairment",
+        "text_excerpt": "Net recognized losses on investments increased primarily due to higher impairments, offset in part by higher gains on equity investments in the current period.",
+        "page_location": "Unknown",
+        "risk_type": "Impairment",
+        "severity": "medium",
+        "evidence_chain": [
+          "Net recognized losses on investments increased primarily due to higher impairments",
+          "No specific amount disclosed",
+          "Potential impact on other income (expense), net"
+        ],
+        "accounting_meaning": "Higher impairments on investments may indicate deterioration in investment values, but not directly related to PP&E."
+      },
+      {
+        "signal_id": "MSFT-FY2025-SIG-002",
+        "source": "10-K",
+        "keyword_matched": "supply chain",
+        "text_excerpt": "Component shortages, excess or obsolete inventory, or price reductions resulting in inventory adjustments may increase our cost of revenue.",
+        "page_location": "Unknown",
+        "risk_type": "Inventory Obsolescence",
+        "severity": "medium",
+        "evidence_chain": [
+          "Component shortages, excess or obsolete inventory, or price reductions",
+          "May increase cost of revenue",
+          "Potential impact on gross margin"
+        ],
+        "accounting_meaning": "Indicates risk of inventory write-downs due to obsolescence, which is a signal for D3."
+      },
+      {
+        "signal_id": "MSFT-FY2025-SIG-003",
+        "source": "10-K",
+        "keyword_matched": "capital expenditures",
+        "text_excerpt": "Cash used in investing decreased $24.4 billion to $72.6 billion for fiscal year 2025, primarily due to a $63.2 billion decrease in cash used for acquisitions of companies, net of cash acquired and divestitures, and purchases of intangible and other assets, offset in part by a $22.3 billion increase in cash used in net investment purchases, sales, and maturities, and a $20.1 billion increase in additions to property and equipment.",
+        "page_location": "Unknown",
+        "risk_type": "CAPEX Intensity",
+        "severity": "high",
+        "evidence_chain": [
+          "$20.1 billion increase in additions to property and equipment",
+          "Cash from operations increased $17.6 billion to $136.2 billion",
+          "Indicates significant investment in PP&E"
+        ],
+        "accounting_meaning": "High CAPEX intensity suggests heavy investment in infrastructure, relevant for D4."
+      }
+    ],
+    "failed_signals": [
+      {
+        "signal_id": "MSFT-FY2025-SIG-004",
+        "source": "10-K",
+        "keyword_matched": "competition",
+        "text_excerpt": "Azure faces diverse competition from cloud service providers and open source offerings. Azure’s competitive advantage includes enabling a hybrid cloud, allowing deployment of existing datacenters with our public cloud into a single, cohesive infrastructure, and the ability to run at a scale that meets the needs of businesses of all sizes and complexities. Our AI offerings compete with AI products from hyperscalers, as well as products from other emerging competitors and other open source offerings, many of which are also current or potential partners.",
+        "page_location": "Unknown",
+        "risk_type": "Technology Substitution",
+        "severity": "high",
+        "evidence_chain": [
+          "Azure faces diverse competition from cloud service providers",
+          "Our AI offerings compete with AI products from hyperscalers",
+          "Indicates intense competition and rapid technology evolution"
+        ],
+        "accounting_meaning": "High competition in cloud/AI infrastructure suggests rapid technology changes, relevant for D5."
+      },
+      {
+        "signal_id": "MSFT-FY2025-SIG-005",
+        "source": "10-K",
+        "keyword_matched": "supply chain",
+        "text_excerpt": "We may experience supply or quality problems. There are limited suppliers for certain device and datacenter components. We continue to identify and evaluate opportunities to expand our datacenter locations and increase our server capacity to meet the evolving needs of our customers, particularly given the growing demand for AI services. Capacity available to us may be affected as competitors use some of the same suppliers and materials for hardware components. If components are delayed or become unavailable, whether because of supplier capacity constraint, industry shortages, legal or regulatory changes that restrict supply sources, or other reasons, we may not obtain timely replacement supplies, resulting in reduced sales or inadequate datacenter capacity to support the delivery and continued development of our products and services.",
+        "page_location": "Unknown",
+        "risk_type": "Supply Chain",
+        "severity": "medium",
+        "evidence_chain": [
+          "There are limited suppliers for certain device and datacenter components",
+          "If components are delayed or become unavailable... resulting in reduced sales or inadequate datacenter capacity",
+          "Potential impact on revenue and operations"
+        ],
+        "accounting_meaning": "Supply chain risks could affect ability to maintain infrastructure, indirectly impacting asset utilization."
+      }
+    ]
+  },
+  "rules_triggered": []
+}

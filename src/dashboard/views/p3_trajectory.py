@@ -212,7 +212,7 @@ def render(data: dict) -> None:
         legend=dict(orientation="h", yanchor="bottom", y=1.02, x=0),
         hovermode="closest",
     )
-    st.plotly_chart(fig, width="stretch", key="p3_main_chart")
+    st.plotly_chart(fig, use_container_width=True, key="p3_main_chart")
     st.caption("● 实心点 = 已确认 · ○ 空心点 = 草稿待审 · ★ 星形 = 折旧年限政策变更")
 
     # ---------- 3 + 4. 政策变更事件点与事件清单 ----------
@@ -272,7 +272,7 @@ def render(data: dict) -> None:
                 yaxis=dict(title=metric_label, rangemode="tozero", gridcolor="#EDE9E2"),
                 legend=dict(orientation="h", yanchor="bottom", y=1.02, x=0),
             )
-            st.plotly_chart(fig_ev, width="stretch", key="p3_event_chart")
+            st.plotly_chart(fig_ev, use_container_width=True, key="p3_event_chart")
 
         # 事件清单表（所有公司，不限于当前选择）
         table_cols = [
@@ -295,7 +295,7 @@ def render(data: dict) -> None:
         )
         st.dataframe(
             table,
-            width="stretch",
+            use_container_width=True,
             hide_index=True,
             column_config={
                 "财年": st.column_config.NumberColumn(format="%d"),
@@ -346,7 +346,7 @@ def render(data: dict) -> None:
         yaxis=dict(title="资本开支 / 营收", tickformat=".0%", gridcolor="#EDE9E2"),
         legend=dict(orientation="h", yanchor="bottom", y=1.02, x=0),
     )
-    st.plotly_chart(fig_cap, width="stretch", key="p3_capex_chart")
+    st.plotly_chart(fig_cap, use_container_width=True, key="p3_capex_chart")
     st.caption(
         "资本开支强度持续走高，反映 AI 算力军备竞赛下的重资产化趋势——"
         "折旧年限政策对利润的影响也随之放大。"

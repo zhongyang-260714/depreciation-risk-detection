@@ -40,6 +40,15 @@ requests>=2.31.0
 beautifulsoup4>=4.12.0
 selenium>=4.10.0
 
+# AI Annotation (DeepSeek + A股年报)
+pdfplumber>=0.11.0
+tenacity>=9.0.0
+
+# Config
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+selenium>=4.10.0
+
 # Config
 pyyaml>=6.0.0
 python-dotenv>=1.0.0

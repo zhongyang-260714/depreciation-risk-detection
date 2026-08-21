@@ -1,0 +1,230 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0 (China A-share parity)",
+    "annotated_at": "2026-08-19",
+    "annotator": "Kimi AI-assisted (project lead pending review)",
+    "review_status": "pending_review",
+    "filing_source": "深交所年报 - 浪潮信息2024年年度报告 (196页PDF)",
+    "review_note": "基于年报PDF全文提取+公开信息交叉验证。关键发现：年报正文第六节声称'无会计估计变更'，但第十节附注中披露'机器设备最低折旧年限由5年改为3年'——披露层级不一致。",
+    "reviewed_at": null,
+    "reviewed_by": null
+  },
+  "company": {
+    "ticker": "000977.SZ",
+    "name": "浪潮电子信息产业股份有限公司",
+    "fiscal_year": 2024,
+    "filing_date": "2025-03-29",
+    "report_period_end": "2024-12-31",
+    "industry": "服务器/AI算力设备制造",
+    "primary_assets": "机器设备（服务器生产线）、电子设备、房屋建筑物",
+    "file_path": "data/raw/cn/000977_2024_annual_report.pdf",
+    "coverage_note": "浪潮信息2024年报：营收1,147.67亿元(+74.24%)，归母净利润22.92亿元(+28.55%)，总资产711.91亿元。关键事件：2024-10-01起机器设备最低折旧年限由5年改为3年（双向调整：原5-8年→现3-10年），采用未来适用法。年报正文'第六节 重要事项'声称'无会计估计变更'，但'第十节 财务报告'附注中披露了该变更——披露层级存在不一致。"
+  },
+  "financial_highlights": {
+    "unit_note": "金额单位：人民币百万元（RMB mn），除非特别注明",
+    "revenue_millions": 114767,
+    "revenue_note": "营业收入1,147.67亿元，同比+74.24%",
+    "net_income_millions": 2292,
+    "net_income_note": "归母净利润22.92亿元，同比+28.55%",
+    "gross_margin_pct": 6.85,
+    "gross_margin_note": "毛利率6.85%，同比-3.19个百分点（头部互联网客户占比提升压低毛利）",
+    "rd_expense_millions": 3580,
+    "rd_expense_note": "研发投入35.80亿元，占营收3.12%",
+    "operating_cash_flow_millions": 98,
+    "operating_cash_flow_note": "经营活动现金流净额0.98亿元，同比-81.18%（备货增加）",
+    "total_assets_millions": 71191,
+    "total_assets_note": "总资产711.91亿元",
+    "ppe_net_millions": 2864,
+    "ppe_net_note": "固定资产28.64亿元，占总资产4.02%",
+    "capex_note": "固定资产占比低（4%），制造业中偏轻资产模式（组装/代工为主）",
+    "depreciation_expense_note": "折旧费用待PDF精确提取"
+  },
+  "accounting_policy": {
+    "depreciation_method": "直线法（年限平均法）",
+    "estimate_change_2024": "2024-10-01起：机器设备折旧年限范围由5-8年调整为3-10年（最低年限由5年降至3年，上限由8年提至10年）",
+    "estimate_change_method": "未来适用法",
+    "estimate_change_impact": "具体影响金额未在年报中单独量化披露",
+    "estimate_change_reason": "'更加客观真实的反映公司的财务状况和经营成果，在遵循会计核算谨慎性原则的基础上'——但下限降低与'谨慎性'方向矛盾",
+    "change_in_estimate_location": "年报第十节财务报告附注（非第六节重要事项），且第六节明确声称'无会计估计变更'",
+    "impairment_policy": "资产负债表日判断资产是否存在减值迹象，存在时估计可收回金额（公允价值减处置费用/未来现金流量现值孰高），低于账面价值则计提减值。",
+    "policy_risk_note": "⚠️ 关键发现：浪潮信息2024年年报存在披露层级不一致——'第六节 重要事项'声称'公司报告期无会计政策、会计估计变更或重大会计差错更正的情况'，但'第十节 财务报告'固定资产附注中明确记载'2024年10月01日起...公司将机器设备最低折旧年限由5年改为3年'。该变更使机器设备年限下限从5年降至3年（更保守），但上限从8年提至10年（更激进），整体为双向调整。下限降低与'谨慎性原则'的表述存在逻辑矛盾。"
+  },
+  "risk_signals": [
+    {
+      "signal_id": "SZ000977-2024-SIG-001",
+      "source": "2024年年报 第十节 财务报告 - 固定资产附注 / 第六节 重要事项",
+      "keyword_matched": "机器设备最低折旧年限由5年改为3年 / 无会计估计变更",
+      "text_excerpt": "（1）2024年10月01日起...限，更加客观真实的反映公司的财务状况和经营成果，在遵循会计核算谨慎性原则的基础上，公司将机器设备最低折旧年限由5年改为3年。（2）第六节重要事项：'公司报告期无会计政策、会计估计变更或重大会计差错更正的情况。'",
+      "page_location": "年报第十节财务报告固定资产附注 + 第六节重要事项（PDF页码待精确标注）",
+      "risk_type": "useful_life_change_with_disclosure_inconsistency",
+      "severity": "high",
+      "relevance_to_depreciation": "年报两个章节对同一变更的披露存在矛盾：第六节声称'无变更'，第十节附注却记载了变更。这种披露层级不一致本身即为风险信号。变更内容方面：机器设备5-8年→3-10年，下限降低（更保守）但上限提高（更激进），双向调整使整体风险方向模糊。服务器制造设备的技术迭代周期约2-3年，10年上限显著偏长。",
+      "evidence_chain": [
+        "2024-10-01起执行机器设备年限变更",
+        "原政策：机器设备5-8年；新政策：3-10年",
+        "第六节声称'无会计估计变更'",
+        "第十节附注明确记载'最低折旧年限由5年改为3年'",
+        "披露层级不一致 → 内部控制或信息披露质量存疑",
+        "变更理由提到'谨慎性原则'，但下限降低（5→3）实际上使部分设备折旧更快，与'延长年限增利润'的典型动机不同"
+      ]
+    },
+    {
+      "signal_id": "SZ000977-2024-SIG-002",
+      "source": "2024年年报 资产负债表 / 固定资产明细",
+      "keyword_matched": "固定资产 28.64亿；总资产 711.91亿",
+      "text_excerpt": "固定资产 2,864,168,944.39元（期末），占总资产4.02%；总资产71,191,039,667.42元。",
+      "page_location": "年报资产负债表（PDF页码待精确标注）",
+      "risk_type": "capex_intensity",
+      "severity": "medium",
+      "relevance_to_depreciation": "固定资产仅占总资产4.02%，在制造业中极低。浪潮信息本质为服务器组装/代工厂（ODM/OEM模式），核心资产为产线设备而非自有技术。轻资产结构意味着折旧风险对利润表的绝对影响有限，但毛利率仅6.85%、净利率2.00%，利润薄如纸，即使折旧微调也会显著影响盈亏。",
+      "evidence_chain": [
+        "固定资产28.64亿元 / 总资产711.91亿元 = 4.02%",
+        "毛利率6.85%，净利率2.00%",
+        "服务器制造业竞争激烈，议价能力弱",
+        "薄利模式下，折旧假设偏差的边际影响被放大"
+      ]
+    },
+    {
+      "signal_id": "SZ000977-2024-SIG-003",
+      "source": "2024年年报 利润表 / 减值相关",
+      "keyword_matched": "资产减值损失 / 信用减值损失",
+      "text_excerpt": "资产减值损失、信用减值损失在利润表中均有体现（具体金额待PDF精确提取）。",
+      "page_location": "年报利润表及附注（PDF页码待精确标注）",
+      "risk_type": "impairment_testing",
+      "severity": "medium",
+      "relevance_to_depreciation": "服务器行业技术迭代极快（AI芯片1-2年一代），存货和应收账款减值风险高。2024年营收暴增74%但经营现金流仅0.98亿元（同比-81%），显示大量收入未转化为现金，回款风险累积。",
+      "evidence_chain": [
+        "营收+74%但经营现金流-81%",
+        "应收账款体量较大（ reported by 证券之星）",
+        "服务器行业技术迭代快，存货过时风险高",
+        "薄利模式下减值对利润的侵蚀效应显著"
+      ]
+    }
+  ],
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "折旧年限 vs 技术实际寿命",
+      "dimension_name_en": "Depreciation Life vs Technology Useful Life",
+      "weight": 0.25,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "机器设备3-10年（原5-8年），服务器制造设备技术迭代周期2-3年。下限3年相对合理，但上限10年偏长；双向调整使整体风险方向模糊。电子设备5-10年对IT设备而言上限偏长。评3分（中）。",
+      "supporting_signals": [
+        "SZ000977-2024-SIG-001"
+      ],
+      "key_metrics": {
+        "machinery_life_years": "3-10 (was 5-8)",
+        "electronics_life_years": "5-10",
+        "tech_cycle_years": "2-3 (server manufacturing)",
+        "upper_bound_mismatch": "10y vs 2-3y cycle = 3.3-5x"
+      }
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "会计政策保守性",
+      "dimension_name_en": "Accounting Policy Conservatism",
+      "weight": 0.2,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "核心信号：年报第六节声称'无会计估计变更'，但第十节附注明确记载了机器设备年限变更——披露层级不一致，属内部控制或信披质量瑕疵。变更理由称'谨慎性原则'但下限降低（5→3），逻辑矛盾。评4分（高）。",
+      "supporting_signals": [
+        "SZ000977-2024-SIG-001"
+      ],
+      "key_metrics": {
+        "disclosure_inconsistency": "第六节 '无变更' vs 第十节 '有变更'",
+        "change_count": 1,
+        "change_method": "未来适用法",
+        "stated_reason": "谨慎性原则（与下限降低方向矛盾）"
+      }
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值风险触发",
+      "dimension_name_en": "Impairment Risk Triggers",
+      "weight": 0.2,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "服务器行业技术迭代快，存货过时风险高。2024年营收暴增74%但经营现金流仅0.98亿元（-81%），回款和存货风险累积。但未见大额固定资产减值。评3分（中）。",
+      "supporting_signals": [
+        "SZ000977-2024-SIG-003"
+      ],
+      "key_metrics": {
+        "revenue_growth_pct": 74.24,
+        "ocf_decline_pct": -81.18,
+        "gross_margin_pct": 6.85,
+        "inventory_obsolescence_risk": "高（技术迭代快）"
+      }
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本支出(CAPEX)强度",
+      "dimension_name_en": "Capital Expenditure Intensity",
+      "weight": 0.2,
+      "score": 2,
+      "score_max": 5,
+      "score_label": "低风险",
+      "score_label_en": "Low Risk",
+      "reasoning": "固定资产仅占总资产4.02%，制造业中极低。浪潮信息为组装/代工模式，非重资产运营。但薄利模式（净利率2%）下，折旧偏差对利润的边际影响被放大。评2分（低）。",
+      "supporting_signals": [
+        "SZ000977-2024-SIG-002"
+      ],
+      "key_metrics": {
+        "ppe_to_total_assets_pct": 4.02,
+        "net_profit_margin_pct": 2.0,
+        "business_model": "ODM/OEM assembly, light asset"
+      }
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "行业竞争/技术替代",
+      "dimension_name_en": "Industry Competition & Technology Substitution",
+      "weight": 0.15,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "服务器行业竞争激烈（vs 华为、新华三、联想等），AI芯片迭代1-2年一代。但浪潮信息为制造商而非运营商，技术替代风险主要体现在存货和订单层面，固定资产暴露相对有限。评3分（中）。",
+      "supporting_signals": [],
+      "key_metrics": {
+        "industry": "Server manufacturing / AI computing",
+        "tech_cycle_years": "1-2 (AI chip)",
+        "major_competitors": [
+          "华为",
+          "新华三",
+          "联想",
+          "工业富联"
+        ]
+      }
+    }
+  ],
+  "comparative_context": {
+    "same_company_trend": "2024年为首次出现折旧年限双向调整（下限降低、上限提高），且存在披露不一致。需跟踪2025年是否延续调整及披露质量是否改善。",
+    "cross_company_benchmark": "浪潮信息代表'服务器制造/组装型'，固定资产占比（4%）远低于IDC运营商（数据港50%+），折旧风险绝对量级小，但薄利模式放大了边际影响。",
+    "narrative_significance": "浪潮信息的案例揭示了A股制造业中的一个独特信号：年报不同章节对同一会计估计变更的披露存在矛盾。这种'信披层级不一致'本身即为内部控制和信息披露质量的警示信号。"
+  },
+  "annotation_methodology": {
+    "source_document": "浪潮电子信息产业股份有限公司 2024 年年度报告（深交所，196页PDF）",
+    "filing_accessed": "直接下载自巨潮资讯网 static.cninfo.com.cn",
+    "text_extraction_method": "pdfplumber逐页提取全文，关键词定位+上下文人工复核",
+    "scoring_method": "Five-dimension weighted scoring (5D-DRS) with 0-5 scale, weights 0.25/0.20/0.20/0.20/0.15",
+    "human_verification": "关键财务数字（营收1147.67亿、净利22.92亿、总资产711.91亿、固定资产28.64亿）来自年报原文或权威财经媒体交叉验证；折旧政策引文来自PDF全文提取。逐字页码行号待精确标注。",
+    "limitation": "部分精确数字（折旧费用绝对值、CAPEX明细、减值明细）待PDF进一步精确提取；本次标注基于PDF全文+公开信息，置信度0.75。"
+  },
+  "composite_score": {
+    "weighted_score": 3.0,
+    "max_score": 5.0,
+    "risk_level": "中风险",
+    "risk_level_en": "Medium Risk",
+    "risk_level_color": "#FFC107",
+    "confidence": 0.75,
+    "confidence_reason": "关键财务数字已交叉验证，折旧政策引文来自PDF原文。但部分明细（折旧费用、减值明细）待进一步精确提取，且'披露不一致'信号需要人工复核确认。"
+  }
+}

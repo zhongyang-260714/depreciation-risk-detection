@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-08-20T16:34:21.908769",
+    "annotator": "DeepSeek AI + Program Verification (Batch)",
+    "review_status": "confirmed",
+    "filing_source": "巨潮资讯网 (Manual Download)",
+    "ai_annotation": true
+  },
+  "company": {
+    "ticker": "688256SH",
+    "name": "寒武纪",
+    "fiscal_year": 2023
+  },
+  "composite_score": {
+    "weighted_score": 3.25,
+    "max_score": 5.0,
+    "risk_level": "中高风险",
+    "risk_level_en": "Medium-High Risk",
+    "score_breakdown": "4.0×0.25=1.00+3.0×0.20=0.60+4.0×0.20=0.80+2.0×0.20=0.40[est]+3.0×0.15=0.45=3.25 (注：D4为证据不足，按保守估计2分计算)",
+    "estimated_dimensions": [
+      "D4"
+    ]
+  },
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "年限错配",
+      "score": 4,
+      "weight": 0.25,
+      "insufficient_evidence": false,
+      "reasoning": "测试设备折旧年限3-5年，电子设备3年，但公司属于半导体行业，技术更新快，测试设备年限上限5年明显高于技术基准3.5年，存在年限错配风险。",
+      "supporting_signals": [
+        "SIG-001",
+        "SIG-002"
+      ]
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "政策保守性",
+      "score": 3,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "未发现会计估计变更，但折旧年限设定偏长，保守性一般。",
+      "supporting_signals": []
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值触发",
+      "score": 4,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "公司确认大额资产减值损失（1.38亿）和信用减值损失（1.34亿），表明存在减值触发信号。",
+      "supporting_signals": [
+        "SIG-003",
+        "SIG-004"
+      ]
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本强度",
+      "score": 2.0,
+      "weight": 0.2,
+      "insufficient_evidence": true,
+      "reasoning": "候选段落未提供资本开支或研发投入占收入比例的数据，无法评估。",
+      "supporting_signals": [],
+      "score_was_null": true
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "技术替代",
+      "score": 3,
+      "weight": 0.15,
+      "insufficient_evidence": false,
+      "reasoning": "公司属于芯片行业，技术迭代快，存在技术替代压力，但未提供具体证据。",
+      "supporting_signals": []
+    }
+  ],
+  "risk_signals": [
+    {
+      "signal_id": "SIG-001",
+      "risk_type": "折旧年限延长",
+      "severity": "high",
+      "text_excerpt": "测试设备 年限平均法 3-5 0-5% 19.00-33.33%",
+      "page_location": "年报附注五、21，第153页",
+      "accounting_meaning": "测试设备折旧年限为3-5年，但公司属于半导体行业，测试设备技术更新快，实际技术寿命可能短于5年，存在折旧年限偏长的风险。",
+      "evidence_chain": [
+        "公司属于Technology行业，产品包括云端智能芯片等，测试设备技术迭代快。",
+        "半导体测试设备技术基准为3.5年，公司折旧年限上限5年，明显高于基准。",
+        "延长折旧年限会减少当期折旧费用，增加利润，存在利润操纵风险。"
+      ],
+      "keyword_matched": "折旧年限"
+    },
+    {
+      "signal_id": "SIG-002",
+      "risk_type": "折旧年限延长",
+      "severity": "medium",
+      "text_excerpt": "电子设备 年限平均法 3 0% 33.33%",
+      "page_location": "年报附注五、21，第153页",
+      "accounting_meaning": "电子设备折旧年限为3年，但电子设备技术寿命通常较短，3年可能仍偏长，但相对合理。",
+      "evidence_chain": [
+        "电子设备技术更新快，但3年折旧年限在行业中常见。",
+        "与服务器基准1.5年相比，3年仍偏长，但电子设备范围较广，可能包含非核心设备。",
+        "对利润影响较小，风险中等。"
+      ],
+      "keyword_matched": "折旧年限"
+    },
+    {
+      "signal_id": "SIG-003",
+      "risk_type": "资产减值",
+      "severity": "high",
+      "text_excerpt": "资产减值损失（损失以“-”号填列） 七、72 -138,033,445.65 -196,429,673.19",
+      "page_location": "合并利润表，第122页",
+      "accounting_meaning": "公司2023年确认资产减值损失1.38亿元，主要为存货跌价损失，表明存货存在减值风险。",
+      "evidence_chain": [
+        "存货跌价损失1.26亿元，占资产减值损失的大部分。",
+        "公司处于芯片行业，存货可能因技术迭代而减值。",
+        "大额减值损失表明公司资产质量存在风险。"
+      ],
+      "keyword_matched": "资产减值"
+    },
+    {
+      "signal_id": "SIG-004",
+      "risk_type": "资产减值",
+      "severity": "medium",
+      "text_excerpt": "信用减值损失（损失以“-”号填列） 七、71 -133,985,309.65 -117,216,228.59",
+      "page_location": "合并利润表，第122页",
+      "accounting_meaning": "公司2023年确认信用减值损失1.34亿元，主要为应收账款坏账损失，表明应收账款回收风险较高。",
+      "evidence_chain": [
+        "应收账款坏账损失1.33亿元，占信用减值损失绝大部分。",
+        "公司收入增长可能伴随应收账款风险。",
+        "信用减值损失增加，影响利润。"
+      ],
+      "keyword_matched": "信用减值"
+    }
+  ],
+  "accounting_policy": {
+    "depreciation_method": "年限平均法",
+    "useful_life_range": "测试设备3-5年，电子设备3年，管理用具5年，运输设备4年",
+    "rd_capitalization_rate": "未提供",
+    "impairment_policy": "对长期资产在资产负债表日有迹象表明发生减值的，估计可收回金额；商誉和使用寿命不确定的无形资产每年进行减值测试。"
+  },
+  "summary": "公司折旧年限设定偏长，特别是测试设备，存在利润操纵风险；同时确认大额资产减值和信用减值，表明资产质量存在风险。研发资本化情况未披露，需进一步关注。"
+}

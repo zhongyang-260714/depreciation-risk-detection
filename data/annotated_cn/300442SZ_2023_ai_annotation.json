@@ -1,0 +1,157 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-08-20T16:53:34.351123",
+    "annotator": "DeepSeek AI + Program Verification (Single Company)",
+    "review_status": "confirmed",
+    "filing_source": "巨潮资讯网 (Manual Download)",
+    "ai_annotation": true
+  },
+  "company": {
+    "ticker": "300442SZ",
+    "name": "润泽科技",
+    "fiscal_year": 2023
+  },
+  "composite_score": {
+    "weighted_score": 2.7,
+    "max_score": 5.0,
+    "risk_level": "中风险",
+    "risk_level_en": "Medium Risk",
+    "score_breakdown": "4.0×0.25=1.00+3.0×0.20=0.60+2.0×0.20=0.40+2.0×0.20=0.40[est]+2.0×0.15=0.30=2.70 (注：D4为证据不足，按保守估计2分计算)",
+    "estimated_dimensions": [
+      "D4"
+    ]
+  },
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "年限错配",
+      "score": 4,
+      "weight": 0.25,
+      "insufficient_evidence": false,
+      "reasoning": "机器设备折旧年限为5-15年，上限15年远超技术基准3.5年，存在明显错配，但未明确区分服务器等设备，保守起见给4分。",
+      "supporting_signals": [
+        "SIG-001"
+      ]
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "政策保守性",
+      "score": 3,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "公司披露无会计估计变更，但折旧年限本身较长，政策保守性一般。",
+      "supporting_signals": [
+        "SIG-002"
+      ]
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值触发",
+      "score": 2,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "商誉减值测试未减值，合并报表无资产减值损失，母公司减值金额很小，减值风险低。",
+      "supporting_signals": [
+        "SIG-003",
+        "SIG-004",
+        "SIG-005"
+      ]
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本强度",
+      "score": 2.0,
+      "weight": 0.2,
+      "insufficient_evidence": true,
+      "reasoning": "候选段落未提供资本开支或研发投入数据，无法评估。",
+      "supporting_signals": [],
+      "score_was_null": true
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "技术替代",
+      "score": 2,
+      "weight": 0.15,
+      "insufficient_evidence": false,
+      "reasoning": "公司属于科技行业，但候选段落未提及具体技术替代压力，仅从行业属性推断风险中等偏低。",
+      "supporting_signals": []
+    }
+  ],
+  "risk_signals": [
+    {
+      "signal_id": "SIG-001",
+      "risk_type": "折旧年限延长",
+      "severity": "high",
+      "text_excerpt": "机器设备 年限平均法 5-15年 5% 19.00%-6.33%",
+      "page_location": "年报附注五、17，第133页",
+      "accounting_meaning": "公司对机器设备采用5-15年的折旧年限，上限15年显著超过行业通常水平，可能延长折旧年限以平滑利润。",
+      "evidence_chain": [
+        "公司属于科技行业，机器设备可能包含服务器等电子设备，技术更新快。",
+        "行业通常对电子设备采用3-5年折旧年限，公司采用5-15年，上限明显偏高。",
+        "延长折旧年限会减少当期折旧费用，增加利润。"
+      ],
+      "keyword_matched": "折旧年限"
+    },
+    {
+      "signal_id": "SIG-002",
+      "risk_type": "会计估计变更",
+      "severity": "low",
+      "text_excerpt": "（2） 重要会计估计变更 □适用 不适用",
+      "page_location": "年报附注五、32，第144页",
+      "accounting_meaning": "公司明确披露本期无重要会计估计变更，表明折旧年限等估计未发生变更。",
+      "evidence_chain": [
+        "公司披露无会计估计变更。",
+        "因此折旧年限保持稳定，无未来适用法调整风险。"
+      ],
+      "keyword_matched": "会计估计变更"
+    },
+    {
+      "signal_id": "SIG-003",
+      "risk_type": "资产减值",
+      "severity": "low",
+      "text_excerpt": "润泽发展并购慧运维所形成的与商誉相关的资产组可收回金额为43,150.00万元，高于账面价值，商誉并未出现减值损失。",
+      "page_location": "年报第四节，第69页",
+      "accounting_meaning": "公司对商誉进行了减值测试，结果显示可收回金额高于账面价值，未计提减值。",
+      "evidence_chain": [
+        "公司进行了商誉减值测试。",
+        "测试结果未发生减值，表明商誉风险较低。"
+      ],
+      "keyword_matched": "资产减值"
+    },
+    {
+      "signal_id": "SIG-004",
+      "risk_type": "资产减值",
+      "severity": "low",
+      "text_excerpt": "资产减值损失（损失以“-”号填列）",
+      "page_location": "年报合并利润表，第98页",
+      "accounting_meaning": "合并利润表中资产减值损失项目未填列金额，可能未发生重大资产减值。",
+      "evidence_chain": [
+        "合并利润表显示资产减值损失为空。",
+        "表明当期未计提大额资产减值。"
+      ],
+      "keyword_matched": "资产减值"
+    },
+    {
+      "signal_id": "SIG-005",
+      "risk_type": "资产减值",
+      "severity": "low",
+      "text_excerpt": "资产减值损失（损失以“-”号填列） -988,347.73",
+      "page_location": "母公司利润表，第99页",
+      "accounting_meaning": "母公司利润表显示资产减值损失为-988,347.73元，金额较小，影响有限。",
+      "evidence_chain": [
+        "母公司计提了少量资产减值。",
+        "金额较小，对整体风险影响不大。"
+      ],
+      "keyword_matched": "资产减值"
+    }
+  ],
+  "accounting_policy": {
+    "depreciation_method": "年限平均法",
+    "useful_life_range": "房屋及建筑物25-40年，机器设备5-15年，运输工具3-5年，办公设备及其他3-5年",
+    "rd_capitalization_rate": "未披露具体资本化率，但披露了开发阶段支出资本化的条件",
+    "impairment_policy": "对长期资产、商誉等，于资产负债表日判断减值迹象，可收回金额低于账面价值时计提减值，商誉每年进行减值测试。"
+  },
+  "summary": "公司固定资产折旧年限较长，特别是机器设备上限15年，存在利润平滑嫌疑，但本期无会计估计变更，减值风险较低。整体会计政策偏激进，需关注折旧年限合理性。"
+}

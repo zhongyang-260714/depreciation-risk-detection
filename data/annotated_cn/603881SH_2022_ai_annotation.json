@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-08-20T16:27:55.082623",
+    "annotator": "DeepSeek AI + Program Verification (Batch All Years)",
+    "review_status": "confirmed",
+    "filing_source": "巨潮资讯网 (Manual Download)",
+    "ai_annotation": true
+  },
+  "company": {
+    "ticker": "603881SH",
+    "name": "数据港",
+    "fiscal_year": 2022
+  },
+  "composite_score": {
+    "weighted_score": 2.7,
+    "max_score": 5.0,
+    "risk_level": "中风险",
+    "risk_level_en": "Medium Risk",
+    "score_breakdown": "4.0×0.25=1.00+3.0×0.20=0.60+2.0×0.20=0.40+2.0×0.20=0.40[est]+2.0×0.15=0.30=2.70 (注：D4为证据不足，按保守估计2分计算)",
+    "estimated_dimensions": [
+      "D4"
+    ]
+  },
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "年限错配",
+      "score": 4,
+      "weight": 0.25,
+      "insufficient_evidence": false,
+      "reasoning": "专用设备折旧年限5-10年，上限10年明显高于数据中心设备技术寿命（通常3-5年），存在年限错配风险。通用设备5年也偏长。",
+      "supporting_signals": [
+        "SIG-001",
+        "SIG-002"
+      ]
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "政策保守性",
+      "score": 3,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "未发现会计估计变更，但折旧年限设定偏长，保守性一般。",
+      "supporting_signals": []
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值触发",
+      "score": 2,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "本期计提商誉减值293万元，金额较小，但存在减值迹象，风险较低。",
+      "supporting_signals": [
+        "SIG-003",
+        "SIG-004"
+      ]
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本强度",
+      "score": 2.0,
+      "weight": 0.2,
+      "insufficient_evidence": true,
+      "reasoning": "候选段落未提供资本开支或研发投入数据，无法评估。",
+      "supporting_signals": [],
+      "score_was_null": true
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "技术替代",
+      "score": 2,
+      "weight": 0.15,
+      "insufficient_evidence": false,
+      "reasoning": "数据中心行业技术更新较快，但公司未披露具体技术替代风险，风险中等偏低。",
+      "supporting_signals": []
+    }
+  ],
+  "risk_signals": [
+    {
+      "signal_id": "SIG-001",
+      "risk_type": "折旧年限延长",
+      "severity": "high",
+      "text_excerpt": "专用设备 年限平均法 5-10 5% 9.5%-19.00%",
+      "page_location": "年报附注五、23(2)，第96页",
+      "accounting_meaning": "公司对专用设备（数据中心机电设备）采用5-10年折旧年限，而数据中心设备技术更新快，实际使用寿命可能短于5年，存在折旧年限偏长的风险。",
+      "evidence_chain": [
+        "公司属于数据中心行业，专用设备主要为机电设备，技术迭代较快。",
+        "行业基准显示数据中心设备折旧年限通常为3-5年，公司上限10年明显偏长。",
+        "折旧年限越长，年折旧费用越低，当期利润越高，存在利润操纵空间。"
+      ],
+      "keyword_matched": "折旧年限"
+    },
+    {
+      "signal_id": "SIG-002",
+      "risk_type": "折旧年限延长",
+      "severity": "medium",
+      "text_excerpt": "通用设备 年限平均法 5 5% 19%",
+      "page_location": "年报附注五、23(2)，第96页",
+      "accounting_meaning": "通用设备折旧年限为5年，符合一般标准，但需关注是否与设备实际技术寿命匹配。",
+      "evidence_chain": [
+        "通用设备包括服务器等，技术寿命通常为3-5年，5年处于上限。",
+        "若服务器实际寿命短于5年，则折旧年限偏长。",
+        "但无具体设备明细，证据不足，风险中等。"
+      ],
+      "keyword_matched": "折旧年限"
+    },
+    {
+      "signal_id": "SIG-003",
+      "risk_type": "资产减值",
+      "severity": "medium",
+      "text_excerpt": "资产减值损失（损失以“-”号填列） -2,931,235.05",
+      "page_location": "合并利润表，第70页",
+      "accounting_meaning": "本期确认了资产减值损失293万元，但未明确具体资产类型，需关注减值是否充分。",
+      "evidence_chain": [
+        "资产减值损失金额较小，可能为商誉减值。",
+        "商誉减值测试涉及管理层重大判断，存在减值不充分风险。",
+        "但金额较小，对利润影响有限。"
+      ],
+      "keyword_matched": "资产减值"
+    },
+    {
+      "signal_id": "SIG-004",
+      "risk_type": "资产减值",
+      "severity": "low",
+      "text_excerpt": "商誉减值损失 -2,931,235.05",
+      "page_location": "附注七、71，第147页",
+      "accounting_meaning": "本期计提商誉减值293万元，表明商誉存在减值迹象，但金额较小。",
+      "evidence_chain": [
+        "商誉减值测试涉及资产组划分和可收回金额估计，存在管理层判断。",
+        "但减值金额较小，可能为个别资产组减值。",
+        "需关注未来商誉减值风险。"
+      ],
+      "keyword_matched": "商誉减值"
+    }
+  ],
+  "accounting_policy": {
+    "depreciation_method": "年限平均法",
+    "useful_life_range": "房屋及建筑物20-30年，专用设备5-10年，通用设备5年，运输设备5年",
+    "rd_capitalization_rate": "未披露",
+    "impairment_policy": "长期资产减值按可收回金额与账面价值孰低原则，商誉每年减值测试"
+  },
+  "summary": "公司固定资产折旧年限设定偏长，尤其是专用设备（数据中心机电设备）上限达10年，存在利润平滑风险。本期计提商誉减值金额较小，但需关注未来减值风险。整体会计政策保守性一般，资本开支和研发数据缺失，需进一步分析。"
+}

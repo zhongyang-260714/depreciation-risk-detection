@@ -1,0 +1,221 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0 (China A-share parity)",
+    "annotated_at": "2026-08-19",
+    "annotator": "Kimi AI-assisted (project lead pending review)",
+    "review_status": "pending_review",
+    "filing_source": "深交所年报 - 奥飞数据2024年年度报告 + 会计估计变更公告",
+    "review_note": "基于新浪财经年报全文摘要+公开信息交叉验证。关键发现：2024年1月1日起全面延长折旧年限，影响金额6736.77万元，占归母净利润54.2%。",
+    "reviewed_at": null,
+    "reviewed_by": null
+  },
+  "company": {
+    "ticker": "300738.SZ",
+    "name": "广东奥飞数据科技股份有限公司",
+    "fiscal_year": 2024,
+    "filing_date": "2025-04-20",
+    "report_period_end": "2024-12-31",
+    "industry": "IDC / 算力基础设施运营",
+    "primary_assets": "数据中心房屋建筑物、专用设备（暖通/电力/网络）、机器设备、电子设备",
+    "file_path": "data/raw/cn/300738_2024_annual_report.pdf",
+    "coverage_note": "奥飞数据2024年报：营收21.65亿元(+62.18%)，归母净利润1.24亿元(-12.20%)，总资产116.85亿元。关键事件：2024-01-01起全面延长固定资产折旧年限（房屋20→20-50年、机器设备10→10-20年、电子设备3-5→5-10年、专用设备5→5-15年等），影响净利润+6,736.77万元，占归母净利润54.2%。"
+  },
+  "financial_highlights": {
+    "unit_note": "金额单位：人民币百万元（RMB mn）",
+    "revenue_millions": 2165,
+    "revenue_note": "营业收入21.65亿元，同比+62.18%",
+    "net_income_millions": 124,
+    "net_income_note": "归母净利润1.24亿元，同比-12.20%（增收不增利）",
+    "total_assets_millions": 11685,
+    "total_assets_note": "总资产116.85亿元",
+    "operating_cash_flow_millions": 715,
+    "operating_cash_flow_note": "经营活动现金流净额7.15亿元，同比+9.15%",
+    "investing_cash_flow_millions": -2751,
+    "investing_cash_flow_note": "投资活动现金流净额-27.51亿元（IDC持续扩建）",
+    "estimate_change_impact_mn": 67.37,
+    "estimate_change_impact_note": "折旧年限变更增加净利润6,736.77万元",
+    "estimate_change_impact_pct": 54.2,
+    "estimate_change_impact_pct_note": "影响金额占归母净利润的54.2%"
+  },
+  "accounting_policy": {
+    "depreciation_method": "直线法（年限平均法）",
+    "estimate_change_2024": "2024-01-01起全面延长：房屋建筑物20→20-50年、机器设备10→10-20年、运输设备4→4-15年、电子设备3-5→5-10年、办公设备3-5→5-8年、专用设备5→5-15年、其他设备3→3-5年",
+    "estimate_change_method": "未来适用法",
+    "estimate_change_impact": "增加2024年净利润67,367,737.58元（约67.37百万元），占归母净利润54.2%",
+    "estimate_change_reason": "'为了更真实反映公司财务状况和经营成果'——标准套话，未提供具体业务依据",
+    "change_in_estimate_location": "2024年年报'重要会计政策和会计估计的变更'节 + 会计估计变更公告",
+    "impairment_policy": "资产负债表日判断资产是否存在减值迹象，存在时估计可收回金额，低于账面价值则计提减值。",
+    "policy_risk_note": "⚠️ 奥飞数据2024年进行了A股样本中最激进的折旧年限延长：几乎所有资产类别的折旧年限都被上调，影响净利润6736.77万元，占归母净利润的54.2%。这意味着：如果不做这次变更，2024年净利润将下降约一半。变更理由是标准套话，未提供具体业务依据。"
+  },
+  "risk_signals": [
+    {
+      "signal_id": "SZ300738-2024-SIG-001",
+      "source": "2024年年报 / 会计估计变更公告",
+      "keyword_matched": "固定资产折旧年限全面延长 / 影响净利润67,367,737.58元",
+      "text_excerpt": "本公司为了更真实反映公司财务状况和经营成果，本公司经董事会审议，从2024年1月1日开始，对固定资产折旧年限进行了变更。房屋建筑物20→20-50年、机器设备10→10-20年、电子设备3-5→5-10年、专用设备5→5-15年等。影响金额67,367,737.58元。",
+      "page_location": "年报会计估计变更节 + 公告（页码待精确标注）",
+      "risk_type": "useful_life_extension",
+      "severity": "critical",
+      "relevance_to_depreciation": "A股样本中最激进的年限延长案例：几乎所有资产类别同时上调，影响净利润占归母净利润的54.2%。这意味着如果不做变更，2024年净利将腰斩。变更理由为'更真实反映财务状况'标准套话，未提供如数据港'廊坊项目设计寿命50年'之类的具体业务依据。专用设备上限提至15年、机器设备上限提至20年，对IDC运营设备而言显著偏长。",
+      "evidence_chain": [
+        "2024-01-01起全面延长折旧年限",
+        "房屋20→20-50年、机器10→10-20年、电子3-5→5-10年、专用5→5-15年",
+        "影响净利润+6,736.77万元",
+        "占归母净利润1.24亿元的54.2%",
+        "变更理由为标准套话，无具体业务依据",
+        "若无此变更，2024年净利将约0.57亿元（腰斩）"
+      ]
+    },
+    {
+      "signal_id": "SZ300738-2024-SIG-002",
+      "source": "2024年年报 - 资产结构",
+      "keyword_matched": "总资产116.85亿；投资活动现金流-27.51亿",
+      "text_excerpt": "总资产116.85亿元；投资活动现金流净额-27.51亿元（IDC持续扩建）。",
+      "page_location": "年报资产负债表 + 现金流量表（页码待精确标注）",
+      "risk_type": "capex_intensity",
+      "severity": "high",
+      "relevance_to_depreciation": "奥飞数据为IDC运营商，处于持续扩张期：投资活动现金流-27.51亿元（扩建），总资产116.85亿元。重资产结构+年限延长双重叠加，未来折旧基数膨胀且单年折旧额被压低，利润扭曲的杠杆效应显著。",
+      "evidence_chain": [
+        "总资产116.85亿元",
+        "投资活动现金流-27.51亿元（持续扩建）",
+        "IDC运营商天然重资产",
+        "年限延长+资产扩张 = 利润扭曲杠杆放大"
+      ]
+    },
+    {
+      "signal_id": "SZ300738-2024-SIG-003",
+      "source": "2024年年报 - 利润质量",
+      "keyword_matched": "营收+62% / 净利-12% / 增收不增利",
+      "text_excerpt": "2024年实现营业收入21.65亿元，同比增长62.18%；实现净利润1.24亿元，同比下降12.20%。",
+      "page_location": "年报主要会计数据（页码待精确标注）",
+      "risk_type": "profit_quality",
+      "severity": "high",
+      "relevance_to_depreciation": "营收暴增62%但净利润下降12%——典型的'增收不增利'。折旧年限变更贡献了6736万元净利润（占净利54%），若剔除该变更影响，实际经营净利润仅约5700万元，同比降幅更大。利润质量存疑。",
+      "evidence_chain": [
+        "营收+62.18%，净利-12.20%",
+        "折旧变更贡献+6736万元净利",
+        "剔除变更后实际净利约5700万元",
+        "利润对会计估计变更高度依赖"
+      ]
+    }
+  ],
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "折旧年限 vs 技术实际寿命",
+      "dimension_name_en": "Depreciation Life vs Technology Useful Life",
+      "weight": 0.25,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "专用设备5-15年、机器设备10-20年、电子设备5-10年。IDC运营设备（服务器、网络设备）技术迭代周期3-5年，15-20年上限严重偏长。全面延长且幅度大。评4分（高）。",
+      "supporting_signals": [
+        "SZ300738-2024-SIG-001"
+      ],
+      "key_metrics": {
+        "special_equipment_life": "5-15y (was 5y)",
+        "machinery_life": "10-20y (was 10y)",
+        "electronics_life": "5-10y (was 3-5y)",
+        "building_life": "20-50y (was 20y)",
+        "tech_cycle_years": "3-5 (IDC equipment)"
+      }
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "会计政策保守性",
+      "dimension_name_en": "Accounting Policy Conservatism",
+      "weight": 0.2,
+      "score": 5,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "A股样本中最激进的年限变更：几乎所有资产类别同时延长，影响净利润占归母净利润54.2%——若无此变更，净利腰斩。变更理由为标准套话，无具体业务依据。评5分（最高风险）。",
+      "supporting_signals": [
+        "SZ300738-2024-SIG-001",
+        "SZ300738-2024-SIG-003"
+      ],
+      "key_metrics": {
+        "change_scope": "全面延长（几乎所有资产类别）",
+        "impact_on_net_income_mn": 67.37,
+        "impact_pct_net_income": 54.2,
+        "change_reason_quality": "标准套话，无业务依据",
+        "hypothetical_net_income_without_change_mn": 57
+      }
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值风险触发",
+      "dimension_name_en": "Impairment Risk Triggers",
+      "weight": 0.2,
+      "score": 3,
+      "score_max": 5,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "2025年报显示资产减值损失7124万元、信用减值损失1.16亿元。IDC行业存在供需调整周期，但2024年减值信号相对温和。评3分（中）。",
+      "supporting_signals": [],
+      "key_metrics": {
+        "asset_impairment_2025_mn": 71.24,
+        "credit_impairment_2025_mn": 116.02
+      }
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本支出(CAPEX)强度",
+      "dimension_name_en": "Capital Expenditure Intensity",
+      "weight": 0.2,
+      "score": 4,
+      "score_max": 5,
+      "score_label": "高风险",
+      "score_label_en": "High Risk",
+      "reasoning": "IDC运营商天然重资产：总资产116.85亿元，投资活动现金流-27.51亿元（持续扩建）。年限延长+资产扩张叠加，折旧风险杠杆放大。评4分（高）。",
+      "supporting_signals": [
+        "SZ300738-2024-SIG-002"
+      ],
+      "key_metrics": {
+        "total_assets_mn": 11685,
+        "investing_cash_flow_mn": -2751,
+        "business_model": "IDC operator, heavy asset"
+      }
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "行业竞争/技术替代",
+      "dimension_name_en": "Industry Competition & Technology Substitution",
+      "weight": 0.15,
+      "score": 3,
+      "score_label": "中风险",
+      "score_label_en": "Medium Risk",
+      "reasoning": "IDC行业竞争（运营商、第三方）存在，AI算力需求上行利好，但设备技术迭代快。评3分（中）。",
+      "supporting_signals": [],
+      "key_metrics": {
+        "industry": "IDC / AIDC operator",
+        "demand_trend": "AI算力需求上行（利好）",
+        "tech_substitution": "中（IDC基建寿命长，IT设备迭代快）"
+      }
+    }
+  ],
+  "comparative_context": {
+    "same_company_trend": "2024年为首次全面延长折旧年限，影响剧烈（占净利54%）。需跟踪2025年是否进一步延长或调整。",
+    "cross_company_benchmark": "奥飞数据代表'A股IDC运营型'，与数据港（603881）同类。但奥飞数据的变更幅度（全面延长、影响占净利54%）远超数据港（单项延长、影响占净利0.13%），是A股样本中折旧风险最突出的案例。",
+    "narrative_significance": "奥飞数据的案例是A股样本中折旧年限变更对利润影响最极端的案例：若无变更，2024年净利将腰斩。这直接验证了'折旧年限是管理层调节利润的重要工具'的研究假设。"
+  },
+  "annotation_methodology": {
+    "source_document": "广东奥飞数据科技股份有限公司 2024 年年度报告（深交所）",
+    "filing_accessed": "新浪财经年报全文摘要 + 会计估计变更公告",
+    "text_extraction_method": "新浪财经年报摘要+公告原文人工摘录 + 公开信息交叉验证",
+    "scoring_method": "Five-dimension weighted scoring (5D-DRS) with 0-5 scale, weights 0.25/0.20/0.20/0.20/0.15",
+    "human_verification": "关键财务数字（营收21.65亿、净利1.24亿、总资产116.85亿、影响金额6736.77万）来自年报原文或权威财经媒体交叉验证。折旧变更细节来自公开公告原文。",
+    "limitation": "固定资产净值、精确折旧费用、capex明细等待年报PDF精确提取；本次标注基于新浪财经摘要+公开信息，置信度0.72。"
+  },
+  "composite_score": {
+    "weighted_score": 3.85,
+    "max_score": 5.0,
+    "risk_level": "中高风险",
+    "risk_level_en": "Medium-High Risk",
+    "risk_level_color": "#C07A1B",
+    "confidence": 0.72,
+    "confidence_reason": "关键财务数字和变更影响金额已交叉验证，但固定资产净值、精确折旧明细待年报PDF精确提取。'影响占净利54%'是公开公告原文数据，可靠性高。"
+  }
+}

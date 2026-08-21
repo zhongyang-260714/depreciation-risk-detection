@@ -1,0 +1,246 @@
+[
+  {
+    "ticker": "META",
+    "fiscal_year": 2024,
+    "ai_composite": 3.95,
+    "human_composite": 4.6,
+    "composite_diff": -0.6499999999999995,
+    "dimension_comparison": [
+      {
+        "dim": "D1",
+        "ai": 4,
+        "human": 5,
+        "diff": -1,
+        "match": "❌"
+      },
+      {
+        "dim": "D2",
+        "ai": 5,
+        "human": 5,
+        "diff": 0,
+        "match": "✅"
+      },
+      {
+        "dim": "D3",
+        "ai": 4,
+        "human": 3,
+        "diff": 1,
+        "match": "❌"
+      },
+      {
+        "dim": "D4",
+        "ai": 2.0,
+        "human": 5,
+        "diff": -3.0,
+        "match": "❌"
+      },
+      {
+        "dim": "D5",
+        "ai": 5,
+        "human": 5,
+        "diff": 0,
+        "match": "✅"
+      }
+    ],
+    "n_candidates": 74,
+    "n_signals": 4,
+    "verification_pass_rate": 0.0,
+    "rules_triggered": []
+  },
+  {
+    "ticker": "MSFT",
+    "fiscal_year": 2025,
+    "ai_composite": 3.95,
+    "human_composite": 4.4,
+    "composite_diff": -0.4500000000000002,
+    "dimension_comparison": [
+      {
+        "dim": "D1",
+        "ai": 4,
+        "human": 5,
+        "diff": -1,
+        "match": "❌"
+      },
+      {
+        "dim": "D2",
+        "ai": 4,
+        "human": 4,
+        "diff": 0,
+        "match": "✅"
+      },
+      {
+        "dim": "D3",
+        "ai": 3,
+        "human": 3,
+        "diff": 0,
+        "match": "✅"
+      },
+      {
+        "dim": "D4",
+        "ai": 4,
+        "human": 5,
+        "diff": -1,
+        "match": "❌"
+      },
+      {
+        "dim": "D5",
+        "ai": 5,
+        "human": 5,
+        "diff": 0,
+        "match": "✅"
+      }
+    ],
+    "n_candidates": 55,
+    "n_signals": 5,
+    "verification_pass_rate": 0.0,
+    "rules_triggered": []
+  },
+  {
+    "ticker": "MU",
+    "fiscal_year": 2024,
+    "ai_composite": 3.75,
+    "human_composite": 4.0,
+    "composite_diff": -0.25,
+    "dimension_comparison": [
+      {
+        "dim": "D1",
+        "ai": 3,
+        "human": 4,
+        "diff": -1,
+        "match": "❌"
+      },
+      {
+        "dim": "D2",
+        "ai": 3,
+        "human": 3,
+        "diff": 0,
+        "match": "✅"
+      },
+      {
+        "dim": "D3",
+        "ai": 4,
+        "human": 4,
+        "diff": 0,
+        "match": "✅"
+      },
+      {
+        "dim": "D4",
+        "ai": 5,
+        "human": 5,
+        "diff": 0,
+        "match": "✅"
+      },
+      {
+        "dim": "D5",
+        "ai": 4,
+        "human": 4,
+        "diff": 0,
+        "match": "✅"
+      }
+    ],
+    "n_candidates": 80,
+    "n_signals": 5,
+    "verification_pass_rate": 0.0,
+    "rules_triggered": [
+      "D1: 4 → 3 (life=7.0y, asset=manufacturing_equipment, baseline=3.5y, ratio=2.0x)"
+    ]
+  },
+  {
+    "ticker": "NVDA",
+    "fiscal_year": 2025,
+    "ai_composite": 2.55,
+    "human_composite": 3.45,
+    "composite_diff": -0.9000000000000004,
+    "dimension_comparison": [
+      {
+        "dim": "D1",
+        "ai": 2,
+        "human": 4,
+        "diff": -2,
+        "match": "❌"
+      },
+      {
+        "dim": "D2",
+        "ai": 3,
+        "human": 4,
+        "diff": -1,
+        "match": "❌"
+      },
+      {
+        "dim": "D3",
+        "ai": 4,
+        "human": 4,
+        "diff": 0,
+        "match": "✅"
+      },
+      {
+        "dim": "D4",
+        "ai": 1,
+        "human": 2,
+        "diff": -1,
+        "match": "❌"
+      },
+      {
+        "dim": "D5",
+        "ai": 3,
+        "human": 3,
+        "diff": 0,
+        "match": "✅"
+      }
+    ],
+    "n_candidates": 80,
+    "n_signals": 6,
+    "verification_pass_rate": 0.0,
+    "rules_triggered": []
+  },
+  {
+    "ticker": "ORCL",
+    "fiscal_year": 2025,
+    "ai_composite": 4.2,
+    "human_composite": 4.45,
+    "composite_diff": -0.25,
+    "dimension_comparison": [
+      {
+        "dim": "D1",
+        "ai": 4,
+        "human": 5,
+        "diff": -1,
+        "match": "❌"
+      },
+      {
+        "dim": "D2",
+        "ai": 5,
+        "human": 5,
+        "diff": 0,
+        "match": "✅"
+      },
+      {
+        "dim": "D3",
+        "ai": 3,
+        "human": 3,
+        "diff": 0,
+        "match": "✅"
+      },
+      {
+        "dim": "D4",
+        "ai": 5,
+        "human": 5,
+        "diff": 0,
+        "match": "✅"
+      },
+      {
+        "dim": "D5",
+        "ai": 4,
+        "human": 4,
+        "diff": 0,
+        "match": "✅"
+      }
+    ],
+    "n_candidates": 65,
+    "n_signals": 4,
+    "verification_pass_rate": 0.75,
+    "rules_triggered": [
+      "D1: 5 → 4 (life=5y, asset=server, baseline=1.5y, ratio=3.3x)"
+    ]
+  }
+]

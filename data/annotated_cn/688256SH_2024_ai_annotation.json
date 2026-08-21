@@ -1,0 +1,187 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-08-20T16:35:00.256667",
+    "annotator": "DeepSeek AI + Program Verification (Batch)",
+    "review_status": "confirmed",
+    "filing_source": "巨潮资讯网 (Manual Download)",
+    "ai_annotation": true
+  },
+  "company": {
+    "ticker": "688256SH",
+    "name": "寒武纪",
+    "fiscal_year": 2024
+  },
+  "composite_score": {
+    "weighted_score": 2.65,
+    "max_score": 5.0,
+    "risk_level": "中风险",
+    "risk_level_en": "Medium Risk",
+    "score_breakdown": "3.0×0.25=0.75+4.0×0.20=0.80+2.0×0.20=0.40+2.0×0.20=0.40[est]+2.0×0.15=0.30=2.65 (注：D4为证据不足，按保守估计2分计算)",
+    "estimated_dimensions": [
+      "D4"
+    ]
+  },
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "年限错配",
+      "score": 3,
+      "weight": 0.25,
+      "insufficient_evidence": false,
+      "reasoning": "测试设备折旧年限3-5年，电子设备3年，未明确具体资产类型。若按服务器基准1.5年，则3-5年偏长；若按晶圆厂设备基准3.5年，则3-5年部分合理。综合判断，存在一定年限错配风险，但证据有限，给予3分。",
+      "supporting_signals": [
+        "SIG-001",
+        "SIG-002"
+      ]
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "政策保守性",
+      "score": 4,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "报告期内无会计估计变更，折旧政策未调整，表明公司未主动延长折旧年限，政策较为保守。",
+      "supporting_signals": []
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值触发",
+      "score": 2,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "本期资产减值损失5291.76万元，较上期1.38亿元大幅减少，但仍有减值发生。存货跌价损失减少，可能表明资产质量改善，但需关注是否充分计提。综合判断，减值风险较低，给予2分。",
+      "supporting_signals": [
+        "SIG-005",
+        "SIG-006"
+      ]
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本强度",
+      "score": 2.0,
+      "weight": 0.2,
+      "insufficient_evidence": true,
+      "reasoning": "候选段落未提供资本开支或研发强度数据，无法评估。",
+      "supporting_signals": [],
+      "score_was_null": true
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "技术替代",
+      "score": 2,
+      "weight": 0.15,
+      "insufficient_evidence": false,
+      "reasoning": "公司为AI芯片设计公司，技术迭代快，但候选段落未提供具体技术替代压力证据。行业竞争激烈，但无直接信号，给予2分。",
+      "supporting_signals": []
+    }
+  ],
+  "risk_signals": [
+    {
+      "signal_id": "SIG-001",
+      "risk_type": "折旧年限延长",
+      "severity": "medium",
+      "text_excerpt": "测试设备 年限平均法 3-5 0-5% 19.00-33.33%",
+      "page_location": "年报附注五、21，第134页",
+      "accounting_meaning": "测试设备折旧年限为3-5年，残值率0-5%，年折旧率19%-33.33%。",
+      "evidence_chain": [
+        "测试设备属于固定资产，采用年限平均法折旧，年限3-5年。",
+        "技术基准：测试设备可能属于电子设备或专用设备，但未明确归类。若按服务器基准1.5年，则3-5年明显偏长；若按晶圆厂设备基准3.5年，则3-5年部分合理。",
+        "公司为AI芯片设计公司，测试设备技术更新快，3-5年可能高于技术寿命，存在折旧年限延长风险。"
+      ],
+      "keyword_matched": "折旧年限"
+    },
+    {
+      "signal_id": "SIG-002",
+      "risk_type": "折旧年限延长",
+      "severity": "medium",
+      "text_excerpt": "电子设备 年限平均法 3 0% 33.33%",
+      "page_location": "年报附注五、21，第134页",
+      "accounting_meaning": "电子设备折旧年限为3年，残值率0%，年折旧率33.33%。",
+      "evidence_chain": [
+        "电子设备折旧年限3年，符合一般电子设备折旧年限。",
+        "技术基准：电子设备技术寿命通常较短，3年可能合理，但若包含服务器等，则可能偏长。",
+        "公司业务依赖电子设备，3年折旧年限可能略高于技术寿命，但风险较低。"
+      ],
+      "keyword_matched": "折旧年限"
+    },
+    {
+      "signal_id": "SIG-003",
+      "risk_type": "无形资产摊销年限延长",
+      "severity": "low",
+      "text_excerpt": "技术许可 按预计受益期限确定使用寿命为1-6年 直线法",
+      "page_location": "年报附注五、26，第135页",
+      "accounting_meaning": "技术许可摊销年限为1-6年，采用直线法。",
+      "evidence_chain": [
+        "技术许可属于无形资产，摊销年限1-6年。",
+        "技术许可技术更新快，1-6年范围较宽，但未明确具体年限。",
+        "无形资产摊销不计入D1，但可能影响利润。"
+      ],
+      "keyword_matched": "使用寿命"
+    },
+    {
+      "signal_id": "SIG-004",
+      "risk_type": "无形资产摊销年限延长",
+      "severity": "low",
+      "text_excerpt": "非专利技术 按预计受益期限确定使用寿命为0-10年 直线法",
+      "page_location": "年报附注五、26，第135页",
+      "accounting_meaning": "非专利技术摊销年限为0-10年，采用直线法。",
+      "evidence_chain": [
+        "非专利技术摊销年限0-10年，范围较大。",
+        "技术更新快，10年可能偏长，但未明确具体年限。",
+        "无形资产摊销不计入D1，但可能影响利润。"
+      ],
+      "keyword_matched": "使用寿命"
+    },
+    {
+      "signal_id": "SIG-005",
+      "risk_type": "资产减值损失",
+      "severity": "medium",
+      "text_excerpt": "资产减值损失（损失以“-”号填列） -52,917,608.00 -138,033,445.65",
+      "page_location": "合并利润表，第107页",
+      "accounting_meaning": "本期资产减值损失为5291.76万元，上期为1.38亿元，减值损失减少。",
+      "evidence_chain": [
+        "资产减值损失包括合同资产减值损失和存货跌价损失。",
+        "本期减值损失较上期大幅减少，可能表明资产质量改善或减值计提不足。",
+        "减值损失减少可能增加利润，但需关注是否充分计提。"
+      ],
+      "keyword_matched": "资产减值"
+    },
+    {
+      "signal_id": "SIG-006",
+      "risk_type": "存货跌价损失",
+      "severity": "medium",
+      "text_excerpt": "二、存货跌价损失 -33,449,830.80 -125,615,736.01",
+      "page_location": "附注七、72，第199页",
+      "accounting_meaning": "本期存货跌价损失3344.98万元，上期1.26亿元，大幅减少。",
+      "evidence_chain": [
+        "存货跌价损失减少可能因存货结构变化或计提政策调整。",
+        "存货跌价损失减少可能增加利润，但需关注是否充分计提。",
+        "公司为芯片设计公司，存货可能包括芯片产品，技术迭代快，跌价风险高。"
+      ],
+      "keyword_matched": "资产减值"
+    },
+    {
+      "signal_id": "SIG-007",
+      "risk_type": "研发支出资本化",
+      "severity": "low",
+      "text_excerpt": "内部研究开发项目开发阶段的支出，同时满足下列条件的，确认为无形资产",
+      "page_location": "附注五、26，第136页",
+      "accounting_meaning": "研发支出开发阶段满足条件可资本化，但未披露资本化率。",
+      "evidence_chain": [
+        "公司采用研发支出资本化政策，但候选段落未提供资本化金额。",
+        "资本化率过高可能虚增资产和利润，但无数据无法判断。",
+        "需关注研发资本化率，但证据不足。"
+      ],
+      "keyword_matched": "研发支出"
+    }
+  ],
+  "accounting_policy": {
+    "depreciation_method": "年限平均法",
+    "useful_life_range": "测试设备3-5年，电子设备3年，管理用具5年，运输设备4年",
+    "rd_capitalization_rate": "未披露",
+    "impairment_policy": "对长期资产在资产负债表日有迹象表明发生减值的，估计可收回金额；商誉和使用寿命不确定的无形资产每年进行减值测试。"
+  },
+  "summary": "公司折旧政策未发生变更，但测试设备折旧年限3-5年可能高于技术寿命，存在一定风险。资产减值损失大幅减少，需关注是否充分计提。研发资本化率未披露，无法评估。总体风险中等偏低。"
+}

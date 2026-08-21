@@ -5,9 +5,10 @@
 在全量 30 样本（10 家 × 3 年）上拟合后序列化，供 Streamlit / FastAPI 实时评分演示使用。
 
 定位：可行性验证（PoC）演示模型，不构成预测能力声明。
-运行：python train_scorer.py（在仓库根目录执行）
+运行环境: D:\\depreciation-risk-detection\\venv\\Scripts\\python.exe
 """
 import json
+import shutil
 from datetime import date
 from pathlib import Path
 
@@ -16,10 +17,13 @@ import numpy as np
 import pandas as pd
 import xgboost as xgb
 
-REPO_ROOT = Path(__file__).resolve().parent
-SRC = REPO_ROOT / "data" / "processed" / "training_v06_panel_30_full.csv"
+WORKSPACE = Path(r"D:\科创企业资产折旧算法")
+STAGING = WORKSPACE / "实时评分升级"
+SRC = Path(r"D:\depreciation-risk-detection\data\processed\training_v06_panel_30_full.csv")
+LOCAL = WORKSPACE / "training_v06_panel_30_full_copy.csv"
+shutil.copy2(SRC, LOCAL)  # 只操作副本（同步项目最新修正，如 META 2024 = 4.60）
 
-df = pd.read_csv(SRC, encoding="utf-8-sig")
+df = pd.read_csv(LOCAL, encoding="utf-8-sig")
 print(f"shape = {df.shape}")
 
 # ---------- 特征筛选（与 xgboost_poc_v3.py 完全一致） ----------
@@ -48,7 +52,7 @@ mae_in = float(np.mean(np.abs(in_sample - y)))
 print(f"in-sample MAE = {mae_in:.3f}（仅参考；方法学指标见附录 F：LOGO MAE 0.418）")
 
 # ---------- 序列化 ----------
-model_dir = REPO_ROOT / "models"
+model_dir = STAGING / "models"
 model_dir.mkdir(parents=True, exist_ok=True)
 model_path = model_dir / "depreciation_scorer_v03.joblib"
 joblib.dump(model, model_path)

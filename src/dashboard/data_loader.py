@@ -14,6 +14,9 @@ import streamlit as st
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 ANNOTATED_DIR = REPO_ROOT / "data" / "annotated"
+ANNOTATED_CN_DIR = REPO_ROOT / "data" / "annotated_cn"
+PANEL_CSV = REPO_ROOT / "data" / "processed" / "training_v05_panel_30.csv"
+ANNOTATED_DIR = REPO_ROOT / "data" / "annotated"
 PANEL_CSV = REPO_ROOT / "data" / "processed" / "training_v05_panel_30.csv"
 
 # 文件名里的草稿/备份/临时关键词（不区分大小写）
@@ -107,7 +110,24 @@ def _normalize_case(raw: dict, fallback_ticker: str) -> dict | None:
 @st.cache_data(show_spinner="正在加载标注数据……")
 def load_cases() -> list[dict]:
     """动态读取 data/annotated/ 下全部正式标注，按公司+财年排序。"""
+    """动态读取 data/annotated/ 和 data/annotated_cn/ 下全部正式标注，按公司+财年排序。"""
     cases = []
+    for directory in (ANNOTATED_DIR, ANNOTATED_CN_DIR):
+        if not directory.exists():
+            continue
+        for path in sorted(directory.glob("*.json")):
+            stem = path.stem.lower()
+            if path.name.startswith("_") or any(kw in stem for kw in SKIP_KEYWORDS):
+                continue  # 跳过临时/备份文件
+            try:
+                raw = json.loads(path.read_text(encoding="utf-8"))
+            except Exception:
+                continue  # 损坏文件不影响整体
+            case = _normalize_case(raw, path.stem.split("_")[0])
+            if case is not None:
+                cases.append(case)
+    cases.sort(key=lambda c: (c["ticker"], c["fiscal_year"]))
+    return cases
     if not ANNOTATED_DIR.exists():
         return cases
     for path in sorted(ANNOTATED_DIR.glob("*.json")):

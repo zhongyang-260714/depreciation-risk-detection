@@ -1,0 +1,49 @@
+[
+  {
+    "ticker": "META",
+    "fiscal_year": 2024,
+    "n_candidates": 60,
+    "rules_triggered": [
+      "D1: 0 → 4 (life=5.5y, asset=server, baseline=1.5y, ratio=3.7x)"
+    ],
+    "rule_warnings": [],
+    "composite_score": 1.0,
+    "risk_level": "低风险"
+  },
+  {
+    "ticker": "MSFT",
+    "fiscal_year": 2025,
+    "n_candidates": 35,
+    "rules_triggered": [],
+    "rule_warnings": [],
+    "composite_score": 0.0,
+    "risk_level": "低风险"
+  },
+  {
+    "ticker": "MU",
+    "fiscal_year": 2024,
+    "n_candidates": 72,
+    "rules_triggered": [],
+    "rule_warnings": [],
+    "composite_score": 0.0,
+    "risk_level": "低风险"
+  },
+  {
+    "ticker": "NVDA",
+    "fiscal_year": 2025,
+    "n_candidates": 67,
+    "rules_triggered": [],
+    "rule_warnings": [],
+    "composite_score": 0.0,
+    "risk_level": "低风险"
+  },
+  {
+    "ticker": "ORCL",
+    "fiscal_year": 2025,
+    "n_candidates": 51,
+    "rules_triggered": [],
+    "rule_warnings": [],
+    "composite_score": 0.0,
+    "risk_level": "低风险"
+  }
+]

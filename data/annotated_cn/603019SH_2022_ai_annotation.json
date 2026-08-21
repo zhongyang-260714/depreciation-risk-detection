@@ -1,0 +1,191 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-08-20T16:25:39.545826",
+    "annotator": "DeepSeek AI + Program Verification (Batch All Years)",
+    "review_status": "confirmed",
+    "filing_source": "巨潮资讯网 (Manual Download)",
+    "ai_annotation": true
+  },
+  "company": {
+    "ticker": "603019SH",
+    "name": "中科曙光",
+    "fiscal_year": 2022
+  },
+  "composite_score": {
+    "weighted_score": 2.65,
+    "max_score": 5.0,
+    "risk_level": "中风险",
+    "risk_level_en": "Medium Risk",
+    "score_breakdown": "3.0×0.25=0.75+4.0×0.20=0.80+2.0×0.20=0.40+2.0×0.20=0.40[est]+2.0×0.15=0.30=2.65 (注：D4为证据不足，按保守估计2分计算)",
+    "estimated_dimensions": [
+      "D4"
+    ]
+  },
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "年限错配",
+      "score": 3,
+      "weight": 0.25,
+      "insufficient_evidence": false,
+      "reasoning": "电子类设备折旧年限3-5年，生产设备5-10年，均超过技术基准（服务器1.5年，晶圆设备3.5年），存在年限错配，但未达到极端程度。",
+      "supporting_signals": [
+        "SIG-001",
+        "SIG-002"
+      ]
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "政策保守性",
+      "score": 4,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "公司披露无重要会计估计变更，折旧政策稳定，未主动延长年限，但折旧年限本身较长，保守性中等偏上。",
+      "supporting_signals": [
+        "SIG-003"
+      ]
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值触发",
+      "score": 2,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "资产减值损失较大，但本期较上期减少，且主要来自存货和长期股权投资，固定资产减值未提及，减值触发信号中等。",
+      "supporting_signals": [
+        "SIG-004",
+        "SIG-005",
+        "SIG-006",
+        "SIG-007"
+      ]
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本强度",
+      "score": 2.0,
+      "weight": 0.2,
+      "insufficient_evidence": true,
+      "reasoning": "候选段落未提供资本开支或研发投入数据，无法评估。",
+      "supporting_signals": [],
+      "score_was_null": true
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "技术替代",
+      "score": 2,
+      "weight": 0.15,
+      "insufficient_evidence": false,
+      "reasoning": "公司属于技术行业，但候选段落未提及具体技术替代压力，仅从行业属性推断存在一定暴露。",
+      "supporting_signals": []
+    }
+  ],
+  "risk_signals": [
+    {
+      "signal_id": "SIG-001",
+      "risk_type": "折旧年限延长",
+      "severity": "medium",
+      "text_excerpt": "电子类设备 年限平均法 3-5 5 31.67-19.00",
+      "page_location": "年报附注五、23，第88页",
+      "accounting_meaning": "电子类设备折旧年限为3-5年，残值率5%，年折旧率19%-31.67%。",
+      "evidence_chain": [
+        "电子类设备折旧年限为3-5年，上限5年。",
+        "技术基准为1.5年，5年远超技术寿命。",
+        "延长折旧年限降低当期折旧费用，增加利润。"
+      ],
+      "keyword_matched": "折旧年限"
+    },
+    {
+      "signal_id": "SIG-002",
+      "risk_type": "折旧年限延长",
+      "severity": "medium",
+      "text_excerpt": "生产设备 年限平均法 5-10 5 19.00-9.50",
+      "page_location": "年报附注五、23，第88页",
+      "accounting_meaning": "生产设备折旧年限为5-10年，残值率5%，年折旧率9.5%-19%。",
+      "evidence_chain": [
+        "生产设备折旧年限为5-10年，上限10年。",
+        "技术基准为3.5年，10年远超技术寿命。",
+        "延长折旧年限降低当期折旧费用，增加利润。"
+      ],
+      "keyword_matched": "折旧年限"
+    },
+    {
+      "signal_id": "SIG-003",
+      "risk_type": "会计估计变更",
+      "severity": "low",
+      "text_excerpt": "(2). 重要会计估计变更 □适用 √不适用",
+      "page_location": "年报附注五、44，第102页",
+      "accounting_meaning": "公司披露本期无重要会计估计变更。",
+      "evidence_chain": [
+        "公司明确披露无重要会计估计变更。",
+        "无变更意味着折旧政策保持稳定。",
+        "但需关注折旧年限本身是否过长。"
+      ],
+      "keyword_matched": "会计估计变更"
+    },
+    {
+      "signal_id": "SIG-004",
+      "risk_type": "资产减值",
+      "severity": "medium",
+      "text_excerpt": "资产减值损失（损失以“-”号填列） -128,244,972.90 -165,637,513.42",
+      "page_location": "利润表，第64页",
+      "accounting_meaning": "本期资产减值损失1.28亿元，上期1.66亿元，减值规模较大。",
+      "evidence_chain": [
+        "资产减值损失金额较大，占净利润比例约8%。",
+        "减值涉及存货、长期股权投资、无形资产等。",
+        "大额减值可能表明资产质量下降，但本期减值较上期减少。"
+      ],
+      "keyword_matched": "资产减值"
+    },
+    {
+      "signal_id": "SIG-005",
+      "risk_type": "资产减值",
+      "severity": "medium",
+      "text_excerpt": "二、存货跌价损失及合同履约成本减值损失 89,946,638.73 101,540,281.59",
+      "page_location": "附注五、72，第156页",
+      "accounting_meaning": "存货跌价损失8995万元，上期1.02亿元，存货减值风险较高。",
+      "evidence_chain": [
+        "存货跌价损失金额较大，占资产减值损失70%。",
+        "存货减值可能反映产品技术迭代或市场需求变化。",
+        "存货减值直接减少当期利润。"
+      ],
+      "keyword_matched": "资产减值"
+    },
+    {
+      "signal_id": "SIG-006",
+      "risk_type": "资产减值",
+      "severity": "medium",
+      "text_excerpt": "十、无形资产减值损失 2,747,728.62 69,719,719.14",
+      "page_location": "附注五、72，第156页",
+      "accounting_meaning": "无形资产减值损失275万元，上期6972万元，本期大幅减少。",
+      "evidence_chain": [
+        "上期无形资产减值损失较大，本期显著下降。",
+        "无形资产减值可能涉及技术或软件资产。",
+        "减值减少可能表明资产质量改善或会计估计变化。"
+      ],
+      "keyword_matched": "资产减值"
+    },
+    {
+      "signal_id": "SIG-007",
+      "risk_type": "资产减值",
+      "severity": "medium",
+      "text_excerpt": "三、长期股权投资减值损失 28,176,443.47",
+      "page_location": "附注五、72，第156页",
+      "accounting_meaning": "本期长期股权投资减值损失2818万元，上期无。",
+      "evidence_chain": [
+        "本期新增长期股权投资减值，可能涉及联营企业。",
+        "减值可能反映被投资单位经营恶化。",
+        "减值直接减少当期利润。"
+      ],
+      "keyword_matched": "资产减值"
+    }
+  ],
+  "accounting_policy": {
+    "depreciation_method": "年限平均法",
+    "useful_life_range": "房屋及建筑物20-30年，生产设备5-10年，运输设备4-5年，电子类设备3-5年，办公设备及其他3-5年",
+    "rd_capitalization_rate": "未披露",
+    "impairment_policy": "长期资产减值测试，可收回金额与账面价值孰低，商誉每年测试"
+  },
+  "summary": "公司固定资产折旧年限较长，特别是电子类设备和生产设备，存在年限错配风险，但无会计估计变更，政策稳定。资产减值损失较大，但本期较上期减少，主要涉及存货和长期股权投资。研发资本化率未披露，资本强度无法评估。总体风险中等。"
+}

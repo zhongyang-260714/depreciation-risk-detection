@@ -1,0 +1,148 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-08-20T16:33:32.206113",
+    "annotator": "DeepSeek AI + Program Verification (Batch)",
+    "review_status": "confirmed",
+    "filing_source": "巨潮资讯网 (Manual Download)",
+    "ai_annotation": true
+  },
+  "company": {
+    "ticker": "688256SH",
+    "name": "寒武纪",
+    "fiscal_year": 2022
+  },
+  "composite_score": {
+    "weighted_score": 2.65,
+    "max_score": 5.0,
+    "risk_level": "中风险",
+    "risk_level_en": "Medium Risk",
+    "score_breakdown": "3.0×0.25=0.75+4.0×0.20=0.80+2.0×0.20=0.40+2.0×0.20=0.40[est]+2.0×0.15=0.30=2.65 (注：D4为证据不足，按保守估计2分计算)",
+    "estimated_dimensions": [
+      "D4"
+    ]
+  },
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "年限错配",
+      "score": 3,
+      "weight": 0.25,
+      "insufficient_evidence": false,
+      "reasoning": "公司测试设备折旧年限3-5年，电子设备3年，高于服务器基准1.5年，但低于晶圆厂设备基准3.5年。由于公司属于半导体行业，测试设备可能包含晶圆测试设备，其技术寿命通常较短，3-5年可能偏长，但未超过10年，故给予中等风险评分。",
+      "supporting_signals": [
+        "SIG-001"
+      ]
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "政策保守性",
+      "score": 4,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "公司未发生会计估计变更，折旧政策稳定，且研发资本化终止表明公司对研发支出处理较为谨慎，主动终止资本化，体现一定保守性。",
+      "supporting_signals": [
+        "SIG-002"
+      ]
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值触发",
+      "score": 2,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "公司资产减值损失大幅增加，主要由于存货跌价准备，但未涉及固定资产减值，且减值主要因产品销量不及预期，属于间接信号，但金额较大，故给予较低分。",
+      "supporting_signals": [
+        "SIG-003",
+        "SIG-004"
+      ]
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本强度",
+      "score": 2.0,
+      "weight": 0.2,
+      "insufficient_evidence": true,
+      "reasoning": "候选段落未提供资本开支或研发投入占收入比例的具体数据，无法评估资本强度。",
+      "supporting_signals": [],
+      "score_was_null": true
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "技术替代",
+      "score": 2,
+      "weight": 0.15,
+      "insufficient_evidence": false,
+      "reasoning": "公司产品销量不及预期，存货增加，表明技术替代压力显现，但未达到极端程度，故给予较低分。",
+      "supporting_signals": [
+        "SIG-003"
+      ]
+    }
+  ],
+  "risk_signals": [
+    {
+      "signal_id": "SIG-001",
+      "risk_type": "折旧年限与行业基准比较",
+      "severity": "medium",
+      "text_excerpt": "测试设备 年限平均法 3-5 0-5 19.00-33.33；电子设备 年限平均法 3 0 33.33",
+      "page_location": "年报附注五、23，第168页",
+      "accounting_meaning": "公司对测试设备采用3-5年折旧年限，电子设备采用3年，均高于服务器/网络设备技术基准1.5年，但低于晶圆厂设备基准3.5年。由于公司属于半导体行业，测试设备可能包含晶圆测试设备，其技术寿命通常较短，3-5年可能偏长。",
+      "evidence_chain": [
+        "公司披露测试设备折旧年限为3-5年，电子设备为3年。",
+        "半导体测试设备技术迭代快，通常技术寿命在3-5年，但公司选择上限5年，可能延长折旧年限。",
+        "延长折旧年限会减少当期折旧费用，增加利润，存在利润操纵风险。"
+      ],
+      "keyword_matched": "折旧年限"
+    },
+    {
+      "signal_id": "SIG-002",
+      "risk_type": "研发资本化终止",
+      "severity": "high",
+      "text_excerpt": "因宏观环境因素变化，本报告期末，公司对某边缘智能芯片研发项目研发支出已资本化的部分进行了重新审慎评估，终止了资本化处理。",
+      "page_location": "年报第四节，第27页",
+      "accounting_meaning": "公司终止了某研发项目的资本化处理，表明该项目可能不再满足资本化条件，需将已资本化的支出转为费用，增加当期研发费用，减少利润。这反映了研发项目的不确定性，可能暗示研发资本化政策不够稳健。",
+      "evidence_chain": [
+        "公司披露终止资本化处理。",
+        "终止资本化意味着前期资本化的支出可能需转回费用，增加当期费用。",
+        "该行为可能表明公司研发项目风险高，资本化政策激进，存在利润调节空间。"
+      ],
+      "keyword_matched": "研发资本化"
+    },
+    {
+      "signal_id": "SIG-003",
+      "risk_type": "资产减值损失大幅增加",
+      "severity": "high",
+      "text_excerpt": "报告期内，公司增加战略备货、处于生命周期末期的云端产品销量减少以及边缘智能芯片产品销量不及预期，以上因素导致存货及库龄增加，从而使报告期资产减值损失较上年同期有显著增加。",
+      "page_location": "年报第三节，第11页",
+      "accounting_meaning": "公司资产减值损失显著增加，主要由于存货跌价准备增加，反映了产品销量不及预期，技术替代压力显现，可能导致存货价值下降。",
+      "evidence_chain": [
+        "公司披露资产减值损失显著增加。",
+        "存货及库龄增加，表明产品滞销，技术替代导致需求下降。",
+        "大额减值损失减少当期利润，但可能是一次性清理，需关注后续影响。"
+      ],
+      "keyword_matched": "资产减值"
+    },
+    {
+      "signal_id": "SIG-004",
+      "risk_type": "信用减值损失大幅增加",
+      "severity": "medium",
+      "text_excerpt": "报告期内，公司对个别大额应收账款进行单项计提，从而使报告期信用减值损失较上年同期有显著增加。",
+      "page_location": "年报第三节，第11页",
+      "accounting_meaning": "公司对个别大额应收账款单项计提坏账准备，导致信用减值损失大幅增加，反映客户信用风险上升，可能影响现金流。",
+      "evidence_chain": [
+        "公司披露对个别大额应收账款单项计提。",
+        "信用减值损失增加，表明客户付款能力下降。",
+        "这可能影响公司未来收入确认和现金流，但非直接折旧风险。"
+      ],
+      "keyword_matched": "资产减值"
+    }
+  ],
+  "accounting_policy": {
+    "depreciation_method": "年限平均法",
+    "useful_life_range": "测试设备3-5年，电子设备3年，管理用具5年",
+    "rd_capitalization_rate": "未披露具体比例，但存在终止资本化情况",
+    "impairment_policy": "对长期资产在资产负债表日有迹象表明发生减值的，估计可收回金额；商誉和使用寿命不确定的无形资产每年进行减值测试。"
+  },
+  "summary": "公司固定资产折旧年限相对行业基准偏长，存在一定风险；研发资本化终止显示研发风险高，但政策上较为谨慎；资产减值损失大幅增加，反映技术替代压力。总体会计估计风险中等偏高。"
+}

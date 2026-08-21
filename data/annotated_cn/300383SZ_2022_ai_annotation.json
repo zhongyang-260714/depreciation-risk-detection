@@ -1,0 +1,161 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-08-20T16:47:42.269894",
+    "annotator": "DeepSeek AI + Program Verification (Single Company)",
+    "review_status": "confirmed",
+    "filing_source": "巨潮资讯网 (Manual Download)",
+    "ai_annotation": true
+  },
+  "company": {
+    "ticker": "300383SZ",
+    "name": "光环新网",
+    "fiscal_year": 2022
+  },
+  "composite_score": {
+    "weighted_score": 3.6,
+    "max_score": 5.0,
+    "risk_level": "中高风险",
+    "risk_level_en": "Medium-High Risk",
+    "score_breakdown": "4.0×0.25=1.00+3.0×0.20=0.60+5.0×0.20=1.00+2.0×0.20=0.40[est]+4.0×0.15=0.60=3.60 (注：D4为证据不足，按保守估计2分计算)",
+    "estimated_dimensions": [
+      "D4"
+    ]
+  },
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "年限错配",
+      "score": 4,
+      "weight": 0.25,
+      "insufficient_evidence": false,
+      "reasoning": "电子设备折旧年限上限10年，显著超过技术寿命（通常3-5年），存在明显年限错配。构筑物上限20年也偏长。",
+      "supporting_signals": [
+        "SIG-001",
+        "SIG-002"
+      ]
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "政策保守性",
+      "score": 3,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "未发现会计估计变更，但折旧年限设定较为宽泛，缺乏保守性。",
+      "supporting_signals": []
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值触发",
+      "score": 5,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "计提大额商誉减值135,116.76万元，且资产减值准备大幅增加，存在多处减值信号。",
+      "supporting_signals": [
+        "SIG-003",
+        "SIG-004"
+      ]
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本强度",
+      "score": 2.0,
+      "weight": 0.2,
+      "insufficient_evidence": true,
+      "reasoning": "候选段落未提供资本开支或研发强度数据，无法评估。",
+      "supporting_signals": [],
+      "score_was_null": true
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "技术替代",
+      "score": 4,
+      "weight": 0.15,
+      "insufficient_evidence": false,
+      "reasoning": "AI技术对云计算行业产生重大影响，公司面临技术替代压力，且商誉减值反映行业竞争加剧。",
+      "supporting_signals": [
+        "SIG-005"
+      ]
+    }
+  ],
+  "risk_signals": [
+    {
+      "signal_id": "SIG-001",
+      "risk_type": "折旧年限延长",
+      "severity": "high",
+      "text_excerpt": "电子设备 年限平均法 3-10年 0-5% 9.5%-32.33%",
+      "page_location": "年报附注21，第194页",
+      "accounting_meaning": "电子设备折旧年限为3-10年，其中10年上限显著超过技术寿命，可能虚增资产、减少当期折旧费用。",
+      "evidence_chain": [
+        "电子设备折旧年限为3-10年，上限10年",
+        "电子设备技术更新快，通常寿命为3-5年，10年明显过长",
+        "延长折旧年限会降低当期折旧费用，虚增利润"
+      ],
+      "keyword_matched": "折旧年限"
+    },
+    {
+      "signal_id": "SIG-002",
+      "risk_type": "折旧年限延长",
+      "severity": "medium",
+      "text_excerpt": "构筑物 年限平均法 5-20年 5% 4.75%-19%",
+      "page_location": "年报附注21，第194页",
+      "accounting_meaning": "构筑物折旧年限为5-20年，上限20年可能超过其实际使用寿命，存在折旧年限延长风险。",
+      "evidence_chain": [
+        "构筑物折旧年限为5-20年，上限20年",
+        "构筑物通常为辅助设施，寿命可能短于20年",
+        "延长折旧年限降低当期折旧费用，虚增利润"
+      ],
+      "keyword_matched": "折旧年限"
+    },
+    {
+      "signal_id": "SIG-003",
+      "risk_type": "商誉减值",
+      "severity": "critical",
+      "text_excerpt": "2022年度公司计提资产减值准备合计139,680.64万元，其中对子公司中金云网、无双科技计提商誉减值准备135,116.76万元",
+      "page_location": "年报第3页",
+      "accounting_meaning": "公司计提大额商誉减值，表明收购资产存在严重减值迹象，可能反映行业竞争加剧或技术替代。",
+      "evidence_chain": [
+        "计提商誉减值135,116.76万元",
+        "商誉减值源于中金云网和无双科技，业务受行业政策和经济放缓影响",
+        "大额减值直接导致亏损，反映资产价值下降"
+      ],
+      "keyword_matched": "资产减值"
+    },
+    {
+      "signal_id": "SIG-004",
+      "risk_type": "资产减值",
+      "severity": "high",
+      "text_excerpt": "报告期计提资产减值准备较上年同期增加138,349.33万元，剔除计提商誉减值准备135,116.76万元的影响，公司报告期归属于上市公司股东的净利润为45,827.09万元，较上年同期下降45.20%。",
+      "page_location": "年报第3页",
+      "accounting_meaning": "除商誉减值外，其他资产减值也大幅增加，表明资产质量下降，可能涉及固定资产或无形资产减值。",
+      "evidence_chain": [
+        "资产减值准备增加138,349.33万元",
+        "剔除商誉减值后净利润仍下降45.20%",
+        "减值增加反映资产可收回金额下降，可能涉及技术替代或市场恶化"
+      ],
+      "keyword_matched": "资产减值"
+    },
+    {
+      "signal_id": "SIG-005",
+      "risk_type": "技术替代风险",
+      "severity": "medium",
+      "text_excerpt": "ChatGPT等新一代AI技术将极大加速云计算的发展，AI与云融合对云计算的增长空间和发展模式都将产生重大影响。",
+      "page_location": "年报第14页",
+      "accounting_meaning": "公司所处云计算行业面临AI技术带来的变革，可能影响现有资产的技术寿命和盈利能力。",
+      "evidence_chain": [
+        "AI技术加速云计算发展",
+        "技术变革可能使现有设备或技术过时",
+        "增加固定资产折旧年限错配风险"
+      ],
+      "keyword_matched": "技术替代"
+    }
+  ],
+  "accounting_policy": {
+    "depreciation_method": "年限平均法",
+    "useful_life_range": "房屋建筑物40年，构筑物5-20年，电子设备3-10年，运输设备10年，办公设备3-10年",
+    "rd_capitalization_rate": "未披露",
+    "impairment_policy": "对存在减值迹象的资产估计可收回金额，低于账面价值时计提减值；商誉每年进行减值测试。"
+  },
+  "summary": "公司存在固定资产折旧年限偏长的风险，尤其是电子设备上限10年，可能虚增利润。同时，大额商誉减值表明收购资产质量恶化，行业面临技术替代压力。整体会计政策不够保守，需关注未来折旧和减值风险。"
+}

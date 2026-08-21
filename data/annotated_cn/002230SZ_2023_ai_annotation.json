@@ -1,0 +1,161 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "annotation_schema": "Depreciation Risk Annotation Schema v1.0",
+    "annotated_at": "2026-08-20T16:42:52.667850",
+    "annotator": "DeepSeek AI + Program Verification (Single Company)",
+    "review_status": "confirmed",
+    "filing_source": "巨潮资讯网 (Manual Download)",
+    "ai_annotation": true
+  },
+  "company": {
+    "ticker": "002230SZ",
+    "name": "科大讯飞",
+    "fiscal_year": 2023
+  },
+  "composite_score": {
+    "weighted_score": 2.65,
+    "max_score": 5.0,
+    "risk_level": "中风险",
+    "risk_level_en": "Medium Risk",
+    "score_breakdown": "3.0×0.25=0.75+4.0×0.20=0.80+2.0×0.20=0.40+2.0×0.20=0.40[est]+2.0×0.15=0.30=2.65 (注：D4为证据不足，按保守估计2分计算)",
+    "estimated_dimensions": [
+      "D4"
+    ]
+  },
+  "dimension_scores": [
+    {
+      "dimension_id": "D1",
+      "dimension_name": "年限错配",
+      "score": 3,
+      "weight": 0.25,
+      "insufficient_evidence": false,
+      "reasoning": "服务器设备折旧年限为3-5年，技术基准为1.5年，存在明显错配，但其他设备如计算机设备3年、专用设备3年，相对合理。综合评分3分，表示中等风险。",
+      "supporting_signals": [
+        "SIG-001",
+        "SIG-002"
+      ]
+    },
+    {
+      "dimension_id": "D2",
+      "dimension_name": "政策保守性",
+      "score": 4,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "公司明确表示本期无会计估计变更，折旧政策稳定，未主动延长折旧年限，政策保守性较好。",
+      "supporting_signals": [
+        "SIG-003"
+      ]
+    },
+    {
+      "dimension_id": "D3",
+      "dimension_name": "减值触发",
+      "score": 2,
+      "weight": 0.2,
+      "insufficient_evidence": false,
+      "reasoning": "资产减值损失金额较小（8494万元），但商誉金额较大且需每年测试，存在潜在减值风险，但未实际计提大额减值，因此评分较低。",
+      "supporting_signals": [
+        "SIG-004",
+        "SIG-005"
+      ]
+    },
+    {
+      "dimension_id": "D4",
+      "dimension_name": "资本强度",
+      "score": 2.0,
+      "weight": 0.2,
+      "insufficient_evidence": true,
+      "reasoning": "候选段落未提供资本开支或研发强度数据，无法评估。",
+      "supporting_signals": [],
+      "score_was_null": true
+    },
+    {
+      "dimension_id": "D5",
+      "dimension_name": "技术替代",
+      "score": 2,
+      "weight": 0.15,
+      "insufficient_evidence": false,
+      "reasoning": "公司属于科技行业，技术更新快，但候选段落未提供具体技术替代压力证据，仅从行业属性推断，风险较低。",
+      "supporting_signals": []
+    }
+  ],
+  "risk_signals": [
+    {
+      "signal_id": "SIG-001",
+      "risk_type": "折旧年限延长",
+      "severity": "high",
+      "text_excerpt": "服务器设备 年限平均法 3-5 4.00 32.00-19.20",
+      "page_location": "年报附注五、22，第179页",
+      "accounting_meaning": "服务器设备折旧年限为3-5年，而技术基准为1.5年，存在年限错配，可能高估资产寿命，减少当期折旧费用，虚增利润。",
+      "evidence_chain": [
+        "服务器设备折旧年限为3-5年，残值率4%",
+        "技术基准为1.5年，3-5年明显超过技术寿命",
+        "延长折旧年限导致年折旧率降低，减少当期费用，增加利润"
+      ],
+      "keyword_matched": "折旧年限"
+    },
+    {
+      "signal_id": "SIG-002",
+      "risk_type": "折旧年限延长",
+      "severity": "medium",
+      "text_excerpt": "专用设备 年限平均法 3.00 4.00 32.00",
+      "page_location": "年报附注五、22，第179页",
+      "accounting_meaning": "专用设备折旧年限为3年，但未明确具体设备类型，若为晶圆厂设备，技术基准为3.5年，3年略短，但若为其他专用设备，可能合理。",
+      "evidence_chain": [
+        "专用设备折旧年限为3年",
+        "若为晶圆厂设备，技术基准为3.5年，3年略短，但差异不大",
+        "若为其他专用设备，需进一步信息，但未披露具体类型"
+      ],
+      "keyword_matched": "折旧年限"
+    },
+    {
+      "signal_id": "SIG-003",
+      "risk_type": "会计估计变更",
+      "severity": "low",
+      "text_excerpt": "公司报告期无会计政策、会计估计变更或重大会计差错更正的情况。",
+      "page_location": "年报第六节，第103页",
+      "accounting_meaning": "公司明确表示本期无会计估计变更，表明折旧年限未发生变更，政策保守性较好。",
+      "evidence_chain": [
+        "公司报告期无会计估计变更",
+        "折旧年限未调整，政策稳定",
+        "无延长折旧年限的迹象"
+      ],
+      "keyword_matched": "会计估计变更"
+    },
+    {
+      "signal_id": "SIG-004",
+      "risk_type": "资产减值",
+      "severity": "medium",
+      "text_excerpt": "资产减值损失（损失以“-”号填列） -84,943,547.13 -81,143,815.07",
+      "page_location": "合并利润表，第132页",
+      "accounting_meaning": "本期资产减值损失为8494万元，较上期略有增加，但金额不大，表明存在一定减值迹象，但非大额减值。",
+      "evidence_chain": [
+        "资产减值损失为8494万元",
+        "较上期8114万元略有增加",
+        "存在减值迹象，但金额相对较小"
+      ],
+      "keyword_matched": "资产减值"
+    },
+    {
+      "signal_id": "SIG-005",
+      "risk_type": "商誉减值风险",
+      "severity": "high",
+      "text_excerpt": "截止2023年12月31日，科大讯飞商誉金额11.35亿元，占年末净资产的6.40%。根据会计政策的规定，科大讯飞管理层（以下简称管理层）需每年评估商誉可能出现减值的情况。",
+      "page_location": "审计报告关键审计事项，第122页",
+      "accounting_meaning": "商誉金额较大，且需每年进行减值测试，存在商誉减值风险，但商誉减值不计入D1，但影响D3。",
+      "evidence_chain": [
+        "商誉金额11.35亿元，占净资产6.40%",
+        "需每年进行减值测试",
+        "商誉减值风险较高，但未实际计提大额减值"
+      ],
+      "keyword_matched": "资产减值"
+    }
+  ],
+  "accounting_policy": {
+    "depreciation_method": "年限平均法（直线法）",
+    "useful_life_range": "房屋及建筑物40年，构筑物及附属设施10年，服务器设备3-5年，计算机设备3年，办公设备5年，运输设备6年，专用设备3年，图书5年，其他设备3-10年",
+    "rd_capitalization_rate": "未披露",
+    "impairment_policy": "资产减值采用可收回金额与账面价值孰低原则，商誉每年进行减值测试"
+  },
+  "summary": "科大讯飞2023年报显示服务器设备折旧年限为3-5年，明显超过技术基准1.5年，存在折旧年限延长风险，可能虚增利润。但公司无会计估计变更，政策稳定。资产减值损失较小，但商誉金额较大，存在潜在减值风险。总体会计估计风险中等偏高。"
+}

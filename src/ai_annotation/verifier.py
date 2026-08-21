@@ -5,12 +5,24 @@
 2. 行号吻合：按行号定位，检查前后 3 行是否包含 excerpt 的核心子串
 3. 模糊匹配：difflib.SequenceMatcher ≥ 0.85 兜底
 
+v6.2修复：增加HTML标签清理，避免AI摘录（纯文本）与原文（HTML）格式不一致导致验真失败。
 这是整个方案的灵魂步骤。
 """
 
 import difflib
 import re
 from typing import List, Dict
+
+
+def _strip_html(text: str) -> str:
+    """去除 HTML 标签和多余空白，保留纯文本。"""
+    if not text:
+        return ""
+    # 去除 HTML 标签
+    text = re.sub(r"<[^>]+>", " ", text)
+    # 压缩连续空白为单个空格
+    text = re.sub(r"\s+", " ", text)
+    return text.strip()
 
 
 def _extract_line_number(page_location: str) -> int | None:
@@ -53,17 +65,21 @@ def verify_signal(signal: dict, full_text: str, line_map: dict | None = None) ->
     if not excerpt:
         return {"signal_id": sig_id, "passed": False, "method": "empty_excerpt", "confidence": 0.0}
 
-    # 若 full_text 是字符串，转成行列表
+    # v6.2修复：去除HTML标签后再比较，避免AI摘录（纯文本）与原文（HTML）格式不一致
+    clean_excerpt = _strip_html(excerpt)
+    clean_full_text = _strip_html(full_text) if isinstance(full_text, str) else full_text
+
+    # 若 full_text 是字符串，转成行列表（基于原始文本，保留行号映射一致性）
     if isinstance(full_text, str):
         full_lines = full_text.split("\n")
     else:
         full_lines = list(full_text)
 
-    # 策略 1：全文逐字包含
-    if excerpt in full_text:
+    # 策略 1：全文逐字包含（基于清理后的文本）
+    if clean_excerpt in clean_full_text:
         return {"signal_id": sig_id, "passed": True, "method": "exact", "confidence": 1.0}
 
-    # 策略 2：行号区域匹配
+    # 策略 2：行号区域匹配（对region也做HTML清理）
     line_no = _extract_line_number(page_location)
     if line_no is not None and line_map is not None:
         if line_no in line_map:
@@ -71,22 +87,23 @@ def verify_signal(signal: dict, full_text: str, line_map: dict | None = None) ->
             start = max(1, line_no - 3)
             end = min(max(line_map.keys()), line_no + 3)
             region = "\n".join(line_map.get(i, "") for i in range(start, end + 1))
-            if excerpt in region:
+            clean_region = _strip_html(region)
+            if clean_excerpt in clean_region:
                 return {"signal_id": sig_id, "passed": True, "method": "line_region", "confidence": 0.95}
-            # 核心子串匹配（取 excerpt 的前 60 个字符作为核心指纹）
-            core = excerpt[:80]
-            if core in region:
+            # 核心子串匹配（取 excerpt 的前 80 个字符作为核心指纹）
+            core = clean_excerpt[:80]
+            if core in clean_region:
                 return {"signal_id": sig_id, "passed": True, "method": "line_core", "confidence": 0.90}
 
-    # 策略 3：模糊匹配兜底
-    ratio = _fuzzy_ratio(excerpt, full_text)
+    # 策略 3：模糊匹配兜底（基于清理后的文本）
+    ratio = _fuzzy_ratio(clean_excerpt, clean_full_text)
     if ratio >= 0.85:
         return {"signal_id": sig_id, "passed": True, "method": "fuzzy", "confidence": round(ratio, 3)}
 
     # 策略 4：更宽松的模糊匹配（针对长文本可能被截断的情况）
-    if len(excerpt) > 100:
+    if len(clean_excerpt) > 100:
         # 取前 100 字符再试一次
-        ratio2 = _fuzzy_ratio(excerpt[:100], full_text)
+        ratio2 = _fuzzy_ratio(clean_excerpt[:100], clean_full_text)
         if ratio2 >= 0.85:
             return {"signal_id": sig_id, "passed": True, "method": "fuzzy_prefix", "confidence": round(ratio2, 3)}
 

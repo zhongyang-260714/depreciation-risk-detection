@@ -1,43 +1,42 @@
 @echo off
-chcp 65001 >nul
-title ç§‘åˆ›ä¼ä¸šèµ„äº§æŠ˜æ—§é£é™©è¯†åˆ«ç³»ç»Ÿ
+title ¿Æ´´ÆóÒµ×Ê²úÕÛ¾É·çÏÕÊ¶±ğÏµÍ³
 echo ==========================================
-echo  ç§‘åˆ›ä¼ä¸šèµ„äº§æŠ˜æ—§é£é™©è¯†åˆ«ç³»ç»Ÿ - å¯åŠ¨å™¨
+echo  ¿Æ´´ÆóÒµ×Ê²úÕÛ¾É·çÏÕÊ¶±ğÏµÍ³ - Æô¶¯Æ÷
 echo ==========================================
 echo.
 
-:: åˆ‡æ¢åˆ°æœ¬è„šæœ¬æ‰€åœ¨ç›®å½•ï¼ˆä»»æ„å®‰è£…è·¯å¾„å‡å¯è¿è¡Œï¼‰
+:: ÇĞ»»µ½±¾½Å±¾ËùÔÚÄ¿Â¼£¨ÈÎÒâ°²×°Â·¾¶¾ù¿ÉÔËĞĞ£©
 cd /d "%~dp0"
-echo [OK] å·¥ä½œç›®å½•: %CD%
+echo [OK] ¹¤×÷Ä¿Â¼: %CD%
 
-:: ä¼˜å…ˆä½¿ç”¨é¡¹ç›®è‡ªå¸¦è™šæ‹Ÿç¯å¢ƒï¼›æ²¡æœ‰åˆ™ä½¿ç”¨ç³»ç»Ÿ Python
+:: ÓÅÏÈÊ¹ÓÃÏîÄ¿×Ô´øĞéÄâ»·¾³£»Ã»ÓĞÔòÊ¹ÓÃÏµÍ³ Python
 if exist "venv\Scripts\activate.bat" (
     call "venv\Scripts\activate.bat"
-    echo [OK] å·²æ¿€æ´»é¡¹ç›®è™šæ‹Ÿç¯å¢ƒ venv
+    echo [OK] ÒÑ¼¤»îÏîÄ¿ĞéÄâ»·¾³ venv
 ) else (
-    echo [æç¤º] æœªå‘ç° venvï¼Œä½¿ç”¨ç³»ç»Ÿ Python
+    echo [ÌáÊ¾] Î´·¢ÏÖ venv£¬Ê¹ÓÃÏµÍ³ Python
 )
 
-:: æ£€æŸ¥æ ¸å¿ƒä¾èµ–æ˜¯å¦å°±ç»ª
-python -c "import streamlit" 2>nul
+:: ¼ì²éºËĞÄÒÀÀµÊÇ·ñ¾ÍĞ÷
+python -c "import streamlit" 2>/dev/null
 if errorlevel 1 (
     echo.
-    echo [è­¦å‘Š] æœªæ£€æµ‹åˆ° streamlitï¼Œè¯·å…ˆå®‰è£…ä¾èµ–ï¼š
+    echo [¾¯¸æ] Î´¼ì²âµ½ streamlit£¬ÇëÏÈ°²×°ÒÀÀµ£º
     echo        pip install -r requirements.txt
     echo.
     pause
     exit /b 1
 )
 
-:: DeepSeek API Keyï¼ˆå¯é€‰ï¼Œä»… P7 AI æ ‡æ³¨éœ€è¦ï¼›å¯†é’¥ä¸å…¥åº“ï¼‰
+:: DeepSeek API Key£¨¿ÉÑ¡£¬½ö P7 AI ±ê×¢ĞèÒª£»ÃÜÔ¿²»Èë¿â£©
 if defined DEEPSEEK_API_KEY (
-    echo [OK] DeepSeek API Key å·²åŠ è½½
+    echo [OK] DeepSeek API Key ÒÑ¼ÓÔØ
 ) else (
-    echo [æç¤º] æœªè®¾ç½® DEEPSEEK_API_KEYï¼ŒP7 AI æ ‡æ³¨ä¸å¯ç”¨ï¼ŒP1-P6 ä¸å—å½±å“
+    echo [ÌáÊ¾] Î´ÉèÖÃ DEEPSEEK_API_KEY£¬P7 AI ±ê×¢²»¿ÉÓÃ£¬P1-P6 ²»ÊÜÓ°Ïì
 )
 
 echo.
-echo [å¯åŠ¨] æ­£åœ¨å¯åŠ¨ç³»ç»Ÿï¼Œæµè§ˆå™¨å°†æ‰“å¼€ http://localhost:8501
+echo [Æô¶¯] ÕıÔÚÆô¶¯ÏµÍ³£¬ä¯ÀÀÆ÷½«´ò¿ª http://localhost:8501
 echo.
 streamlit run src\dashboard\app.py
 

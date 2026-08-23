@@ -63,14 +63,17 @@ A股样本：中科曙光、数据港、寒武纪、浪潮信息、科大讯飞�
 
 ## 四、快速开始
 
+> 🎯 **评委请直接阅读 [评委快速上手指南.md](评委快速上手指南.md)**：三步跑通系统 + 各页面看点 + 常见问题。
+
 ```bash
-# 环境：Python 3.10+，安装依赖
+# 环境：Python 3.10+，安装依赖（精简运行版，约 2–3 分钟）
 pip install -r requirements.txt
+# 完整研究环境（FinBERT 实验等）：pip install -r requirements-full.txt
 
 # 如需 P7 AI 标注功能，先设置环境变量（密钥不得硬编码）
 # Windows: set DEEPSEEK_API_KEY=your_key
 
-# 一键启动（或直接运行）
+# 一键启动（脚本自动定位目录，任意安装路径可用）
 start.bat
 # 等价于：streamlit run src/dashboard/app.py
 

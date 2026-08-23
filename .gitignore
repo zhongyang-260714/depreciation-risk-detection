@@ -59,8 +59,8 @@ data/processed/
 *.pkl
 *.pickle
 
-# Models
-models/
+# Models（目录默认忽略，演示模型文件见文末例外）
+models/*
 *.pth
 *.ckpt
 *.joblib
@@ -82,3 +82,21 @@ config/secrets.yaml
 # Streamlit（只忽略密钥文件，主题配置 config.toml 需要上传共享）
 .streamlit/secrets.toml
 depreciation-risk-detection-dev/
+
+# ================= 评审发布整理（2026-08-23） =================
+# 演示模型必须入库：评委复现 P6 实时评分 / P7 智能标注要用
+!models/depreciation_scorer_v03.joblib
+!models/depreciation_scorer_v03_meta.json
+
+# 开发过程草稿不进仓库（仅移除版本控制，本地文件保留）
+/_*.py
+/debug_*.py
+/fix_*.py
+/read_analysis*.py
+/check_module_path.py
+/clear_cache.bat
+/teammate_package.zip
+/work_amd_fy2024/
+/tmp/
+/_backup_*/
+/src/dashboard/app_旧版备份.py

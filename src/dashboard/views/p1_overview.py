@@ -40,6 +40,39 @@ def render(data: dict) -> None:
         return
 
     df = panel.copy()
+    df["市场"] = "美股"
+
+    # ---- 合并 A股标注案例：双市场风险全景 ----
+    DIM_COL = {
+        "D1": "D1_depreciation_vs_tech_life",
+        "D2": "D2_accounting_conservatism",
+        "D3": "D3_impairment_risk",
+        "D4": "D4_capex_intensity",
+        "D5": "D5_competition_substitution",
+    }
+    cn_rows = []
+    for c in cases if isinstance(cases, list) else []:
+        if not isinstance(c, dict):
+            continue
+        t = c.get("ticker", "")
+        if not t or not t[0].isdigit():
+            continue  # 美股案例已包含在训练面板中
+        row = {
+            "ticker": t,
+            "company_name": c.get("name") or t,
+            "fiscal_year": c.get("fiscal_year"),
+            "composite_score": c.get("score"),
+            "risk_level": c.get("risk_level"),
+            "color": c.get("color"),
+            "市场": "A股",
+        }
+        for d in c.get("dimensions", []):
+            col = DIM_COL.get(d.get("id"))
+            if col:
+                row[col] = d.get("score")
+        cn_rows.append(row)
+    if cn_rows:
+        df = pd.concat([df, pd.DataFrame(cn_rows)], ignore_index=True)
 
     # ---------- KPI 行 ----------
     n_cases = len(cases) if isinstance(cases, list) else 0
@@ -73,7 +106,13 @@ def render(data: dict) -> None:
             .index.tolist()
         )
         name_map = (
-            df.drop_duplicates("ticker").set_index("ticker")["company_name"].to_dict()
+            df.drop_duplicates("ticker")
+            .assign(
+                label=lambda x: x["company_name"].fillna(x["ticker"])
+                + x["市场"].map(lambda m: "（A股）" if m == "A股" else "")
+            )
+            .set_index("ticker")["label"]
+            .to_dict()
             if "company_name" in df.columns
             else {}
         )
@@ -173,7 +212,9 @@ def render(data: dict) -> None:
     # ---------- 明细表 ----------
     ui.section("标注明细")
     show_cols = [
+        "company_name",
         "ticker",
+        "市场",
         "fiscal_year",
         "composite_score",
         "risk_level",
@@ -184,6 +225,7 @@ def render(data: dict) -> None:
     show_cols = [c for c in show_cols if c in df.columns]
     table = df[show_cols].copy()
     rename = {
+        "company_name": "公司",
         "ticker": "代码",
         "fiscal_year": "财年",
         "composite_score": "综合分",

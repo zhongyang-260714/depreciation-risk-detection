@@ -85,7 +85,7 @@ def _show_result(result: dict, human_score: float | None = None) -> None:
 def render(data: dict) -> None:
     st.subheader("P6 · 实时评分演示（模型推理）")
     st.markdown(
-        "前五个页面展示的是 **30 份人工复核标注库** 的结果；本页展示模型的 **实时推理能力**："
+        "前五个页面展示的是 **60 份人工复核标注库**（美股 30 + A股 30）的结果；本页展示模型的 **实时推理能力**："
         "输入财务指标，XGBoost 评分模型实时输出综合评分、风险等级与驱动因素解释。")
 
     model_ok = (REPO_ROOT / "models" / "depreciation_scorer_v03.joblib").exists()

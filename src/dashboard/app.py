@@ -1,7 +1,7 @@
 """科创企业资产折旧风险识别系统 · T7 交互看板
 
 七个页面：
-- P1 总览热力图      —— 30 份标注的公司 × 财年风险全景
+- P1 总览热力图      —— 60 份标注（美股 30 + A股 30）的双市场公司 × 财年风险全景
 - P2 公司画像        —— 单公司五维评分 + 验算式 + 证据链原文
 - P3 跨年轨迹        —— 同一公司多年评分轨迹，标注政策变更事件点
 - P4 权重敏感性      —— 拖动权重滑块，实时重算综合分
@@ -9,7 +9,7 @@
 - P6 实时评分演示    —— XGBoost 模型实时推理
 - P7 智能标注        —— DeepSeek AI 驱动，自动证据链标注
 
-数据全部动态读取：data/annotated/*.json（30 份）+ data/processed/training_v05_panel_30.csv
+数据全部动态读取：data/annotated/*.json（美股 30 份）+ data/annotated_cn/*.json（A股 30 份）+ data/processed/training_v05_panel_30.csv
 运行：streamlit run src/dashboard/app.py
 """
 

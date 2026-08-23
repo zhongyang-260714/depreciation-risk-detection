@@ -42,12 +42,12 @@ venv.bak/
 
 # Data - exclude raw and processed, but keep annotated outputs and final training set v0.5
 data/raw/
-data/processed/
+data/processed/*
 !data/annotated/
-!data/processed/training_v05_panel_30.csv
+!data/processed/*training_v05_panel_30.csv
 *.csv
 data/raw/
-data/processed/
+data/processed/*
 !data/annotated/
 *.csv
 *.xlsx
@@ -100,3 +100,9 @@ depreciation-risk-detection-dev/
 /tmp/
 /_backup_*/
 /src/dashboard/app_旧版备份.py
+
+# 训练面板数据入库（报告与系统复现所需）
+!data/processed/training_v05_panel_30.csv
+!data/processed/training_v06_panel_30_full.csv
+!data/processed/training_v07_china_validation_3.csv
+/_test_start.bat

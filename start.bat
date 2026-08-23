@@ -18,7 +18,7 @@ if exist "venv\Scripts\activate.bat" (
 )
 
 :: 检查核心依赖是否就绪
-python -c "import streamlit" 2>/dev/null
+python -c "import streamlit" 2>nul
 if errorlevel 1 (
     echo.
     echo [警告] 未检测到 streamlit，请先安装依赖：
@@ -37,7 +37,9 @@ if defined DEEPSEEK_API_KEY (
 
 echo.
 echo [启动] 正在启动系统，浏览器将打开 http://localhost:8501
+echo [启动] 同步启动 FastAPI 评分接口，接口文档见 http://localhost:8000/docs
 echo.
+start "折旧风险评分API" /min cmd /c "python -m uvicorn src.api.main:app --port 8000 || pause"
 streamlit run src\dashboard\app.py
 
 pause

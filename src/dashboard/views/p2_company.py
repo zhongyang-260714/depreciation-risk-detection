@@ -63,18 +63,17 @@ def _render_header(case: dict):
             else ""
         )
         st.markdown(
-            f"""<div class="card" style="text-align:center">
-                <div class="big-score" style="color:{case["color"]}">
-                {case["score"]:.2f}<small> / {case["max_score"]:.1f}</small></div>
-                <div style="margin-top:0.4rem">{ui.risk_badge(case["risk_level"], case["color"])}</div>
-                {conf_line}
-            </div>""",
+            f"<div class='card' style='text-align:center'>"
+            f"<div class='big-score' style='color:{case['color']}'>"
+            f"{case['score']:.2f}<small> / {case['max_score']:.1f}</small></div>"
+            f"<div style='margin-top:0.4rem'>{ui.risk_badge(case['risk_level'], case['color'])}</div>"
+            f"{conf_line}</div>",
             unsafe_allow_html=True,
         )
 
 
 def _render_dimensions(case: dict):
-    """五维评分区：逐维信息行 + 贡献值横向条形图 + 评分依据。"""
+    """五维评分区：逐维信息行 + 五维雷达图 + 贡献值横向条形图 + 评分依据。"""
     dims = case.get("dimensions") or []
     if not dims:
         st.info("该标注暂无维度评分明细。")
@@ -90,6 +89,34 @@ def _render_dimensions(case: dict):
         if d.get("reasoning"):
             with st.expander("评分依据"):
                 st.markdown(d["reasoning"])
+
+    # 五维风险雷达图（D1–D5 得分全貌）
+    radar_theta = [f"{d['id']} {d['name']}" for d in dims]
+    radar_r = [float(d["score"]) for d in dims]
+    radar_max = max(float(d.get("max", 5)) for d in dims)
+    fig_radar = go.Figure(
+        go.Scatterpolar(
+            r=radar_r + radar_r[:1],
+            theta=radar_theta + radar_theta[:1],
+            fill="toself",
+            fillcolor="rgba(23, 112, 92, 0.18)",
+            line_color=ui.PRIMARY,
+            marker=dict(color=ui.PRIMARY, size=6),
+            name="维度得分",
+        )
+    )
+    fig_radar.update_layout(
+        **ui.PLOTLY_LAYOUT,
+        height=360,
+        title=dict(text="五维风险雷达图（D1–D5 得分）", font_size=13),
+        polar=dict(
+            radialaxis=dict(visible=True, range=[0, radar_max],
+                            tickfont=dict(size=10)),
+            angularaxis=dict(tickfont=dict(size=11)),
+        ),
+        showlegend=False,
+    )
+    st.plotly_chart(fig_radar, use_container_width=True, key="p2_radar_chart")
 
     contribs = [d["weight"] * d["score"] for d in dims]
     fig = go.Figure(

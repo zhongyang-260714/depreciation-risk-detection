@@ -124,25 +124,70 @@ def render(data: dict) -> None:
 
     else:
         st.markdown("录入关键指标（默认值为一组中型云厂商画像，可直接运行），其余指标按缺失处理：")
-        features: dict[str, float] = {}
-        # 0/1 开关单独渲染为单选，杜绝非法输入（如误填 2）
-        extended = st.radio(
-            "当期是否延长折旧年限", ["否（0）", "是（1）"], index=1,
-            horizontal=True, key="p6_in_life_extended",
-            help="本财年是否发生折旧年限延长变更（报告发现②的核心事件信号）")
-        features["life_extended_current_period"] = 1.0 if extended.startswith("是") else 0.0
-        grid = st.columns(2)
-        for i, (name, label, default, help_text) in enumerate(KEY_FEATURES):
-            with grid[i % 2]:
-                features[name] = st.number_input(
-                    label, value=float(default), key=f"p6_in_{name}", help=help_text or None)
 
-        if st.button("▶ 运行实时评分", type="primary", key="p6_run_custom"):
+        # 参考画像：取自 v06 面板真实样本的关键特征值（SHAP Top 10 指标），
+        # 便于一键体验低 / 中 / 高不同风险档位（部分特征推理分数约 2.3 / 3.4 / 4.5）
+        PRESETS = {
+            "低风险画像 · CRM FY2024（人工评分 2.10）": {
+                "life_extended_current_period": 0.0, "capex_to_revenue": 0.0211,
+                "server_life_min_years": 3.0, "ppe_net": 3689.0, "depreciation": 1100.0,
+                "ppe_turnover": 9.4489, "total_assets": 99823.0, "rd_expense": 4906.0,
+                "rd_intensity": 0.1407, "asset_turnover": 0.3492,
+            },
+            "中风险画像 · NVDA FY2025（人工评分 3.45）": {
+                "life_extended_current_period": 0.0, "capex_to_revenue": 0.0248,
+                "server_life_min_years": 4.0, "ppe_net": 6283.0, "depreciation": 1300.0,
+                "ppe_turnover": 20.7699, "total_assets": 111601.0, "rd_expense": 12914.0,
+                "rd_intensity": 0.099, "asset_turnover": 1.1693,
+            },
+            "高风险画像 · META FY2024（人工评分 4.60）": {
+                "life_extended_current_period": 1.0, "capex_to_revenue": 0.2265,
+                "server_life_min_years": 5.5, "ppe_net": 121346.0, "depreciation": 15290.0,
+                "ppe_turnover": 1.3556, "rd_expense": 39130.0, "rd_intensity": 0.2379,
+            },
+        }
+
+        def _apply_preset():
+            prof = PRESETS.get(st.session_state.get("p6_preset", ""))
+            if not prof:
+                return
+            st.session_state["p6_in_life_extended"] = (
+                "是（1）" if prof.get("life_extended_current_period", 0) >= 0.5 else "否（0）")
+            for k, v in prof.items():
+                if k != "life_extended_current_period":
+                    st.session_state[f"p6_in_{k}"] = float(v)
+
+        st.selectbox(
+            "快速载入参考画像（取自 v06 面板真实样本的关键指标）",
+            ["（不载入，手动录入）"] + list(PRESETS),
+            key="p6_preset", on_change=_apply_preset)
+
+        # 表单批量提交：修改多个指标后一次点击生效，避免逐项触发重跑
+        with st.form("p6_custom_form"):
+            # 0/1 开关单独渲染为单选，杜绝非法输入（如误填 2）
+            extended = st.radio(
+                "当期是否延长折旧年限", ["否（0）", "是（1）"], index=1,
+                horizontal=True, key="p6_in_life_extended",
+                help="本财年是否发生折旧年限延长变更（报告发现②的核心事件信号）")
+            grid = st.columns(2)
+            inputs: dict[str, float] = {}
+            for i, (name, label, default, help_text) in enumerate(KEY_FEATURES):
+                with grid[i % 2]:
+                    inputs[name] = st.number_input(
+                        label, value=float(default), key=f"p6_in_{name}", help=help_text or None)
+            submitted = st.form_submit_button("▶ 运行实时评分", type="primary")
+
+        if submitted:
+            features = {"life_extended_current_period": 1.0 if extended.startswith("是") else 0.0}
+            features.update(inputs)
             with st.spinner("模型推理中……"):
                 result = _scorer().predict(features)
             _show_result(result)
         else:
             st.info("点击「运行实时评分」查看模型输出。")
+
+        st.caption("说明：PoC 模型（30 样本 XGBoost）的输出为分段响应——小幅改动可能落在同一叶节点、"
+                   "分数不变；切换参考画像或跨量级调整指标即可看到完整量程（约 2.3–4.5）。")
 
     with st.expander("技术说明（答辩备查）"):
         st.markdown(

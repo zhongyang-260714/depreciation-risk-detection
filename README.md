@@ -70,8 +70,9 @@ A股样本：中科曙光、数据港、寒武纪、浪潮信息、科大讯飞�
 pip install -r requirements.txt
 # 完整研究环境（FinBERT 实验等）：pip install -r requirements-full.txt
 
-# 如需 P7 AI 标注功能，先设置环境变量（密钥不得硬编码）
+# 如需 P7 AI 标注功能，先配置密钥（二选一，密钥不得硬编码入库）
 # Windows: set DEEPSEEK_API_KEY=your_key
+# 或在仓库根目录创建 .env 文件，写入一行：DEEPSEEK_API_KEY=your_key（.env 已被 .gitignore 排除）
 
 # 一键启动（脚本自动定位目录，任意安装路径可用）
 start.bat
@@ -118,13 +119,13 @@ depreciation-risk-detection/
 │   └── ...                    #   审计、验证、文档生成脚本
 ├── tests/                     # 页面级验证
 ├── docs/                      # 优化备案（v6.2→v6.5-Final）与协作文档
-├── report/                    # 竞赛交付物：报告 v6.5 + 支撑材料 + 答辩 PPT
+├── report/                    # 竞赛交付物：报告 v6.6 + 支撑材料 + 答辩 PPT
 ├── xgboost_poc_v3.py          # 机器学习可计算性验证复现脚本
 ├── train_scorer.py            # 演示模型训练与序列化
 └── smoke_test_app.py / smoke_test_scorer.py
 ```
 
-> 注：原始财报文件（`data/raw/us_财报/`、`data/raw/cn_财报/`，共 239M）与 API 密钥不入库；财报下载方式见 `FILING_DOWNLOAD_GUIDE.md`。
+> 注：原始财报文件（`data/raw/us_财报/`、`data/raw/cn_财报/`，共 60 份）与 API 密钥不入库；财报下载方式见 `FILING_DOWNLOAD_GUIDE.md`。
 
 ---
 

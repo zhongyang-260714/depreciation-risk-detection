@@ -28,9 +28,12 @@ if errorlevel 1 (
     exit /b 1
 )
 
-:: DeepSeek API Key（可选，仅 P7 AI 标注需要；密钥不入库）
-if defined DEEPSEEK_API_KEY (
-    echo [OK] DeepSeek API Key 已加载
+:: DeepSeek API Key（可选，仅 P7 AI 标注需要；密钥不入库，支持环境变量或 .env 文件）
+set "DSK_OK="
+if defined DEEPSEEK_API_KEY set "DSK_OK=1"
+if not defined DSK_OK if exist ".env" findstr /I /C:"DEEPSEEK_API_KEY" ".env" >nul 2>&1 && set "DSK_OK=1"
+if defined DSK_OK (
+    echo [OK] DeepSeek API Key 已加载（环境变量或 .env 文件）
 ) else (
     echo [提示] 未设置 DEEPSEEK_API_KEY，P7 AI 标注不可用，P1-P6 不受影响
 )

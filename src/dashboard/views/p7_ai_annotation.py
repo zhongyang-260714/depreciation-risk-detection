@@ -341,8 +341,15 @@ def render(data: dict) -> None:
         uploaded_file = st.file_uploader("上传 10-K HTML 文件", type=["html", "htm"], key="p7_upload")
         if uploaded_file:
             uploaded_html = uploaded_file.getvalue().decode("utf-8", errors="replace")
-        ticker = st.text_input("公司 Ticker（用于信号 ID 生成）", value="UNKNOWN", key="p7_upload_ticker")
-        fiscal_year = st.number_input("财年", min_value=2000, max_value=2030, value=2024, key="p7_upload_fy")
+        ticker = st.text_input(
+            "公司 Ticker（用于信号 ID 生成）", value="UNKNOWN", key="p7_upload_ticker",
+            help="标准格式：美股大写代码，如 META / GOOGL / NVDA")
+        fiscal_year = st.number_input(
+            "财年", min_value=2000, max_value=2030, value=2024, key="p7_upload_fy",
+            help="标准格式：财年年份数字，如 2024（即 FY2024 年报）")
+        st.caption("📝 填写说明：① 作为 AI 分析的公司/财年上下文；② 用于风险信号 ID 与输出文件命名"
+                   "（{ticker}_{fy}_ai_annotation.json）；③ 若与样本库一致（10 家公司 × FY2022–FY2024），"
+                   "自动生成「AI 草稿 vs 人工标注」并排对照。不确定可保持默认 UNKNOWN，但将无对照功能。")
     elif mode == "A股年报（自动下载PDF）":
         is_cn = True
         col1, col2 = st.columns([2, 1])
@@ -356,8 +363,15 @@ def render(data: dict) -> None:
         uploaded_file = st.file_uploader("上传 A股年报 PDF 文件", type=["pdf"], key="p7_cn_upload")
         if uploaded_file:
             uploaded_pdf = uploaded_file.getvalue()
-        ticker = st.text_input("股票代码（用于信号 ID 生成）", value="UNKNOWN", key="p7_cn_upload_code")
-        fiscal_year = st.number_input("报告年份", min_value=2015, max_value=2030, value=2024, key="p7_cn_upload_year")
+        ticker = st.text_input(
+            "股票代码（用于信号 ID 生成）", value="UNKNOWN", key="p7_cn_upload_code",
+            help="标准格式：代码+交易所后缀，如 603881.SH / 300738.SZ")
+        fiscal_year = st.number_input(
+            "报告年份", min_value=2015, max_value=2030, value=2024, key="p7_cn_upload_year",
+            help="标准格式：报告期年份数字，如 2024（即 2024 年年度报告；A股财年=自然年）")
+        st.caption("📝 填写说明：① 作为 AI 分析的公司/年份上下文；② 用于风险信号 ID 与输出文件命名；"
+                   "③ 若为六家样本公司（中科曙光/数据港/寒武纪/浪潮信息/科大讯飞/奥飞数据）且年份为 2022–2024，"
+                   "自动生成「AI 草稿 vs 人工标注」并排对照。不确定可保持默认 UNKNOWN，但将无对照功能。")
 
     # ---- 缓存管理按钮 ----
     with st.expander("🔧 缓存管理（开发调试）", expanded=False):

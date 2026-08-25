@@ -149,7 +149,7 @@ def render(data: dict) -> None:
         yaxis_title="对综合分的贡献",
         legend=dict(orientation="h", yanchor="bottom", y=1.02, x=0),
     )
-    st.plotly_chart(fig, use_container_width=True, key="p4_contrib_chart")
+    st.plotly_chart(fig, width="stretch", key="p4_contrib_chart")
 
     # ---- 敏感性排序表 ----
     ui.section("敏感性排序：谁是评分「杠杆点」")
@@ -174,7 +174,7 @@ def render(data: dict) -> None:
     st.dataframe(
         pd.DataFrame(rows),
         hide_index=True,
-        use_container_width=True,
+        width="stretch",
         column_config={
             "当前归一化权重": st.column_config.ProgressColumn(
                 "当前归一化权重", format="%.2f", min_value=0, max_value=1

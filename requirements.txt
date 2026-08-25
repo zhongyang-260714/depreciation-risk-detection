@@ -4,7 +4,7 @@
 #       完整研究环境（FinBERT 实验、爬虫扩展等）见 requirements-full.txt。
 
 # Web 应用
-streamlit>=1.25.0
+streamlit>=1.59,<2.0
 fastapi>=0.100.0
 uvicorn>=0.23.0
 pydantic>=2.0.0

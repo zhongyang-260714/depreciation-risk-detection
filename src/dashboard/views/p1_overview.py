@@ -164,7 +164,7 @@ def render(data: dict) -> None:
             coloraxis_colorbar=dict(title=z_label),
             height=max(360, 34 * len(pivot) + 120),
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
     # ---------- 排行图：最新财年综合分 ----------
     ui.section("最新财年综合分排行")
@@ -205,7 +205,7 @@ def render(data: dict) -> None:
             yaxis=dict(title=""),
             height=max(320, 30 * len(latest) + 100),
         )
-        st.plotly_chart(fig2, use_container_width=True)
+        st.plotly_chart(fig2, width="stretch")
     else:
         st.info("数据缺少综合分字段，无法绘制排行图。")
 
@@ -246,4 +246,4 @@ def render(data: dict) -> None:
         table["本期延长折旧年限"] = table["本期延长折旧年限"].map(
             lambda v: "是" if bool(v) else "否"
         )
-    st.dataframe(table, use_container_width=True, hide_index=True)
+    st.dataframe(table, width="stretch", hide_index=True)

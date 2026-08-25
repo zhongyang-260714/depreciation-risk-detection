@@ -77,7 +77,7 @@ def _show_result(result: dict, human_score: float | None = None) -> None:
     contrib["贡献方向"] = contrib["direction"]
     contrib["SHAP 贡献"] = contrib["shap"].map(lambda s: f"{s:+.3f}")
     st.dataframe(contrib[["指标", "输入值", "贡献方向", "SHAP 贡献"]],
-                 hide_index=True, use_container_width=True)
+                 hide_index=True, width="stretch")
 
     st.caption(f"⚠️ {result['disclaimer']}方法学参考指标：{result['reference_metrics']}")
 

@@ -125,7 +125,7 @@ def _render_dimension_table(dim_scores: list[dict]):
             "规则说明": d.get("rule_reason", "") or d.get("rule_warning", "") or d.get("rule_note", ""),
         })
     df = pd.DataFrame(rows)
-    st.dataframe(df, hide_index=True, use_container_width=True)
+    st.dataframe(df, hide_index=True, width="stretch")
 
 
 def _render_signals_with_verification(signals: list[dict], verifications: list[dict]):
@@ -290,7 +290,7 @@ def render(data: dict) -> None:
             {"公司": "工业富联", "代码": "601138.SH", "2022年报": "✅", "2023年报": "✅", "2024年报": "🆕（待AI标注）"},
             {"公司": "润泽科技", "代码": "300442.SZ", "2022年报": "✅", "2023年报": "✅", "2024年报": "🆕（待AI标注）"},
         ])
-        st.dataframe(download_df, hide_index=True, use_container_width=True)
+        st.dataframe(download_df, hide_index=True, width="stretch")
 
         st.markdown("**下载步骤：**")
         st.markdown("""

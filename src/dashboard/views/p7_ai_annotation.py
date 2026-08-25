@@ -381,28 +381,24 @@ def render(data: dict) -> None:
                         pass
                 st.success(f"✅ 已清除 {cleared} 个 Python 缓存项。请重新运行 Streamlit（或按 R 刷新）。")
         with col_cache2:
-            if st.button("🗑️ 清除已下载财报缓存", key="p7_clear_filing_cache", help="删除 data/raw/ 下的 HTML/PDF 缓存文件，强制重新下载"):
-                import shutil
+            if st.button("🗑️ 清除下载缓存（保留财报原文）", key="p7_clear_filing_cache", help="只删除 10-K_files / ix_data 等 HTML 下载缓存，强制重新下载；cn_财报 和 us_财报 中的 PDF 原文绝对不受影响"):
+                PROTECTED_DIRS = {"cn_财报", "us_财报"}  # 财报原文主数据目录，永不清除
                 cleared = 0
+                protected = 0
                 if CACHE_DIR.exists():
                     for f in CACHE_DIR.rglob("*"):
-                        if f.is_file():
-                            try:
-                                f.unlink()
-                                cleared += 1
-                            except Exception:
-                                pass
-                    # 也清理子目录里的文件
-                    for subdir in CACHE_DIR.iterdir():
-                        if subdir.is_dir():
-                            for f in subdir.rglob("*"):
-                                if f.is_file():
-                                    try:
-                                        f.unlink()
-                                        cleared += 1
-                                    except Exception:
-                                        pass
-                st.success(f"✅ 已清除 {cleared} 个缓存文件。下次分析将重新下载财报。")
+                        if not f.is_file():
+                            continue
+                        rel_parts = f.relative_to(CACHE_DIR).parts
+                        if rel_parts and rel_parts[0] in PROTECTED_DIRS:
+                            protected += 1
+                            continue
+                        try:
+                            f.unlink()
+                            cleared += 1
+                        except Exception:
+                            pass
+                st.success(f"✅ 已清除 {cleared} 个下载缓存文件，下次分析将重新下载。cn_财报 / us_财报 的 {protected} 份财报原文已保留、未受影响。")
         with col_cache3:
             if st.button("📦 清除 AI 标注缓存", key="p7_clear_ai_cache", help="删除 data/cache/ai_annotations/ 下的缓存，强制重新调用 DeepSeek"):
                 import shutil

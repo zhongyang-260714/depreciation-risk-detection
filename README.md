@@ -47,6 +47,12 @@ A股样本：中科曙光、数据港、寒武纪、浪潮信息、科大讯飞�
 
 同源 FastAPI 接口：`POST /predict` / `POST /batch_predict`，与 P6 调用同一评分器实例。
 
+### 界面预览
+
+| P1 双市场风险热力图 | P2 五维风险雷达图 | P6 实时评分（SHAP 解释） |
+|---|---|---|
+| ![P1 双市场风险热力图](docs/screenshots/p1_heatmap.png) | ![P2 五维风险雷达图](docs/screenshots/p2_radar.png) | ![P6 实时评分](docs/screenshots/p6_scoring.png) |
+
 ### AI 应用架构：五环复合流水线
 
 **生成 → 验真 → 修正 → 验证 → 归因**：大语言模型草拟证据链与评分建议（生成），程序逐字比对原文（验真），规则引擎硬规则修正（修正），XGBoost 在 30 样本面板上验证人工评分逻辑的可计算性（验证），SHAP 归因解释模型结构（归因）。规则引擎兜底防 AI 幻觉，是设计而非妥协。
